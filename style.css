@@ -301,10 +301,10 @@ header{
     align-items:center;
     z-index:9999;
 
-    /* FONDO PERSONALIZABLE (cambia la URL por tu imagen) */
+    /* FONDO PERSONALIZABLE */
     background:
         linear-gradient(rgba(3,7,18,0.72), rgba(3,7,18,0.82)),
-        url('https://wallpapercave.com/wp/wp3229984.jpg') center/cover no-repeat;
+        url('assets/images/Background.jpg') center/cover no-repeat;
 }
 
 /* Capa extra blur */
