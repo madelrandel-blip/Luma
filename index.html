@@ -22,21 +22,25 @@
 
 <body>
 
+<!-- CANVAS ESTRELLAS -->
 <canvas id="stars"></canvas>
 
 <!-- PANTALLA DE BIENVENIDA -->
 <div id="welcomeScreen">
     <div class="welcome-overlay"></div>
+
     <div class="welcome-box">
         <img src="https://raw.githubusercontent.com/madelrandel-blip/testweb/main/Luma..webp" alt="Luma Logo">
+
         <h2>Bienvenido a Luma Switch</h2>
+
         <p>
             Explora tu biblioteca premium de juegos Nintendo Switch, emuladores,
             recursos y contenido exclusivo en una experiencia moderna.
         </p>
 
         <div class="welcome-buttons">
-            <button class="accept-btn" onclick="cerrarBienvenida()">
+            <button class="accept-btn" onclick="aceptarBienvenida()">
                 Entrar a Luma Switch
             </button>
         </div>
@@ -47,29 +51,28 @@
 <header>
     <h2>Luma Switch</h2>
 
+    <!-- BUSCADOR -->
     <input
         type="text"
         id="buscador"
         placeholder="Buscar juegos..."
-        oninput="filtrarJuegos()"
     >
 
     <!-- CONTROL DE MÚSICA -->
     <div class="music-control">
-        <button class="music-btn" onclick="toggleMusic()" id="musicToggle">
-            🎵 Música
+        <button class="music-btn" onclick="toggleMusic()" id="musicBtn">
+            ▶ Play
         </button>
 
         <div class="volume-control">
             <span class="volume-icon">🔊</span>
+
             <input
                 type="range"
                 id="volumeSlider"
                 min="0"
-                max="1"
-                step="0.01"
-                value="0.5"
-                oninput="cambiarVolumen(this.value)"
+                max="100"
+                value="5"
             >
         </div>
     </div>
@@ -77,11 +80,18 @@
     <!-- BOTONES HEADER -->
     <div class="header-btn">
         <button onclick="abrirEmuladores()">🎮 Emuladores</button>
+
         <button onclick="abrirRecursos()">📦 Recursos</button>
+
         <button onclick="window.open('https://discord.gg/TUSERVIDOR','_blank')">
             💬 Discord
         </button>
+
         <button onclick="abrirLogin()">🔒 Admin</button>
+
+        <button onclick="logout()" id="logoutBtn" style="display:none;">
+            🚪 Salir
+        </button>
     </div>
 </header>
 
@@ -89,12 +99,15 @@
 <div id="adminPanel">
     <h3>Panel Administrador</h3>
 
-    <input type="text" id="tituloJuego" placeholder="Título del juego">
-    <input type="text" id="descripcionJuego" placeholder="Descripción">
-    <input type="text" id="imagenJuego" placeholder="URL imagen">
-    <input type="text" id="linkJuego" placeholder="URL descarga">
+    <input type="text" id="nombre" placeholder="Nombre del juego">
+    <input type="text" id="img" placeholder="URL imagen">
+    <input type="text" id="desc" placeholder="Descripción">
+    <input type="text" id="link1" placeholder="Link 1">
+    <input type="text" id="link2" placeholder="Link 2">
 
-    <button id="btnGuardar" onclick="guardarJuego()">Guardar juego</button>
+    <button id="btnGuardar" onclick="agregarJuego()">
+        Guardar juego
+    </button>
 </div>
 
 <!-- TIENDA -->
@@ -108,10 +121,10 @@
     <div class="login-content">
         <h3>Acceso Administrador</h3>
 
-        <input type="text" id="adminUser" placeholder="Usuario">
-        <input type="password" id="adminPass" placeholder="Contraseña">
+        <input type="text" id="user" placeholder="Usuario / Email">
+        <input type="password" id="pass" placeholder="Contraseña">
 
-        <button onclick="loginAdmin()">Entrar</button>
+        <button onclick="login()">Entrar</button>
         <button onclick="cerrarLogin()">Cerrar</button>
     </div>
 </div>
@@ -121,9 +134,11 @@
     <div class="login-content">
         <h3>Emuladores</h3>
 
-        <p>Aquí puedes agregar Yuzu, Ryujinx, Skyline, drivers, etc.</p>
+        <div class="store" id="emuladoresStore"></div>
 
-        <button onclick="cerrarEmuladores()">Cerrar</button>
+        <button onclick="cerrarEmuladores()">
+            Cerrar
+        </button>
     </div>
 </div>
 
@@ -132,21 +147,28 @@
     <div class="login-content">
         <h3>Recursos</h3>
 
-        <p>
-            Aquí puedes agregar firmware, keys, updates,
-            DLCs y herramientas.
-        </p>
+        <div class="store" id="recursosStore"></div>
 
-        <button onclick="cerrarRecursos()">Cerrar</button>
+        <button onclick="cerrarRecursos()">
+            Cerrar
+        </button>
     </div>
 </div>
 
-<!-- AUDIO -->
+<!-- AUDIO PRINCIPAL -->
 <audio id="bgMusic" loop>
     <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<script src="firebase.js"></script>
+<!-- SONIDO BOTONES -->
+<audio id="clickSound" preload="auto">
+    <source src="Enter & Back.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FIREBASE -->
+<script type="module" src="firebase.js"></script>
+
+<!-- SCRIPT PRINCIPAL -->
 <script src="script.js"></script>
 
 </body>
