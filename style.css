@@ -674,7 +674,7 @@ header{
 }
 
 .logo:hover img{
-    transform:scale(1.06);
+    transform:none;
 }
 
 .logo{
