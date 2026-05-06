@@ -668,9 +668,7 @@ header{
     border-radius:10px;
     object-fit:contain;
 
-    box-shadow:
-        0 0 12px rgba(125,211,252,0.22),
-        0 0 20px rgba(167,139,250,0.10);
+    box-shadow:none;
 
     transition:transform 0.25s ease;
 }
