@@ -292,7 +292,7 @@ header{
     gap:5px;
     margin-top:5px;
 }
-    /* ===== PANTALLA / MODAL DE BIENVENIDA PROFESIONAL ===== */
+    /* ===== Ventana de Bienvenida ===== */
 #welcomeScreen{
     position:fixed;
     inset:0;
@@ -585,6 +585,14 @@ header{
     .accept-btn{
         width:100%;
     }
+
+    .logo h1{
+        font-size:22px;
+    }
+
+    .logo img{
+        height:28px;
+    }
 }
 
 /* PAGINACIÓN */
@@ -635,4 +643,44 @@ header{
     transition:
         opacity 0.35s ease,
         transform 0.35s ease;
+}
+
+.logo h1{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0;
+
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:0.5px;
+
+    color:white;
+    text-shadow:
+        0 0 10px rgba(125,211,252,0.18),
+        0 0 20px rgba(167,139,250,0.08);
+}
+
+.logo img{
+    height:34px;
+    width:auto;
+
+    border-radius:10px;
+    object-fit:contain;
+
+    box-shadow:
+        0 0 12px rgba(125,211,252,0.22),
+        0 0 20px rgba(167,139,250,0.10);
+
+    transition:transform 0.25s ease;
+}
+
+.logo:hover img{
+    transform:scale(1.06);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
 }
