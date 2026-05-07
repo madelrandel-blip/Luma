@@ -26,6 +26,7 @@ const pagination = document.getElementById("pagination");
 const bgMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 const clickSound = document.getElementById("clickSound");
+const adminSound = document.getElementById("adminSound");
 const volumeSlider = document.getElementById("volumeSlider");
 
 /* ========= AUDIO ========= */
@@ -46,6 +47,18 @@ function playClick(){
     clickSound.pause();
     clickSound.currentTime = 0;
     clickSound.play().catch(() => {});
+}
+
+if(adminSound){
+    adminSound.volume = 0.1;
+}
+
+function playAdminClick(){
+    if(!adminSound) return;
+
+    adminSound.pause();
+    adminSound.currentTime = 0;
+    adminSound.play().catch(() => {});
 }
 
 if(bgMusic){
@@ -138,7 +151,7 @@ if(acceptBtn){
 
 /* ========= LOGIN ========= */
 function abrirLogin(){
-    playClick();
+    playAdminClick();
     if(loginBox) loginBox.style.display = "flex";
 }
 
