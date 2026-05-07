@@ -90,6 +90,58 @@ header{
         0 0 24px rgba(167,139,250,0.18);
 }
 
+/* BOTÓN PERFIL ADMIN */
+.admin-profile-btn{
+    display:flex !important;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    width:74px !important;
+    min-width:74px !important;
+    height:auto !important;
+
+    padding:6px 8px !important;
+
+    border:none;
+    border-radius:18px !important;
+    cursor:pointer;
+
+    background:rgba(15,23,42,0.82) !important;
+    border:1px solid rgba(125,211,252,0.18);
+
+    transition:all 0.28s ease;
+}
+
+.admin-profile-btn img{
+    width:42px;
+    height:42px;
+    object-fit:cover;
+    border-radius:50%;
+    border:2px solid rgba(125,211,252,0.35);
+
+    box-shadow:
+        0 0 12px rgba(125,211,252,0.18),
+        0 0 20px rgba(167,139,250,0.10);
+
+    margin-bottom:4px;
+}
+
+.admin-profile-btn span{
+    font-size:11px;
+    font-weight:700;
+    color:white;
+    line-height:1;
+    white-space:nowrap;
+}
+
+.admin-profile-btn:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:
+        0 0 14px rgba(125,211,252,0.25),
+        0 0 24px rgba(167,139,250,0.15);
+}
+
 /* LOGIN MODERNO */
 #loginBox{
     display:none;
