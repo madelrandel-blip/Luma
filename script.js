@@ -27,6 +27,7 @@ const bgMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 const clickSound = document.getElementById("clickSound");
 const adminSound = document.getElementById("adminSound");
+const discordSound = document.getElementById("discordSound");
 const volumeSlider = document.getElementById("volumeSlider");
 
 /* ========= AUDIO ========= */
@@ -59,6 +60,18 @@ function playAdminClick(){
     adminSound.pause();
     adminSound.currentTime = 0;
     adminSound.play().catch(() => {});
+}
+
+if(discordSound){
+    discordSound.volume = 0.1;
+}
+
+function playDiscordClick(){
+    if(!discordSound) return;
+
+    discordSound.pause();
+    discordSound.currentTime = 0;
+    discordSound.play().catch(() => {});
 }
 
 if(bgMusic){
@@ -199,8 +212,8 @@ function cerrarRecursos(){
 
 /* ========= DISCORD ========= */
 function abrirDiscord(){
-    playClick();
-    window.open("https://discord.gg/zhqADqGnNQ", "_blank");
+    playDiscordClick();
+    window.open("https://discord.gg/pMvkz2RzkJ", "_blank");
 }
 
 /* ========= BUSCADOR ========= */
