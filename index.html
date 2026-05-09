@@ -93,8 +93,8 @@
         </button>
 
         <button class="admin-profile-btn" onclick="abrirLogin()">
-        <img src="assets/pfp/b3828d358afe65409d5ba718b63927b4.gif" alt="Admin">
-        <span>Moxthy</span>
+        <img id="randomAdminPfp" src="" alt="Admin">
+        <span>Invitado</span>
         </button>
 
         <button onclick="logout()" id="logoutBtn" style="display:none;">
@@ -130,7 +130,7 @@
 
         <!-- PERFIL ADMIN -->
         <div class="admin-profile">
-            <img src="assets/pfp/b3828d358afe65409d5ba718b63927b4.gif" alt="Admin Profile">
+            <img id="randomLoginPfp" src="" alt="Admin Profile">
             <h3>Moxthy Admin</h3>
             <p>Panel de Control Luma Switch</p>
         </div>
@@ -194,6 +194,30 @@
 
 <!-- SCRIPT PRINCIPAL -->
 <script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const pfps = [];
+
+    // Carga automáticamente desde sprite_0 hasta sprite_171
+    for (let i = 0; i <= 171; i++) {
+        pfps.push(`assets/pfp/sprite_${i}.png`);
+    }
+
+    // Selecciona una imagen aleatoria
+    const randomPfp = pfps[Math.floor(Math.random() * pfps.length)];
+
+    // Header
+    const headerPfp = document.getElementById("randomAdminPfp");
+
+    // Login
+    const loginPfp = document.getElementById("randomLoginPfp");
+
+    // Aplicar imagen
+    if (headerPfp) headerPfp.src = randomPfp;
+    if (loginPfp) loginPfp.src = randomPfp;
+});
+</script>
 
 </body>
 </html>
