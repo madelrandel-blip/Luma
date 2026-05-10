@@ -396,32 +396,32 @@ header{
     flex:1;
 }
 
-/* TÍTULO ALINEADO + NOMBRES LARGOS VISIBLES */
+/* TÍTULO MÁS FLEXIBLE */
 .content h3{
     font-size:14px;
-    margin:5px 0 8px 0;
+    margin:5px 0 6px 0;
     line-height:1.25;
 
-    min-height:54px;   /* más espacio para títulos largos */
-    max-height:54px;
-
+    min-height:38px;      /* base uniforme */
+    max-height:54px;      /* permite títulos largos */
+    
     overflow:hidden;
 
     display:-webkit-box;
-    -webkit-line-clamp:3;   /* ahora permite hasta 3 líneas */
+    -webkit-line-clamp:3;
     -webkit-box-orient:vertical;
 
     word-break:break-word;
     overflow-wrap:anywhere;
 }
 
-/* DESCRIPCIÓN ALINEADA */
+/* DESCRIPCIÓN MÁS COMPACTA */
 .content p{
     font-size:12px;
     color:#9aa7b1;
-    line-height:1.4;
+    line-height:1.35;
 
-    min-height:36px;   /* mismo espacio para todas */
+    min-height:18px;   /* evita espacios gigantes */
     max-height:36px;
 
     overflow:hidden;
