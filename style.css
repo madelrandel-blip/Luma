@@ -371,80 +371,78 @@ header{
     z-index:1;
 }
 
-/* CARD MÁS EQUILIBRADA */
+/* CARD */
 .card{
+    position:relative;
     background:rgba(15,23,42,0.8);
-    border-radius:10px;
+    border-radius:14px;
     overflow:hidden;
     transition:0.3s;
-
-    display:flex;
-    flex-direction:column;
-
-    height:100%; /* todas iguales */
 }
 
 .card:hover{
-    transform:scale(1.05);
+    transform:scale(1.04);
 }
 
-/* CONTENIDO INTERNO */
+.card img{
+    width:100%;
+    display:block;
+}
+
+/* CONTENEDOR SOBRE IMAGEN */
 .content{
-    padding:10px;
+    position:absolute;
+    inset:0;
 
     display:flex;
     flex-direction:column;
+    justify-content:flex-end;
 
-    flex:1;
+    padding:12px;
+
+    background:linear-gradient(
+        to top,
+        rgba(3,7,18,0.92) 0%,
+        rgba(3,7,18,0.55) 35%,
+        transparent 70%
+    );
+
+    opacity:0;
+    transition:0.3s;
 }
 
-/* TÍTULO */
-.content h3{
+.card:hover .content{
+    opacity:1;
+}
+
+/* INFO */
+.info-overlay h3{
     font-size:14px;
-    margin:5px 0 6px 0;
-    line-height:1.25;
-
-    overflow:hidden;
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-
-    word-break:break-word;
-    overflow-wrap:anywhere;
+    margin:0 0 4px 0;
+    line-height:1.3;
+    color:white;
 }
 
-/* DESCRIPCIÓN */
-.content p{
+.info-overlay p{
     font-size:12px;
-    color:#9aa7b1;
+    color:#cbd5e1;
+    margin:0 0 10px 0;
     line-height:1.35;
-    margin-bottom:10px;
-
-    overflow:hidden;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
 }
 
-/* BOTONES SIEMPRE ABAJO */
+/* BOTONES */
 .btns{
     display:flex;
     gap:6px;
 
-    margin-top:auto; /* esto empuja botones abajo */
-    
     opacity:0;
     transform:translateY(10px);
     transition:0.3s;
 }
 
-.btns{
-    display:flex;
-    gap:6px;
-    margin-top:auto;
-    opacity:0;
-    transform:translateY(10px);
-    transition:0.3s;
+.card:hover .btns{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .card:hover .btns{

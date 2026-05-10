@@ -250,28 +250,34 @@ function render(lista){
     const inicio = (paginaActual - 1) * juegosPorPagina;
     const fin = inicio + juegosPorPagina;
 
-    const juegosPagina = lista.slice(inicio, fin);
-
     juegosPagina.forEach(j => {
-        html += `
-        <div class="card">
-            <img src="${j.img}" loading="lazy" decoding="async" alt="${j.nombre}">
-            <div class="content">
+    html += `
+    <div class="card">
+        <img src="${j.img}" loading="lazy" decoding="async" alt="${j.nombre}">
+
+        <div class="content">
+            <div class="info-overlay">
                 <h3>${j.nombre}</h3>
                 <p>${j.desc}</p>
-
-                <div class="btns">
-                    <button class="btn blue" onclick="playClick();abrirLink('${j.link1}')">Ver enlace</button>
-                    <button class="btn green" onclick="playClick();abrirLink('${j.link2}')">Ver enlace</button>
-                </div>
-
-                ${admin ? `
-                <div class="admin-actions">
-                    <button onclick="eliminar('${j.id}')">🗑️</button>
-                </div>` : ""}
             </div>
-        </div>`;
-    });
+
+            <div class="btns">
+                <button class="btn blue" onclick="playClick();abrirLink('${j.link1}')">
+                    Ver enlace
+                </button>
+
+                <button class="btn green" onclick="playClick();abrirLink('${j.link2}')">
+                    Ver enlace
+                </button>
+            </div>
+
+            ${admin ? `
+            <div class="admin-actions">
+                <button onclick="eliminar('${j.id}')">🗑️</button>
+            </div>` : ""}
+        </div>
+    </div>`;
+});
 
     store.innerHTML = html;
 
