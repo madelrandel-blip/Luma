@@ -373,102 +373,50 @@ header{
 
 /* CARD */
 .card{
-    position:relative;
     background:rgba(15,23,42,0.8);
-    border-radius:14px;
+    border-radius:10px;
     overflow:hidden;
     transition:0.3s;
+    display:flex;
+    flex-direction:column;
 }
 
 .card:hover{
-    transform:scale(1.04);
+    transform:scale(1.05);
 }
 
 .card img{
     width:100%;
-    display:block;
 }
 
-/* CONTENEDOR INFERIOR FIJO */
 .content{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-
     padding:10px;
-
-    background:linear-gradient(
-        to top,
-        rgba(3,7,18,0.96) 0%,
-        rgba(3,7,18,0.90) 100%
-    );
-
     display:flex;
     flex-direction:column;
-    justify-content:center;
-
-    min-height:58px;
-
-    transition:0.3s ease;
+    flex:1;
 }
 
-/* NOMBRE SIEMPRE VISIBLE */
-.info-overlay{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    min-height:36px;
-
-    transition:all 0.25s ease;
+.content h3{
+    font-size:14px;
+    margin:5px 0;
 }
 
-.info-overlay h3{
-    font-size:13px;
-    margin:0;
-    line-height:1.3;
-    color:white;
-    text-align:center;
-
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-
-    width:100%;
+.content p{
+    font-size:12px;
+    color:#9aa7b1;
 }
 
-.info-overlay p{
-    display:none;
-}
-
-/* BOTONES OCULTOS AL INICIO */
 .btns{
     display:flex;
     gap:6px;
-
+    margin-top:auto;
     opacity:0;
-    max-height:0;
-
-    overflow:hidden;
-
-    transform:translateY(8px);
-    transition:all 0.25s ease;
+    transform:translateY(10px);
+    transition:0.3s;
 }
 
-/* AL PASAR MOUSE: OCULTA NOMBRE */
-.card:hover .info-overlay{
-    opacity:0;
-    max-height:0;
-    min-height:0;
-    overflow:hidden;
-}
-
-/* AL PASAR MOUSE: MUESTRA BOTONES */
 .card:hover .btns{
     opacity:1;
-    max-height:60px;
-
     transform:translateY(0);
 }
 
@@ -1156,13 +1104,4 @@ header{
         ) !important;
 
     border:1px solid rgba(125,211,252,0.16);
-}
-
-/* Tamaño de iconos en botones */
-.header-btn button:not(.admin-profile-btn) img{
-    width:18px;
-    height:18px;
-    object-fit:contain;
-    flex-shrink:0;
-    filter: drop-shadow(0 0 4px rgba(255,255,255,0.15));
 }
