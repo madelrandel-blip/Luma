@@ -396,20 +396,23 @@ header{
     flex:1;
 }
 
-/* TÍTULO ALINEADO */
+/* TÍTULO ALINEADO + NOMBRES LARGOS VISIBLES */
 .content h3{
     font-size:14px;
     margin:5px 0 8px 0;
     line-height:1.25;
 
-    min-height:38px;   /* altura uniforme */
-    max-height:38px;
+    min-height:54px;   /* más espacio para títulos largos */
+    max-height:54px;
 
     overflow:hidden;
 
     display:-webkit-box;
-    -webkit-line-clamp:2;   /* máximo 2 líneas */
+    -webkit-line-clamp:3;   /* ahora permite hasta 3 líneas */
     -webkit-box-orient:vertical;
+
+    word-break:break-word;
+    overflow-wrap:anywhere;
 }
 
 /* DESCRIPCIÓN ALINEADA */
