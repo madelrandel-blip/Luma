@@ -1106,13 +1106,11 @@ header{
     border:1px solid rgba(125,211,252,0.16);
 }
 
-/* ICONOS EN BOTONES HEADER */
-.header-btn button img{
+/* Tamaño de iconos en botones */
+.header-btn button:not(.admin-profile-btn) img{
     width:18px;
     height:18px;
     object-fit:contain;
     flex-shrink:0;
-
-    /* para iconos blancos o claros */
     filter: drop-shadow(0 0 4px rgba(255,255,255,0.15));
 }
