@@ -831,7 +831,6 @@ header{
 
 /* =========================================
    ESTILO VISUAL NINTENDO SWITCH MODERNO
-   Prueba de apariencia
 ========================================= */
 
 /* HEADER */
@@ -969,4 +968,140 @@ header{
     text-shadow:
         0 0 10px rgba(125,211,252,0.14),
         0 0 24px rgba(167,139,250,0.08);
+}
+
+/* =========================================
+   ESTILO GLOBAL BOTONES TIPO SWITCH
+========================================= */
+
+/* BOTONES LOGIN */
+.login-content button{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(110,231,255,0.18) 0%,
+            rgba(167,139,250,0.16) 100%
+        ) !important;
+
+    border:1px solid rgba(125,211,252,0.16);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 4px 14px rgba(0,0,0,0.22);
+}
+
+.login-content button:hover{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(125,211,252,0.28) 0%,
+            rgba(167,139,250,0.24) 100%
+        ) !important;
+
+    border:1px solid rgba(125,211,252,0.26);
+
+    box-shadow:
+        0 0 16px rgba(125,211,252,0.14),
+        0 0 24px rgba(167,139,250,0.12);
+}
+
+/* BOTÓN BIENVENIDA */
+.accept-btn{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(110,231,255,0.22) 0%,
+            rgba(167,139,250,0.20) 100%
+        ) !important;
+
+    border:1px solid rgba(125,211,252,0.18);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 8px 22px rgba(0,0,0,0.25);
+}
+
+.accept-btn:hover{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(125,211,252,0.34) 0%,
+            rgba(167,139,250,0.30) 100%
+        ) !important;
+}
+
+/* PAGINACIÓN */
+.pagination button{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(110,231,255,0.14) 0%,
+            rgba(167,139,250,0.12) 100%
+        ) !important;
+
+    border:1px solid rgba(125,211,252,0.14);
+}
+
+.pagination button.active{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(125,211,252,0.28) 0%,
+            rgba(167,139,250,0.24) 100%
+        ) !important;
+}
+
+/* PANEL ADMIN */
+#adminPanel button{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(110,231,255,0.18) 0%,
+            rgba(167,139,250,0.16) 100%
+        );
+
+    border:1px solid rgba(125,211,252,0.14);
+
+    color:white;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 4px 14px rgba(0,0,0,0.18);
+}
+
+/* BOTONES TARJETAS */
+.btn{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(110,231,255,0.18) 0%,
+            rgba(167,139,250,0.16) 100%
+        ) !important;
+
+    border:1px solid rgba(125,211,252,0.14);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        0 4px 10px rgba(0,0,0,0.16);
+}
+
+.btn:hover{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(125,211,252,0.28) 0%,
+            rgba(167,139,250,0.24) 100%
+        ) !important;
+}
+
+/* BOTÓN PLAY */
+.music-btn{
+    background:
+        linear-gradient(
+            180deg,
+            rgba(110,231,255,0.20) 0%,
+            rgba(167,139,250,0.18) 100%
+        ) !important;
+
+    border:1px solid rgba(125,211,252,0.16);
 }
