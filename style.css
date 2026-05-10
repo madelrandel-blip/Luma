@@ -1145,59 +1145,61 @@ header{
     filter: drop-shadow(0 0 4px rgba(255,255,255,0.15));
 }
 
-/* =========================================
-   HEADER RESPONSIVE FIXED
-========================================= */
-
-/* Header principal */
+/* Header completo */
 header{
-    display:flex !important;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
-    flex-wrap:wrap;
-    padding:14px 18px;
+    display:grid !important;
+    grid-template-columns:auto minmax(180px, 260px) 1fr !important;
+    align-items:center !important;
+    gap:18px !important;
+    padding:14px 20px !important;
 }
 
-/* Logo */
+/* Logo izquierda */
 .logo{
-    display:flex;
-    align-items:center;
-    flex-shrink:0;
-    min-width:max-content;
+    grid-column:1;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    white-space:nowrap;
 }
 
-/* Buscador */
+/* Buscador centro */
 #buscador{
-    flex:1 1 220px;
-    min-width:160px;
-    max-width:320px;
+    grid-column:2;
+    width:100% !important;
+    max-width:260px !important;
+    min-width:160px !important;
 }
 
-/* Grupo botones */
+/* Derecha */
 .header-btn{
-    margin-left:auto;
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:10px;
-    flex-wrap:wrap !important; /* permite bajar */
-    max-width:100%;
-    padding:8px 10px;
+    grid-column:3;
+    margin-left:0 !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+
+    flex-wrap:nowrap !important; /* IMPORTANTE */
+    overflow-x:auto;
+
+    gap:8px !important;
+    width:100%;
 }
 
-/* Botones normales */
+/* Scroll invisible */
+.header-btn::-webkit-scrollbar{
+    display:none;
+}
+
+/* Botones */
 .header-btn button{
-    flex:0 1 auto;
-    min-width:82px;
-    max-width:100%;
+    flex-shrink:0 !important;
 }
 
-/* Panel música */
+/* Música */
 .music-control{
-    flex-shrink:0;
-    max-width:100%;
-    flex-wrap:wrap;
+    flex-shrink:0 !important;
 }
 
 /* =========================
@@ -1206,77 +1208,53 @@ header{
 @media (max-width:1100px){
 
     header{
-        justify-content:center;
+        grid-template-columns:1fr !important;
+        justify-items:center;
+        text-align:center;
     }
 
     .logo{
-        width:100%;
-        justify-content:center;
+        grid-column:1 !important;
+        justify-content:center !important;
     }
 
     #buscador{
-        order:3;
-        width:min(100%,420px);
-        max-width:420px;
-        flex:1 1 100%;
+        grid-column:1 !important;
+        max-width:420px !important;
+        width:min(100%,420px) !important;
     }
 
     .header-btn{
-        order:2;
-        width:100%;
-        justify-content:center;
-        margin-left:0;
+        grid-column:1 !important;
+        justify-content:center !important;
+        flex-wrap:wrap !important;
+        overflow:visible;
     }
 }
 
 /* =========================
-   MÓVIL / VENTANA PEQUEÑA
+   MÓVIL
 ========================= */
 @media (max-width:768px){
 
-    header{
-        flex-direction:column;
-        align-items:center;
-        gap:12px;
-    }
-
-    .logo h1{
-        font-size:22px;
-        text-align:center;
-        justify-content:center;
-        flex-wrap:wrap;
-    }
-
-    .logo img{
-        height:28px;
-    }
-
-    #buscador{
-        width:100%;
-        max-width:100%;
-    }
-
     .header-btn{
-        width:100%;
-        justify-content:center;
-        padding:10px;
-        gap:8px;
-        border-radius:16px;
+        flex-direction:row !important;
+        flex-wrap:wrap !important;
+        justify-content:center !important;
     }
 
     .header-btn button:not(.admin-profile-btn){
-        flex:1 1 calc(50% - 10px);
-        min-width:140px;
-    }
-
-    .admin-profile-btn{
-        flex:0 0 auto;
+        min-width:130px;
     }
 
     .music-control{
         width:100%;
         justify-content:center;
-        padding:8px;
+    }
+
+    .logo h1{
+        font-size:22px !important;
+        justify-content:center;
     }
 }
 
@@ -1286,34 +1264,16 @@ header{
 @media (max-width:520px){
 
     .header-btn{
-        flex-direction:column;
-        align-items:stretch;
+        flex-direction:column !important;
+        align-items:center !important;
     }
 
-    .header-btn button:not(.admin-profile-btn),
+    .header-btn button,
     .music-control{
-        width:100%;
-        max-width:100%;
+        width:min(100%,320px);
     }
 
-    .music-btn{
-        width:100%;
-    }
-
-    .volume-control{
-        justify-content:center;
-        width:100%;
-    }
-
-    .admin-profile-btn{
+    #buscador{
         width:100% !important;
-        flex-direction:row !important;
-        gap:10px;
-        justify-content:center;
-        padding:10px !important;
-    }
-
-    .admin-profile-btn img{
-        margin-bottom:0;
     }
 }
