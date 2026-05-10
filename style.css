@@ -1284,3 +1284,85 @@ header{
         margin-bottom:0 !important;
     }
 }
+
+/* Mantiene tamaño natural siempre */
+.music-control{
+    width:auto !important;
+    min-width:auto !important;
+    max-width:max-content !important;
+    flex-shrink:0 !important;
+}
+
+/* Botón pausa fijo */
+.music-btn{
+    width:106px !important;
+    min-width:106px !important;
+    max-width:106px !important;
+}
+
+/* Volumen compacto */
+.volume-control{
+    width:auto !important;
+    flex-shrink:0 !important;
+    justify-content:center;
+}
+
+/* Slider corto */
+#volumeSlider{
+    width:54px !important;
+    min-width:54px !important;
+    max-width:54px !important;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width:768px){
+
+    .music-control{
+        width:auto !important;
+        max-width:max-content !important;
+        padding:6px 10px !important;
+    }
+
+    .music-btn{
+        width:98px !important;
+        min-width:98px !important;
+    }
+
+    #volumeSlider{
+        width:48px !important;
+        min-width:48px !important;
+    }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+@media (max-width:520px){
+
+    .music-control{
+        width:auto !important;
+        max-width:max-content !important;
+        flex-direction:row !important; /* evita columna */
+        padding:6px 10px !important;
+        gap:8px !important;
+    }
+
+    .music-btn{
+        width:92px !important;
+        min-width:92px !important;
+        height:32px !important;
+        font-size:12px !important;
+    }
+
+    .volume-control{
+        width:auto !important;
+        gap:6px !important;
+    }
+
+    #volumeSlider{
+        width:42px !important;
+        min-width:42px !important;
+    }
+}
