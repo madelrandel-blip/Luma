@@ -1346,7 +1346,7 @@ header{
         padding:10px !important;
     }
 
-    /* CONTENEDOR BOTONES = 2 COLUMNAS FIJAS */
+    /* GRID BOTONES */
     .header-btn{
         width:100% !important;
 
@@ -1355,14 +1355,14 @@ header{
 
         gap:8px !important;
         padding:8px !important;
+        border-radius:18px !important;
 
-        border-radius:16px !important;
-
+        justify-items:stretch !important;
         align-items:center !important;
     }
 
     /* BOTONES NORMALES */
-    .header-btn button:not(.admin-profile-btn):not(.logout-btn){
+    .header-btn button:not(.admin-profile-btn){
         width:100% !important;
         height:42px !important;
 
@@ -1377,22 +1377,22 @@ header{
     }
 
     /* =========================
-       BOTÓN USUARIO (NO ROMPE GRID)
+       BOTÓN USUARIO / LOGIN FIX
     ========================= */
     .admin-profile-btn{
         grid-column:span 2 !important;
 
-        width:200px !important;
+        width:220px !important;     /* tamaño tipo escritorio */
         max-width:90% !important;
+        min-width:180px !important;
 
         margin:0 auto !important;
 
         height:52px !important;
 
-        display:flex !important;
         flex-direction:row !important;
-        align-items:center !important;
         justify-content:center !important;
+        align-items:center !important;
 
         gap:10px !important;
 
@@ -1407,17 +1407,11 @@ header{
 
     .admin-profile-btn span{
         font-size:13px !important;
+        font-weight:700 !important;
     }
 
     /* =========================
-       OCULTAR BOTÓN SALIR (IMPORTANTE)
-    ========================= */
-    .logout-btn{
-        display:none !important;
-    }
-
-    /* =========================
-       MÚSICA ORDENADA
+       MÚSICA
     ========================= */
     .music-control{
         grid-column:span 2 !important;
@@ -1429,7 +1423,6 @@ header{
         align-items:center !important;
 
         gap:10px !important;
-
         padding:8px 10px !important;
         border-radius:16px !important;
     }
