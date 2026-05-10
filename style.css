@@ -1341,12 +1341,39 @@ header{
 ========================= */
 @media (max-width:520px){
 
-    /* HEADER BASE */
+    /* HEADER GENERAL */
     header{
-        padding:10px !important;
+        padding:10px 10px !important;
+        gap:10px !important;
     }
 
-    /* GRID BOTONES */
+    /* LOGO */
+    .logo{
+        width:100%;
+        justify-content:center !important;
+    }
+
+    .logo h1{
+        font-size:18px !important;
+        gap:8px !important;
+        text-align:center;
+    }
+
+    .logo img{
+        height:24px !important;
+    }
+
+    /* BUSCADOR */
+    #buscador{
+        width:100% !important;
+        max-width:100% !important;
+        height:40px !important;
+        font-size:14px !important;
+        border-radius:14px !important;
+        padding:0 14px !important;
+    }
+
+    /* CONTENEDOR BOTONES */
     .header-btn{
         width:100% !important;
 
@@ -1354,86 +1381,169 @@ header{
         grid-template-columns:repeat(2, 1fr) !important;
 
         gap:8px !important;
+
         padding:8px !important;
         border-radius:18px !important;
 
-        justify-items:stretch !important;
-        align-items:center !important;
+        background:rgba(255,255,255,0.03) !important;
     }
 
-    /* BOTONES NORMALES */
+    /* BOTONES GENERALES */
     .header-btn button:not(.admin-profile-btn){
         width:100% !important;
+        min-width:unset !important;
+        max-width:unset !important;
+
         height:42px !important;
+        padding:0 10px !important;
 
         font-size:13px !important;
         font-weight:700 !important;
 
         border-radius:14px !important;
 
-        display:flex !important;
-        align-items:center !important;
         justify-content:center !important;
     }
 
-    /* =========================
-       BOTÓN USUARIO / LOGIN FIX
-    ========================= */
+    /* ICONOS */
+    .header-btn button img{
+        width:16px !important;
+        height:16px !important;
+    }
+
+    /* PERFIL ADMIN / INVITADO */
     .admin-profile-btn{
         grid-column:span 2 !important;
 
-        width:220px !important;     /* tamaño tipo escritorio */
-        max-width:90% !important;
-        min-width:180px !important;
-
-        margin:0 auto !important;
-
-        height:52px !important;
+        width:100% !important;
+        min-width:100% !important;
 
         flex-direction:row !important;
         justify-content:center !important;
-        align-items:center !important;
 
-        gap:10px !important;
+        height:52px !important;
+        padding:8px 12px !important;
 
         border-radius:16px !important;
+        gap:10px !important;
     }
 
     .admin-profile-btn img{
         width:34px !important;
         height:34px !important;
-        margin:0 !important;
+        margin-bottom:0 !important;
     }
 
     .admin-profile-btn span{
         font-size:13px !important;
-        font-weight:700 !important;
     }
 
-    /* =========================
-       MÚSICA
-    ========================= */
+    /* MÚSICA */
     .music-control{
         grid-column:span 2 !important;
 
         width:100% !important;
+        max-width:100% !important;
 
-        display:flex !important;
         justify-content:center !important;
-        align-items:center !important;
+
+        padding:8px 12px !important;
+        border-radius:16px !important;
 
         gap:10px !important;
-        padding:8px 10px !important;
-        border-radius:16px !important;
     }
 
     .music-btn{
-        width:92px !important;
+        width:96px !important;
+        min-width:96px !important;
         height:36px !important;
+
+        font-size:12px !important;
+        border-radius:12px !important;
+    }
+
+    .volume-control{
+        gap:8px !important;
+    }
+
+    .volume-icon{
         font-size:12px !important;
     }
 
     #volumeSlider{
-        width:55px !important;
+        width:52px !important;
+        min-width:52px !important;
+    }
+
+    /* GRID JUEGOS */
+    .store{
+        grid-template-columns:repeat(2, minmax(140px, 1fr)) !important;
+        gap:12px !important;
+        padding:12px !important;
+    }
+
+    /* TARJETAS */
+    .card{
+        border-radius:14px !important;
+    }
+
+    .info-overlay h3{
+        font-size:12px !important;
+    }
+
+    .info-overlay p{
+        font-size:11px !important;
+    }
+
+    .btn{
+        font-size:11px !important;
+        padding:7px 4px !important;
+    }
+
+    /* PAGINACIÓN */
+    .pagination{
+        gap:6px !important;
+        padding:16px 10px !important;
+    }
+
+    .pagination button{
+        padding:8px 12px !important;
+        font-size:12px !important;
+        border-radius:10px !important;
+    }
+
+    /* LOGIN */
+    .login-content{
+        width:min(94%, 380px) !important;
+        padding:26px 18px !important;
+        border-radius:22px !important;
+    }
+
+    .login-content input,
+    .login-content button{
+        height:46px !important;
+        font-size:14px !important;
+    }
+
+    /* BIENVENIDA */
+    .welcome-box{
+        padding:24px 16px !important;
+        border-radius:22px !important;
+    }
+
+    .welcome-box h2{
+        font-size:24px !important;
+    }
+
+    .welcome-box p{
+        font-size:14px !important;
+        line-height:1.5 !important;
+    }
+
+    .accept-btn{
+        width:100% !important;
+        height:48px !important;
+        font-size:14px !important;
+        border-radius:14px !important;
     }
 }
