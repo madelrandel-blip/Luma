@@ -51,6 +51,8 @@ Luma Switch/
 
 Disponible en GitHub Pages.
 
+https://madelrandel-blip.github.io/Luma/
+
 ## 🎯 Objetivo del proyecto
 
 El objetivo de Luma Switch es ofrecer una plataforma visualmente atractiva y fácil de usar para explorar un catálogo de contenido compatible con Nintendo Switch y emulación, acompañada de una comunidad donde los usuarios puedan recibir soporte y compartir experiencias.
