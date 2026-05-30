@@ -1,4 +1,8 @@
-# 🌌 Luma Switch (TEST)
+<p align="center">
+  <img src="assets/images/Luma icon.webp" width="64">
+</p>
+
+<h1 align="center">Luma Switch</h1>
 
 Luma Switch es una biblioteca digital diseñada para que los usuarios encuentren y gestionen contenido para Nintendo Switch de forma rápida, sencilla y organizada, con una experiencia inspirada en el universo de Mario Galaxy.
 
@@ -15,13 +19,11 @@ Luma Switch es una biblioteca digital diseñada para que los usuarios encuentren
 
 ## 📸 Capturas
 
-Sitio web
+![Inicio](assets/screenshots/welcome.png)
 
-![Inicio](screenshots/inicio.png)
+![Catálogo](assets/screenshots/home.png)
 
-![Catálogo](screenshots/catalogo.png)
-
-![Panel Admin](screenshots/admin.png)
+![Panel Admin](assets/screenshots/login.png)
 
 ## 🚀 Tecnologías utilizadas
 
