@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/images/Luma icon.webp" width="64">
+  <img src="assets/icons/StarLuma.png" width="64">
 </p>
 
 <h1 align="center">Luma Switch</h1>
