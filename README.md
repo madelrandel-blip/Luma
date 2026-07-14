@@ -32,21 +32,6 @@ Luma Switch es una biblioteca digital diseñada para que los usuarios encuentren
 * JavaScript
 * GitHub Pages
 
-## 📂 Estructura del proyecto
-
-```text
-Luma Switch/
-│
-├── assets/          # Recursos del sitio (imágenes, iconos, fondos, etc.)
-│
-├── README.md        # Documentación del proyecto
-├── firebase.js      # Configuración e integración con Firebase
-├── index.html       # Página principal
-├── script.js        # Funciones y lógica del sitio
-└── style.css        # Estilos y diseño visual
-```
-
-
 ## 🌐 Sitio web
 
 Disponible en GitHub Pages.
