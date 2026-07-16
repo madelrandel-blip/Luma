@@ -1548,128 +1548,109 @@ header{
     }
 }
 
-/* ======================================================
-   SOLO PARA EMULADORES Y RECURSOS
-====================================================== */
+/* ===========================
+   Cursor personalizado
+=========================== */
 
-/* Sin animación de agrandar */
-#emuladoresStore .card:hover,
-#recursosStore .card:hover{
-    transform:none;
+body {
+    cursor: url("assets/star_pointer.cur"), auto;
 }
 
-/* Contenido siempre visible */
-#emuladoresStore .content,
-#recursosStore .content{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
+/* ==========================================
+   TARJETAS ESPECIALES
+   EMULADORES Y RECURSOS
+========================================== */
 
-    opacity:1;
-
-    background:linear-gradient(
-        to top,
-        rgba(3,7,18,.92) 0%,
-        rgba(3,7,18,.55) 35%,
-        transparent 70%
-    );
-}
-
-/* Botones siempre visibles */
-#emuladoresStore .btns,
-#recursosStore .btns{
-    opacity:1;
-    transform:none;
-}
-
-/* Animación suave de la tarjeta */
 #emuladoresStore .card,
 #recursosStore .card{
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+
+    display:flex;
+    flex-direction:column;
+
+    background:#0f172a;
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.25s;
+
+    border:1px solid rgba(125,211,252,.08);
 }
 
-/* Imagen */
-#emuladoresStore .card img,
-#recursosStore .card img{
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        filter .25s ease;
-}
-
-/* Hover */
 #emuladoresStore .card:hover,
 #recursosStore .card:hover{
+
+    transform:translateY(-6px);
+
     box-shadow:
-        0 0 18px rgba(125,211,252,.28),
-        0 0 40px rgba(167,139,250,.15);
+        0 10px 25px rgba(0,0,0,.35),
+        0 0 20px rgba(125,211,252,.18);
+}
+
+#emuladoresStore .card img,
+#recursosStore .card img{
+
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+
+    transition:.25s;
 }
 
 #emuladoresStore .card:hover img,
 #recursosStore .card:hover img{
-    transform:scale(1.03);
-    filter:brightness(1.05);
-    box-shadow:
-        0 0 20px rgba(125,211,252,.35),
-        0 0 40px rgba(167,139,250,.18);
+
+    transform:scale(1.04);
 }
 
-/* Botones un poco más grandes */
+#emuladoresStore .content,
+#recursosStore .content{
+
+    position:static;
+
+    opacity:1;
+
+    background:none;
+
+    padding:14px;
+}
+
+#emuladoresStore .info-overlay h3,
+#recursosStore .info-overlay h3{
+
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+#emuladoresStore .info-overlay p,
+#recursosStore .info-overlay p{
+
+    font-size:12px;
+    color:#b8c5d6;
+
+    margin-bottom:14px;
+}
+
+#emuladoresStore .btns,
+#recursosStore .btns{
+
+    display:flex;
+
+    gap:8px;
+
+    opacity:1;
+
+    transform:none;
+}
+
 #emuladoresStore .btn,
 #recursosStore .btn{
+
     flex:1;
-    padding:7px 12px;
-    font-size:11px;
-    border-radius:8px;
-    font-weight:600;
-}
 
-/* ==========================================
-   EMULADORES Y RECURSOS - MÓVIL
-==========================================*/
-@media (max-width:768px){
+    padding:9px;
 
-    /* La tarjeta vuelve a ser vertical */
-    #emuladoresStore .card,
-    #recursosStore .card{
-        display:flex;
-        flex-direction:column;
-    }
+    font-size:12px;
 
-    /* La imagen arriba */
-    #emuladoresStore .content,
-    #recursosStore .content{
-        position:static;
-        background:none;
-        padding:10px;
-        opacity:1;
-    }
-
-    /* Botones debajo del texto */
-    #emuladoresStore .btns,
-    #recursosStore .btns{
-        display:flex;
-        gap:8px;
-        margin-top:10px;
-        opacity:1;
-        transform:none;
-    }
-
-    #emuladoresStore .btn,
-    #recursosStore .btn{
-        flex:1;
-        padding:8px;
-        font-size:12px;
-    }
-
-    /* Sin zoom en Android */
-    #emuladoresStore .card:hover img,
-    #recursosStore .card:hover img{
-        transform:none;
-    }
-
+    border-radius:10px;
 }
