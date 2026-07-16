@@ -1547,3 +1547,59 @@ header{
         border-radius:14px !important;
     }
 }
+
+/* ======================================================
+   SOLO PARA EMULADORES Y RECURSOS
+====================================================== */
+
+/* Sin animación de agrandar */
+#emuladoresStore .card:hover,
+#recursosStore .card:hover{
+    transform:none;
+}
+
+/* Contenido siempre visible */
+#emuladoresStore .content,
+#recursosStore .content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    opacity:1;
+
+    background:linear-gradient(
+        to top,
+        rgba(3,7,18,.92) 0%,
+        rgba(3,7,18,.55) 35%,
+        transparent 70%
+    );
+}
+
+/* Botones siempre visibles */
+#emuladoresStore .btns,
+#recursosStore .btns{
+    opacity:1;
+    transform:none;
+}
+
+/* Solo conservar la sombra */
+#emuladoresStore .card img,
+#recursosStore .card img{
+    transition:box-shadow .25s ease;
+}
+
+#emuladoresStore .card:hover img,
+#recursosStore .card:hover img{
+    box-shadow:0 0 18px rgba(125,211,252,.28);
+}
+
+/* Botones aproximadamente un 38% más pequeños */
+#emuladoresStore .btn,
+#recursosStore .btn{
+    flex:0;
+    padding:4px 7px;
+    font-size:8px;
+    border-radius:4px;
+}
