@@ -1627,3 +1627,49 @@ header{
     border-radius:8px;
     font-weight:600;
 }
+
+/* ==========================================
+   EMULADORES Y RECURSOS - MÓVIL
+==========================================*/
+@media (max-width:768px){
+
+    /* La tarjeta vuelve a ser vertical */
+    #emuladoresStore .card,
+    #recursosStore .card{
+        display:flex;
+        flex-direction:column;
+    }
+
+    /* La imagen arriba */
+    #emuladoresStore .content,
+    #recursosStore .content{
+        position:static;
+        background:none;
+        padding:10px;
+        opacity:1;
+    }
+
+    /* Botones debajo del texto */
+    #emuladoresStore .btns,
+    #recursosStore .btns{
+        display:flex;
+        gap:8px;
+        margin-top:10px;
+        opacity:1;
+        transform:none;
+    }
+
+    #emuladoresStore .btn,
+    #recursosStore .btn{
+        flex:1;
+        padding:8px;
+        font-size:12px;
+    }
+
+    /* Sin zoom en Android */
+    #emuladoresStore .card:hover img,
+    #recursosStore .card:hover img{
+        transform:none;
+    }
+
+}
