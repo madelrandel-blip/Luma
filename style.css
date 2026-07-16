@@ -1552,8 +1552,14 @@ header{
    Cursor personalizado
 =========================== */
 
+/* Cursor normal */
 body {
     cursor: url("assets/cursors/Wii Cursors - Normal Select.cur"), auto;
+}
+
+/* Al pasar sobre botones */
+button:hover {
+    cursor: url("assets/cursors/Wii Cursors - Link Select.cur"), pointer;
 }
 
 /* ==========================================
