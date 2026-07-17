@@ -17,11 +17,30 @@ body {
     background: radial-gradient(circle at 20% 30%, #1e3a8a, transparent),
                 radial-gradient(circle at 80% 70%, #581c87, transparent),
                 var(--bg);
+}
+
+/* ==========================================================================
+   Cursores Personalizados (Globales)
+   ========================================================================== */
+
+/* Cursor normal para toda la página */
+body, 
+html {
     cursor: url("assets/cursors/Wii Cursors - Normal Select.cur"), auto;
 }
 
-button:hover {
-    cursor: url("assets/cursors/Wii Cursors - Link Select.cur"), pointer;
+/* Cursor de selección para TODOS los elementos interactivos */
+button,
+a,
+input[type="button"],
+input[type="submit"],
+.btn,
+.pagination button,
+.admin-profile-btn,
+.music-btn,
+#volumeSlider,
+.volume-icon {
+    cursor: url("assets/cursors/Wii Cursors - Link Select.cur"), pointer !important;
 }
 
 #stars {
