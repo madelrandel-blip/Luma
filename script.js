@@ -432,3 +432,62 @@ if(canvas){
         initStars();
     });
 }
+
+/* ========= FONDO DE VIDEO ========= */
+
+const videos = [
+
+    "assets/videos/fondo1.mp4",
+    "assets/videos/fondo2.mp4",
+    "assets/videos/fondo3.mp4",
+    "assets/videos/fondo4.mp4",
+    "assets/videos/fondo5.mp4"
+
+];
+
+const video1 = document.getElementById("bgVideo1");
+const video2 = document.getElementById("bgVideo2");
+
+if(video1 && video2){
+
+    let indice = Math.floor(Math.random() * videos.length);
+
+    let activo = video1;
+    let oculto = video2;
+
+    activo.src = videos[indice];
+    activo.loop = false;
+    activo.classList.add("active");
+    activo.play().catch(()=>{});
+
+    activo.addEventListener("ended", cambiarVideo);
+
+    function cambiarVideo(){
+
+        indice++;
+
+        if(indice >= videos.length){
+            indice = 0;
+        }
+
+        oculto.src = videos[indice];
+        oculto.currentTime = 0;
+
+        oculto.play().then(()=>{
+
+            oculto.classList.add("active");
+            activo.classList.remove("active");
+
+            activo.removeEventListener("ended", cambiarVideo);
+
+            const temp = activo;
+            activo = oculto;
+            oculto = temp;
+
+            activo.addEventListener("ended", cambiarVideo);
+
+        }).catch(()=>{});
+
+    }
+
+}
