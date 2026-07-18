@@ -606,33 +606,54 @@ header {
    ========================================================================== */
 .store {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
     justify-content: center;
     gap: 18px;
     padding: 20px;
-    grid-template-columns: repeat(6, 220px);
     position: relative;
     z-index: 1;
-    transition: opacity .35s ease, transform .35s ease;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* ===== SOLO LA TIENDA PRINCIPAL ===== */
+
+#store {
+    grid-template-columns: repeat(6, 220px);
 }
 
 @media (max-width: 1280px) {
-    .store { grid-template-columns: repeat(5, 180px); }
+    #store {
+        grid-template-columns: repeat(5, 180px);
+    }
 }
 
 @media (max-width: 1080px) {
-    .store { grid-template-columns: repeat(4, 180px); }
+    #store {
+        grid-template-columns: repeat(4, 180px);
+    }
 }
 
 @media (max-width: 900px) {
-    .store { grid-template-columns: repeat(3, 180px); }
+    #store {
+        grid-template-columns: repeat(3, 180px);
+    }
 }
 
 @media (max-width: 700px) {
-    .store { grid-template-columns: repeat(2, 180px); }
+    #store {
+        grid-template-columns: repeat(2, 180px);
+    }
 }
 
 @media (max-width: 450px) {
-    .store { grid-template-columns: repeat(1, 180px); }
+    #store {
+        grid-template-columns: repeat(1, 180px);
+    }
+}
+
+.store.page-transition {
+    opacity: 0;
+    transform: translateY(18px);
 }
 
 .store.page-transition {
