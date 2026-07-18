@@ -4,9 +4,13 @@
 
 <h1 align="center">Luma Switch</h1>
 
-Luma Switch es una biblioteca digital diseñada para que los usuarios encuentren y gestionen contenido para Nintendo Switch de forma rápida, sencilla y organizada, con una experiencia inspirada en el universo de Mario Galaxy.
+<p align="center">
+  <a href="https://discord.com/invite/pMvkz2RzkJ">
+    <img src="https://img.shields.io/discord/1419649386656563324?style=for-the-badge&logo=discord&label=Discord&color=5865F2" alt="Discord">
+  </a>
+</p>
 
-[![Discord](https://img.shields.io/discord/1419649386656563324?style=for-the-badge&logo=discord&label=Discord&color=5865F2)](https://discord.com/invite/pMvkz2RzkJ)
+Luma Switch es una biblioteca digital diseñada para que los usuarios encuentren y gestionen contenido para Nintendo Switch de forma rápida, sencilla y organizada, con una experiencia inspirada en el universo de Mario Galaxy.
 
 ## ✨ Características
 
@@ -40,6 +44,16 @@ Disponible en GitHub Pages.
 
 https://madelrandel-blip.github.io/Luma/
 
+## 💬 Comunidad de Discord
+
+Únete a nuestra comunidad para recibir soporte, enterarte de las novedades del proyecto y compartir experiencias con otros usuarios.
+
+<p align="center">
+  <a href="https://discord.com/invite/pMvkz2RzkJ">
+    <img src="https://img.shields.io/discord/1419649386656563324?style=for-the-badge&logo=discord&label=Unirse%20al%20Discord&color=5865F2">
+  </a>
+</p>
+
 ## 🎯 Objetivo del proyecto
 
 El objetivo de Luma Switch es ofrecer una plataforma visualmente atractiva y fácil de usar para explorar un catálogo de contenido compatible con Nintendo Switch y emulación, acompañada de una comunidad donde los usuarios puedan recibir soporte y compartir experiencias.
@@ -50,4 +64,6 @@ Si te gusta Luma Switch, considera dejar una estrella al repositorio para apoyar
 
 ---
 
+<p align="center">
 Desarrollado con ❤️ para la comunidad de Nintendo Switch.
+</p>
