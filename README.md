@@ -6,6 +6,8 @@
 
 Luma Switch es una biblioteca digital diseñada para que los usuarios encuentren y gestionen contenido para Nintendo Switch de forma rápida, sencilla y organizada, con una experiencia inspirada en el universo de Mario Galaxy.
 
+[![Discord](https://img.shields.io/discord/1419649386656563324?style=for-the-badge&logo=discord&label=Discord&color=5865F2)](https://discord.com/invite/pMvkz2RzkJ)
+
 ## ✨ Características
 
 * 🚀 Links directos de descarga sin publicidad invasiva.
