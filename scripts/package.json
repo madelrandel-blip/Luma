@@ -1,0 +1,9 @@
+{
+    "name": "exportar-firestore",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Exporta las colecciones de Firestore a archivos JSON estaticos para Luma Switch",
+    "dependencies": {
+        "firebase-admin": "^12.6.0"
+    }
+}

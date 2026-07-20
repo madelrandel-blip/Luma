@@ -1,0 +1,43 @@
+name: Exportar Firestore a JSON
+
+# Se ejecuta cada 20 minutos y también se puede lanzar a mano
+# desde la pestaña "Actions" de GitHub cuando se quiere reflejar
+# un cambio del panel admin de inmediato en el sitio público.
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  exportar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencias
+        run: npm install
+        working-directory: scripts
+
+      - name: Exportar colecciones de Firestore
+        run: node exportar-firestore.js
+        working-directory: scripts
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      - name: Confirmar y subir cambios si hay datos nuevos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/*.json
+          git diff --cached --quiet || git commit -m "Actualizar datos exportados de Firestore"
+          git push

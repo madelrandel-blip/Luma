@@ -66,6 +66,28 @@ window.logout = async () => {
     await signOut(auth);
 };
 
+/* ========= LEER JSON ESTATICO ========= */
+// Lee un archivo JSON exportado del repositorio (ver /data).
+// Esto evita gastar lecturas de Firestore en cada visita al sitio.
+// Si el archivo no existe todavía o falla la descarga, devuelve un
+// arreglo vacío para que quien llama decida el respaldo.
+async function cargarJsonEstatico(ruta){
+    try{
+        const respuesta = await fetch(ruta, { cache: "no-store" });
+
+        if(!respuesta.ok) return [];
+
+        const datos = await respuesta.json();
+
+        return Array.isArray(datos) ? datos : [];
+
+    }catch(error){
+        console.error(`Error leyendo ${ruta}:`, error);
+
+        return [];
+    }
+}
+
 /* ========= CARGAR JUEGOS ========= */
 window.cargar = async () => {
     if(cargando) return;
@@ -73,17 +95,42 @@ window.cargar = async () => {
     cargando = true;
 
     try{
-        const snapshot = await getDocs(collection(db, "juegos"));
+        if(admin){
+            // El admin necesita ver el estado real y actual de
+            // Firestore para poder editar y eliminar con confianza.
+            const snapshot = await getDocs(collection(db, "juegos"));
 
-        juegosData = [];
+            juegosData = [];
 
-        snapshot.forEach(docSnap => {
-            const j = docSnap.data();
+            snapshot.forEach(docSnap => {
+                const j = docSnap.data();
 
-            j.id = docSnap.id;
+                j.id = docSnap.id;
 
-            juegosData.push(j);
-        });
+                juegosData.push(j);
+            });
+
+        }else{
+            // Los visitantes normales leen el JSON estático generado
+            // por GitHub Actions, así no consumen lecturas de Firestore.
+            juegosData = await cargarJsonEstatico("data/juegos.json");
+
+            // Respaldo: si el JSON todavía no se generó (primer
+            // despliegue), se consulta Firestore directamente.
+            if(juegosData.length === 0){
+                const snapshot = await getDocs(collection(db, "juegos"));
+
+                juegosData = [];
+
+                snapshot.forEach(docSnap => {
+                    const j = docSnap.data();
+
+                    j.id = docSnap.id;
+
+                    juegosData.push(j);
+                });
+            }
+        }
 
         juegosData.sort((a, b) =>
             a.nombre.localeCompare(
@@ -113,13 +160,21 @@ window.cargarEmuladores = async () => {
     emuladoresStore.innerHTML = "<p style='text-align:center;'>Cargando...</p>";
 
     try{
-        const snapshot = await getDocs(collection(db, "emuladores"));
+        // No hay panel admin para emuladores, así que siempre se lee
+        // el JSON estático y solo se recurre a Firestore como respaldo.
+        let lista = await cargarJsonEstatico("data/emuladores.json");
+
+        if(lista.length === 0){
+            const snapshot = await getDocs(collection(db, "emuladores"));
+
+            lista = [];
+
+            snapshot.forEach(docSnap => lista.push(docSnap.data()));
+        }
 
         let html = "";
 
-        snapshot.forEach(docSnap => {
-            const e = docSnap.data();
-
+        lista.forEach(e => {
             html += `
             <div class="card">
                 <img src="${e.img}">
@@ -160,13 +215,21 @@ window.cargarRecursos = async () => {
     recursosStore.innerHTML = "<p style='text-align:center;'>Cargando...</p>";
 
     try{
-        const snapshot = await getDocs(collection(db, "recursos"));
+        // No hay panel admin para recursos, así que siempre se lee
+        // el JSON estático y solo se recurre a Firestore como respaldo.
+        let lista = await cargarJsonEstatico("data/recursos.json");
+
+        if(lista.length === 0){
+            const snapshot = await getDocs(collection(db, "recursos"));
+
+            lista = [];
+
+            snapshot.forEach(docSnap => lista.push(docSnap.data()));
+        }
 
         let html = "";
 
-        snapshot.forEach(docSnap => {
-            const r = docSnap.data();
-
+        lista.forEach(r => {
             html += `
             <div class="card">
                 <img src="${r.img || ''}">
