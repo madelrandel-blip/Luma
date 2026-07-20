@@ -1,0 +1,18 @@
+[
+  {
+    "nombre": "Eden",
+    "link2": "",
+    "desc": "Emulador Nintendo Switch enfocado en el alto rendimiento",
+    "link1": "https://eden-emu.dev/",
+    "img": "https://github.com/madelrandel-blip/Luma/blob/main/assets/covers/cover%20eden.webp?raw=true",
+    "id": "Nx5ogGpLcrReIODqR26h"
+  },
+  {
+    "nombre": "Ryubing",
+    "link2": "",
+    "link1": "https://ryubing.org/",
+    "desc": "Emulador Nintendo Switch ofreciendo mas estabilidad y precisión",
+    "img": "https://github.com/madelrandel-blip/Luma/blob/main/assets/covers/cover%20ryubing.webp?raw=true",
+    "id": "a72FO5KdovrT5B3Iq4Qh"
+  }
+]
