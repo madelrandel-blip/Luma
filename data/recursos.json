@@ -3,8 +3,8 @@
     "link2": "",
     "nombre": "Mods & Cheats",
     "desc": "Mods y trucos para consola y emulador",
-    "img": "https://github.com/madelrandel-blip/Luma/blob/main/assets/covers/cover%20chest.webp?raw=true",
     "link1": "https://gamebanana.com/",
+    "img": "assets/covers/cover chest.webp",
     "id": "H8pMBOAPz9l5PVWeBO8N"
   },
   {
@@ -12,7 +12,7 @@
     "desc": "Estos archivos son necesarios para emular ",
     "link2": "",
     "link1": "https://www.mediafire.com/folder/qoww6oluwlihd/Keys_%26_Firmware",
-    "img": "https://github.com/madelrandel-blip/Luma/blob/main/assets/covers/cover%20key.webp?raw=true",
+    "img": "assets/covers/cover key.webp",
     "id": "HvDmeGPGiMOgq9jeP3Ee"
   }
 ]

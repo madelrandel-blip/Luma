@@ -424,11 +424,11 @@
     "id": "XRGF8MTftpIcEButR3Oe"
   },
   {
-    "img": "https://github.com/madelrandel-blip/Luma/blob/main/assets/covers/cover%20skc1.png?raw=true",
     "desc": "Peso: 1.09GB",
     "link1": "https://www.mediafire.com/file/59967zop21ajw1h/Super+Kirby+Clash+[v1.0.1].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZqArO5ZDJxpT59NtzjPNVclvTqkKS7EJuzV",
     "nombre": "Kirby Fighters - Super Kirby Clash",
+    "img": "assets/covers/cover skc1.png",
     "id": "YEWwy3D0xqPZ92Lm6Ydm"
   },
   {
@@ -454,6 +454,14 @@
     "link2": "",
     "link1": "",
     "id": "ZL8nISKumYyccdSzGUWT"
+  },
+  {
+    "link1": "https://www.mediafire.com/file/i5bgno1afv75xia/Crysis+Remastered+[v1.8.0].xci/file",
+    "img": "https://media.discordapp.net/attachments/1419851444680392805/1528846161044181274/Crysis-Remastered-Standard---Nintendo-Switch.png?ex=6a5fc871&is=6a5e76f1&hm=8d426d93a2460a6e2d0f6f68ffe53301e6324d6e4b7a08d1b23ac407c831f6e7&=&format=webp&quality=lossless&width=424&height=700",
+    "nombre": "Crysis Remastered",
+    "desc": "Peso: 7.68GB Update 1.8.0",
+    "link2": "",
+    "id": "aco6ardKXMbnpf5ZJkmg"
   },
   {
     "nombre": "Resident Evil: Origins Collection HD 1 + 0",
@@ -494,6 +502,14 @@
     "link2": "https://u.pcloud.link/publink/show?code=XZzrcO5Zk1h9vTmcUQFWYxOq14aIspPUFjBy",
     "link1": "https://www.mediafire.com/file/x8p5rup2o4mk02f/New+Super+Mario+Bros+U+Deluxe+[v1.0.2].zip/file",
     "id": "dqDaJjPv6Ss9Z3UNjVu4"
+  },
+  {
+    "desc": "Peso: 11.20GB Update 1.3.0",
+    "img": "https://m.media-amazon.com/images/I/81ZU5zaTgHL._AC_SY741_.jpg",
+    "link2": "",
+    "nombre": "Crysis 2 Remastered",
+    "link1": "https://www.mediafire.com/file/xpbdpi08uzf8rwz/Crysis+2+Remastered+[v1.3.0].xci/file",
+    "id": "e6Om0zGmANBgAdfqxVms"
   },
   {
     "nombre": "Cadence of Hyrule: The Legend of Zelda",
@@ -585,10 +601,10 @@
   },
   {
     "nombre": "Kirby Fighters 2",
-    "img": "https://github.com/madelrandel-blip/Luma/blob/main/assets/covers/cover%20kf2.png?raw=true",
     "desc": "Peso: 1.11GB",
     "link1": "https://www.mediafire.com/file/ns79l6ox0ksf9pg/Kirby+Fighters+2.nsp/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZSycO5Z3zlsSkgDeJm4zTj0idtRKYdOztSk",
+    "img": "assets/covers/cover kf2.png",
     "id": "m3zjCKAE0q4t6HEnn6W1"
   },
   {
@@ -753,10 +769,10 @@
   },
   {
     "nombre": "Kirbys Dream buffet",
-    "img": "https://github.com/madelrandel-blip/Luma/blob/main/assets/covers/cover%20kdbt.png?raw=true",
     "desc": "Peso: 1.20GB",
     "link1": "https://www.mediafire.com/file/bi6a2jgd2yg4452/Kirbys+Dream+Buffet.nsp/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZqKrO5Z4cCnAUv7hrb3s1aIUmeIKR4QHYgX",
+    "img": "assets/covers/cover kdbt.png",
     "id": "zWMNy0bemhdKIP06ifIz"
   },
   {
