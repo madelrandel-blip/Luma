@@ -29,6 +29,7 @@ const clickSound = document.getElementById("clickSound");
 const adminSound = document.getElementById("adminSound");
 const discordSound = document.getElementById("discordSound");
 const volumeSlider = document.getElementById("volumeSlider");
+const donationSound = document.getElementById("donationSound");
 
 /* ========= AUDIO ========= */
 if(clickSound){
@@ -51,7 +52,7 @@ function playClick(){
 }
 
 if(adminSound){
-    adminSound.volume = 0.1;
+    adminSound.volume = 0.15;
 }
 
 function playAdminClick(){
@@ -63,7 +64,7 @@ function playAdminClick(){
 }
 
 if(discordSound){
-    discordSound.volume = 0.1;
+    discordSound.volume = 0.15;
 }
 
 function playDiscordClick(){
@@ -72,6 +73,18 @@ function playDiscordClick(){
     discordSound.pause();
     discordSound.currentTime = 0;
     discordSound.play().catch(() => {});
+}
+
+if (donationSound) {
+    donationSound.volume = 0.15;
+}
+
+function playDonationClick() {
+    if (!donationSound) return;
+
+    donationSound.pause();
+    donationSound.currentTime = 0;
+    donationSound.play().catch(() => {});
 }
 
 if(bgMusic){
@@ -433,3 +446,16 @@ if(canvas){
     });
 }
 
+// =========================
+// DONACIONES
+// =========================
+
+function abrirDonaciones() {
+    playDonationClick();
+
+    document.getElementById("donacionesBox").style.display = "flex";
+}
+
+function cerrarDonaciones() {
+    document.getElementById("donacionesBox").style.display = "none";
+}

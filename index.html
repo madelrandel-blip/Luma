@@ -101,6 +101,11 @@
     Discord
 </button>
 
+<button onclick="abrirDonaciones()">
+    <img src="assets/icons/paypal icon.png" alt="">
+    Donar
+</button>
+
         <button class="admin-profile-btn" onclick="abrirLogin()">
         <img id="randomAdminPfp" src="" alt="Admin">
         <span>Invitado</span>
@@ -178,6 +183,27 @@
     </div>
 </div>
 
+<!-- MODAL DONACIONES -->
+<div id="donacionesBox">
+    <div class="login-content">
+        <h3>Apoya Luma Switch ❤️</h3>
+
+        <p style="text-align:center; margin-bottom:20px;">
+            Luma Switch es un proyecto gratuito desarrollado para la comunidad.
+            Si deseas apoyar su desarrollo y mantenimiento, puedes hacerlo
+            escaneando el siguiente código QR de PayPal.
+        </p>
+
+        <img src="assets/images/paypal-qr.jpg"
+             alt="QR PayPal"
+             style="display:block; margin:0 auto; max-width:250px; border-radius:12px;">
+
+        <button onclick="cerrarDonaciones()">
+            Cerrar
+        </button>
+    </div>
+</div>
+
 <!-- AUDIO PRINCIPAL -->
 <audio id="bgMusic" loop>
     <source src="assets/music/The Forest of Hope.mp3" type="audio/mpeg">
@@ -196,6 +222,11 @@
 <!-- SONIDO DISCORD -->
 <audio id="discordSound" preload="auto">
     <source src="assets/sounds/News.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SONIDO DONACIONES -->
+<audio id="donationSound" preload="auto">
+    <source src="assets/music/Donation.mp3" type="audio/mpeg">
 </audio>
 
 <!-- FIREBASE -->

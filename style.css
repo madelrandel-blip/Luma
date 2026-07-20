@@ -332,7 +332,10 @@ header {
 /* ==========================================================================
    4. MODALES, LOGIN & BIENVENIDA
    ========================================================================== */
-#loginBox, #emuladoresBox, #recursosBox {
+#loginBox,
+#emuladoresBox,
+#recursosBox,
+#donacionesBox {
     display: none;
     position: fixed;
     inset: 0;
@@ -346,13 +349,17 @@ header {
     z-index: 10;
 }
 
-#emuladoresBox, #recursosBox {
+#emuladoresBox,
+#recursosBox,
+#donacionesBox {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
     z-index: 999;
 }
 
-#emuladoresBox .login-content, #recursosBox .login-content {
+#emuladoresBox .login-content,
+#recursosBox .login-content,
+#donacionesBox .login-content {
     width: min(95%, 900px);
     max-height: 85vh;
     overflow-y: auto;
