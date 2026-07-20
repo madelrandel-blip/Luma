@@ -52,7 +52,7 @@ function playClick(){
 }
 
 if(adminSound){
-    adminSound.volume = 0.15;
+    adminSound.volume = 0.14;
 }
 
 function playAdminClick(){

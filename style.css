@@ -898,7 +898,7 @@ header {
 }
 
 @media (max-width: 768px) {
-    /* Ajustes para que las tarjetas de la tienda no se rompan en tablets */
+    /*Ajustes para que las tarjetas de la tienda no se rompan en tablets */
     .store {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
         gap: 12px !important;
