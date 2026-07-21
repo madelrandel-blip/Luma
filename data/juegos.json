@@ -136,6 +136,14 @@
     "id": "C5oxrWIe92yCzsi9K3he"
   },
   {
+    "link2": "",
+    "desc": "Peso: 11.02GB Update 1.3.0",
+    "nombre": "Crysis 3 Remastered",
+    "img": "https://m.media-amazon.com/images/I/810gXfRREGL._AC_SL1500_.jpg",
+    "link1": "https://www.mediafire.com/file/wzjhojb2hk2ta8e/Crysis+3+Remastered+[v1.3.0].xci/file",
+    "id": "C8VEZhWd3nOKOW4jcGuq"
+  },
+  {
     "nombre": "The Legend of Zelda: Link's Awakening",
     "img": "https://art.gametdb.com/switch/box/US/AR3NA.png?1685768661",
     "desc": "Peso: 5.87 Update 1.1.0",
@@ -148,7 +156,7 @@
     "desc": "Peso: 17.6GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/z9rtl4qndbdaf2b/Resident_Evil_6_%255Bv1.0.2%255D.xci/file",
     "link2": "",
-    "img": "https://madelrandel-blip.github.io/Luma/assets/covers/cover%20re6.png",
+    "img": "assets/covers/cover re6.png",
     "id": "CEqT6SgHBZk45s8DsaMG"
   },
   {
@@ -308,7 +316,7 @@
     "desc": "Peso: 12,1GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/vs8tkrfagbp4mhb/Resident+Evil+4+[v1.0.2].xci/file",
     "link2": "",
-    "img": "https://madelrandel-blip.github.io/Luma/assets/covers/cover%20re4hd.png",
+    "img": "assets/covers/cover re4hd.png",
     "id": "OI3ooSuI9f3LpEQNM24e"
   },
   {
@@ -540,7 +548,7 @@
     "desc": "Peso: 18.7GB Update 1.0.3",
     "link1": "https://www.mediafire.com/file/5iiuvbsqhic00oj/Resident+Evil+5+[1.0.3].xci/file",
     "link2": "",
-    "img": "https://madelrandel-blip.github.io/Luma/assets/covers/cover%20re5.png",
+    "img": "assets/covers/cover re5.png",
     "id": "gx4M2foRtfNaLLuIlmTE"
   },
   {
@@ -651,8 +659,8 @@
     "nombre": "Resident Evil: Revelations 2",
     "desc": "Peso: 23.65GB Update 1.0.2",
     "link2": "",
-    "img": "https://github.com/madelrandel-blip/Luma/blob/main/assets/covers/cover%20res2.png?raw=true",
     "link1": "https://gofile.io/d/phyMO5",
+    "img": "assets/covers/cover res2.png",
     "id": "re5EDdEdTU5BBIzzYYA5"
   },
   {
