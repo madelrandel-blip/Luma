@@ -89,10 +89,10 @@
   },
   {
     "img": "https://art.gametdb.com/switch/box/US/AEUCA.png",
-    "desc": "Peso: 1.54GB Update 1.26.13",
     "nombre": "Minecraft Bedrock Edition",
     "link2": "",
-    "link1": "",
+    "link1": "https://www.mediafire.com/file/4hy8qwbm2s25f1v/Minecraft+Bedrock+NS+[v1.26.33].xci/file",
+    "desc": "Peso: 1.54GB Update 1.26.33",
     "id": "AVyRS13jHkZRjw2wyMv1"
   },
   {
@@ -115,8 +115,8 @@
     "desc": "Peso: 11GB Update 1.53 + 10 DLCs",
     "nombre": "Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles",
     "img": "https://art.gametdb.com/switch/box/KO/A54GC.png?1667754815",
-    "link2": "",
-    "link1": "https://drive.google.com/file/d/1bsVzI2SSijU5nJIfbhOQSaldTNAF-rtj/view?usp=drivesdk",
+    "link2": "https://drive.google.com/file/d/1bsVzI2SSijU5nJIfbhOQSaldTNAF-rtj/view?usp=drivesdk",
+    "link1": "https://www.mediafire.com/file/ar8i82mmyi4ayyr/Demon+Slayer+Kimetsu+no+Yaiba+The+Hinokami+Chronicles+[v1.53+++10+DLCs].xci/file",
     "id": "B95QZL8Iot726qpwruxC"
   },
   {
@@ -470,6 +470,14 @@
     "desc": "Peso: 7.68GB Update 1.8.0",
     "link2": "",
     "id": "aco6ardKXMbnpf5ZJkmg"
+  },
+  {
+    "desc": "Peso: 490MB Update 4.5.4",
+    "img": "https://art.gametdb.com/switch/box/US/AHBFA.png?1572781199",
+    "link2": "",
+    "nombre": "Terraria",
+    "link1": "https://www.mediafire.com/file/ffc1l0gh2osomo6/Terraria+[v4.5.4].xci/file",
+    "id": "b4d59V2mp380xuOnB8Af"
   },
   {
     "nombre": "Resident Evil: Origins Collection HD 1 + 0",
