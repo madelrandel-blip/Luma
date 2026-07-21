@@ -92,7 +92,7 @@
     "nombre": "Minecraft Bedrock Edition",
     "link2": "",
     "link1": "https://www.mediafire.com/file/4hy8qwbm2s25f1v/Minecraft+Bedrock+NS+[v1.26.33].xci/file",
-    "desc": "Peso: 1.54GB Update 1.26.33",
+    "desc": "Peso: 1.72GB Update 1.26.33",
     "id": "AVyRS13jHkZRjw2wyMv1"
   },
   {
@@ -202,9 +202,9 @@
   {
     "nombre": "Hollow Knight",
     "img": "https://art.gametdb.com/switch/box/US/AKLHA.png?1572976676",
-    "desc": "Peso: 1.4GB Update 1.5.12459",
-    "link1": "",
     "link2": "",
+    "desc": "Peso: 1.4GB Update 1.5.12620 ",
+    "link1": "https://www.mediafire.com/file/vconngydzq3bwyu/Hollow+Knight+[v1.5.12620].xci/file",
     "id": "FU3UdWqY45Wepma3dTlY"
   },
   {
@@ -338,9 +338,9 @@
   {
     "nombre": "Hollow Knight: Silksong",
     "desc": "Peso: 2.77GB Update 1.0.28716",
-    "link1": "",
     "link2": "",
-    "img": "https://madelrandel-blip.github.io/Luma/assets/covers/cover%20skg.png",
+    "link1": "https://www.mediafire.com/file/fztani0ju76htur/Hollow+Knight+Silksong+[v1.0.3].xci/file",
+    "img": "assets/covers/cover skg.png",
     "id": "Rh8W7Hp8n2X0JdKUw9QI"
   },
   {
