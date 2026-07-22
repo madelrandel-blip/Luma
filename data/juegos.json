@@ -304,6 +304,14 @@
     "id": "LCjOC8p3JEhj5jyphklO"
   },
   {
+    "link2": "https://drive.google.com/file/d/1eg0VbpvJggRiMs4vY_BDLiW1nVSk0jLV/view",
+    "nombre": "Red Dead Redemption",
+    "link1": "",
+    "desc": "Peso: 11.6GB Update 1.0.4",
+    "img": "https://art.gametdb.com/switch/box/US/BAF2A.png?1708920044",
+    "id": "NMDjfuetgVTljB5aPtDy"
+  },
+  {
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/JA/AGHQA.png?1540397308",
     "desc": "Peso: 17.31GB Update 1.0.1",
@@ -804,7 +812,7 @@
     "desc": "Peso: 2.79GB Update 1.3.0 + DLC",
     "nombre": "Plants vs. Zombies Replanted",
     "link2": "",
-    "img": "https://media.discordapp.net/attachments/1419649387948150826/1528847655877480548/cover_bordes.png?ex=6a5fc9d5&is=6a5e7855&hm=9325de66c6aa57729a9758ef7f379867dfd7fec0dade885c0ad671d479331fb1&=&format=webp&quality=lossless&width=270&height=438",
+    "img": "assets/covers/cover pvz.png",
     "id": "zLUHVMZVqKa6EFh7y6aW"
   },
   {
