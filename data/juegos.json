@@ -128,6 +128,14 @@
     "id": "B95QZL8Iot726qpwruxC"
   },
   {
+    "link2": "",
+    "link1": "https://www.mediafire.com/file/nquzzyr8zj40rgg/Blasphemous+2+[v1.0.8+++DLC].xci/file",
+    "desc": "Peso: 3.06GB 1.0.8 + DLC",
+    "img": "https://art.gametdb.com/switch/box/US/BBLYA.png?1708841429",
+    "nombre": "Blasphemous II",
+    "id": "BfaLs7EVSRwR0knrhFUu"
+  },
+  {
     "nombre": "Xenoblade Chronicles X: Definitive Edition",
     "img": "https://art.gametdb.com/switch/box/US/BAS6A.png?1743096895",
     "desc": "Peso: 13.5GB Update 1.0.2 + DLC",
@@ -147,8 +155,8 @@
     "link2": "",
     "desc": "Peso: 11.02GB Update 1.3.0",
     "nombre": "Crysis 3 Remastered",
-    "img": "https://m.media-amazon.com/images/I/810gXfRREGL._AC_SL1500_.jpg",
     "link1": "https://www.mediafire.com/file/wzjhojb2hk2ta8e/Crysis+3+Remastered+[v1.3.0].xci/file",
+    "img": "assets/covers/cover cy3r.jpg",
     "id": "C8VEZhWd3nOKOW4jcGuq"
   },
   {
@@ -182,6 +190,14 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/jj4i9yy9s35zfud/Mario+&+Luigi+Brothership+[v1.0.1].xci/file",
     "id": "DnddqNHISThqgiW1Czjl"
+  },
+  {
+    "img": "https://art.gametdb.com/switch/box/US/ANKSC.png?1644525513",
+    "nombre": "Blasphemous",
+    "link1": "https://www.mediafire.com/file/cclgyqpy69vzjr1/Blasphemous_%255Bv1.0.8_%252B_DLC%255D.xci/file",
+    "desc": "Peso: 7.10GB 1.0.8 + DLC",
+    "link2": "",
+    "id": "DqwcfbWtkyMGyuR25NXI"
   },
   {
     "nombre": "Splatoon 3",
@@ -392,6 +408,14 @@
     "id": "TfDl57g8p7JE4yZ8tGZK"
   },
   {
+    "desc": "Peso: 1.53GB Update 1.4.1.1",
+    "link1": "https://www.mediafire.com/file/r3zhjyvamo7asw7/Celeste_%255Bv1.4.1.1%255D.xci/file",
+    "link2": "",
+    "img": "https://art.gametdb.com/switch/box/US/ACF3A.png?1768332973",
+    "nombre": "Celeste",
+    "id": "V3pRVvxdKctxsJxawn9h"
+  },
+  {
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/A7GJA.png?1685766714",
     "link1": "https://www.mediafire.com/file/dnpcmns9w7bn0sc/DREDGE+[v1.5.3+++4+DLCs].xci/file",
@@ -489,10 +513,10 @@
   },
   {
     "link1": "https://www.mediafire.com/file/i5bgno1afv75xia/Crysis+Remastered+[v1.8.0].xci/file",
-    "img": "https://media.discordapp.net/attachments/1419851444680392805/1528846161044181274/Crysis-Remastered-Standard---Nintendo-Switch.png?ex=6a5fc871&is=6a5e76f1&hm=8d426d93a2460a6e2d0f6f68ffe53301e6324d6e4b7a08d1b23ac407c831f6e7&=&format=webp&quality=lossless&width=424&height=700",
     "nombre": "Crysis Remastered",
     "desc": "Peso: 7.68GB Update 1.8.0",
     "link2": "",
+    "img": "assets/covers/cover cyr.png",
     "id": "aco6ardKXMbnpf5ZJkmg"
   },
   {
@@ -742,6 +766,14 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/haeesmncfs3ruqc/PK_Brilliant_Diamond_%255Bv1.3.0%255D.xci/file",
     "id": "tn87X3vTvosQO1MdtzJY"
+  },
+  {
+    "img": "assets/covers/cover bdrds.png",
+    "link1": "https://www.mediafire.com/file/ykg0j5nwg84n5np/Borderlands_Game_Of_The_Year_Edition_%255Bv1.0.2%255D.xci/file",
+    "desc": "Peso: 17.31GB Update 1.0.2",
+    "nombre": "Borderlands: GAME OF THE YEAR EDITION",
+    "link2": "",
+    "id": "trDnmurLrD8xJvkPtngt"
   },
   {
     "link2": "",
