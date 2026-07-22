@@ -64,6 +64,14 @@
     "id": "3fKbdbzByiRbYVLFqUaa"
   },
   {
+    "link2": "",
+    "nombre": "Undertale",
+    "img": "https://art.gametdb.com/switch/box/US/APWSA.png?1557424051",
+    "desc": "Peso: 207.42MB Update 1.11",
+    "link1": "https://www.mediafire.com/folder/bp1px8e3un93y/Undertale",
+    "id": "3w6e0MutNNW1xSX4C7RR"
+  },
+  {
     "img": "https://art.gametdb.com/switch/box/US/AMPNA.png?1688586928",
     "link2": "",
     "nombre": "Pikmin 3",
@@ -118,6 +126,14 @@
     "link1": "https://www.mediafire.com/file/yc19vw1tdgl1uws/Yoshis+Crafted+World+[v1.0.1].xci/file",
     "desc": "Peso: 5.60GB Update 1.0.1",
     "id": "AoVlBR8PX9WqLWKMAbL5"
+  },
+  {
+    "desc": "Peso: 3.23GB Update 5.4.1",
+    "img": "https://art.gametdb.com/switch/box/US/ASVUG.png?1684370325",
+    "nombre": "Cuphead",
+    "link1": "https://www.mediafire.com/file/jh424rtfsl117tj/Cuphead+[v1.3.7+++DLC].xci/file",
+    "link2": "",
+    "id": "AveZoZizLuustFbsZuqp"
   },
   {
     "desc": "Peso: 11GB Update 1.53 + 10 DLCs",
@@ -526,6 +542,14 @@
     "nombre": "Terraria",
     "link1": "https://www.mediafire.com/file/ffc1l0gh2osomo6/Terraria+[v4.5.4].xci/file",
     "id": "b4d59V2mp380xuOnB8Af"
+  },
+  {
+    "desc": "Peso: 3.23GB Update 5.4.1",
+    "link1": "https://www.mediafire.com/file/ol28j7yl2i3q90u/ARMS_%255Bv5.4.1%255D.xci/file",
+    "img": "https://art.gametdb.com/switch/box/US/AABQA.png?1516992605",
+    "link2": "",
+    "nombre": "ARMS",
+    "id": "bMTwUDVOExj21ZJLVU6g"
   },
   {
     "nombre": "Resident Evil: Origins Collection HD 1 + 0",
