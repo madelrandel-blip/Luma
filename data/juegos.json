@@ -560,6 +560,14 @@
     "id": "XRGF8MTftpIcEButR3Oe"
   },
   {
+    "nombre": " Persona 4 Arena Ultimax",
+    "link2": "",
+    "desc": "Peso: 14.70GB Update 1.0.2",
+    "link1": "https://www.mediafire.com/file/e80m9x6svx6uzg1/Persona+4+Arena+ULTIMAX+[v1.0.2].xci/file",
+    "img": "assets/covers/cover p4au.png",
+    "id": "XUnVCEd8uHSq4Qi4uM6a"
+  },
+  {
     "desc": "Peso: 1.09GB",
     "link1": "https://www.mediafire.com/file/59967zop21ajw1h/Super+Kirby+Clash+[v1.0.1].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZqArO5ZDJxpT59NtzjPNVclvTqkKS7EJuzV",
@@ -766,6 +774,14 @@
     "desc": "Peso: 9.08GB Update 2.0.76 + 13 DLCs",
     "nombre": "DRAGON BALL: Sparking! ZERO",
     "id": "kazYfBtFlfoE24TRRgOW"
+  },
+  {
+    "nombre": "Persona 4 Golden",
+    "link1": "https://www.mediafire.com/file/ysaw0wlb05r7xxk/PERSONA4+The+GOLDEN+[v1.0.2].xci/file",
+    "link2": "",
+    "desc": "Peso: 9.11GB Update 1.0.2",
+    "img": "assets/covers/cover p4g.png",
+    "id": "koFrlNOtbeaQXmvqzE6N"
   },
   {
     "nombre": "Pokemon Scarlet",
