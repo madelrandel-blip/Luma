@@ -40,6 +40,14 @@
     "id": "1ss9WfaoUzLfXaDNjdNT"
   },
   {
+    "img": "https://art.gametdb.com/switch/box/US/AQA6A.png?1582713450",
+    "desc": "Peso: 2.37GB Update 1.0",
+    "link1": "https://www.mediafire.com/file/ss00ns04w4vk1sl/Hello+Neighbor+[v1.0].xci/file",
+    "nombre": "Hello Neighbor",
+    "link2": "",
+    "id": "1tGrV624pPq3N14GGKYL"
+  },
+  {
     "nombre": "Kirby's Return to Dream Land Deluxe",
     "img": "https://art.gametdb.com/switch/box/US/A2JYA.png?1677278053",
     "desc": "Peso: 5GB",
@@ -158,6 +166,14 @@
     "link2": "https://drive.google.com/file/d/1bsVzI2SSijU5nJIfbhOQSaldTNAF-rtj/view?usp=drivesdk",
     "link1": "https://www.mediafire.com/file/ar8i82mmyi4ayyr/Demon+Slayer+Kimetsu+no+Yaiba+The+Hinokami+Chronicles+[v1.53+++10+DLCs].xci/file",
     "id": "B95QZL8Iot726qpwruxC"
+  },
+  {
+    "nombre": "Hello Neighbor 2",
+    "link2": "",
+    "desc": "Peso: 5.33GB Update 1.1 + 3 DLCs",
+    "img": "assets/covers/cover hn2.png",
+    "link1": "https://www.mediafire.com/file/pbf6ped681b3bqw/Hello+Neighbor+2+[v1.1+++3+DLCs].xci/file",
+    "id": "BSxkNRN9nb0emwzJ9C3K"
   },
   {
     "link2": "",
@@ -334,6 +350,14 @@
     "link2": "https://u.pcloud.link/publink/show?code=XZay3E5Z9WU7xAtAYujrldyXOxo6WYSluJiX",
     "img": "https://madelrandel-blip.github.io/Luma/assets/covers/cover%20cfzr.png",
     "id": "IfePj8lEh9KWhQN6356k"
+  },
+  {
+    "nombre": "GUILTY GEAR STRIVE",
+    "link2": "",
+    "link1": "https://www.mediafire.com/file/5rl0l9y4lla6d0a/GUILTY+GEAR+STRIVE+[v1.08+++4+DLCs].xci/file",
+    "desc": "Peso: 5.39GB Update 1.08 + 4 DLCs",
+    "img": "assets/covers/cover ggs.png",
+    "id": "JHu79ELrFpmlFsiM20Cg"
   },
   {
     "nombre": "Super Mario Party Jamboree",
