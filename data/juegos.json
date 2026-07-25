@@ -904,14 +904,6 @@
     "id": "iLBChuJzvOE5vGtdz5Uu"
   },
   {
-    "link2": "",
-    "link1": "https://www.mediafire.com/file/p74cr1gaygwzex2/METAL+GEAR+SOLID+3+Snake+Eater+Master+Collection+Version+[v3.0.0+++DLC].xci/file",
-    "desc": "Peso: 18GB Update 3.0.0 + DLC",
-    "nombre": "METAL GEAR SOLID 3 Snake Eater Master Collection Version",
-    "img": "assets/covers/cover mgssec.png",
-    "id": "iXMlElbJAQjVEuiMVilO"
-  },
-  {
     "link1": "https://www.mediafire.com/file/032lfvbgusudrlw/Five+Nights+at+Freddy's+Into+the+Pit+[v1.0.4].xci/file",
     "desc": "Peso: 5GB Update 1.0.4",
     "nombre": "Five Nights at Freddy's Into the Pit",
@@ -966,14 +958,6 @@
     "desc": "Peso: 9.11GB Update 1.0.2",
     "img": "assets/covers/cover p4g.png",
     "id": "koFrlNOtbeaQXmvqzE6N"
-  },
-  {
-    "link1": "https://www.mediafire.com/file/5gm3rfy9e0a1440/METAL+GEAR+SOLID+2+Sons+of+Liberty+Master+Collection+Version+[v2.1.0+++DLC].xci/file",
-    "desc": "Peso: 12.4GB Update 2.1.0 + DLC",
-    "img": "assets/covers/cover mgssol.png",
-    "nombre": "METAL GEAR SOLID 2 Sons of Liberty Master Collection",
-    "link2": "",
-    "id": "lLVt2u64RsI3wnWLFIIM"
   },
   {
     "nombre": "Pokemon Scarlet",
@@ -1190,6 +1174,14 @@
     "link1": "https://www.mediafire.com/file/ajctzjlueppc9fj/Kirby+and+the+Forgotten+Land+[v1.1.0].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ43aO5ZCFUjkrwgM5LaYMDfIAyto7sFyuuX",
     "id": "xD6U9G0sEMvS55iDD6KE"
+  },
+  {
+    "link2": "",
+    "desc": "Peso: 1.31GB Update 1.0.0.14131",
+    "nombre": "Scott Pilgrim EX",
+    "img": "assets/covers/cover scex.png",
+    "link1": "https://www.mediafire.com/file/kvdp33zk5newziy/Scott+Pilgrim+EX+[v1.0.0.14131].xci/file",
+    "id": "xyGvzWnQ6gKiqTW0TqtS"
   },
   {
     "desc": "Peso: 345.53MB Update 1.0.5",
