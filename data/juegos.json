@@ -194,9 +194,9 @@
   {
     "nombre": "Metal Gear Solid - Master Collection Vol. 1",
     "desc": "Peso: 15.8GB Update 3.0.0 + 2 DLCs",
-    "link1": "https://www.mediafire.com/file/4pmrscl0dohana6/METAL+GEAR+SOLID+Master+Collection+Version+[v3.0.0+++2+DLCs].xci/file",
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/BCK6A.png?1728235155",
+    "link1": "https://www.mediafire.com/folder/1asqx4n8blrit/Luma_Storage",
     "id": "Ak38hSotVRu75YdjZrjm"
   },
   {
@@ -574,6 +574,14 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/9f7gzfunotpythc/Super_Mario_3D_World_%252B_Bowser%2527s_Fury_%255Bv1.2.2%255D.xci/file",
     "id": "SZOJVorliohrd2T1AFr8"
+  },
+  {
+    "link1": "https://www.mediafire.com/file/3zxdlrjcjac8eu2/MY+HERO+ONE'S+JUSTICE+[v1.0.3+++11+DLCs].xci/file",
+    "desc": "Peso: 3.49GB Update 1.0.3 + 11 DLCs",
+    "link2": "",
+    "img": "https://art.gametdb.com/switch/box/US/AL72B.png?1631740456",
+    "nombre": "My Hero One's Justice",
+    "id": "SdL3vhEusAGskYfkT8wi"
   },
   {
     "nombre": "Paper Mario: The Thousand-Year Door",
