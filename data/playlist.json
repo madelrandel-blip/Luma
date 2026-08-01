@@ -1,0 +1,52 @@
+[
+  {
+    "nombre": "Astral Observatory - Majora's Mask",
+    "src": "assets/music/Astral Observatory - The Legend of Zelda Majoras Mask.mp3",
+    "icono": "assets/album/the-legend-of-zelda-majorask-mask.png"
+  },
+  {
+    "nombre": "Malos Mart - Twilight Princess",
+    "src": "assets/music/Malos Mart - The Legend of Zelda Twilight Princess.mp3",
+    "icono": "assets/album/the-legend-of-zelda-twilight-princess.jpg"
+  },
+  {
+    "nombre": "Shop - Ocarina of Time",
+    "src": "assets/music/Shop - The Legend of Zelda Ocarina of Time.mp3",
+    "icono": "assets/album/the-legend-of-zelda-ocarina-of-time.png"
+  },
+  {
+    "nombre": "File Select - Mario Galaxy",
+    "src": "assets/music/File select.mp3",
+    "icono": "assets/album/mario-galaxy.webp"
+  },
+  {
+    "nombre": "The Forest of Hope - Pikmin",
+    "src": "assets/music/The Forest of Hope.mp3",
+    "icono": "assets/album/pikmin.png"
+  },
+  {
+    "nombre": "Gallery Theme - Luigis Mansion",
+    "src": "assets/music/Gallery Theme - Luigis Mansion.mp3",
+    "icono": "assets/album/luiguis-mansion.png"
+  },
+  {
+    "nombre": "Main Theme - Luigis Mansion",
+    "src": "assets/music/Main Theme - Luigis Mansion.mp3",
+    "icono": "assets/album/luiguis-mansion.png"
+  },
+  {
+    "nombre": "Phendrana Drifts - Metroid Prime",
+    "src": "assets/music/Phendrana Drifts - Metroid Prime.mp3",
+    "icono": "assets/album/metroid-prime.png"
+  },
+  {
+    "nombre": "Littleroot Town - Pokémon Emerald",
+    "src": "assets/music/Littleroot Town - Pokémon Emerald.mp3",
+    "icono": "assets/album/pokemon-esmerald.png"
+  },
+  {
+    "nombre": "Route 101 - Pokémon Emerald",
+    "src": "assets/music/Route 101 - Pokémon Emerald.mp3",
+    "icono": "assets/album/pokemon-esmerald.png"
+  }
+]

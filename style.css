@@ -228,46 +228,194 @@ header {
 .music-control {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     height: auto;
-    padding: 0px 10px 0px 0px;
-    border-radius: 14px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    width: auto;
-    max-width: max-content;
+    padding: 0 4px;
     flex-shrink: 0;
-    background: linear-gradient(180deg, rgba(10, 18, 38, 0.78) 0%, rgba(7, 12, 28, 0.72) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.10);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 0 14px rgba(0, 0, 0, 0.12);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    position: relative;
 }
 
-.music-btn {
+/* Submenú de playlist: aparece bajo el disco al hacer clic */
+.music-playlist {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 240px;
+    max-width: calc(100vw - 16px);
+    max-height: 260px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    background: rgba(10, 15, 30, 0.97);
+    border: 1px solid rgba(125, 211, 252, 0.20);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(125, 211, 252, 0.10);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+
+.music-playlist.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.music-playlist .playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    transition: all 0.18s ease;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.music-playlist .playlist-item img {
+    width: 31px;
+    height: 31px;
+    min-width: 31px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid rgba(125, 211, 252, 0.20);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.music-playlist .playlist-item:hover {
+    background: rgba(125, 211, 252, 0.12);
+    border-color: rgba(125, 211, 252, 0.25);
+}
+
+.music-playlist .playlist-item.active {
+    background: rgba(125, 211, 252, 0.16);
+    border-color: rgba(125, 211, 252, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.10);
+}
+
+/* Barra de scroll del submenú */
+.music-playlist::-webkit-scrollbar {
+    width: 6px;
+}
+
+.music-playlist::-webkit-scrollbar-thumb {
+    background: rgba(125, 211, 252, 0.30);
+    border-radius: 3px;
+}
+
+/* Icono giratorio de la canción actual */
+.music-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(125, 211, 252, 0.28);
+    box-shadow: 0 0 8px rgba(125, 211, 252, 0.15);
+    animation: girar 6s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-icon.playing {
+    animation-play-state: running;
+}
+
+/* Nombre de la canción */
+.music-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 110px;
+    min-width: 110px;
+    max-width: 110px;
+    line-height: 1;
+    user-select: none;
+}
+
+.music-title-inner {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+/* Cuando el nombre no cabe, se desliza (marquee) solo mientras el disco gira */
+.music-title.scrolling {
+    text-align: left;
+}
+
+.music-title.scrolling .music-title-inner {
+    animation: marquee 9s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-icon.playing ~ .music-title.scrolling .music-title-inner {
+    animation-play-state: running;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    20%  { transform: translateX(0); }
+    50%  { transform: translateX(calc(-1 * var(--scroll-dist, 80px))); }
+    70%  { transform: translateX(calc(-1 * var(--scroll-dist, 80px))); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Botones del reproductor (anterior / play / siguiente) - estilo emuladores */
+.header-btn .music-control .music-btn,
+.header-btn .music-control .skip-btn {
     all: unset;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 106px;
-    min-width: 106px;
-    max-width: 106px;
-    height: 34px;
-    border-radius: 12px;
+    width: 38px;
+    min-width: 38px;
+    height: 36px;
+    border-radius: 10px;
     cursor: pointer;
     color: white;
     font-size: 13px;
-    font-weight: 700;
-    white-space: nowrap;
+    font-weight: bold;
     line-height: 1;
-    background: linear-gradient(180deg, rgba(110, 231, 255, 0.20) 0%, rgba(167, 139, 250, 0.18) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.16);
-    box-shadow: 0 4px 14px rgba(125, 211, 252, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    white-space: nowrap;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(110, 231, 255, 0.16) 0%, rgba(167, 139, 250, 0.12) 100%);
+    border: 1px solid rgba(125, 211, 252, 0.14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 12px rgba(0, 0, 0, 0.18);
     transition: all 0.25s ease;
 }
 
-.music-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(125, 211, 252, 0.24), 0 0 14px rgba(167, 139, 250, 0.14);
+.header-btn .music-control .music-btn:hover,
+.header-btn .music-control .skip-btn:hover {
+    background: linear-gradient(180deg, rgba(125, 211, 252, 0.26) 0%, rgba(167, 139, 250, 0.22) 100%);
+    border: 1px solid rgba(125, 211, 252, 0.28);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 0 16px rgba(125, 211, 252, 0.14), 0 0 28px rgba(167, 139, 250, 0.10);
 }
 
 .volume-control {
@@ -280,53 +428,106 @@ header {
 }
 
 .volume-icon {
-    font-size: 13px;
-    color: white;
-    opacity: 0.92;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 12px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
+    color: rgba(224, 242, 255, 0.85);
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.volume-icon .vol-on,
+.volume-icon .vol-off {
+    transition: opacity 0.2s ease;
+}
+
+.volume-icon .vol-off {
+    opacity: 0;
+}
+
+.volume-icon:hover {
+    color: #8bd8ff;
+    transform: scale(1.1);
+}
+
+.volume-icon.muted {
+    color: rgba(255, 255, 255, 0.38);
+}
+
+.volume-icon.muted .vol-on {
+    opacity: 0;
+}
+
+.volume-icon.muted .vol-off {
+    opacity: 1;
 }
 
 #volumeSlider {
     -webkit-appearance: none;
     appearance: none;
-    width: 54px;
-    min-width: 54px;
-    max-width: 54px;
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
     height: 4px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.10);
     outline: none;
     cursor: pointer;
-    transition: 0.25s;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+    transition: box-shadow 0.2s ease;
 }
 
 #volumeSlider:hover {
-    background: rgba(255, 255, 255, 0.26);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35), 0 0 8px rgba(125, 211, 252, 0.15);
 }
 
 #volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #8bd8ff, #a78bfa);
-    box-shadow: 0 0 10px rgba(125, 211, 252, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    background: linear-gradient(180deg, #ffffff, #e8f6ff);
+    border: 1px solid rgba(125, 211, 252, 0.60);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.40);
     cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+#volumeSlider::-webkit-slider-thumb:hover,
+#volumeSlider::-webkit-slider-thumb:active {
+    transform: scale(1.2);
+}
+
+#volumeSlider::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+#volumeSlider::-moz-range-progress {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(125, 211, 252, 0.55), rgba(167, 139, 250, 0.55));
 }
 
 #volumeSlider::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-    border: none;
+    width: 13px;
+    height: 13px;
+    border: 1px solid rgba(125, 211, 252, 0.60);
     border-radius: 50%;
-    background: linear-gradient(135deg, #8bd8ff, #a78bfa);
-    box-shadow: 0 0 10px rgba(125, 211, 252, 0.35);
+    background: linear-gradient(180deg, #ffffff, #e8f6ff);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.40);
     cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+#volumeSlider::-moz-range-thumb:hover,
+#volumeSlider::-moz-range-thumb:active {
+    transform: scale(1.2);
 }
 
 /* ==========================================================================
@@ -905,13 +1106,111 @@ header {
         padding: 12px !important;
     }
 
-    /* Control de música adaptable */
-    .music-control {
+    /* Header móvil: reproductor arriba y botones en cuadrícula 2x2
+       con el perfil superpuesto al centro */
+    .header-btn {
+        position: relative !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, auto) !important;
+        grid-template-rows: auto auto auto !important;
+        gap: 10px !important;
         width: 100% !important;
-        max-width: 320px !important;
-        justify-content: space-between !important;
-        padding: 6px 12px !important;
-        box-sizing: border-box !important;
+        max-width: 420px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        justify-content: center !important;
+        overflow: visible !important;
+        align-items: center !important;
+        justify-items: center !important;
+        padding: 14px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border-radius: 16px !important;
+    }
+
+    .header-btn .music-control {
+        order: 1 !important;
+        grid-row: 1 !important;
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        max-width: none !important;
+        justify-content: center !important;
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        row-gap: 0 !important;
+    }
+
+    .header-btn .music-title {
+        order: 0 !important;
+        flex: 1 1 auto !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        text-align: center !important;
+        padding: 0 !important;
+    }
+
+    .header-btn > button:not(.admin-profile-btn):not(#logoutBtn) {
+        order: 3 !important;
+        width: auto !important;
+        min-width: 80px !important;
+        height: 42px !important;
+        font-size: 13px !important;
+        justify-self: center !important;
+        align-self: center !important;
+    }
+
+    /* Botones en cuadrícula 2x2 */
+    .header-btn > button:nth-child(2) { grid-row: 2 !important; grid-column: 1 !important; margin-right: 4% !important; }
+    .header-btn > button:nth-child(3) { grid-row: 2 !important; grid-column: 2 !important; margin-left: 4% !important; }
+    .header-btn > button:nth-child(4) { grid-row: 3 !important; grid-column: 1 !important; }
+    .header-btn > button:nth-child(5) { grid-row: 3 !important; grid-column: 2 !important; }
+
+    /* Perfil superpuesto al centro de la cuadrícula 2x2 */
+    .header-btn .admin-profile-btn {
+        order: 2 !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-42%, -16.5%) !important;
+        justify-self: center !important;
+        align-self: center !important;
+        width: auto !important;
+        min-width: 64px !important;
+        height: auto !important;
+        border-radius: 14px !important;
+        padding: 8px 14px !important;
+        flex-direction: column !important;
+        gap: 4px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(125, 211, 252, 0.20) !important;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 12px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .header-btn .admin-profile-btn:hover {
+        transform: translate(-42%, -16.5%) scale(1.05) !important;
+    }
+
+    .header-btn .admin-profile-btn img {
+        width: 60px !important;
+        height: 60px !important;
+        margin-bottom: 0 !important;
+        border: 2px solid rgba(125, 211, 252, 0.40) !important;
+        box-shadow: 0 0 14px rgba(125, 211, 252, 0.30) !important;
+    }
+
+    .header-btn .admin-profile-btn span {
+        display: block !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: white !important;
+        line-height: 1 !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    #logoutBtn {
+        order: 4 !important;
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
     }
 
     #volumeSlider {
@@ -932,27 +1231,6 @@ header {
 
     .logo img {
         height: 26px !important;
-    }
-
-    /* En celulares, hacemos que los botones ocupen espacio equitativo */
-    .header-btn button:not(.admin-profile-btn) {
-        flex: 1 1 120px !important;
-        height: 40px !important;
-        font-size: 12px !important;
-    }
-
-    .admin-profile-btn {
-        width: 100% !important;
-        min-width: 100% !important;
-        flex-direction: row !important;
-        height: 48px !important;
-        gap: 8px !important;
-    }
-
-    .admin-profile-btn img {
-        width: 32px !important;
-        height: 32px !important;
-        margin-bottom: 0 !important;
     }
 
     /* Forzar que las ventanas modales de login/recursos queden legibles en celular */

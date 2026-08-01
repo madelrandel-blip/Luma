@@ -87,6 +87,14 @@ function playDonationClick() {
     donationSound.play().catch(() => {});
 }
 
+const musicIcon = document.getElementById("musicIcon");
+const volumeIcon = document.getElementById("volumeIcon");
+const musicPlaylist = document.getElementById("musicPlaylist");
+
+let playlist = [];
+let trackIndex = 0;
+let sonidoMuteado = false;
+
 if(bgMusic){
     bgMusic.volume = 0.05;
 
@@ -97,12 +105,45 @@ if(bgMusic){
 
         if(volumeSlider){
             volumeSlider.value = bgMusic.volume * 100;
+            actualizarVolumenUI();
         }
 
         if(musicBtn){
-            musicBtn.innerHTML = "▶ Play";
+            musicBtn.innerHTML = "▶";
         }
+
+        cargarPlaylist();
     });
+
+    // Al terminar una canción, pasa a la siguiente
+    bgMusic.addEventListener("ended", () => {
+        nextTrack(false);
+    });
+}
+
+function actualizarVolumenUI(){
+    if(!volumeSlider) return;
+
+    const pct = sonidoMuteado ? 0 : volumeSlider.value;
+
+    volumeSlider.style.background =
+        `linear-gradient(90deg, rgba(125, 211, 252, 0.55) ${pct}%, rgba(255, 255, 255, 0.10) ${pct}%)`;
+
+    if(volumeIcon){
+        volumeIcon.classList.toggle("muted", sonidoMuteado || Number(volumeSlider.value) === 0);
+    }
+}
+
+function alternarMute(){
+    playClick();
+
+    if(!bgMusic) return;
+
+    sonidoMuteado = !sonidoMuteado;
+
+    bgMusic.muted = sonidoMuteado;
+
+    actualizarVolumenUI();
 }
 
 if(volumeSlider){
@@ -111,8 +152,226 @@ if(volumeSlider){
 
         if(bgMusic.volume > 0){
             bgMusic.muted = false;
+            sonidoMuteado = false;
         }
+
+        actualizarVolumenUI();
     });
+}
+
+/* ========= PLAYLIST ========= */
+async function cargarPlaylist(){
+    try{
+        const respuesta = await fetch("data/playlist.json", { cache: "no-store" });
+
+        if(!respuesta.ok) throw new Error("No se pudo cargar la playlist");
+
+        const datos = await respuesta.json();
+
+        playlist = Array.isArray(datos) ? datos : [];
+
+        if(playlist.length > 0){
+            const aleatorio = Math.floor(Math.random() * playlist.length);
+            trackIndex = aleatorio;
+            bgMusic.src = playlist[aleatorio].src;
+        }
+
+        actualizarIcono();
+
+        construirPlaylist();
+
+    }catch(error){
+        console.error("Error cargando playlist:", error);
+    }
+}
+
+/* ========= SUBMENÚ DE PLAYLIST ========= */
+function construirPlaylist(){
+    if(!musicPlaylist) return;
+
+    musicPlaylist.innerHTML = "";
+
+    playlist.forEach((cancion, indice) => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "playlist-item";
+        item.dataset.indice = indice;
+
+        const img = document.createElement("img");
+        img.src = cancion.icono || "assets/images/Luma icon.webp";
+        img.alt = cancion.nombre || "Canción";
+
+        const nombre = document.createElement("span");
+        nombre.textContent = cancion.nombre || "Sin nombre";
+
+        item.appendChild(img);
+        item.appendChild(nombre);
+
+        item.addEventListener("click", () => {
+            playClick();
+            reproducirTrack(indice);
+            cerrarPlaylist();
+        });
+
+        musicPlaylist.appendChild(item);
+    });
+
+    marcarActiva();
+}
+
+function marcarActiva(){
+    if(!musicPlaylist) return;
+
+    Array.from(musicPlaylist.children).forEach((item) => {
+        item.classList.toggle("active", Number(item.dataset.indice) === trackIndex);
+    });
+}
+
+function togglePlaylist(){
+    if(!musicPlaylist) return;
+
+    playClick();
+
+    if(musicPlaylist.classList.contains("open")){
+        cerrarPlaylist();
+    }else{
+        marcarActiva();
+        posicionarPlaylist();
+        musicPlaylist.classList.add("open");
+    }
+}
+
+function cerrarPlaylist(){
+    if(musicPlaylist) musicPlaylist.classList.remove("open");
+}
+
+function posicionarPlaylist(){
+    if(!musicIcon || !musicPlaylist) return;
+
+    const reproductor = document.querySelector(".music-control");
+    const rect = reproductor ? reproductor.getBoundingClientRect() : musicIcon.getBoundingClientRect();
+    const menuWidth = 240;
+    const margen = 8;
+
+    let left = rect.left;
+    if(left + menuWidth > window.innerWidth - margen){
+        left = window.innerWidth - menuWidth - margen;
+    }
+    if(left < margen) left = margen;
+
+    musicPlaylist.style.left = left + "px";
+    musicPlaylist.style.top = (rect.bottom + 10) + "px";
+}
+
+if(musicIcon){
+    musicIcon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        togglePlaylist();
+    });
+}
+
+if(musicPlaylist){
+    musicPlaylist.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+
+    document.addEventListener("click", () => {
+        cerrarPlaylist();
+    });
+
+    window.addEventListener("scroll", (e) => {
+        if(musicPlaylist && e.target && musicPlaylist.contains(e.target)) return;
+        cerrarPlaylist();
+    }, true);
+
+    window.addEventListener("resize", () => {
+        cerrarPlaylist();
+    });
+}
+
+function reproducirTrack(indice){
+    if(!bgMusic || playlist.length === 0) return;
+
+    if(indice < 0) indice = playlist.length - 1;
+    if(indice >= playlist.length) indice = 0;
+
+    trackIndex = indice;
+
+    const cancion = playlist[trackIndex];
+
+    bgMusic.src = cancion.src;
+
+    bgMusic.muted = false;
+
+    bgMusic.play().then(() => {
+        if(musicBtn) musicBtn.innerHTML = "⏸";
+        if(musicIcon) musicIcon.classList.add("playing");
+    }).catch(error => {
+        console.log("Autoplay bloqueado:", error);
+    });
+
+    actualizarIcono();
+}
+
+function reproducirMusica(){
+    if(!bgMusic || playlist.length === 0) return;
+
+    bgMusic.muted = false;
+
+    bgMusic.play().then(() => {
+        if(musicBtn) musicBtn.innerHTML = "⏸";
+        if(musicIcon) musicIcon.classList.add("playing");
+    }).catch(error => {
+        console.log("Autoplay bloqueado:", error);
+    });
+}
+
+function pausarMusica(){
+    if(!bgMusic) return;
+
+    bgMusic.pause();
+
+    if(musicBtn) musicBtn.innerHTML = "▶";
+    if(musicIcon) musicIcon.classList.remove("playing");
+}
+
+function actualizarIcono(){
+    if(playlist.length === 0) return;
+
+    const cancion = playlist[trackIndex];
+
+    if(musicIcon){
+        musicIcon.src = cancion.icono || "assets/images/Luma icon.webp";
+        musicIcon.title = cancion.nombre || "Luma Switch";
+    }
+
+    const musicTitle = document.getElementById("musicTitle");
+    const musicTitleInner = document.getElementById("musicTitleInner");
+
+    if(musicTitle){
+        const nombre = cancion.nombre || "Luma Switch";
+
+        if(musicTitleInner){
+            musicTitleInner.textContent = nombre;
+        }else{
+            musicTitle.textContent = nombre;
+        }
+
+        musicTitle.title = nombre;
+
+        musicTitle.classList.remove("scrolling");
+        void musicTitle.offsetWidth;
+
+        if(musicTitle.scrollWidth > musicTitle.clientWidth){
+            musicTitle.style.setProperty(
+                "--scroll-dist",
+                (musicTitle.scrollWidth - musicTitle.clientWidth) + "px"
+            );
+            musicTitle.classList.add("scrolling");
+        }
+    }
+
+    marcarActiva();
 }
 
 function toggleMusic(){
@@ -121,21 +380,26 @@ function toggleMusic(){
     if(!bgMusic) return;
 
     if(bgMusic.paused){
-        bgMusic.muted = false;
-
-        bgMusic.play().then(() => {
-            if(musicBtn) musicBtn.innerHTML = "⏸ Pausa";
-        }).catch(error => {
-            console.log("Autoplay bloqueado:", error);
-        });
-
+        reproducirMusica();
     }else{
-        bgMusic.pause();
-
-        if(musicBtn){
-            musicBtn.innerHTML = "▶ Play";
-        }
+        pausarMusica();
     }
+}
+
+function nextTrack(conClick = true){
+    if(conClick) playClick();
+
+    if(playlist.length === 0) return;
+
+    reproducirTrack(trackIndex + 1);
+}
+
+function prevTrack(){
+    playClick();
+
+    if(playlist.length === 0) return;
+
+    reproducirTrack(trackIndex - 1);
 }
 
 /* ========= BIENVENIDA ========= */
@@ -143,13 +407,7 @@ function aceptarBienvenida(){
     const pantalla = document.getElementById("welcomeScreen");
 
     if(bgMusic){
-        bgMusic.muted = false;
-
-        bgMusic.play().then(() => {
-            if(musicBtn) musicBtn.innerHTML = "⏸ Pausa";
-        }).catch(error => {
-            console.log("Reproducción bloqueada:", error);
-        });
+        reproducirMusica();
     }
 
     if(pantalla){
