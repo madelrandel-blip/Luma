@@ -28,6 +28,7 @@ const musicBtn = document.getElementById("musicBtn");
 const clickSound = document.getElementById("clickSound");
 const adminSound = document.getElementById("adminSound");
 const discordSound = document.getElementById("discordSound");
+const loadingSound = document.getElementById("loadingSound");
 const volumeSlider = document.getElementById("volumeSlider");
 const donationSound = document.getElementById("donationSound");
 
@@ -522,6 +523,18 @@ function abrirLink(link){
 let descargaController = null;
 let descargaIntervalo = null;
 
+function playLoadingSound(){
+    if(!loadingSound) return;
+    loadingSound.currentTime = 0;
+    loadingSound.play().catch(() => {});
+}
+
+function stopLoadingSound(){
+    if(!loadingSound) return;
+    loadingSound.pause();
+    loadingSound.currentTime = 0;
+}
+
 function descargarMediafire(link){
     const box = document.getElementById("descargaBox");
     const barra = document.getElementById("descargaProgress");
@@ -532,6 +545,8 @@ function descargarMediafire(link){
     box.style.display = "flex";
     barra.style.width = "0%";
     estado.textContent = "Preparando el enlace...";
+
+    playLoadingSound();
 
     // Limpiar cualquier descarga previa
     if(descargaController) descargaController.abort();
@@ -551,6 +566,7 @@ function descargarMediafire(link){
     }, 120);
 
     const terminar = (exito, mensaje) => {
+        stopLoadingSound();
         clearInterval(descargaIntervalo);
         descargaIntervalo = null;
         descargaController = null;
@@ -631,6 +647,8 @@ function iniciarDescarga(directa){
 }
 
 function cerrarDescarga(){
+    stopLoadingSound();
+
     if(descargaController) descargaController.abort();
     descargaController = null;
     if(descargaIntervalo) clearInterval(descargaIntervalo);
