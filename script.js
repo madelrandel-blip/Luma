@@ -800,7 +800,12 @@ if(canvas){
     const ctx = canvas.getContext("2d");
 
     let stars = [];
-    let numStars = 80;
+    let frameId = null;
+    let ultimoTiempo = 0;
+    const fps = 30;
+    const intervalo = 1000 / fps;
+    const esMovil = window.matchMedia("(max-width: 768px)").matches;
+    const numStars = esMovil ? 30 : 80;
 
     function resize(){
         canvas.width = window.innerWidth;
@@ -820,7 +825,12 @@ if(canvas){
         }
     }
 
-    function draw(){
+    function dibujar(tiempo){
+        frameId = requestAnimationFrame(dibujar);
+
+        if(tiempo - ultimoTiempo < intervalo) return;
+        ultimoTiempo = tiempo;
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "white";
 
@@ -836,17 +846,25 @@ if(canvas){
                 s.x = Math.random() * canvas.width;
             }
         }
-
-        requestAnimationFrame(draw);
     }
 
     resize();
     initStars();
-    draw();
+    dibujar(0);
 
     window.addEventListener("resize", () => {
         resize();
         initStars();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+        if(document.hidden && frameId){
+            cancelAnimationFrame(frameId);
+            frameId = null;
+        }else if(!document.hidden && !frameId){
+            ultimoTiempo = 0;
+            dibujar(performance.now());
+        }
     });
 }
 

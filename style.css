@@ -256,8 +256,6 @@ header {
     border: 1px solid rgba(125, 211, 252, 0.20);
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(125, 211, 252, 0.10);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-6px);
@@ -335,6 +333,7 @@ header {
 
 .music-icon.playing {
     animation-play-state: running;
+    will-change: transform;
 }
 
 /* Nombre de la canción */
@@ -1146,6 +1145,8 @@ header {
         padding: 14px !important;
         background: rgba(255, 255, 255, 0.03) !important;
         border-radius: 16px !important;
+        backdrop-filter: blur(4px) !important;
+        -webkit-backdrop-filter: blur(4px) !important;
     }
 
     .header-btn .music-control {
