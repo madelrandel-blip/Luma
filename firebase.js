@@ -183,11 +183,11 @@ window.cargarEmuladores = async () => {
                     <p>${e.desc}</p>
 
                     <div class="btns" style="opacity:1; transform:none;">
-                        <button class="btn blue" onclick="playClick();abrirLink('${e.link1}')">
+                        <button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(e.link1)}')">
                             Descargar
                         </button>
 
-                        <button class="btn green" onclick="playClick();abrirLink('${e.link2}')">
+                        <button class="btn green" onclick="playClick();abrirLink('${escapeComillas(e.link2)}')">
                             Tutorial
                         </button>
                     </div>
@@ -238,11 +238,11 @@ window.cargarRecursos = async () => {
                     <p>${r.desc || 'Sin descripción'}</p>
 
                     <div class="btns" style="opacity:1; transform:none;">
-                        <button class="btn blue" onclick="playClick();abrirLink('${r.link1 || ''}')">
+                        <button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(r.link1)}')">
                             Descargar
                         </button>
 
-                        <button class="btn green" onclick="playClick();abrirLink('${r.link2 || ''}')">
+                        <button class="btn green" onclick="playClick();abrirLink('${escapeComillas(r.link2)}')">
                             Tutorial
                         </button>
                     </div>
