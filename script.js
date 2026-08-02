@@ -490,17 +490,23 @@ function abrirDiscord(){
 
 /* ========= BUSCADOR ========= */
 if(buscador){
+    let temporizadorBusqueda = null;
+
     buscador.addEventListener("input", () => {
-        const texto = buscador.value.toLowerCase();
+        clearTimeout(temporizadorBusqueda);
 
-        paginaActual = 1;
+        temporizadorBusqueda = setTimeout(() => {
+            const texto = buscador.value.toLowerCase();
 
-        render(
-            juegosData.filter(j =>
-                j.nombre.toLowerCase().includes(texto) ||
-                j.desc.toLowerCase().includes(texto)
-            )
-        );
+            paginaActual = 1;
+
+            render(
+                juegosData.filter(j =>
+                    j.nombre.toLowerCase().includes(texto) ||
+                    j.desc.toLowerCase().includes(texto)
+                )
+            );
+        }, 200);
     });
 }
 

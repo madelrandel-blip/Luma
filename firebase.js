@@ -73,7 +73,7 @@ window.logout = async () => {
 // arreglo vacío para que quien llama decida el respaldo.
 async function cargarJsonEstatico(ruta){
     try{
-        const respuesta = await fetch(ruta, { cache: "no-store" });
+        const respuesta = await fetch(ruta, { cache: "force-cache" });
 
         if(!respuesta.ok) return [];
 
@@ -177,7 +177,7 @@ window.cargarEmuladores = async () => {
         lista.forEach(e => {
             html += `
             <div class="card">
-                <img src="${e.img}">
+                <img src="${e.img}" loading="lazy" decoding="async" alt="${e.nombre}">
                 <div class="content">
                     <h3>${e.nombre}</h3>
                     <p>${e.desc}</p>
@@ -232,7 +232,7 @@ window.cargarRecursos = async () => {
         lista.forEach(r => {
             html += `
             <div class="card">
-                <img src="${r.img || ''}">
+                <img src="${r.img || ''}" loading="lazy" decoding="async" alt="${r.nombre || 'Sin nombre'}">
                 <div class="content">
                     <h3>${r.nombre || 'Sin nombre'}</h3>
                     <p>${r.desc || 'Sin descripción'}</p>
