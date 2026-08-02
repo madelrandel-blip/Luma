@@ -538,9 +538,32 @@ function abrirLink(link){
 
 let descargaController = null;
 let descargaIntervalo = null;
+let mutePrevioDescarga = null;
+
+function silenciarMusicaDuranteDescarga(){
+    if(!bgMusic || mutePrevioDescarga) return;
+
+    mutePrevioDescarga = {
+        muted: bgMusic.muted,
+        sonidoMuteado: sonidoMuteado
+    };
+
+    bgMusic.muted = true;
+}
+
+function restaurarMusicaDespuesDescarga(){
+    if(!bgMusic || !mutePrevioDescarga) return;
+
+    bgMusic.muted = mutePrevioDescarga.muted;
+    sonidoMuteado = mutePrevioDescarga.sonidoMuteado;
+    mutePrevioDescarga = null;
+
+    actualizarVolumenUI();
+}
 
 function playLoadingSound(){
     if(!loadingSound) return;
+    loadingSound.volume = 0.8;
     loadingSound.currentTime = 0;
     loadingSound.play().catch(() => {});
 }
@@ -564,6 +587,8 @@ function descargarMediafire(link){
 
     playLoadingSound();
 
+    silenciarMusicaDuranteDescarga();
+
     // Limpiar cualquier descarga previa
     if(descargaController) descargaController.abort();
     descargaController = new AbortController();
@@ -583,6 +608,7 @@ function descargarMediafire(link){
 
     const terminar = (exito, mensaje) => {
         stopLoadingSound();
+        restaurarMusicaDespuesDescarga();
         clearInterval(descargaIntervalo);
         descargaIntervalo = null;
         descargaController = null;
@@ -664,6 +690,7 @@ function iniciarDescarga(directa){
 
 function cerrarDescarga(){
     stopLoadingSound();
+    restaurarMusicaDespuesDescarga();
 
     if(descargaController) descargaController.abort();
     descargaController = null;
