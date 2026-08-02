@@ -261,7 +261,17 @@ function posicionarPlaylist(){
     if(left < margen) left = margen;
 
     musicPlaylist.style.left = left + "px";
-    musicPlaylist.style.top = (rect.bottom + 10) + "px";
+
+    const esMovil = window.innerWidth <= 768;
+
+    if(esMovil){
+        // La barra está abajo: el menú se abre hacia arriba
+        musicPlaylist.style.top = "auto";
+        musicPlaylist.style.bottom = (window.innerHeight - rect.top + 10) + "px";
+    }else{
+        musicPlaylist.style.top = (rect.bottom + 10) + "px";
+        musicPlaylist.style.bottom = "auto";
+    }
 }
 
 if(musicIcon){

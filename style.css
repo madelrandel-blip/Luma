@@ -1119,6 +1119,19 @@ header {
 }
 
 @media (max-width: 768px) {
+    /* Sin blur en el header móvil para que la barra flotante del
+       reproductor pueda anclarse a la pantalla (position: fixed) */
+    header {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        z-index: auto !important;
+    }
+
+    /* Espacio abajo para no tapar el contenido con la barra flotante */
+    body {
+        padding-bottom: 90px !important;
+    }
+
     /*Ajustes para que las tarjetas de la tienda no se rompan en tablets */
     .store {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
@@ -1126,14 +1139,14 @@ header {
         padding: 12px !important;
     }
 
-    /* Header móvil: reproductor arriba y botones en cuadrícula 2x2
-       con el perfil superpuesto al centro */
+    /* Header móvil: botones 2x2 con el perfil al lado en su tamaño original
+       (el reproductor es una barra flotante abajo) */
     .header-btn {
         position: relative !important;
         display: grid !important;
-        grid-template-columns: repeat(2, auto) !important;
+        grid-template-columns: auto auto auto !important;
         grid-template-rows: auto auto auto !important;
-        gap: 10px !important;
+        gap: 6.8px 5.8px !important;
         width: 100% !important;
         max-width: 420px !important;
         margin-left: auto !important;
@@ -1142,24 +1155,37 @@ header {
         overflow: visible !important;
         align-items: center !important;
         justify-items: center !important;
-        padding: 14px !important;
+        padding: 10.5px 8.7px !important;
         background: rgba(255, 255, 255, 0.03) !important;
         border-radius: 16px !important;
-        backdrop-filter: blur(4px) !important;
-        -webkit-backdrop-filter: blur(4px) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 
+    /* Reproductor flotante en la parte inferior (Android) */
     .header-btn .music-control {
         order: 1 !important;
-        grid-row: 1 !important;
-        grid-column: 1 / -1 !important;
-        width: 100% !important;
+        position: fixed !important;
+        left: 12px !important;
+        right: 12px !important;
+        bottom: 12px !important;
+        top: auto !important;
+        z-index: 2000 !important;
+        width: auto !important;
         max-width: none !important;
+        min-width: 0 !important;
+        margin: 0 auto !important;
         justify-content: center !important;
+        align-items: center !important;
         flex-wrap: nowrap !important;
-        gap: 8px !important;
-        padding: 0 !important;
-        row-gap: 0 !important;
+        gap: 10px !important;
+        padding: 10px 14px !important;
+        background: rgba(10, 15, 30, 0.92) !important;
+        border: 1px solid rgba(125, 211, 252, 0.20) !important;
+        border-radius: 18px !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
     }
 
     .header-btn .music-title {
@@ -1173,29 +1199,33 @@ header {
 
     .header-btn > button:not(.admin-profile-btn):not(#logoutBtn) {
         order: 3 !important;
-        width: auto !important;
-        min-width: 80px !important;
+        width: 112px !important;
+        min-width: 112px !important;
+        max-width: none !important;
         height: 42px !important;
         font-size: 13px !important;
+        padding: 6px 8px !important;
         justify-self: center !important;
         align-self: center !important;
     }
 
     /* Botones en cuadrícula 2x2 */
-    .header-btn > button:nth-child(2) { grid-row: 2 !important; grid-column: 1 !important; margin-right: 4% !important; }
-    .header-btn > button:nth-child(3) { grid-row: 2 !important; grid-column: 2 !important; margin-left: 4% !important; }
-    .header-btn > button:nth-child(4) { grid-row: 3 !important; grid-column: 1 !important; }
-    .header-btn > button:nth-child(5) { grid-row: 3 !important; grid-column: 2 !important; }
+    .header-btn > button:nth-child(2) { grid-row: 1 !important; grid-column: 1 !important; }
+    .header-btn > button:nth-child(3) { grid-row: 1 !important; grid-column: 2 !important; }
+    .header-btn > button:nth-child(4) { grid-row: 2 !important; grid-column: 1 !important; }
+    .header-btn > button:nth-child(5) { grid-row: 2 !important; grid-column: 2 !important; }
 
-    /* Perfil superpuesto al centro de la cuadrícula 2x2 */
+    /* Perfil al lado de la 2x2, tamaño original (60px) */
     .header-btn .admin-profile-btn {
         order: 2 !important;
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-42%, -16.5%) !important;
+        grid-row: 1 / span 2 !important;
+        grid-column: 3 !important;
         justify-self: center !important;
         align-self: center !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
         width: auto !important;
         min-width: 64px !important;
         height: auto !important;
@@ -1209,7 +1239,7 @@ header {
     }
 
     .header-btn .admin-profile-btn:hover {
-        transform: translate(-42%, -16.5%) scale(1.05) !important;
+        transform: scale(1.05) !important;
     }
 
     .header-btn .admin-profile-btn img {
@@ -1231,6 +1261,7 @@ header {
 
     #logoutBtn {
         order: 4 !important;
+        grid-row: 3 !important;
         grid-column: 1 / -1 !important;
         width: 100% !important;
     }
