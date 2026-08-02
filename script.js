@@ -505,11 +505,119 @@ if(buscador){
 
 /* ========= LINKS ========= */
 function abrirLink(link){
-    if(link && link.trim() !== ""){
-        window.open(link, "_blank");
-    }else{
+    if(!link || link.trim() === ""){
         alert("No hay enlace disponible");
+        return;
     }
+
+    // Enlaces de archivo de MediaFire: descarga directa sin abrir pestaña
+    if(/mediafire\.com\/file\//.test(link)){
+        descargarMediafire(link);
+        return;
+    }
+
+    window.open(link, "_blank");
+}
+
+function descargarMediafire(link){
+    const box = document.getElementById("descargaBox");
+    const barra = document.getElementById("descargaProgress");
+    const estado = document.getElementById("descargaEstado");
+
+    if(!box || !barra || !estado) return;
+
+    box.style.display = "flex";
+    barra.style.width = "0%";
+    estado.textContent = "Preparando el enlace...";
+
+    const quickkey = (link.match(/mediafire\.com\/file\/([^\/]+)\//) || [])[1];
+
+    let progreso = 0;
+
+    const intervalo = setInterval(() => {
+        if(progreso < 90){
+            progreso += Math.random() * 12 + 3;
+            if(progreso > 90) progreso = 90;
+            barra.style.width = progreso + "%";
+        }
+    }, 120);
+
+    const terminar = (exito, mensaje) => {
+        clearInterval(intervalo);
+        barra.style.width = exito ? "100%" : (progreso + "%");
+        estado.textContent = mensaje;
+        setTimeout(() => cerrarDescarga(), exito ? 1800 : 3500);
+    };
+
+    if(!quickkey){
+        terminar(false, "No se pudo procesar el enlace. Se abrirá en una pestaña.");
+        setTimeout(() => window.open(link, "_blank"), 1500);
+        return;
+    }
+
+    // Traer la página de MediaFire en segundo plano (vía proxies CORS)
+    // y extraer la URL directa del botón "Descargar".
+    obtenerUrlDirecta(link)
+        .then(directa => {
+            iniciarDescarga(directa);
+            terminar(true, "Descarga iniciada ✔");
+        })
+        .catch(() => {
+            terminar(false, "No se pudo iniciar la descarga. Se abrirá en una pestaña.");
+            setTimeout(() => window.open(link, "_blank"), 1500);
+        });
+}
+
+async function obtenerUrlDirecta(link){
+    const proxies = [
+        { base: "https://api.allorigins.win/raw?url=", json: false },
+        { base: "https://api.allorigins.win/get?url=", json: true }
+    ];
+
+    let ultimoError = null;
+
+    for(const p of proxies){
+        try{
+            const respuesta = await fetch(p.base + encodeURIComponent(link));
+
+            if(!respuesta.ok) throw new Error("HTTP " + respuesta.status);
+
+            let html;
+
+            if(p.json){
+                const datos = await respuesta.json();
+                html = datos && datos.contents;
+            }else{
+                html = await respuesta.text();
+            }
+
+            const match = (html || "").match(/https:\/\/download\d+\.mediafire\.com\/[^"'\s]+/);
+
+            if(!match) throw new Error("Sin URL directa");
+
+            return match[0].replace(/&amp;/g, "&");
+        }catch(error){
+            ultimoError = error;
+        }
+    }
+
+    throw ultimoError || new Error("Sin proxy disponible");
+}
+
+function iniciarDescarga(directa){
+    const a = document.createElement("a");
+    a.href = directa;
+    a.download = "";
+    a.style.display = "none";
+    a.rel = "noopener";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function cerrarDescarga(){
+    const box = document.getElementById("descargaBox");
+    if(box) box.style.display = "none";
 }
 
 function render(lista){

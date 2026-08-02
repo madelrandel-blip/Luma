@@ -536,7 +536,8 @@ header {
 #loginBox,
 #emuladoresBox,
 #recursosBox,
-#donacionesBox {
+#donacionesBox,
+#descargaBox {
     display: none;
     position: fixed;
     inset: 0;
@@ -552,10 +553,30 @@ header {
 
 #emuladoresBox,
 #recursosBox,
-#donacionesBox {
+#donacionesBox,
+#descargaBox {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
     z-index: 999;
+}
+
+/* Barra de progreso del modal de descarga */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(125, 211, 252, 0.18);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, rgba(125, 211, 252, 0.55), rgba(167, 139, 250, 0.55));
+    transition: width 0.25s ease;
 }
 
 #emuladoresBox .login-content,
