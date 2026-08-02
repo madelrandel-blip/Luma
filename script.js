@@ -519,6 +519,9 @@ function abrirLink(link){
     window.open(link, "_blank");
 }
 
+let descargaController = null;
+let descargaIntervalo = null;
+
 function descargarMediafire(link){
     const box = document.getElementById("descargaBox");
     const barra = document.getElementById("descargaProgress");
@@ -530,11 +533,16 @@ function descargarMediafire(link){
     barra.style.width = "0%";
     estado.textContent = "Preparando el enlace...";
 
+    // Limpiar cualquier descarga previa
+    if(descargaController) descargaController.abort();
+    descargaController = new AbortController();
+    if(descargaIntervalo) clearInterval(descargaIntervalo);
+
     const quickkey = (link.match(/mediafire\.com\/file\/([^\/]+)\//) || [])[1];
 
     let progreso = 0;
 
-    const intervalo = setInterval(() => {
+    descargaIntervalo = setInterval(() => {
         if(progreso < 90){
             progreso += Math.random() * 12 + 3;
             if(progreso > 90) progreso = 90;
@@ -543,7 +551,9 @@ function descargarMediafire(link){
     }, 120);
 
     const terminar = (exito, mensaje) => {
-        clearInterval(intervalo);
+        clearInterval(descargaIntervalo);
+        descargaIntervalo = null;
+        descargaController = null;
         barra.style.width = exito ? "100%" : (progreso + "%");
         estado.textContent = mensaje;
         setTimeout(() => cerrarDescarga(), exito ? 1800 : 3500);
@@ -557,18 +567,22 @@ function descargarMediafire(link){
 
     // Traer la página de MediaFire en segundo plano (vía proxies CORS)
     // y extraer la URL directa del botón "Descargar".
-    obtenerUrlDirecta(link)
+    obtenerUrlDirecta(link, descargaController.signal)
         .then(directa => {
             iniciarDescarga(directa);
             terminar(true, "Descarga iniciada ✔");
         })
-        .catch(() => {
+        .catch(error => {
+            if(error && error.name === "AbortError"){
+                cerrarDescarga();
+                return;
+            }
             terminar(false, "No se pudo iniciar la descarga. Se abrirá en una pestaña.");
             setTimeout(() => window.open(link, "_blank"), 1500);
         });
 }
 
-async function obtenerUrlDirecta(link){
+async function obtenerUrlDirecta(link, signal){
     const proxies = [
         { base: "https://api.allorigins.win/raw?url=", json: false },
         { base: "https://api.allorigins.win/get?url=", json: true }
@@ -578,7 +592,7 @@ async function obtenerUrlDirecta(link){
 
     for(const p of proxies){
         try{
-            const respuesta = await fetch(p.base + encodeURIComponent(link));
+            const respuesta = await fetch(p.base + encodeURIComponent(link), { signal });
 
             if(!respuesta.ok) throw new Error("HTTP " + respuesta.status);
 
@@ -597,6 +611,7 @@ async function obtenerUrlDirecta(link){
 
             return match[0].replace(/&amp;/g, "&");
         }catch(error){
+            if(error && error.name === "AbortError") throw error;
             ultimoError = error;
         }
     }
@@ -616,6 +631,11 @@ function iniciarDescarga(directa){
 }
 
 function cerrarDescarga(){
+    if(descargaController) descargaController.abort();
+    descargaController = null;
+    if(descargaIntervalo) clearInterval(descargaIntervalo);
+    descargaIntervalo = null;
+
     const box = document.getElementById("descargaBox");
     if(box) box.style.display = "none";
 }
