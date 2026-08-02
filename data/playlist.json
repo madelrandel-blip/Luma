@@ -48,5 +48,10 @@
     "nombre": "Route 101 - Pokémon Emerald",
     "src": "assets/music/Route 101 - Pokémon Emerald.mp3",
     "icono": "assets/album/pokemon-esmerald.png"
+  },
+  {
+    "nombre": "Dire, Dire Docks - Super Mario 64",
+    "src": "assets/music/Dire, Dire Docks - Super Mario 64.mp3",
+    "icono": "assets/album/super-mario-64.jpg"
   }
 ]
