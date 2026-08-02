@@ -533,12 +533,19 @@ function abrirLink(link){
         return;
     }
 
+    // URL directa de descarga de MediaFire (download###.mediafire.com)
+    if(/download\d+\.mediafire\.com\//.test(link)){
+        descargarMediafire(link, link);
+        return;
+    }
+
     window.open(link, "_blank");
 }
 
 let descargaController = null;
 let descargaIntervalo = null;
 let mutePrevioDescarga = null;
+let fallbackLink = null;
 
 function silenciarMusicaDuranteDescarga(){
     if(!bgMusic || mutePrevioDescarga) return;
@@ -574,7 +581,7 @@ function stopLoadingSound(){
     loadingSound.currentTime = 0;
 }
 
-function descargarMediafire(link){
+function descargarMediafire(link, directaPrevia){
     const box = document.getElementById("descargaBox");
     const barra = document.getElementById("descargaProgress");
     const estado = document.getElementById("descargaEstado");
@@ -584,6 +591,8 @@ function descargarMediafire(link){
     box.style.display = "flex";
     barra.style.width = "0%";
     estado.textContent = "Preparando el enlace...";
+
+    ocultarFallback();
 
     playLoadingSound();
 
@@ -606,20 +615,35 @@ function descargarMediafire(link){
         }
     }, 120);
 
-    const terminar = (exito, mensaje) => {
+    const exito = (mensaje) => {
         stopLoadingSound();
         restaurarMusicaDespuesDescarga();
         clearInterval(descargaIntervalo);
         descargaIntervalo = null;
         descargaController = null;
-        barra.style.width = exito ? "100%" : (progreso + "%");
+        barra.style.width = "100%";
         estado.textContent = mensaje;
-        setTimeout(() => cerrarDescarga(), exito ? 1800 : 3500);
+        setTimeout(() => cerrarDescarga(), 1800);
     };
 
-    if(!quickkey){
-        terminar(false, "No se pudo procesar el enlace. Se abrirá en una pestaña.");
-        setTimeout(() => window.open(link, "_blank"), 1500);
+    const fallo = (mensaje) => {
+        stopLoadingSound();
+        restaurarMusicaDespuesDescarga();
+        clearInterval(descargaIntervalo);
+        descargaIntervalo = null;
+        descargaController = null;
+        barra.style.width = progreso + "%";
+        mostrarFallback(link, mensaje);
+    };
+
+    if(!quickkey && !directaPrevia){
+        fallo("No se pudo procesar el enlace automáticamente.");
+        return;
+    }
+
+    if(directaPrevia){
+        iniciarDescarga(directaPrevia);
+        exito("Descarga iniciada ✔");
         return;
     }
 
@@ -628,53 +652,115 @@ function descargarMediafire(link){
     obtenerUrlDirecta(link, descargaController.signal)
         .then(directa => {
             iniciarDescarga(directa);
-            terminar(true, "Descarga iniciada ✔");
+            exito("Descarga iniciada ✔");
         })
         .catch(error => {
             if(error && error.name === "AbortError"){
                 cerrarDescarga();
                 return;
             }
-            terminar(false, "No se pudo iniciar la descarga. Se abrirá en una pestaña.");
-            setTimeout(() => window.open(link, "_blank"), 1500);
+            fallo("No se pudo iniciar la descarga automáticamente.");
         });
 }
 
+function mostrarFallback(link, mensaje){
+    fallbackLink = link;
+
+    const boton = document.getElementById("descargaFallback");
+    const estado = document.getElementById("descargaEstado");
+
+    if(estado) estado.textContent = mensaje + " Toca el botón de abajo para abrirlo en una pestaña.";
+    if(boton) boton.style.display = "block";
+}
+
+function ocultarFallback(){
+    fallbackLink = null;
+
+    const boton = document.getElementById("descargaFallback");
+    if(boton) boton.style.display = "none";
+}
+
+function abrirEnlaceFallback(){
+    if(!fallbackLink) return;
+
+    const link = fallbackLink;
+    fallbackLink = null;
+
+    window.open(link, "_blank");
+    cerrarDescarga();
+}
+
+function extraerUrlDirecta(texto){
+    const match = (texto || "").match(/https:\/\/download\d+\.mediafire\.com\/[^"'\s<>\]\)]+/);
+    return match ? match[0].replace(/&amp;/g, "&") : null;
+}
+
 async function obtenerUrlDirecta(link, signal){
-    const proxies = [
-        { base: "https://api.allorigins.win/raw?url=", json: false },
-        { base: "https://api.allorigins.win/get?url=", json: true }
+    // r.jina.ai es el método principal: es compatible con CORS y devuelve
+    // el contenido de la página como texto plano con la URL directa dentro.
+    const fuentes = [
+        {
+            obtener: async (s) => {
+                const r = await fetch("https://r.jina.ai/" + encodeURI(link), { signal: s });
+                if(!r.ok) throw new Error("HTTP " + r.status);
+                return r.text();
+            }
+        },
+        {
+            obtener: async (s) => {
+                const r = await fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(link), { signal: s });
+                if(!r.ok) throw new Error("HTTP " + r.status);
+                const d = await r.json();
+                return (d && d.contents) || "";
+            }
+        },
+        {
+            obtener: async (s) => {
+                const r = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(link), { signal: s });
+                if(!r.ok) throw new Error("HTTP " + r.status);
+                return r.text();
+            }
+        }
     ];
 
     let ultimoError = null;
 
-    for(const p of proxies){
-        try{
-            const respuesta = await fetch(p.base + encodeURIComponent(link), { signal });
+    for(const fuente of fuentes){
+        const control = new AbortController();
+        const temporizador = setTimeout(() => control.abort(), 12000);
 
-            if(!respuesta.ok) throw new Error("HTTP " + respuesta.status);
+        const alCancelar = () => control.abort();
 
-            let html;
-
-            if(p.json){
-                const datos = await respuesta.json();
-                html = datos && datos.contents;
+        if(signal){
+            if(signal.aborted){
+                control.abort();
             }else{
-                html = await respuesta.text();
+                signal.addEventListener("abort", alCancelar, { once: true });
             }
+        }
 
-            const match = (html || "").match(/https:\/\/download\d+\.mediafire\.com\/[^"'\s]+/);
+        try{
+            const texto = await fuente.obtener(control.signal);
 
-            if(!match) throw new Error("Sin URL directa");
+            const directa = extraerUrlDirecta(texto);
 
-            return match[0].replace(/&amp;/g, "&");
+            if(!directa) throw new Error("Sin URL directa");
+
+            return directa;
         }catch(error){
-            if(error && error.name === "AbortError") throw error;
+            if(signal && signal.aborted){
+                const err = new Error("Abortado");
+                err.name = "AbortError";
+                throw err;
+            }
             ultimoError = error;
+        }finally{
+            clearTimeout(temporizador);
+            if(signal) signal.removeEventListener("abort", alCancelar);
         }
     }
 
-    throw ultimoError || new Error("Sin proxy disponible");
+    throw ultimoError || new Error("Sin método disponible");
 }
 
 function iniciarDescarga(directa){
