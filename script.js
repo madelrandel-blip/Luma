@@ -625,7 +625,7 @@ function descargarMediafire(link, directaPrevia){
         terminadoPorTiempo = true;
         if(descargaController) descargaController.abort();
         abrirPestanaOfallback(link, "La descarga automática tardó demasiado.");
-    }, 12000);
+    }, 20000);
 
     const exito = (mensaje) => {
         if(descargaTimerPestana){ clearTimeout(descargaTimerPestana); descargaTimerPestana = null; }
@@ -729,9 +729,43 @@ function extraerUrlDirecta(texto){
 }
 
 async function obtenerUrlDirecta(link, signal){
-    // r.jina.ai es el método principal: es compatible con CORS y devuelve
-    // el contenido de la página como texto plano con la URL directa dentro.
+    const quickkey = (link.match(/mediafire\.com\/file\/([^\/]+)\//) || [])[1];
+
+    if(!quickkey){
+        throw new Error("Sin quickkey");
+    }
+
+    // URL canónica: solo el quickkey, sin el nombre del archivo.
+    // Evita errores de encoding (apóstrofes, corchetes, %, +, espacios...).
+    let urlPagina = "https://www.mediafire.com/file/" + quickkey;
+
+    // La API oficial de MediaFire tiene CORS abierto (*) y es muy fiable.
+    // Valida que el archivo exista y está listo, y da su URL canónica.
+    try{
+        const r = await fetch("https://www.mediafire.com/api/1.4/file/get_info.php?quick_key=" + encodeURIComponent(quickkey) + "&response_format=json", { signal });
+        if(r.ok){
+            const d = await r.json();
+            const fi = d && d.response && d.response.file_info;
+            if(fi && fi.ready === "no") throw new Error("Archivo no disponible");
+            if(fi && fi.links && fi.links.normal_download) urlPagina = fi.links.normal_download;
+        }
+    }catch(error){
+        if(signal && signal.aborted){
+            const err = new Error("Abortado");
+            err.name = "AbortError";
+            throw err;
+        }
+        // Si la API falla, se continúa con la URL canónica simple
+    }
+
     const fuentes = [
+        {
+            obtener: async (s) => {
+                const r = await fetch("https://r.jina.ai/" + encodeURI(urlPagina), { signal: s });
+                if(!r.ok) throw new Error("HTTP " + r.status);
+                return r.text();
+            }
+        },
         {
             obtener: async (s) => {
                 const r = await fetch("https://r.jina.ai/" + encodeURI(link), { signal: s });
@@ -741,7 +775,7 @@ async function obtenerUrlDirecta(link, signal){
         },
         {
             obtener: async (s) => {
-                const r = await fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(link), { signal: s });
+                const r = await fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(urlPagina), { signal: s });
                 if(!r.ok) throw new Error("HTTP " + r.status);
                 const d = await r.json();
                 return (d && d.contents) || "";
@@ -749,7 +783,7 @@ async function obtenerUrlDirecta(link, signal){
         },
         {
             obtener: async (s) => {
-                const r = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(link), { signal: s });
+                const r = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(urlPagina), { signal: s });
                 if(!r.ok) throw new Error("HTTP " + r.status);
                 return r.text();
             }
