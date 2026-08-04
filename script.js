@@ -546,6 +546,7 @@ let descargaController = null;
 let descargaIntervalo = null;
 let mutePrevioDescarga = null;
 let fallbackLink = null;
+let descargaTimerPestana = null;
 
 function silenciarMusicaDuranteDescarga(){
     if(!bgMusic || mutePrevioDescarga) return;
@@ -585,6 +586,7 @@ function descargarMediafire(link, directaPrevia){
     const box = document.getElementById("descargaBox");
     const barra = document.getElementById("descargaProgress");
     const estado = document.getElementById("descargaEstado");
+    const boton = document.getElementById("descargaFallback");
 
     if(!box || !barra || !estado) return;
 
@@ -592,7 +594,9 @@ function descargarMediafire(link, directaPrevia){
     barra.style.width = "0%";
     estado.textContent = "Preparando el enlace...";
 
-    ocultarFallback();
+    // El botón "Abrir en pestaña" queda visible durante todo el intento
+    fallbackLink = link;
+    if(boton) boton.style.display = "block";
 
     playLoadingSound();
 
@@ -602,10 +606,10 @@ function descargarMediafire(link, directaPrevia){
     if(descargaController) descargaController.abort();
     descargaController = new AbortController();
     if(descargaIntervalo) clearInterval(descargaIntervalo);
-
-    const quickkey = (link.match(/mediafire\.com\/file\/([^\/]+)\//) || [])[1];
+    if(descargaTimerPestana) clearTimeout(descargaTimerPestana);
 
     let progreso = 0;
+    let terminadoPorTiempo = false;
 
     descargaIntervalo = setInterval(() => {
         if(progreso < 90){
@@ -615,30 +619,45 @@ function descargarMediafire(link, directaPrevia){
         }
     }, 120);
 
+    // Si la descarga automática tarda demasiado, se cancela el intento
+    // y se abre la pestaña (o se deja el botón si el navegador lo bloquea)
+    descargaTimerPestana = setTimeout(() => {
+        terminadoPorTiempo = true;
+        if(descargaController) descargaController.abort();
+        abrirPestanaOfallback(link, "La descarga automática tardó demasiado.");
+    }, 12000);
+
     const exito = (mensaje) => {
+        if(descargaTimerPestana){ clearTimeout(descargaTimerPestana); descargaTimerPestana = null; }
         stopLoadingSound();
         restaurarMusicaDespuesDescarga();
         clearInterval(descargaIntervalo);
         descargaIntervalo = null;
         descargaController = null;
         barra.style.width = "100%";
-        estado.textContent = mensaje;
-        setTimeout(() => cerrarDescarga(), 1800);
+        estado.textContent = mensaje + " Si no empieza en unos segundos, pulsa Abrir en pestaña.";
+        // Se mantiene el botón visible unos segundos por si la descarga no arranca
+        setTimeout(() => cerrarDescarga(), 5000);
     };
 
     const fallo = (mensaje) => {
+        if(descargaTimerPestana){ clearTimeout(descargaTimerPestana); descargaTimerPestana = null; }
         stopLoadingSound();
         restaurarMusicaDespuesDescarga();
         clearInterval(descargaIntervalo);
         descargaIntervalo = null;
         descargaController = null;
         barra.style.width = progreso + "%";
-        mostrarFallback(link, mensaje);
+        abrirPestanaOfallback(link, mensaje);
     };
 
-    if(!quickkey && !directaPrevia){
-        fallo("No se pudo procesar el enlace automáticamente.");
-        return;
+    if(!directaPrevia){
+        const quickkey = (link.match(/mediafire\.com\/file\/([^\/]+)\//) || [])[1];
+
+        if(!quickkey){
+            fallo("No se pudo procesar el enlace automáticamente.");
+            return;
+        }
     }
 
     if(directaPrevia){
@@ -655,12 +674,33 @@ function descargarMediafire(link, directaPrevia){
             exito("Descarga iniciada ✔");
         })
         .catch(error => {
+            if(terminadoPorTiempo) return;
             if(error && error.name === "AbortError"){
                 cerrarDescarga();
                 return;
             }
             fallo("No se pudo iniciar la descarga automáticamente.");
         });
+}
+
+function abrirPestanaOfallback(link, mensaje){
+    stopLoadingSound();
+    restaurarMusicaDespuesDescarga();
+
+    if(descargaIntervalo){ clearInterval(descargaIntervalo); descargaIntervalo = null; }
+
+    // Intenta abrir la pestaña automáticamente; si el navegador lo bloquea
+    // (por no ser un clic del usuario), se muestra el botón manual.
+    const ventana = window.open(link, "_blank");
+
+    if(ventana){
+        if(descargaController) descargaController.abort();
+        descargaController = null;
+        const box = document.getElementById("descargaBox");
+        if(box) box.style.display = "none";
+    }else{
+        mostrarFallback(link, mensaje);
+    }
 }
 
 function mostrarFallback(link, mensaje){
@@ -671,13 +711,6 @@ function mostrarFallback(link, mensaje){
 
     if(estado) estado.textContent = mensaje + " Toca el botón de abajo para abrirlo en una pestaña.";
     if(boton) boton.style.display = "block";
-}
-
-function ocultarFallback(){
-    fallbackLink = null;
-
-    const boton = document.getElementById("descargaFallback");
-    if(boton) boton.style.display = "none";
 }
 
 function abrirEnlaceFallback(){
@@ -780,8 +813,8 @@ function cerrarDescarga(){
 
     if(descargaController) descargaController.abort();
     descargaController = null;
-    if(descargaIntervalo) clearInterval(descargaIntervalo);
-    descargaIntervalo = null;
+    if(descargaIntervalo){ clearInterval(descargaIntervalo); descargaIntervalo = null; }
+    if(descargaTimerPestana){ clearTimeout(descargaTimerPestana); descargaTimerPestana = null; }
 
     const box = document.getElementById("descargaBox");
     if(box) box.style.display = "none";
