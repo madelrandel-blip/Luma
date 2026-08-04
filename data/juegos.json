@@ -64,6 +64,14 @@
     "id": "2CnMvc37U2TCriryr5Kt"
   },
   {
+    "nombre": "Final Fantasy I-VI - Pixel Remaster Collection",
+    "img": "https://art.gametdb.com/switch/box/JA/BAQ7A.png?1708867653",
+    "desc": "Peso: 5.55GB Update 1.0.4 + 6 Juegos ",
+    "link1": "https://www.mediafire.com/folder/p4d0araq9v2h0/FF_Collection",
+    "link2": "",
+    "id": "2K4ISeMq8vgcEch3Hby5"
+  },
+  {
     "nombre": "Mario + Rabbids Sparks of Hope",
     "img": "https://art.gametdb.com/switch/box/CA/A2G7A.png?1767741353",
     "desc": "Peso: 8.89GB Update 1.6.2225577 + 7 DLCs",
@@ -1008,6 +1016,14 @@
     "id": "euExbIM6yaLpb4V4RAph"
   },
   {
+    "nombre": "Final Fantasy XII: The Zodiac Age",
+    "img": "https://art.gametdb.com/switch/box/US/APSWA.png?1597340578",
+    "desc": "Peso: 12.6GB Update 1.1.0",
+    "link1": "https://www.mediafire.com/file/x1ch8rn7d0mdygs/FINAL+FANTASY+XII+THE+ZODIAC+AGE+[v1.1.0].xci/file",
+    "link2": "",
+    "id": "exiiCftFpjEnuPRNxHdw"
+  },
+  {
     "nombre": "Donkey Kong Country: Tropical Freeze",
     "img": "https://art.gametdb.com/switch/box/US/AFWTA.png?1557052835",
     "desc": "Peso: 6.68GB Update 1.0.2",
@@ -1230,6 +1246,14 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/zsuwp4knvh3tfns/Catherine+Full+Body+[v1.0.1].xci/file",
     "id": "rfFi736ioZAZaYOQESrW"
+  },
+  {
+    "nombre": "Crisis Core - Final Fantasy VII - Reunion",
+    "img": "assets/covers/cover ccffr.vii.png",
+    "desc": "Peso: 14.3GB Update 1.0.4 + DLC",
+    "link1": "https://www.mediafire.com/file/gh9ert80vhhy0yv/CRISIS+CORE+FINAL+FANTASY+VII+REUNION+[v1.0.4+++DLC].xci/file",
+    "link2": "",
+    "id": "s9bZsmzcPuJu8CEVKqe1"
   },
   {
     "nombre": "Bayonetta 2",
