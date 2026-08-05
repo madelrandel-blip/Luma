@@ -760,16 +760,17 @@ async function obtenerUrlDirecta(link, signal){
     const fuentes = [
         {
             obtener: async (s) => {
-                // `?_t=` evita que el navegador o r.jina.ai sirvan una copia cacheada
-                // con una dkey caducada; cada intento pide una URL de descarga nueva.
-                const r = await fetch("https://r.jina.ai/" + encodeURI(urlPagina) + "?_t=" + Date.now(), { signal: s, cache: "no-store" });
+                // Header `X-No-Cache` para que r.jina.ai no sirva una copia cacheada
+                // con una dkey caducada. NO usar `?_t=` en la URL: corrompe la URL
+                // objetivo de r.jina.ai (a veces pierde el quickkey y falla).
+                const r = await fetch("https://r.jina.ai/" + encodeURI(urlPagina), { signal: s, cache: "no-store", headers: { "X-No-Cache": "true" } });
                 if(!r.ok) throw new Error("HTTP " + r.status);
                 return r.text();
             }
         },
         {
             obtener: async (s) => {
-                const r = await fetch("https://r.jina.ai/" + encodeURI(link) + "?_t=" + Date.now(), { signal: s, cache: "no-store" });
+                const r = await fetch("https://r.jina.ai/" + encodeURI(link), { signal: s, cache: "no-store", headers: { "X-No-Cache": "true" } });
                 if(!r.ok) throw new Error("HTTP " + r.status);
                 return r.text();
             }
