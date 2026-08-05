@@ -594,9 +594,9 @@ function descargarMediafire(link, directaPrevia){
     barra.style.width = "0%";
     estado.textContent = "Preparando el enlace...";
 
-    // El botón "Abrir en pestaña" queda visible durante todo el intento
-    fallbackLink = link;
-    if(boton) boton.style.display = "block";
+    // El botón "Abrir en pestaña" solo se muestra si la descarga automática falla
+    fallbackLink = null;
+    if(boton) boton.style.display = "none";
 
     playLoadingSound();
 
@@ -635,9 +635,8 @@ function descargarMediafire(link, directaPrevia){
         descargaIntervalo = null;
         descargaController = null;
         barra.style.width = "100%";
-        estado.textContent = mensaje + " Si no empieza en unos segundos, pulsa Abrir en pestaña.";
-        // Se mantiene el botón visible unos segundos por si la descarga no arranca
-        setTimeout(() => cerrarDescarga(), 5000);
+        estado.textContent = mensaje;
+        setTimeout(() => cerrarDescarga(), 2000);
     };
 
     const fallo = (mensaje) => {
