@@ -73,7 +73,7 @@ window.logout = async () => {
 // arreglo vacío para que quien llama decida el respaldo.
 async function cargarJsonEstatico(ruta){
     try{
-        const respuesta = await fetch(ruta, { cache: "force-cache" });
+        const respuesta = await fetch(ruta, { cache: "no-store" });
 
         if(!respuesta.ok) return [];
 
