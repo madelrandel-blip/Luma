@@ -608,6 +608,14 @@
     "id": "OI3ooSuI9f3LpEQNM24e"
   },
   {
+    "nombre": "Ori and the Will of the Wisps",
+    "img": "cover ori-atwofw.png",
+    "desc": "Peso: 4.33GB Update 1.2.1",
+    "link1": "https://www.mediafire.com/file/u59ng7hpcm45zcr/Ori+and+the+Will+of+the+Wisps+[v1.2.1].xci/file",
+    "link2": "",
+    "id": "OIdvb9MsZProepg2Aiks"
+  },
+  {
     "nombre": "Sonic Frontiers",
     "img": "https://art.gametdb.com/switch/box/US/A39ZA.png?1667937852",
     "desc": "Peso: 15.27GB Update 1.4.1 + 5 DLCs ",
@@ -1318,6 +1326,14 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/haeesmncfs3ruqc/PK_Brilliant_Diamond_%255Bv1.3.0%255D.xci/file",
     "id": "tn87X3vTvosQO1MdtzJY"
+  },
+  {
+    "nombre": "Ori and the Blind Forest: Definitive Edition",
+    "img": "https://art.gametdb.com/switch/box/US/ATP2A.png?1627977611",
+    "desc": "Peso: 3.50GB Update 1.0.2",
+    "link1": "",
+    "link2": "",
+    "id": "tqwYymYMliBJG64B4eGp"
   },
   {
     "img": "assets/covers/cover bdrds.png",
