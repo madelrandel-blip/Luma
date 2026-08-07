@@ -43,6 +43,38 @@ input[type="submit"],
     cursor: url("assets/cursors/Wii Cursors - Link Select.cur"), pointer !important;
 }
 
+/* ==========================================================================
+   Barra de desplazamiento personalizada
+   ========================================================================== */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--card);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, var(--bg), var(--card));
+    border-left: 1px solid rgba(125, 211, 252, 0.10);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    border-radius: 8px;
+    border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #a5e3ff, #b9a7ff);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--bg);
+}
+
 #stars {
     position: fixed;
     inset: 0;
