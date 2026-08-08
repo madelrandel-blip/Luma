@@ -39,5 +39,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/*.json
-          git diff --cached --quiet || git commit -m "Actualizar datos exportados de Firestore"
+          if git diff --cached --quiet; then
+            echo "Sin cambios en data/; no hay nada que subir."
+            exit 0
+          fi
+          git commit -m "Actualizar datos exportados de Firestore"
+          # Sincronizar con la rama antes de subir: si hay commits nuevos en
+          # main (por ejemplo, cambios de la web), se integran con rebase
+          # para que el push no falle con "non-fast-forward".
+          git pull --rebase origin main
           git push
