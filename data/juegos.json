@@ -88,6 +88,14 @@
     "id": "2mCGmmi7FxCzinVSv5x3"
   },
   {
+    "nombre": "Batman Arkham City",
+    "img": "assets/covers/cover bac.png",
+    "desc": "Peso: 12.3GB Update 1.0.2",
+    "link1": "https://www.mediafire.com/file/rsl5693toybhusp/Batman+Arkham+City+[v1.0.2].xci/file",
+    "link2": "",
+    "id": "2s5SHGGll8jBrQpRFaao"
+  },
+  {
     "link2": "",
     "link1": "https://www.mediafire.com/file/x1cfk310pkdshur/NARUTO_X_BORUTO_Ultimate_Ninja_STORM_CONNECTIONS_%255Bv1.6.0_%252B_10_DLCs%255D.xci/file",
     "desc": "Peso: 18.77 Update 1.6.0 + 10 DLCs",
@@ -102,6 +110,14 @@
     "link1": "https://www.mediafire.com/file/vipd6ems4xrm0r9/Mario_Tennis_Aces_%255Bv3.1.0%255D.xci/file",
     "link2": "https://drive.google.com/file/d/1PV92A2YBdBCik6kjPVdRcJfJyUNoiSeu/view?usp=sharing",
     "id": "2yhsSsRBb3lCBCiqh29r"
+  },
+  {
+    "nombre": "World of Final Fantasy Maxima",
+    "img": "https://art.gametdb.com/switch/box/US/ARBNA.png?1558133536",
+    "desc": "Peso: 10.78GB Update 1.0.1",
+    "link1": "https://www.mediafire.com/file/h54rigq1xhiu1cb/WORLD+OF+FINAL+FANTASY+MAXIMA+[v1.0.1].xci/file",
+    "link2": "",
+    "id": "3OhGYTkkLzmPH10RSb2R"
   },
   {
     "desc": "Peso: 231.92MB Update 1.0.1",
@@ -168,12 +184,28 @@
     "id": "6IF71Gi6iSRBgt9cqhXy"
   },
   {
+    "nombre": "FINAL FANTASY IX",
+    "img": "https://art.gametdb.com/switch/box/US/AP8CB.png?1692086204",
+    "desc": "Peso: 5.01GB Update 1.0.1_5",
+    "link1": "https://www.mediafire.com/file/64iggfftx0ixnc7/FINAL+FANTASY+IX+[v1.0.1_5].xci/file",
+    "link2": "",
+    "id": "7DfWqQrt78JeCqBk2yxs"
+  },
+  {
     "nombre": "Pokemon: Let's Go, Eevee!",
     "img": "https://art.gametdb.com/switch/box/US/ADW3A.png?1767741716",
     "desc": "Peso: 4.19GB Update 1.2.0",
     "link1": "https://www.mediafire.com/file/u7mhqh60ari7toa/PK_Lets_Go%252C_Eevee%2521_%255Bv1.0.2%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZgzFU5Zh8Q5YkODeY8etBCuhAxhvu8O3Lly",
     "id": "7FRnDnvOa11kFDPUYAub"
+  },
+  {
+    "nombre": "Batman The Telltale Series",
+    "img": "assets/covers/cover btts.png",
+    "desc": "Peso: 8.53GB Update 1.0.4 + DLC",
+    "link1": "https://www.mediafire.com/file/3oz717z29j6yr1a/Batman+The+Telltale+Series+[v1.0.4+++DLC].xci/file",
+    "link2": "",
+    "id": "7lWGNDBfUYzwe5aUqFyA"
   },
   {
     "nombre": "Splatoon 2",
@@ -366,6 +398,14 @@
     "link1": "https://www.mediafire.com/file/p6x94qe3x5ei8ka/Splatoon+3+[Update+11.2.0+++3+DLCs].xci/file",
     "link2": "",
     "id": "E6obhDdBGz2uDlwJIpEF"
+  },
+  {
+    "nombre": "Burnout Paradise - Remastered",
+    "img": "https://art.gametdb.com/switch/box/US/AWVAA.png?1594215036",
+    "desc": "Peso: 3.99GB",
+    "link1": "https://www.mediafire.com/file/pho46249b7752hx/Burnout_Paradise_-_Remastered.nsp/file",
+    "link2": "",
+    "id": "EOc76oQD88T7YoKOLcCl"
   },
   {
     "link2": "",
@@ -609,10 +649,10 @@
   },
   {
     "nombre": "Ori and the Will of the Wisps",
-    "img": "cover ori-atwofw.png",
     "desc": "Peso: 4.33GB Update 1.2.1",
     "link1": "https://www.mediafire.com/file/u59ng7hpcm45zcr/Ori+and+the+Will+of+the+Wisps+[v1.2.1].xci/file",
     "link2": "",
+    "img": "assets/covers/cover ori-atwofw.png",
     "id": "OIdvb9MsZProepg2Aiks"
   },
   {
@@ -1040,6 +1080,14 @@
     "id": "fujld1p49NcAqXia7mZj"
   },
   {
+    "nombre": "Batman: Arkham Asylum",
+    "img": "assets/covers/cover baa.png",
+    "desc": "Peso: 9.40GB Update 1.0.1",
+    "link1": "https://www.mediafire.com/file/d91manmbj69w964/Batman_Arkham_Asylum_%255Bv1.0.1%255D.xci/file",
+    "link2": "",
+    "id": "gTSBzF45gweK0gFW3MTG"
+  },
+  {
     "nombre": "Bayonetta 3",
     "img": "https://art.gametdb.com/switch/box/US/AXB7A.png?1684372674",
     "desc": "Peso: 14GB Update 1.2.0",
@@ -1136,12 +1184,28 @@
     "id": "lOORPAyBdmbg7ZiV1Dd6"
   },
   {
+    "nombre": "Shantae Advance: Risky Revolution",
+    "img": "https://art.gametdb.com/switch/box/US/BFJ4A.png?1755944743",
+    "desc": "Peso: 555MB Update 1.0.923142 + DLC",
+    "link1": "https://www.mediafire.com/file/dxmoazdbwpkw9jz/Shantae+Advance+Risky+Revolution+[v1.0.923142+++DLC].xci/file",
+    "link2": "",
+    "id": "lqcArjkyhOyXeuMF2ZeQ"
+  },
+  {
     "nombre": "Kirby Fighters 2",
     "desc": "Peso: 1.11GB",
     "link1": "https://www.mediafire.com/file/ns79l6ox0ksf9pg/Kirby+Fighters+2.nsp/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZSycO5Z3zlsSkgDeJm4zTj0idtRKYdOztSk",
     "img": "assets/covers/cover kf2.png",
     "id": "m3zjCKAE0q4t6HEnn6W1"
+  },
+  {
+    "nombre": "Final Fantasy VII & Final Fantasy VIII Remastered Twin Pack",
+    "img": "https://art.gametdb.com/switch/box/US/AVY3A.png?1692103688",
+    "desc": "Peso: 6.91GB Update 1.0.1_5",
+    "link1": "https://www.mediafire.com/folder/8ddp9dxr5xqvd/Luma_Storage",
+    "link2": "",
+    "id": "mEBSMVwA05EzwbU9xIzp"
   },
   {
     "link1": "https://www.mediafire.com/file/cnrytixp3lbkqab/Sonic+Origins+[v2.0.2+++4+DLCs].xci/file",
@@ -1331,8 +1395,8 @@
     "nombre": "Ori and the Blind Forest: Definitive Edition",
     "img": "https://art.gametdb.com/switch/box/US/ATP2A.png?1627977611",
     "desc": "Peso: 3.50GB Update 1.0.2",
-    "link1": "",
     "link2": "",
+    "link1": "https://www.mediafire.com/file/43kfkfdlo7g8a03/Ori_And_The_Blind_Forest_Definitive_Edition_%5Bv1.0.2%5D.nsp/file",
     "id": "tqwYymYMliBJG64B4eGp"
   },
   {
