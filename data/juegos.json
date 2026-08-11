@@ -40,6 +40,14 @@
     "id": "1FQv6NZCzaXu1cCndO91"
   },
   {
+    "nombre": "Sonic Racing CrossWorlds",
+    "img": "https://art.gametdb.com/switch/box/US/A8QFA.png?1760718744",
+    "desc": "Peso: 10.59GB Update 1.31 + 7 DLCs",
+    "link1": "https://www.mediafire.com/file/t23ytq9jetqf7mr/Sonic+Racing+CrossWorlds+[v1.31+++7+DLCs].xci/file",
+    "link2": "",
+    "id": "1JPT9iQMXUI4NsON3grx"
+  },
+  {
     "nombre": "Rhythm Heaven Groove",
     "link1": "https://www.mediafire.com/file/s8bly7eumehpn3v/Rhythm+Heaven+Groove.nsp/file",
     "link2": "",
@@ -416,14 +424,6 @@
     "id": "EOc76oQD88T7YoKOLcCl"
   },
   {
-    "link2": "",
-    "link1": "https://gofile.io/d/dbjtvW",
-    "desc": "Peso: 27.1GB Update 1.70 + 20 DLCs",
-    "img": "https://art.gametdb.com/switch/boxB/US/A2APB.png?1765999180",
-    "nombre": "DRAGON BALL Z: KAKAROT DAIMA EDITION",
-    "id": "EdbyKzm4wSQiAAvRxI7W"
-  },
-  {
     "nombre": "Pokemon Sword",
     "img": "https://art.gametdb.com/switch/box/US/ALZAA.png?1582713306",
     "desc": "Peso: 12.4GB Update 1.3.2 + 2 DLCs",
@@ -566,14 +566,6 @@
     "link1": "https://www.mediafire.com/file/i67mqp2b6k735et/Super+Mario+Party+Jamboree+[v2.3.0].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZwNUE5Zup1GElMVG0BPJjtdxBlMbf0rOJ07",
     "id": "JyXdF8MvPK7HundObjTD"
-  },
-  {
-    "desc": "Peso: 10.59GB Update 1.31 + 7 DLCs",
-    "nombre": "Sonic Racing CrossWorlds",
-    "link2": "",
-    "link1": "https://www.mediafire.com/file/t23ytq9jetqf7mr/Sonic+Racing+CrossWorlds+[v1.31+++7+DLCs].xci/file",
-    "img": "assets/covers/cover_srcw.png",
-    "id": "KZnjZ3sPEGDYBmPBvVtu"
   },
   {
     "img": "https://art.gametdb.com/switch/box/US/AK63B.png?1622986870",
@@ -1142,6 +1134,14 @@
     "link1": "https://www.mediafire.com/file/wt4xxtwsdxvkqbs/Super+Mario+Bros.+Wonder+[v1.2.1].xci/file",
     "link2": "",
     "id": "ivkMQypQZ8cIlGtx5EkN"
+  },
+  {
+    "nombre": "DRAGON BALL Z: KAKAROT DAIMA EDITION",
+    "img": "https://art.gametdb.com/switch/boxB/US/A2APB.png?1765999180",
+    "desc": "Peso: 27.1GB Update 1.70 + 20 DLCs",
+    "link1": "https://store-eu-par-6.gofile.io/download/direct/65d26111-1dce-46df-a6f5-55bf1fd1b994/DRAGON%20BALL%20Z%20KAKAROT%20%2B%20A%20NEW%20POWER%20AWAKENS%20SET%20%5Bv1.70%20%2B%2020%20DLCs%5D.xci",
+    "link2": "",
+    "id": "jhdtiyJsAlczLhgi50ow"
   },
   {
     "nombre": "Tomodachi Life Living the Dream",
