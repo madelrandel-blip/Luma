@@ -1288,6 +1288,14 @@
     "id": "oiFQbUj0j16peddJpf7C"
   },
   {
+    "nombre": "Resident Evil: Revelations 2",
+    "img": "assets/covers/cover res2.png",
+    "desc": "Peso: 23.65GB Update 1.0.2",
+    "link1": "https://store9.gofile.io/download/direct/4ce3670a-ad31-48ad-b297-901f184365f9/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci?inline=true",
+    "link2": "",
+    "id": "oqqbfIEFBrsmWoBmwRrO"
+  },
+  {
     "nombre": "Minecraft Legends: Deluxe Edition",
     "img": "https://art.gametdb.com/switch/box/US/AZJ4A.png?1685771960",
     "desc": "Peso: 7.33GB Update 1.18.19068.0",
@@ -1318,14 +1326,6 @@
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/AVP3A.png?1599759761",
     "id": "rYnBtjtFquNywvAd5S4T"
-  },
-  {
-    "nombre": "Resident Evil: Revelations 2",
-    "desc": "Peso: 23.65GB Update 1.0.2",
-    "link2": "",
-    "link1": "https://gofile.io/d/phyMO5",
-    "img": "assets/covers/cover res2.png",
-    "id": "re5EDdEdTU5BBIzzYYA5"
   },
   {
     "desc": "Peso: 14.2GB Update 1.0.1",
