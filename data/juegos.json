@@ -240,6 +240,14 @@
     "id": "89xQAxYId9vfDD8AbWJu"
   },
   {
+    "nombre": "Assassin's Creed: THE EZIO COLLECTION",
+    "img": "https://art.gametdb.com/switch/box/US/A3L2A.png?1684363806",
+    "desc": "Peso: 35.3GB Update 1.3 + 5 DLCs",
+    "link1": "https://cold4.gofile.io/download/direct/a52dfd73-af92-41a1-8fac-e6130aff52c4/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
+    "link2": "",
+    "id": "8A1cgPGnA0sC8XNwWX2t"
+  },
+  {
     "img": "https://art.gametdb.com/switch/box/US/A42UC.png?1684364405",
     "desc": "Peso: 14.2GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/sxpjgzi14sbcmiw/Persona+5+Royal+[v1.0.2].xci/file",
@@ -1638,5 +1646,13 @@
     "link2": "https://u.pcloud.link/publink/show?code=XZuEaE5ZmcHLkcgUEkYFcmUBrYaRYLoH1izy",
     "link1": "https://www.mediafire.com/file/2fyiytnzowjcis5/Super_Mario_Party_%255Bv1.1.0%255D.xci/file",
     "id": "zYrGqBBTXtVJWqKd8Yau"
+  },
+  {
+    "nombre": "Astral Chain",
+    "img": "https://art.gametdb.com/switch/box/US/AB48A.png?1567880066",
+    "desc": "Peso: 9.81GB Update 1.0.1",
+    "link1": "https://www.mediafire.com/file/acscug517mlmwog/ASTRAL+CHAIN+[v1.0.1].xci/file",
+    "link2": "",
+    "id": "zedHae89wP2RLlSX7Ydj"
   }
 ]
