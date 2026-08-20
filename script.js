@@ -883,13 +883,8 @@ function render(lista){
                 </div>
 
                 <div class="btns">
-                    <button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(j.link1)}')">
-                        Ver enlace
-                    </button>
-
-                    <button class="btn green" onclick="playClick();abrirLink('${escapeComillas(j.link2)}')">
-                        Ver enlace
-                    </button>
+                    ${j.link1 ? `<button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(j.link1)}')">Ver enlace</button>` : ''}
+                    ${j.link2 ? `<button class="btn green" onclick="playClick();abrirLink('${escapeComillas(j.link2)}')">Ver enlace</button>` : ''}
                 </div>
 
                 ${admin ? `
