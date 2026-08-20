@@ -200,6 +200,14 @@
     "id": "6IF71Gi6iSRBgt9cqhXy"
   },
   {
+    "nombre": "Mortal Kombat 11",
+    "img": "https://art.gametdb.com/switch/box/FR/ASADA.png?1600360999",
+    "desc": "Peso: 35GB Update 1.0.26 + 30 DLCs",
+    "link1": "https://cold-na-phx-4.gofile.io/download/direct/12df09b5-57e0-4b19-b2ad-d4c7794caa87/Mortal%20Kombat%2011%20%5Bv1.0.26%20%2B%2030%20DLCs%5D.xci",
+    "link2": "",
+    "id": "6KD5OLnCAPfhmqYcRrFU"
+  },
+  {
     "nombre": "FINAL FANTASY IX",
     "img": "https://art.gametdb.com/switch/box/US/AP8CB.png?1692086204",
     "desc": "Peso: 5.01GB Update 1.0.1_5",
@@ -1008,6 +1016,14 @@
     "id": "bslc82vV3edLokLg1oEw"
   },
   {
+    "nombre": "Mortal Kombat Legacy Kollection",
+    "img": "assets/covers/cover mklk.png",
+    "desc": "Peso: 12GB Update 1.0.7",
+    "link1": "https://www.mediafire.com/file/muo4veyt01jubda/Mortal+Kombat+Legacy+Kollection+[v1.0.7].xci/file",
+    "link2": "",
+    "id": "cPrwZmDM0Okot34HPgMU"
+  },
+  {
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/AXU5A.png?1685771019",
     "nombre": "Overcooked! All You Can Eat",
@@ -1554,9 +1570,9 @@
   {
     "nombre": "Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles 2",
     "img": "https://art.gametdb.com/switch/box/EN/BC7VB.png?1777827981",
-    "desc": "Peso: 18GB Update 1.70 + 11 DLCs",
     "link2": "",
     "link1": "https://www.mediafire.com/file/eif9ps0eowsew1t/Guardianes_de_la_Noche_-Kimetsu_No_Yaiba-_Las_Cronicas_de_Hinokami_2_%255Bv1.80_%252B_12_DLCs%255D.xci/file",
+    "desc": "Peso: 18GB Update v1.80 + 12 DLCs",
     "id": "zIpPdijxaLxDicPgsOHD"
   },
   {
