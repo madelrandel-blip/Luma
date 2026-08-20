@@ -1008,6 +1008,14 @@
     "id": "bMTwUDVOExj21ZJLVU6g"
   },
   {
+    "nombre": "The Binding of Isaac: Afterbirth +",
+    "img": "https://art.gametdb.com/switch/box/US/BAAZA.png?1516993364",
+    "desc": "Peso: 1.65GB Update 1.7.9b + DLC",
+    "link1": "https://www.mediafire.com/file/ek339vtv170asnc/The+Binding+of+Isaac+Afterbirth+Plus+[v1.7.9b+++DLC].xci/file",
+    "link2": "",
+    "id": "bmv7qa9x7mVeG4FR7vHy"
+  },
+  {
     "link1": "https://www.mediafire.com/file/viz2314mfo6n8j1/MONSTER+HUNTER+STORIES+2+WINGS+OF+RUIN+[v1.5.3+++31+DLCs].xci/file",
     "desc": "Peso: 14.33GB Update 1.5.3 + 31 DLCs",
     "img": "https://art.gametdb.com/switch/box/EN/AS44B.png?1628501844",
@@ -1523,8 +1531,8 @@
     "nombre": "Pokemon Violet",
     "img": "https://art.gametdb.com/switch/box/CA/ALZYA.png?1767741836",
     "desc": "Peso: 11.1GB Update 4.0.0 + DLC",
-    "link1": "",
     "link2": "",
+    "link1": "https://www.mediafire.com/file/mle2jke07jqjacn/PK_Violet_%255Bv4.0.0_%252B_DLC%255D.xci/file",
     "id": "wUzdi0oKSNE8nR3amwbM"
   },
   {
