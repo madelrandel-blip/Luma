@@ -1566,8 +1566,7 @@ header {
     }
 
     #logoutBtn {
-        width: 100% !important;
-        flex-basis: 100%;
+        display: none !important;
     }
 
     #volumeSlider {
