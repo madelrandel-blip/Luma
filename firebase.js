@@ -35,7 +35,11 @@ onAuthStateChanged(auth, (user) => {
     admin = !!user;
 
     if(adminPanel){
-        adminPanel.style.display = admin ? "block" : "none";
+        adminPanel.style.display = "none";
+    }
+
+    if(panelToggleBtn){
+        panelToggleBtn.style.display = admin ? "inline-block" : "none";
     }
 
     if(logoutBtn){

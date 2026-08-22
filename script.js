@@ -18,6 +18,7 @@ const emuladoresBox = document.getElementById("emuladoresBox");
 const recursosBox = document.getElementById("recursosBox");
 const adminPanel = document.getElementById("adminPanel");
 const logoutBtn = document.getElementById("logoutBtn");
+const panelToggleBtn = document.getElementById("panelToggleBtn");
 
 const buscador = document.getElementById("buscador");
 const store = document.getElementById("store");
@@ -453,6 +454,14 @@ function abrirLogin(){
 function cerrarLogin(){
     if(loginBox) loginBox.style.display = "none";
 }
+
+/* ========= PANEL ADMIN TOGGLE ========= */
+window.toggleAdminPanel = function(){
+    if(!adminPanel) return;
+    playAdminClick();
+    const visible = adminPanel.style.display === "block";
+    adminPanel.style.display = visible ? "none" : "block";
+};
 
 /* ========= EMULADORES ========= */
 function abrirEmuladores(){

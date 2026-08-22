@@ -1459,8 +1459,9 @@ header {
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
     }
 
-    /* Ocultar buscador en el header móvil */
-    #buscador {
+    /* Ocultar buscador y botón panel en el header móvil */
+    #buscador,
+    #panelToggleBtn {
         display: none !important;
     }
 
