@@ -10,7 +10,7 @@ let cargando = false;
 
 let juegosData = [];
 let paginaActual = 1;
-const juegosPorPagina = 12;
+const juegosPorPagina = 14;
 
 /* ========= ELEMENTOS ========= */
 const loginBox = document.getElementById("loginBox");
@@ -521,7 +521,142 @@ if(buscador){
 }
 
 /* ========= LINKS ========= */
-function abrirLink(link){
+function abrirPreview(btn){
+    const img = btn.dataset.img || "";
+    const nombre = btn.dataset.nombre || "";
+    const link1 = btn.dataset.link1 || "";
+    const link2 = btn.dataset.link2 || "";
+    const screenshots = JSON.parse(btn.dataset.screenshots || "[]");
+    const trailer = btn.dataset.trailer || "";
+    const rating = btn.dataset.rating || "";
+    const genre = btn.dataset.genre || "";
+    const developer = btn.dataset.developer || "";
+    const desc = btn.dataset.desc || "";
+    const size = btn.dataset.size || "";
+    const format = btn.dataset.format || "";
+    const languages = btn.dataset.languages || "";
+    const update = btn.dataset.update || "";
+    const gameId = btn.dataset.gameid || "";
+    const firmware = btn.dataset.firmware || "";
+    const mode = btn.dataset.mode || "";
+    const year = btn.dataset.year || "";
+
+    const tienePreview = screenshots.length > 0 || trailer || desc || genre || developer || gameId;
+    if(!tienePreview){
+        abrirLink(link1, nombre);
+        return;
+    }
+
+    mostrarPreview(img, nombre, link1, link2, screenshots, trailer, rating, genre, developer, desc, size, format, languages, update, gameId, firmware, mode, year);
+}
+
+function mostrarPreview(img, nombre, link1, link2, screenshots, trailer, rating, genre, developer, desc, size, format, languages, update, gameId, firmware, mode, year){
+    const box = document.getElementById("previewBox");
+    const previewImg = document.getElementById("previewImg");
+    const previewNombre = document.getElementById("previewNombre");
+    const previewDesc = document.getElementById("previewDescModal");
+    const previewMeta = document.getElementById("previewMeta");
+    const previewLinks = document.getElementById("previewLinks");
+    const previewMain = document.getElementById("previewMain");
+    const previewThumbs = document.getElementById("previewThumbs");
+    const previewFileInfo = document.getElementById("previewFileInfo");
+
+    if(!box) return;
+
+    previewImg.src = img || "";
+    previewNombre.textContent = nombre || "";
+    previewDesc.textContent = desc || "";
+
+    let fileInfo = "";
+    if(gameId) fileInfo += `<div class="fi"><b>ID:</b> ${gameId}</div>`;
+    if(size) fileInfo += `<div class="fi"><b>Peso:</b> ${size}</div>`;
+    if(languages) fileInfo += `<div class="fi"><b>Idiomas:</b> ${languages}</div>`;
+    if(format) fileInfo += `<div class="fi"><b>Formato:</b> ${format}</div>`;
+    if(firmware) fileInfo += `<div class="fi"><b>Firmware:</b> ${firmware}</div>`;
+    if(update) fileInfo += `<div class="fi"><b>Actualizacion:</b> ${update}</div>`;
+    previewFileInfo.innerHTML = fileInfo;
+
+    let meta = "";
+    if(genre) meta += `<div class="fi-col"><span class="label">Género</span><span class="value">${genre}</span></div>`;
+    if(mode) meta += `<div class="fi-col"><span class="label">Jugadores</span><span class="value">${mode}</span></div>`;
+    if(developer) meta += `<div class="fi-col"><span class="label">Desarrolladora</span><span class="value">${developer}</span></div>`;
+    if(year) meta += `<div class="fi-col"><span class="label">Año</span><span class="value">${year}</span></div>`;
+    if(rating) meta += `<div class="fi-col"><span class="label">Valoración</span><span class="value gold">${rating}</span></div>`;
+    previewMeta.innerHTML = meta;
+
+    let botones = "";
+    if(link1) botones += `<button class="btn blue" onclick="playClick();cerrarPreview();abrirLink('${escapeComillas(link1)}', '${escapeComillas(nombre)}')">Obtener</button>`;
+    if(link2) botones += `<button class="btn green" onclick="playClick();cerrarPreview();abrirLink('${escapeComillas(link2)}', '${escapeComillas(nombre)} (Tutorial)')">Tutorial</button>`;
+    previewLinks.innerHTML = botones;
+
+    let thumbs = "";
+    let mainSrc = "";
+
+    if(screenshots && screenshots.length > 0){
+        mainSrc = screenshots[0];
+        thumbs = screenshots.map((s,i) => `<img class="thumb${i===0?' active':''}" src="${s}" loading="lazy" onclick="verEnMain('${s}',this)">`).join("");
+    }
+
+    let trailerSrc = "";
+    if(trailer){
+        const videoId = trailer.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+        if(videoId){
+            trailerSrc = videoId[1];
+            thumbs += `<div class="thumb thumb-video" onclick="verTrailerEnMain('${trailerSrc}',this)"><img src="https://img.youtube.com/vi/${trailerSrc}/mqdefault.jpg" loading="lazy"><div class="play-icon"></div></div>`;
+        }
+    }
+
+    if(mainSrc) previewMain.innerHTML = `<img src="${mainSrc}">`;
+    else if(trailerSrc) previewMain.innerHTML = `<iframe src="https://www.youtube.com/embed/${trailerSrc}" allowfullscreen></iframe>`;
+    else previewMain.innerHTML = "";
+
+    previewThumbs.innerHTML = thumbs;
+
+    previewMain.dataset.trailer = trailerSrc || "";
+
+    box.style.display = "flex";
+}
+
+function cerrarPreview(){
+    detenerTrailer();
+    const box = document.getElementById("previewBox");
+    if(box) box.style.display = "none";
+}
+
+function detenerTrailer(){
+    const main = document.getElementById("previewMain");
+    if(main) main.innerHTML = "";
+
+    if(window._musicaPausadaPorTrailer){
+        window._musicaPausadaPorTrailer = false;
+        reproducirMusica();
+    }
+}
+
+function verEnMain(src, el){
+    detenerTrailer();
+    const main = document.getElementById("previewMain");
+    if(!main) return;
+    main.innerHTML = `<img src="${src}">`;
+    document.querySelectorAll(".preview-thumbs .thumb").forEach(t => t.classList.remove("active"));
+    el.classList.add("active");
+}
+
+function verTrailerEnMain(videoId, el){
+    const main = document.getElementById("previewMain");
+    if(!main) return;
+
+    if(!bgMusic.paused){
+        pausarMusica();
+        window._musicaPausadaPorTrailer = true;
+    }
+
+    main.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allowfullscreen></iframe>`;
+    document.querySelectorAll(".preview-thumbs .thumb").forEach(t => t.classList.remove("active"));
+    el.classList.add("active");
+}
+
+function abrirLink(link, nombre){
     if(!link || link.trim() === ""){
         alert("No hay enlace disponible");
         return;
@@ -529,13 +664,13 @@ function abrirLink(link){
 
     // Enlaces de archivo de MediaFire: descarga directa sin abrir pestaña
     if(/mediafire\.com\/file\//.test(link)){
-        descargarMediafire(link);
+        descargarMediafire(link, null, nombre);
         return;
     }
 
     // URL directa de descarga de MediaFire (download###.mediafire.com)
     if(/download\d+\.mediafire\.com\//.test(link)){
-        descargarMediafire(link, link);
+        descargarMediafire(link, link, nombre);
         return;
     }
 
@@ -582,17 +717,19 @@ function stopLoadingSound(){
     loadingSound.currentTime = 0;
 }
 
-function descargarMediafire(link, directaPrevia){
+function descargarMediafire(link, directaPrevia, nombre){
     const box = document.getElementById("descargaBox");
     const barra = document.getElementById("descargaProgress");
     const estado = document.getElementById("descargaEstado");
     const boton = document.getElementById("descargaFallback");
+    const nombreEl = document.getElementById("descargaNombre");
 
     if(!box || !barra || !estado) return;
 
     box.style.display = "flex";
     barra.style.width = "0%";
     estado.textContent = "Preparando el enlace...";
+    if(nombreEl) nombreEl.textContent = nombre || "";
 
     // El botón "Abrir en pestaña" solo se muestra si la descarga automática falla
     fallbackLink = null;
@@ -854,6 +991,9 @@ function cerrarDescarga(){
 
     const box = document.getElementById("descargaBox");
     if(box) box.style.display = "none";
+
+    const nombreEl = document.getElementById("descargaNombre");
+    if(nombreEl) nombreEl.textContent = "";
 }
 
 function escapeComillas(str){
@@ -883,8 +1023,9 @@ function render(lista){
                 </div>
 
                 <div class="btns">
-                    ${j.link1 ? `<button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(j.link1)}')">Ver enlace</button>` : ''}
-                    ${j.link2 ? `<button class="btn green" onclick="playClick();abrirLink('${escapeComillas(j.link2)}')">Ver enlace</button>` : ''}
+                    ${(j.link1 || j.link2) ? `<button class="btn blue" onclick="playClick();abrirPreview(this)" data-img="${j.img}" data-nombre="${j.nombre}" data-link1="${j.link1||''}" data-link2="${j.link2||''}" data-screenshots='${JSON.stringify(j.screenshots||[])}' data-trailer="${j.trailer||''}" data-rating="${j.rating||''}" data-genre="${j.genre||''}" data-developer="${j.developer||''}" data-desc="${j.previewDesc||''}" data-size="${j.size||''}" data-format="${j.format||''}" data-languages="${j.languages||''}" data-update="${j.update||''}" data-gameid="${j.gameId||''}" data-firmware="${j.firmware||''}" data-mode="${j.mode||''}" data-year="${j.year||''}">Ver enlace</button>` : ''}
+                    ${j.link1 ? `<button class="btn blue cart-add-btn" onclick="playClick();agregarAlCarrito('${escapeComillas(j.nombre)}', '${escapeComillas(j.link1)}', '${escapeComillas(j.img)}')"><i class="fa-solid fa-cart-arrow-down"></i> Agregar</button>` : ''}
+                    ${j.link2 ? `<button class="btn green cart-add-btn" onclick="playClick();agregarAlCarrito('${escapeComillas(j.nombre)} (Parte 2)', '${escapeComillas(j.link2)}', '${escapeComillas(j.img)}')"><i class="fa-solid fa-cart-arrow-down"></i> Agregar</button>` : ''}
                 </div>
 
                 ${admin ? `
@@ -1077,4 +1218,147 @@ function abrirDonaciones() {
 
 function cerrarDonaciones() {
     document.getElementById("donacionesBox").style.display = "none";
+}
+
+// =========================
+// CARRITO DE COMPRAS
+// =========================
+
+let carrito = [];
+
+function agregarAlCarrito(nombre, link, img) {
+    const existe = carrito.find(item => item.link === link);
+    if (!existe) {
+        carrito.push({ nombre, link, img });
+        actualizarContadorCarrito();
+        mostrarToast(`<i class="fa-solid fa-cart-plus" style="color: #10b981;"></i> ${nombre} agregado al carrito`);
+    } else {
+        mostrarToast(`<i class="fa-solid fa-circle-exclamation" style="color: #f59e0b;"></i> ${nombre} ya está en el carrito`);
+    }
+}
+
+function actualizarContadorCarrito() {
+    const countSpan = document.getElementById("cartCount");
+    if (countSpan) countSpan.textContent = carrito.length;
+    
+    const btnCheckout = document.getElementById("btnCheckout");
+    if (btnCheckout) {
+        btnCheckout.disabled = carrito.length === 0;
+    }
+}
+
+function abrirCarrito() {
+    playClick();
+    const cartBox = document.getElementById("cartBox");
+    const container = document.getElementById("cartItemsContainer");
+    
+    if (carrito.length === 0) {
+        container.innerHTML = "<div style='text-align: center; color: #94a3b8; margin-top: 20px;'><i class='fa-solid fa-box-open' style='font-size:32px; margin-bottom:10px; display:block;'></i><p>El carrito está vacío</p></div>";
+    } else {
+        container.innerHTML = carrito.map((item, index) => `
+            <div class="cart-item">
+                <img src="${item.img}" class="cart-item-img" alt="Miniatura">
+                <span title="${item.nombre}">${item.nombre}</span>
+                <button onclick="eliminarDelCarrito(${index})" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        `).join("");
+    }
+    
+    cartBox.style.display = "flex";
+}
+
+function cerrarCarrito() {
+    playClick();
+    document.getElementById("cartBox").style.display = "none";
+}
+
+window.eliminarDelCarrito = function(index) {
+    carrito.splice(index, 1);
+    actualizarContadorCarrito();
+    abrirCarrito();
+}
+
+function realizarCompra() {
+    if (carrito.length === 0) return;
+    playClick();
+    cerrarCarrito();
+
+    const items = [...carrito];
+    carrito = [];
+    actualizarContadorCarrito();
+
+    const container = document.getElementById("successDownloadsContainer");
+    if (container) {
+        container.innerHTML = items.map(item => `
+            <button class="download-link-btn" onclick="abrirLink('${escapeComillas(item.link)}', '${escapeComillas(item.nombre)}')">
+                <i class="fa-solid fa-download"></i> ${item.nombre}
+            </button>
+        `).join("");
+    }
+
+    document.getElementById("purchaseSuccessBox").style.display = "flex";
+    window._compraItems = items;
+}
+
+async function descargarTodo() {
+    const items = window._compraItems;
+    if (!items || items.length === 0) return;
+    playClick();
+
+    document.getElementById("purchaseSuccessBox").style.display = "none";
+
+    let descargados = 0;
+    let fallidos = 0;
+
+    for (const item of items) {
+        const link = item.link;
+        if (!link || !link.trim()) { fallidos++; continue; }
+
+        if (/mediafire\.com\/file\//.test(link)) {
+            try {
+                const c = new AbortController();
+                const t = setTimeout(() => c.abort(), 10000);
+                const directa = await obtenerUrlDirecta(link, c.signal);
+                clearTimeout(t);
+                iniciarDescarga(directa);
+                descargados++;
+            } catch (e) {
+                window.open(link, "_blank");
+                fallidos++;
+            }
+        } else if (/download\d+\.mediafire\.com\//.test(link)) {
+            iniciarDescarga(link);
+            descargados++;
+        } else {
+            window.open(link, "_blank");
+            fallidos++;
+        }
+
+        await new Promise(r => setTimeout(r, 2000));
+    }
+
+    window._compraItems = null;
+    mostrarToast(`<i class="fa-solid fa-circle-check" style="color: #10b981;"></i> ${descargados} descargado(s), ${fallidos} abierto(s) en pestaña`);
+}
+
+function cerrarSuccessModal() {
+    playClick();
+    document.getElementById("purchaseSuccessBox").style.display = "none";
+}
+
+function mostrarToast(mensaje) {
+    const container = document.getElementById("toastContainer");
+    if (!container) return;
+    
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.innerHTML = mensaje;
+    
+    container.appendChild(toast);
+    
+    setTimeout(() => {
+        if(container.contains(toast)) {
+            container.removeChild(toast);
+        }
+    }, 3000);
 }

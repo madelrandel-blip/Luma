@@ -86,19 +86,50 @@ input[type="submit"],
    2. HEADER & ELEMENTOS DE NAVEGACIÓN
    ========================================================================== */
 header {
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contenedor de Botones */
+.header-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: nowrap;
     background: linear-gradient(180deg, rgba(8, 15, 35, 0.92) 0%, rgba(7, 12, 28, 0.88) 100%);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid rgba(125, 211, 252, 0.10);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.03);
-    padding: 15px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 6px 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
     position: relative;
-    z-index: 1;
-    gap: 14px;
-    flex-wrap: nowrap;
+}
+
+.header-btn::-webkit-scrollbar {
+    height: 0;
+}
+
+.header-divider{
+    width:1px;
+    height:24px;
+    background:rgba(255,255,255,.08);
+    flex-shrink:0;
+    margin:0 2px;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex-shrink:0;
+    margin-left:auto;
 }
 
 .logo {
@@ -106,129 +137,104 @@ header {
     align-items: center;
     flex-shrink: 0;
     white-space: nowrap;
+    margin-right: 4px;
 }
 
 .logo h1 {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 6px;
     margin: 0;
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
     color: white;
-    text-shadow: 0 0 10px rgba(125, 211, 252, 0.14), 0 0 24px rgba(167, 139, 250, 0.08);
 }
 
 .logo img {
-    height: 34px;
+    height: 22px;
     width: auto;
-    border-radius: 10px;
+    border-radius: 5px;
     object-fit: contain;
-    transition: transform 0.25s ease;
 }
 
 #buscador {
-    padding: 8px 12px;
-    border-radius: 10px;
+    padding: 6px 10px;
+    border-radius: 8px;
     outline: none;
     color: white;
-    background: linear-gradient(180deg, rgba(2, 6, 23, 0.92) 0%, rgba(3, 7, 18, 0.88) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.10);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 0 12px rgba(0, 0, 0, 0.12);
-    width: 220px;
-    min-width: 180px;
-    max-width: 220px;
-    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    flex: 1;
+    max-width: 240px;
+    flex-shrink: 1;
     transition: 0.25s;
+    font-size: 12px;
+}
+
+#buscador::placeholder {
+    color: rgba(255, 255, 255, 0.35);
 }
 
 #buscador:focus {
-    border: 1px solid rgba(125, 211, 252, 0.24);
-    box-shadow: 0 0 12px rgba(125, 211, 252, 0.12);
+    border-color: rgba(125, 211, 252, 0.3);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-/* Contenedor de Botones (Estilo Switch) */
-.header-btn {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    flex-wrap: nowrap;
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid rgba(125, 211, 252, 0.08);
-    border-radius: 18px;
-    padding: 6px 10px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 18px rgba(125, 211, 252, 0.04);
-    overflow-x: auto;
-    max-width: 100%;
-}
-
-.header-btn::-webkit-scrollbar {
-    height: 0;
-}
 
 .header-btn button, .music-control {
     flex-shrink: 0;
 }
 
 .header-btn button:not(.admin-profile-btn) {
-    padding: 6px 10px;
-    border: 1px solid rgba(125, 211, 252, 0.14);
-    border-radius: 10px;
+    padding: 5px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
     cursor: pointer;
-    background: linear-gradient(180deg, rgba(110, 231, 255, 0.16) 0%, rgba(167, 139, 250, 0.12) 100%);
-    color: white;
-    transition: all 0.25s ease;
-    font-weight: bold;
-    font-size: 13px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.2s ease;
+    font-weight: 600;
+    font-size: 11px;
     width: auto;
-    min-width: 82px;
-    height: 36px;
+    min-width: 0;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
     text-align: center;
     white-space: nowrap;
     line-height: 1;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
 .header-btn button:not(.admin-profile-btn):hover {
-    background: linear-gradient(180deg, rgba(125, 211, 252, 0.26) 0%, rgba(167, 139, 250, 0.22) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.28);
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 0 16px rgba(125, 211, 252, 0.14), 0 0 28px rgba(167, 139, 250, 0.10);
+    background: rgba(125, 211, 252, 0.12);
+    border-color: rgba(125, 211, 252, 0.25);
+    color: white;
 }
 
 .header-btn button:not(.admin-profile-btn) img {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     object-fit: contain;
     flex-shrink: 0;
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
 }
 
 /* Botón Perfil de Administrador */
 .admin-profile-btn {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 74px;
-    min-width: 74px;
-    height: auto;
-    padding: 6px 8px;
-    border: 1px solid rgba(125, 211, 252, 0.14);
-    border-radius: 18px;
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(10, 15, 30, 0.92) 100%);
-    transition: all 0.28s ease;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 6px 18px rgba(0, 0, 0, 0.24);
+    background: transparent;
+    transition: all 0.2s ease;
 }
 
 .admin-profile-btn img {
@@ -236,22 +242,17 @@ header {
     height: 42px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid rgba(125, 211, 252, 0.30);
-    box-shadow: 0 0 12px rgba(125, 211, 252, 0.16), 0 0 22px rgba(167, 139, 250, 0.08);
-    margin-bottom: 4px;
+    border: 2px solid rgba(125, 211, 252, 0.28);
+    box-shadow: 0 0 8px rgba(125, 211, 252, 0.15);
 }
 
 .admin-profile-btn span {
-    font-size: 11px;
-    font-weight: 700;
-    color: white;
-    line-height: 1;
-    white-space: nowrap;
+    display: none;
 }
 
 .admin-profile-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 14px rgba(125, 211, 252, 0.25), 0 0 24px rgba(167, 139, 250, 0.15);
+    background: rgba(125, 211, 252, 0.12);
+    border-color: rgba(125, 211, 252, 0.25);
 }
 
 /* ==========================================================================
@@ -260,14 +261,39 @@ header {
 .music-control {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     height: auto;
     padding: 0 4px;
     flex-shrink: 0;
     background: transparent;
     border: none;
     box-shadow: none;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.music-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.music-icon:hover {
+    border-color: rgba(125, 211, 252, 0.4);
+}
+
+.music-title {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 70px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* Submenú de playlist: aparece bajo el disco al hacer clic */
@@ -416,43 +442,41 @@ header {
     to   { transform: rotate(360deg); }
 }
 
-/* Botones del reproductor (anterior / play / siguiente) - estilo emuladores */
-.header-btn .music-control .music-btn,
-.header-btn .music-control .skip-btn {
+/* Botones del reproductor */
+.music-control .music-btn,
+.music-control .skip-btn {
     all: unset;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    min-width: 38px;
-    height: 36px;
-    border-radius: 10px;
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 5px;
     cursor: pointer;
-    color: white;
-    font-size: 13px;
-    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+    font-weight: 600;
     line-height: 1;
     white-space: nowrap;
     text-align: center;
-    background: linear-gradient(180deg, rgba(110, 231, 255, 0.16) 0%, rgba(167, 139, 250, 0.12) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.14);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 12px rgba(0, 0, 0, 0.18);
-    transition: all 0.25s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
 }
 
-.header-btn .music-control .music-btn:hover,
-.header-btn .music-control .skip-btn:hover {
-    background: linear-gradient(180deg, rgba(125, 211, 252, 0.26) 0%, rgba(167, 139, 250, 0.22) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.28);
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 0 16px rgba(125, 211, 252, 0.14), 0 0 28px rgba(167, 139, 250, 0.10);
+.music-control .music-btn:hover,
+.music-control .skip-btn:hover {
+    background: rgba(125, 211, 252, 0.12);
+    border-color: rgba(125, 211, 252, 0.25);
+    color: white;
 }
 
 .volume-control {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 4px;
     margin-left: 1px;
     width: auto;
     flex-shrink: 0;
@@ -462,8 +486,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
     color: rgba(224, 242, 255, 0.85);
     cursor: pointer;
@@ -499,31 +523,29 @@ header {
 #volumeSlider {
     -webkit-appearance: none;
     appearance: none;
-    width: 70px;
-    min-width: 70px;
-    max-width: 70px;
-    height: 4px;
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    height: 3px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.10);
     outline: none;
     cursor: pointer;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
     transition: box-shadow 0.2s ease;
 }
 
 #volumeSlider:hover {
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35), 0 0 8px rgba(125, 211, 252, 0.15);
+    box-shadow: 0 0 8px rgba(125, 211, 252, 0.15);
 }
 
 #volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: linear-gradient(180deg, #ffffff, #e8f6ff);
-    border: 1px solid rgba(125, 211, 252, 0.60);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.40);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(125, 211, 252, 0.4);
     cursor: pointer;
     transition: transform 0.15s ease;
 }
@@ -584,11 +606,16 @@ header {
 
 #emuladoresBox,
 #recursosBox,
-#donacionesBox,
-#descargaBox {
+#donacionesBox {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
     z-index: 999;
+}
+
+#descargaBox {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 10002;
 }
 
 /* Barra de progreso del modal de descarga */
@@ -831,30 +858,249 @@ header {
    ========================================================================== */
 #adminPanel {
     display: none;
-    background: rgba(10, 15, 30, 0.8);
-    padding: 20px;
+    background: rgba(10, 15, 30, 0.95);
+    border-bottom: 1px solid rgba(125, 211, 252, 0.10);
     position: relative;
     z-index: 1;
+    padding: 16px 20px;
 }
-
-#adminPanel input {
-    padding: 8px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
 }
-
-#adminPanel button {
-    background: linear-gradient(180deg, rgba(110, 231, 255, 0.18) 0%, rgba(167, 139, 250, 0.16) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.14);
+.admin-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
     color: white;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 14px rgba(0, 0, 0, 0.18);
 }
-
+.admin-mode {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    font-size: 11px;
+    font-weight: 600;
+    color: #22c55e;
+}
+.admin-mode.editing {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.25);
+    color: #f59e0b;
+}
+.mode-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+.admin-body {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 16px;
+}
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.admin-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 12px;
+}
+.admin-section h4 {
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(125, 211, 252, 0.8);
+}
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.admin-grid.cols-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.admin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.admin-field.full {
+    grid-column: 1 / -1;
+}
+.admin-field label {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+.admin-field input,
+.admin-field textarea {
+    padding: 7px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 12px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+.admin-field input:focus,
+.admin-field textarea:focus {
+    border-color: rgba(125, 211, 252, 0.35);
+}
+.admin-field textarea {
+    resize: vertical;
+    min-height: 50px;
+}
+.admin-actions-bar {
+    display: flex;
+    gap: 8px;
+}
+.admin-actions-bar button {
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(125, 211, 252, 0.20);
+    background: rgba(125, 211, 252, 0.12);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.admin-actions-bar button:hover {
+    background: rgba(125, 211, 252, 0.22);
+    border-color: rgba(125, 211, 252, 0.35);
+}
 #btnGuardar.editando {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.30);
+    color: #f59e0b;
 }
-
+#btnCancelar {
+    background: rgba(239, 68, 68, 0.10);
+    border-color: rgba(239, 68, 68, 0.25);
+    color: #ef4444;
+}
+#btnCancelar:hover {
+    background: rgba(239, 68, 68, 0.20);
+}
+.admin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.admin-list h4 {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(125, 211, 252, 0.8);
+}
+#adminSearch {
+    padding: 7px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 12px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+#adminSearch:focus {
+    border-color: rgba(125, 211, 252, 0.35);
+}
+.admin-game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.admin-game-list::-webkit-scrollbar { width: 4px; }
+.admin-game-list::-webkit-scrollbar-track { background: transparent; }
+.admin-game-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.admin-game-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.15s;
+}
+.admin-game-item:hover {
+    background: rgba(125, 211, 252, 0.08);
+    border-color: rgba(125, 211, 252, 0.15);
+}
+.admin-game-item img {
+    width: 28px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+.admin-game-item-info {
+    flex: 1;
+    min-width: 0;
+}
+.admin-game-item-info span {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.admin-game-item-info small {
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.35);
+}
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+}
+.admin-game-item .btn-edit:hover {
+    background: rgba(125, 211, 252, 0.15);
+    border-color: rgba(125, 211, 252, 0.30);
+    color: white;
+}
+.admin-game-item .btn-delete:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.30);
+    color: #ef4444;
+}
 .admin-actions {
     display: flex;
     gap: 5px;
@@ -866,10 +1112,10 @@ header {
    ========================================================================== */
 .store {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    padding: 14px 20px 4px;
     justify-content: center;
-    gap: 18px;
-    padding: 20px;
     position: relative;
     z-index: 1;
     transition: opacity 0.35s ease, transform 0.35s ease;
@@ -878,36 +1124,36 @@ header {
 /* ===== SOLO LA TIENDA PRINCIPAL ===== */
 
 #store {
-    grid-template-columns: repeat(6, 220px);
+    grid-template-columns: repeat(7, 1fr);
 }
 
 @media (max-width: 1280px) {
     #store {
-        grid-template-columns: repeat(5, 180px);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
 @media (max-width: 1080px) {
     #store {
-        grid-template-columns: repeat(4, 180px);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 900px) {
     #store {
-        grid-template-columns: repeat(3, 180px);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 700px) {
     #store {
-        grid-template-columns: repeat(2, 180px);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 450px) {
     #store {
-        grid-template-columns: repeat(1, 180px);
+        grid-template-columns: repeat(1, 144px);
     }
 }
 
@@ -923,32 +1169,40 @@ header {
 
 .card {
     position: relative;
-    background: rgba(15, 23, 42, 0.8);
+    background: transparent;
     border-radius: 14px;
     overflow: hidden;
     transition: 0.3s;
 }
 
 .card:hover {
-    transform: scale(1.04);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .card img {
-    width: 100%;
+    width: 90%;
     display: block;
+    margin: 0 auto;
+    border-radius: 10px;
 }
 
 /* Capa de contenido por defecto de las tarjetas estándar */
 .card .content {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 12px;
+    padding: 10px;
     background: linear-gradient(to top, rgba(3,7,18,0.92) 0%, rgba(3,7,18,0.55) 35%, transparent 70%);
     opacity: 0;
     transition: 0.3s;
+    border-radius: 14px;
+    overflow: hidden;
 }
 
 .card:hover .content {
@@ -1032,6 +1286,15 @@ header {
     opacity: 1;
     background: none;
     padding: 14px;
+    border-radius: 0;
+    overflow: visible;
+}
+
+#emuladoresStore, #recursosStore {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 10px 0;
 }
 
 #emuladoresStore .info-overlay h3, #recursosStore .info-overlay h3 {
@@ -1066,31 +1329,34 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: 25px;
+    gap: 6px;
+    padding: 2px 25px 6px;
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
 }
 
 .pagination button {
-    padding: 10px 16px;
-    border-radius: 12px;
+    padding: 6px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 12px;
     color: white;
     transition: 0.25s;
-    background: linear-gradient(180deg, rgba(110, 231, 255, 0.14) 0%, rgba(167, 139, 250, 0.12) 100%);
-    border: 1px solid rgba(125, 211, 252, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .pagination button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 12px rgba(125, 211, 252, 0.25);
+    transform: translateY(-1px);
+    background: rgba(125, 211, 252, 0.12);
+    border-color: rgba(125, 211, 252, 0.25);
 }
 
 .pagination button.active {
-    background: linear-gradient(180deg, rgba(125, 211, 252, 0.28) 0%, rgba(167, 139, 250, 0.24) 100%);
+    background: rgba(125, 211, 252, 0.20);
+    border-color: rgba(125, 211, 252, 0.35);
 }
 
 .pagination button:disabled {
@@ -1166,42 +1432,47 @@ header {
 
     /*Ajustes para que las tarjetas de la tienda no se rompan en tablets */
     .store {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
-        gap: 12px !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
         padding: 12px !important;
     }
 
-    /* Header móvil: botones 2x2 con el perfil al lado en su tamaño original
+    /* Header móvil: logo + botones 2x2 + perfil
        (el reproductor es una barra flotante abajo) */
     .header-btn {
         position: relative !important;
-        display: grid !important;
-        grid-template-columns: auto auto auto !important;
-        grid-template-rows: auto auto auto !important;
-        gap: 6.8px 5.8px !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
         width: 100% !important;
         max-width: 420px !important;
         margin-left: auto !important;
         margin-right: auto !important;
         justify-content: center !important;
-        overflow: visible !important;
         align-items: center !important;
-        justify-items: center !important;
-        padding: 10.5px 8.7px !important;
-        background: rgba(255, 255, 255, 0.03) !important;
+        padding: 10px 10px !important;
+        background: linear-gradient(180deg, rgba(8, 15, 35, 0.92) 0%, rgba(7, 12, 28, 0.88) 100%) !important;
         border-radius: 16px !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
+        border: 1px solid rgba(125, 211, 252, 0.10) !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
     }
 
-    /* Reproductor flotante en la parte inferior (Android) */
-    .header-btn .music-control {
-        order: 1 !important;
+    /* Ocultar buscador en el header móvil */
+    #buscador {
+        display: none !important;
+    }
+
+    /* Barra flotante del reproductor en la parte inferior */
+    .music-control {
+        display: flex !important;
         position: fixed !important;
         left: 12px !important;
         right: 12px !important;
         bottom: 12px !important;
         top: auto !important;
+        transform: none !important;
         z-index: 2000 !important;
         width: auto !important;
         max-width: none !important;
@@ -1220,69 +1491,71 @@ header {
         -webkit-backdrop-filter: blur(10px) !important;
     }
 
-    .header-btn .music-title {
-        order: 0 !important;
-        flex: 1 1 auto !important;
-        max-width: none !important;
-        min-width: 0 !important;
-        text-align: center !important;
-        padding: 0 !important;
+    /* Logo pequeño */
+    .logo {
+        flex-shrink: 0;
     }
 
-    .header-btn > button:not(.admin-profile-btn):not(#logoutBtn) {
-        order: 3 !important;
+    .header-actions {
+        display: grid !important;
+        grid-template-columns: auto auto auto !important;
+        grid-template-rows: auto auto auto !important;
+        gap: 6.8px 5.8px !important;
+        margin: 0 auto !important;
+    }
+    .header-actions > button:not(.admin-profile-btn):not(#logoutBtn) {
         width: 112px !important;
         min-width: 112px !important;
-        max-width: none !important;
         height: 42px !important;
         font-size: 13px !important;
         padding: 6px 8px !important;
         justify-self: center !important;
         align-self: center !important;
     }
+    .header-actions > button:nth-child(1) { grid-row: 1 !important; grid-column: 1 !important; }
+    .header-actions > button:nth-child(2) { grid-row: 1 !important; grid-column: 2 !important; }
+    .header-actions > button:nth-child(3) { grid-row: 2 !important; grid-column: 1 !important; }
+    .header-actions > button:nth-child(4) { grid-row: 2 !important; grid-column: 2 !important; }
+    .header-actions > button:nth-child(5) { grid-row: 3 !important; grid-column: 1 !important; }
+    .header-actions > button:nth-child(6) { grid-row: 3 !important; grid-column: 2 !important; }
 
-    /* Botones en cuadrícula 2x2 */
-    .header-btn > button:nth-child(2) { grid-row: 1 !important; grid-column: 1 !important; }
-    .header-btn > button:nth-child(3) { grid-row: 1 !important; grid-column: 2 !important; }
-    .header-btn > button:nth-child(4) { grid-row: 2 !important; grid-column: 1 !important; }
-    .header-btn > button:nth-child(5) { grid-row: 2 !important; grid-column: 2 !important; }
-
-    /* Perfil al lado de la 2x2, tamaño original (60px) */
-    .header-btn .admin-profile-btn {
+    /* Perfil al lado de la 2x3, tamaño original (60px) */
+    .header-actions .admin-profile-btn {
         order: 2 !important;
-        grid-row: 1 / span 2 !important;
+        grid-row: 1 / span 3 !important;
         grid-column: 3 !important;
         justify-self: center !important;
-        align-self: center !important;
+        align-self: stretch !important;
         position: relative !important;
         top: auto !important;
         left: auto !important;
         transform: none !important;
         width: auto !important;
-        min-width: 64px !important;
+        aspect-ratio: 1 / 1 !important;
         height: auto !important;
         border-radius: 14px !important;
-        padding: 8px 14px !important;
+        padding: 10px 16px !important;
         flex-direction: column !important;
+        justify-content: center !important;
         gap: 4px !important;
         background: rgba(255, 255, 255, 0.03) !important;
         border: 1px solid rgba(125, 211, 252, 0.20) !important;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 12px rgba(0, 0, 0, 0.18) !important;
     }
 
-    .header-btn .admin-profile-btn:hover {
+    .header-actions .admin-profile-btn:hover {
         transform: scale(1.05) !important;
     }
 
-    .header-btn .admin-profile-btn img {
-        width: 60px !important;
-        height: 60px !important;
+    .header-actions .admin-profile-btn img {
+        width: 68px !important;
+        height: 68px !important;
         margin-bottom: 0 !important;
         border: 2px solid rgba(125, 211, 252, 0.40) !important;
         box-shadow: 0 0 14px rgba(125, 211, 252, 0.30) !important;
     }
 
-    .header-btn .admin-profile-btn span {
+    .header-actions .admin-profile-btn span {
         display: block !important;
         font-size: 11px !important;
         font-weight: 700 !important;
@@ -1292,10 +1565,8 @@ header {
     }
 
     #logoutBtn {
-        order: 4 !important;
-        grid-row: 3 !important;
-        grid-column: 1 / -1 !important;
         width: 100% !important;
+        flex-basis: 100%;
     }
 
     #volumeSlider {
@@ -1322,6 +1593,15 @@ header {
     .login-content {
         width: 95% !important;
         padding: 20px 15px !important;
+    }
+    .admin-body {
+        grid-template-columns: 1fr !important;
+    }
+    .admin-grid.cols-3 {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .admin-game-list {
+        max-height: 250px;
     }
 }
 
@@ -1372,4 +1652,631 @@ header {
 
 .donate-btn .heart{
     font-size: 17px;
+}
+
+/* ==========================================================================
+   MODAL PREVIEW JUEGO
+   ========================================================================== */
+#previewBox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    z-index:3000;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.preview-content{
+    background:linear-gradient(145deg,#0f172a,#1a1a3e);
+    border:1px solid rgba(125,211,252,.2);
+    border-radius:16px;
+    max-width:950px;
+    width:100%;
+    height:90vh;
+    position:relative;
+    overflow-y:auto;
+}
+
+.preview-close{
+    position:absolute;
+    top:10px;
+    right:14px;
+    background:none;
+    border:none;
+    color:var(--text);
+    font-size:20px;
+    cursor:pointer;
+    z-index:10;
+    opacity:.6;
+    transition:opacity .2s;
+}
+
+.preview-close:hover{
+    opacity:1;
+}
+
+/* Grid: portada izquierda + info derecha */
+.preview-grid{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:24px;
+    padding:24px;
+    align-items:start;
+}
+
+.preview-cover{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:stretch;
+}
+
+.preview-cover img{
+    width:100%;
+    border-radius:12px;
+    border:2px solid rgba(125,211,252,.25);
+    background:#0a0f1e;
+}
+
+/* Info del archivo */
+.preview-file-info{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    font-size:11px;
+    color:rgba(224,242,255,.7);
+}
+
+.preview-file-info .fi{
+    display:flex;
+    gap:6px;
+}
+
+.preview-file-info .fi b{
+    color:rgba(125,211,252,.9);
+    white-space:nowrap;
+}
+
+/* Info derecha */
+.preview-info{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.preview-title{
+    font-size:24px;
+    margin:0;
+    line-height:1.2;
+}
+
+/* Meta tags */
+.preview-meta{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px 16px;
+    background:rgba(0,0,0,.2);
+    text-align:center;
+}
+
+.preview-meta .fi-col{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    flex:1;
+}
+
+.preview-meta .label{
+    color:rgba(125,211,252,.85);
+    font-weight:600;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+}
+
+.preview-meta .value{
+    color:rgba(224,242,255,.9);
+    font-size:13px;
+    font-weight:700;
+}
+
+.preview-meta .value.gold{
+    color:#facc15;
+}
+
+/* Descripción */
+.preview-desc{
+    font-size:13px;
+    color:rgba(224,242,255,.7);
+    margin:0;
+    line-height:1.5;
+}
+
+/* Main preview (imagen grande o video) */
+.preview-main{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:10px;
+    overflow:hidden;
+    background:#000;
+    border:1px solid var(--border);
+}
+
+.preview-main img,
+.preview-main iframe{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border:none;
+    display:block;
+}
+
+/* Thumbnails */
+.preview-thumbs{
+    display:flex;
+    gap:8px;
+    overflow-x:visible;
+}
+
+.preview-thumbs .thumb{
+    width:144px;
+    height:82px;
+    object-fit:cover;
+    border-radius:6px;
+    border:2px solid var(--border);
+    flex-shrink:0;
+    cursor:pointer;
+    opacity:.5;
+    transition:border-color .2s, opacity .2s;
+}
+
+.preview-thumbs .thumb:hover{
+    opacity:.8;
+}
+
+.preview-thumbs .thumb.active{
+    border-color:var(--accent);
+    opacity:1;
+}
+
+.preview-thumbs .thumb-video{
+    position:relative;
+    background:#000;
+}
+
+.preview-thumbs .thumb-video img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.preview-thumbs .thumb-video .play-icon{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.4);
+    justify-content:center;
+    align-items:center;
+    display:flex;
+}
+
+.preview-thumbs .thumb-video .play-icon::before{
+    content:"";
+    filter:drop-shadow(0 1px 4px #0009);
+    border-top:8px solid transparent;
+    border-bottom:8px solid transparent;
+    border-left:12px solid #fff;
+}
+
+/* Botones debajo de la portada */
+.preview-links{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.preview-links .btn{
+    width:100%;
+    padding:10px 16px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    border:none;
+    color:#fff;
+    text-align:center;
+    transition:filter .2s;
+}
+
+.preview-links .btn:hover{
+    filter:brightness(1.15);
+}
+
+.preview-links .btn.blue{
+    background:#1565c0;
+}
+
+.preview-links .btn.green{
+    background:#2e7d32;
+}
+
+/* ==========================================================================
+   10. CARRITO DE COMPRAS
+   ========================================================================== */
+
+.cart-btn-header {
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.15) 100%) !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    color: #10b981 !important;
+    font-weight: bold;
+}
+
+.cart-badge {
+    background: #10b981;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-left: 4px;
+    min-width: 18px;
+    text-align: center;
+    line-height: 16px;
+}
+
+.btn.blue.cart-add-btn {
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.btn.green.cart-add-btn {
+    background: linear-gradient(180deg, #10b981 0%, #059669 100%) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#cartBox, #purchaseSuccessBox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-content {
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+}
+
+.cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-right: 5px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cart-item-img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.cart-item span {
+    font-size: 14px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.cart-item button {
+    background: transparent !important;
+    border: none !important;
+    color: #ef4444 !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    padding: 5px 10px !important;
+    width: auto !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.cart-item button:hover {
+    transform: scale(1.1) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 15px;
+    color: #e2e8f0;
+}
+
+.cart-total span {
+    color: #10b981;
+}
+
+.checkout-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 12px !important;
+}
+
+.checkout-btn:disabled {
+    background: #475569 !important;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.cart-close-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* --- SUCCESS MODAL --- */
+.success-content {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(125, 211, 252, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    max-width: 90%;
+    width: 450px;
+}
+
+.success-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+    animation: floatIcon 2s ease-in-out infinite;
+    color: #10b981;
+}
+
+.success-content h2 {
+    color: #10b981;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.success-content p {
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.success-downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.download-link-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    border: none !important;
+    padding: 12px 15px !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-weight: bold !important;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.download-link-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+.success-close-btn {
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    padding: 10px 25px !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+    cursor: pointer;
+    font-weight: bold !important;
+    transition: all 0.2s !important;
+    width: 100%;
+}
+
+.success-close-btn:hover {
+    background: rgba(255,255,255,0.1) !important;
+}
+
+.download-all-btn {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+    border: none !important;
+    padding: 12px 15px !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.download-all-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4) !important;
+}
+
+/* --- TOAST --- */
+#toastContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 11000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(167, 139, 250, 0.4);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideInRight 0.3s ease-out, fadeOut 0.3s ease-in 2.7s forwards;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes slideInRight {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+    #toastContainer {
+        bottom: 80px !important;
+        right: 10px !important;
+        left: 10px !important;
+    }
+
+    /* ===== PREVIEW MODAL ANDROID ===== */
+    #previewBox {
+        padding: 8px;
+    }
+
+    .preview-content {
+        height: auto;
+        max-height: 85vh;
+        border-radius: 12px;
+    }
+
+    .preview-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 14px;
+    }
+
+    .preview-cover img {
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .preview-title {
+        font-size: 17px;
+    }
+
+    .preview-desc {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .preview-main {
+        aspect-ratio: 16/9;
+        max-height: 180px;
+    }
+
+    .preview-thumbs {
+        gap: 6px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .preview-thumbs .thumb {
+        width: 96px;
+        height: 55px;
+    }
+
+    .preview-meta {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .preview-meta .fi-col {
+        min-width: 60px;
+    }
+
+    .preview-meta .label {
+        font-size: 9px;
+    }
+
+    .preview-meta .value {
+        font-size: 11px;
+    }
+
+    .preview-file-info {
+        font-size: 10px;
+    }
+
+    .preview-links .btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
 }

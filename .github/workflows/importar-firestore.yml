@@ -1,0 +1,39 @@
+name: Importar JSON a Firestore
+
+# Se ejecuta automáticamente cuando se modifican los archivos JSON
+# (push con cambios en data/*.json) o cada 20 minutos.
+# También se puede lanzar a mano desde la pestaña "Actions".
+
+on:
+  push:
+    paths:
+      - "data/*.json"
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencias
+        run: npm install
+        working-directory: scripts
+
+      - name: Importar JSON a Firestore
+        run: node importar-firestore.js
+        working-directory: scripts
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}

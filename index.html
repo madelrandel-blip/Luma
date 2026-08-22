@@ -19,8 +19,10 @@
 <meta name="twitter:description" content="Explora tu biblioteca premium de juegos Nintendo Switch en Luma Switch.">
 <meta name="twitter:image" content="assets/images/Luma background embed.jpg?raw=true">
 
-<link rel="stylesheet" href="style.css?v=20260804-3">
+<link rel="stylesheet" href="style.css?v=20260822-7">
 <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -52,23 +54,21 @@
 
 <!-- HEADER -->
 <header>
-    <div class="logo">
-        <h1>
-            <img src="assets/images/Luma icon.webp" alt="Luma Logo" height="25">
-            Luma Switch
-        </h1>
-    </div>
-
-    <!-- BUSCADOR -->
-    <input
-        type="text"
-        id="buscador"
-        placeholder="🔍 Buscar juegos"
-    >
-
-    <!-- BOTONES HEADER -->
     <div class="header-btn">
-        <!-- REPRODUCTOR DE MÚSICA (a la izquierda del recuadro) -->
+        <div class="logo">
+            <h1>
+                <img src="assets/images/Luma icon.webp" alt="Luma Logo" height="25">
+                Luma Switch
+            </h1>
+        </div>
+
+        <input
+            type="text"
+            id="buscador"
+            placeholder="🔍 Buscar juegos"
+        >
+
+        <!-- REPRODUCTOR DE MÚSICA -->
         <div class="music-control">
             <img
                 src="assets/images/Luma icon.webp"
@@ -98,7 +98,7 @@
                     aria-hidden="true"
                 >
                     <path class="vol-on" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4.03v8.05A4.5 4.5 0 0 0 16.5 12zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" fill="currentColor"/>
-                    <path class="vol-off" d="M16.5 12a4.5 4.5 0 0 0-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.796 8.796 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" fill="currentColor"/>
+                    <path class="vol-off" d="M16.5 12a4.5 4.5 0 0 0-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.796 8.796 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" fill="currentColor"/>
                 </svg>
 
                 <input
@@ -110,6 +110,17 @@
                 >
             </div>
         </div>
+
+        <div class="header-actions">
+        <button onclick="abrirCarrito()" class="cart-btn-header" title="Ver carrito">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCount" class="cart-badge">0</span>
+        </button>
+
+        <button onclick="window.open('https://www.youtube.com/@Madeline19','_blank')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YouTube
+        </button>
 
         <button onclick="abrirEmuladores()">
             <img src="assets/icons/emuladores.png" alt="">
@@ -139,6 +150,7 @@
         <button onclick="logout()" id="logoutBtn" style="display:none;">
             🚪 Salir
         </button>
+        </div>
     </div>
 </header>
 
@@ -147,17 +159,136 @@
 
 <!-- PANEL ADMIN -->
 <div id="adminPanel">
-    <h3>Panel Administrador</h3>
+    <div class="admin-header">
+        <h3>Panel Administrador</h3>
+        <div class="admin-mode" id="adminMode">
+            <span class="mode-dot"></span>
+            <span id="adminModeText">Nuevo juego</span>
+        </div>
+    </div>
 
-    <input type="text" id="nombre" placeholder="Nombre del juego">
-    <input type="text" id="img" placeholder="URL imagen">
-    <input type="text" id="desc" placeholder="Descripción">
-    <input type="text" id="link1" placeholder="Link 1">
-    <input type="text" id="link2" placeholder="Link 2">
+    <div class="admin-body">
+        <!-- FORMULARIO -->
+        <div class="admin-form">
+            <div class="admin-section">
+                <h4>Información básica</h4>
+                <div class="admin-grid">
+                    <div class="admin-field">
+                        <label>Nombre</label>
+                        <input type="text" id="nombre" placeholder="Nombre del juego">
+                    </div>
+                    <div class="admin-field">
+                        <label>URL imagen</label>
+                        <input type="text" id="img" placeholder="URL de la carátula">
+                    </div>
+                    <div class="admin-field full">
+                        <label>Descripción corta</label>
+                        <input type="text" id="desc" placeholder="Peso, update, etc.">
+                    </div>
+                    <div class="admin-field full">
+                        <label>Descripción preview</label>
+                        <textarea id="previewDesc" placeholder="Descripción del juego para el modal preview" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
 
-    <button id="btnGuardar" onclick="agregarJuego()">
-        Guardar juego
-    </button>
+            <div class="admin-section">
+                <h4>Enlaces de descarga</h4>
+                <div class="admin-grid">
+                    <div class="admin-field full">
+                        <label>Link 1</label>
+                        <input type="text" id="link1" placeholder="URL MediaFire principal">
+                    </div>
+                    <div class="admin-field full">
+                        <label>Link 2</label>
+                        <input type="text" id="link2" placeholder="URL tutorial o alternativa">
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h4>Media</h4>
+                <div class="admin-grid">
+                    <div class="admin-field full">
+                        <label>Trailer (URL YouTube)</label>
+                        <input type="text" id="trailer" placeholder="https://www.youtube.com/watch?v=...">
+                    </div>
+                    <div class="admin-field full">
+                        <label>Screenshots (una URL por línea)</label>
+                        <textarea id="screenshots" placeholder="https://ejemplo.com/screenshot1.jpg&#10;https://ejemplo.com/screenshot2.jpg&#10;https://ejemplo.com/screenshot3.jpg" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h4>Detalles del juego</h4>
+                <div class="admin-grid cols-3">
+                    <div class="admin-field">
+                        <label>Género</label>
+                        <input type="text" id="genre" placeholder="RPG, Action...">
+                    </div>
+                    <div class="admin-field">
+                        <label>Desarrolladora</label>
+                        <input type="text" id="developer" placeholder="Nintendo, Atlus...">
+                    </div>
+                    <div class="admin-field">
+                        <label>Modo</label>
+                        <input type="text" id="mode" placeholder="Single Player, Multiplayer...">
+                    </div>
+                    <div class="admin-field">
+                        <label>Año</label>
+                        <input type="text" id="year" placeholder="2024">
+                    </div>
+                    <div class="admin-field">
+                        <label>Valoración</label>
+                        <input type="text" id="rating" placeholder="90">
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h4>Info del archivo</h4>
+                <div class="admin-grid cols-3">
+                    <div class="admin-field">
+                        <label>ID del juego</label>
+                        <input type="text" id="gameId" placeholder="0100B5100D6E8000">
+                    </div>
+                    <div class="admin-field">
+                        <label>Peso</label>
+                        <input type="text" id="size" placeholder="6.2GB">
+                    </div>
+                    <div class="admin-field">
+                        <label>Formato</label>
+                        <input type="text" id="format" placeholder="NSP, XCI">
+                    </div>
+                    <div class="admin-field">
+                        <label>Idiomas</label>
+                        <input type="text" id="languages" placeholder="EN/ES/JP">
+                    </div>
+                    <div class="admin-field">
+                        <label>Firmware</label>
+                        <input type="text" id="firmware" placeholder="11.0.0">
+                    </div>
+                    <div class="admin-field">
+                        <label>Actualización</label>
+                        <input type="text" id="update" placeholder="v2.0.6">
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-actions-bar">
+                <button id="btnGuardar" onclick="agregarJuego()">Guardar juego</button>
+                <button id="btnCancelar" onclick="cancelarEdicion()" style="display:none;">Cancelar edición</button>
+            </div>
+        </div>
+
+        <!-- LISTA DE JUEGOS -->
+        <div class="admin-list">
+            <h4>Juegos existentes</h4>
+            <input type="text" id="adminSearch" placeholder="Buscar juego..." oninput="filtrarAdmin()">
+            <div class="admin-game-list" id="adminGameList"></div>
+        </div>
+    </div>
 </div>
 
 <!-- TIENDA -->
@@ -246,6 +377,8 @@
     <div class="login-content">
         <h3>Descargando</h3>
 
+        <p id="descargaNombre" style="text-align:center; margin:0 0 4px; font-size:14px; font-weight:700; color:#7dd3fc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></p>
+
         <p id="descargaEstado" style="text-align:center; margin-bottom:15px;">
             Preparando el enlace...
         </p>
@@ -261,6 +394,27 @@
         <button onclick="cerrarDescarga()" style="margin-top:18px;">
             Cancelar
         </button>
+    </div>
+</div>
+
+<!-- MODAL PREVIEW JUEGO -->
+<div id="previewBox">
+    <div class="preview-content">
+        <button class="preview-close" onclick="cerrarPreview()">✕</button>
+        <div class="preview-grid">
+            <div class="preview-cover">
+                <img id="previewImg" src="" alt="">
+                <div class="preview-file-info" id="previewFileInfo"></div>
+                <div class="preview-links" id="previewLinks"></div>
+            </div>
+            <div class="preview-info">
+                <h2 id="previewNombre" class="preview-title"></h2>
+                <p id="previewDescModal" class="preview-desc"></p>
+                <div class="preview-main" id="previewMain"></div>
+                <div class="preview-thumbs" id="previewThumbs"></div>
+                <div class="preview-meta" id="previewMeta"></div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -294,11 +448,50 @@
     <source src="assets/sounds/Loading.mp3" type="audio/mpeg">
 </audio>
 
+<!-- MODAL CARRITO -->
+<div id="cartBox">
+    <div class="login-content cart-content">
+        <h3><i class="fa-solid fa-basket-shopping"></i> Tu Carrito</h3>
+        <div id="cartItemsContainer" class="cart-items">
+        </div>
+        <div class="cart-total">
+            Total: <span>Gratis</span>
+        </div>
+        <button id="btnCheckout" class="checkout-btn" onclick="realizarCompra()" disabled>
+            <i class="fa-solid fa-credit-card"></i> Realizar Compra
+        </button>
+        <button onclick="cerrarCarrito()" class="cart-close-btn">
+            Cerrar
+        </button>
+    </div>
+</div>
+
+<!-- MODAL GRACIAS POR COMPRA -->
+<div id="purchaseSuccessBox">
+    <div class="success-content">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h2>¡Gracias por su compra!</h2>
+        <p>Aquí tienes los enlaces de descarga de tus juegos:</p>
+        
+        <div id="successDownloadsContainer" class="success-downloads">
+        </div>
+
+        <button onclick="descargarTodo()" class="download-all-btn">
+            <i class="fa-solid fa-cloud-arrow-down"></i> Descargar todo
+        </button>
+
+        <button onclick="cerrarSuccessModal()" class="success-close-btn">Cerrar y Volver</button>
+    </div>
+</div>
+
+<!-- CONTENEDOR TOAST -->
+<div id="toastContainer"></div>
+
 <!-- FIREBASE -->
-<script type="module" src="firebase.js?v=20260804-3"></script>
+<script type="module" src="firebase.js?v=20260804-4"></script>
 
 <!-- SCRIPT PRINCIPAL -->
-<script src="script.js?v=20260804-3"></script>
+<script src="script.js?v=20260822-7"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {

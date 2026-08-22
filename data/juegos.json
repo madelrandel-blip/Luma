@@ -5,7 +5,25 @@
     "link2": "",
     "desc": "Peso: 11GB Update 3.0.3 + 3 DLCs",
     "link1": "https://www.mediafire.com/folder/pc0xyy7rd446l/ACNH",
-    "id": "0Bzx8b0xWLHS2m6XTIv9"
+    "id": "0Bzx8b0xWLHS2m6XTIv9",
+    "screenshots": [
+      "https://images.igdb.com/igdb/image/upload/t_720p/sc836w.jpg",
+      "https://images.igdb.com/igdb/image/upload/t_720p/sc836y.jpg",
+      "https://images.igdb.com/igdb/image/upload/t_720p/sc89a2.jpg"
+    ],
+    "trailer": "https://youtu.be/_3YNL0OWio0",
+    "rating": "90",
+    "genre": "Simulation",
+    "developer": "Nintendo",
+    "previewDesc": "Construye tu paraíso personal en una isla desierta. Diseña tu hogar, cuida de tus aldeanos, pesca, atrapa insectos, recolecta fósiles y disfruta de las estaciones y eventos estacionales.",
+    "size": "11GB",
+    "format": "XCI",
+    "languages": "EN/ES/JP",
+    "update": "v3.0.3",
+    "gameId": "01006F8002326000",
+    "firmware": "11.0.0",
+    "mode": "Multiplayer",
+    "year": "2020"
   },
   {
     "desc": "Peso: 2.78GB Update 1.0.1",
@@ -245,7 +263,25 @@
     "link1": "https://www.mediafire.com/file/sxpjgzi14sbcmiw/Persona+5+Royal+[v1.0.2].xci/file",
     "link2": "",
     "nombre": " Persona 5 Royal",
-    "id": "8hUu7SIdCLECaxQ54RzR"
+    "id": "8hUu7SIdCLECaxQ54RzR",
+    "screenshots": [
+      "https://www.rpgfan.com/wp-content/uploads/2020/06/Persona-5-Royal-Screenshot-163.jpg",
+      "https://www.rpgfan.com/wp-content/uploads/2020/06/Persona-5-Royal-Screenshot-162.jpg",
+      "https://www.rpgfan.com/wp-content/uploads/2020/06/Persona-5-Royal-Screenshot-161.jpg"
+    ],
+    "trailer": "https://www.youtube.com/watch?v=N7KopQi79UM",
+    "rating": "95",
+    "genre": "RPG",
+    "developer": "Atlus",
+    "previewDesc": "Prepara para la experiencia RPG premiada. Obligado a trasladarse a una escuela secundaria en Tokio, el protagonista tiene un sueño extraño. Con el objetivo de 'rehabilitación' amenazando, debe salvar a otros de deseos distorsionados usando la máscara de un Ladrón Fantasma.",
+    "size": "12.7GB",
+    "format": "XCI",
+    "languages": "EN/ES/JP",
+    "update": "v1.0.2",
+    "gameId": "0100B5100D6E8000",
+    "firmware": "11.0.0",
+    "mode": "Single Player",
+    "year": "2019"
   },
   {
     "nombre": "Minecraft: Story Mode - The Complete Adventure",

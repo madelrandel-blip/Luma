@@ -144,6 +144,11 @@ window.cargar = async () => {
 
         render(juegosData);
 
+        if(admin){
+            listaGlobal = [...juegosData];
+            renderAdminList(listaGlobal);
+        }
+
     }catch(error){
         console.error("Error cargando juegos:", error);
     }
@@ -179,8 +184,10 @@ window.cargarEmuladores = async () => {
             <div class="card">
                 <img src="${e.img}" loading="lazy" decoding="async" alt="${e.nombre}">
                 <div class="content">
-                    <h3>${e.nombre}</h3>
-                    <p>${e.desc}</p>
+                    <div class="info-overlay">
+                        <h3>${e.nombre}</h3>
+                        <p>${e.desc}</p>
+                    </div>
 
                     <div class="btns" style="opacity:1; transform:none;">
                         ${e.link1 ? `<button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(e.link1)}')">Descargar</button>` : ''}
@@ -229,8 +236,10 @@ window.cargarRecursos = async () => {
             <div class="card">
                 <img src="${r.img || ''}" loading="lazy" decoding="async" alt="${r.nombre || 'Sin nombre'}">
                 <div class="content">
-                    <h3>${r.nombre || 'Sin nombre'}</h3>
-                    <p>${r.desc || 'Sin descripción'}</p>
+                    <div class="info-overlay">
+                        <h3>${r.nombre || 'Sin nombre'}</h3>
+                        <p>${r.desc || 'Sin descripción'}</p>
+                    </div>
 
                     <div class="btns" style="opacity:1; transform:none;">
                         ${r.link1 ? `<button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(r.link1)}')">Descargar</button>` : ''}
@@ -256,7 +265,6 @@ window.agregarJuego = async function(){
     if(guardando) return;
 
     guardando = true;
-
     btnGuardar.disabled = true;
 
     const nuevo = {
@@ -264,7 +272,21 @@ window.agregarJuego = async function(){
         img: img.value,
         desc: desc.value,
         link1: link1.value,
-        link2: link2.value
+        link2: link2.value,
+        previewDesc: previewDesc.value || "",
+        trailer: trailer.value || "",
+        screenshots: screenshots.value ? screenshots.value.split("\n").map(u => u.trim()).filter(Boolean) : [],
+        genre: genre.value || "",
+        developer: developer.value || "",
+        mode: mode.value || "",
+        year: year.value || "",
+        rating: rating.value || "",
+        gameId: gameId.value || "",
+        size: size.value || "",
+        format: format.value || "",
+        languages: languages.value || "",
+        firmware: firmware.value || "",
+        update: update.value || ""
     };
 
     try{
@@ -277,21 +299,15 @@ window.agregarJuego = async function(){
 
         if(!snap.empty && editIndex == null){
             alert("Este juego ya existe");
-
             guardando = false;
             btnGuardar.disabled = false;
-
             return;
         }
 
         if(editIndex == null){
             await addDoc(collection(db, "juegos"), nuevo);
         }else{
-            await updateDoc(
-                doc(db, "juegos", editIndex),
-                nuevo
-            );
-
+            await updateDoc(doc(db, "juegos", editIndex), nuevo);
             editIndex = null;
         }
 
@@ -299,12 +315,9 @@ window.agregarJuego = async function(){
         console.error("Error guardando:", error);
     }
 
-    btnGuardar.innerText = "Guardar juego";
-    btnGuardar.classList.remove("editando");
-
+    cancelarEdicion();
     guardando = false;
     btnGuardar.disabled = false;
-
     cargar();
 };
 
@@ -312,10 +325,107 @@ window.agregarJuego = async function(){
 window.eliminar = async (id) => {
     try{
         await deleteDoc(doc(db, "juegos", id));
-
         cargar();
-
     }catch(error){
         console.error("Error eliminando:", error);
     }
 };
+
+/* ========= EDITAR: cargar datos al formulario ========= */
+window.editarJuego = function(juego){
+    editIndex = juego.id;
+    nombre.value = juego.nombre || "";
+    img.value = juego.img || "";
+    desc.value = juego.desc || "";
+    link1.value = juego.link1 || "";
+    link2.value = juego.link2 || "";
+    previewDesc.value = juego.previewDesc || "";
+    trailer.value = juego.trailer || "";
+    screenshots.value = Array.isArray(juego.screenshots) ? juego.screenshots.join("\n") : "";
+    genre.value = juego.genre || "";
+    developer.value = juego.developer || "";
+    mode.value = juego.mode || "";
+    year.value = juego.year || "";
+    rating.value = juego.rating || "";
+    gameId.value = juego.gameId || "";
+    size.value = juego.size || "";
+    format.value = juego.format || "";
+    languages.value = juego.languages || "";
+    firmware.value = juego.firmware || "";
+    update.value = juego.update || "";
+    btnGuardar.innerText = "Actualizar juego";
+    btnGuardar.classList.add("editando");
+    document.getElementById("adminMode").classList.add("editing");
+    document.getElementById("adminModeText").innerText = "Editando: " + juego.nombre;
+    document.getElementById("btnCancelar").style.display = "inline-block";
+    nombre.focus();
+};
+
+/* ========= CANCELAR EDICION ========= */
+window.cancelarEdicion = function(){
+    editIndex = null;
+    nombre.value = "";
+    img.value = "";
+    desc.value = "";
+    link1.value = "";
+    link2.value = "";
+    previewDesc.value = "";
+    trailer.value = "";
+    screenshots.value = "";
+    genre.value = "";
+    developer.value = "";
+    mode.value = "";
+    year.value = "";
+    rating.value = "";
+    gameId.value = "";
+    size.value = "";
+    format.value = "";
+    languages.value = "";
+    firmware.value = "";
+    update.value = "";
+    btnGuardar.innerText = "Guardar juego";
+    btnGuardar.classList.remove("editando");
+    document.getElementById("adminMode").classList.remove("editing");
+    document.getElementById("adminModeText").innerText = "Nuevo juego";
+    document.getElementById("btnCancelar").style.display = "none";
+};
+
+/* ========= LISTA DE JUEGOS EN PANEL ========= */
+window.renderAdminList = function(lista){
+    const container = document.getElementById("adminGameList");
+    if(!container) return;
+    container.innerHTML = "";
+    lista.forEach(j => {
+        const item = document.createElement("div");
+        item.className = "admin-game-item";
+        item.innerHTML = `
+            <img src="${j.img || ''}" alt="" onerror="this.src='assets/icon.png'">
+            <div class="admin-game-item-info">
+                <span>${j.nombre}</span>
+                <small>${j.genre || 'Sin género'} ${j.year ? '· ' + j.year : ''}</small>
+            </div>
+            <button class="btn-edit" title="Editar" onclick="event.stopPropagation(); editarPorId('${j.id}')">✎</button>
+            <button class="btn-delete" title="Eliminar" onclick="event.stopPropagation(); confirmarEliminar('${j.id}','${(j.nombre||'').replace(/'/g,"\\'")}')">✕</button>
+        `;
+        container.appendChild(item);
+    });
+};
+
+window.editarPorId = function(id){
+    const juego = listaGlobal.find(j => j.id === id);
+    if(juego) editarJuego(juego);
+};
+
+window.confirmarEliminar = function(id, nombre){
+    if(confirm('¿Eliminar "' + nombre + '"?')){
+        eliminar(id);
+    }
+};
+
+window.filtrarAdmin = function(){
+    const term = document.getElementById("adminSearch").value.toLowerCase();
+    const filtrados = listaGlobal.filter(j => j.nombre.toLowerCase().includes(term));
+    renderAdminList(filtrados);
+};
+
+let listaGlobal = [];
