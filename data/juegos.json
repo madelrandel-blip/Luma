@@ -5,25 +5,25 @@
     "link2": "",
     "desc": "Peso: 11GB Update 3.0.3 + 3 DLCs",
     "link1": "https://www.mediafire.com/folder/pc0xyy7rd446l/ACNH",
-    "id": "0Bzx8b0xWLHS2m6XTIv9",
+    "gameId": "01006F8002326000",
+    "languages": "EN/ES/JP",
+    "year": "2020",
+    "format": "XCI",
+    "rating": "90",
+    "update": "v3.0.3",
     "screenshots": [
       "https://images.igdb.com/igdb/image/upload/t_720p/sc836w.jpg",
       "https://images.igdb.com/igdb/image/upload/t_720p/sc836y.jpg",
       "https://images.igdb.com/igdb/image/upload/t_720p/sc89a2.jpg"
     ],
+    "mode": "Multiplayer",
     "trailer": "https://youtu.be/_3YNL0OWio0",
-    "rating": "90",
+    "size": "11GB",
     "genre": "Simulation",
     "developer": "Nintendo",
     "previewDesc": "Construye tu paraíso personal en una isla desierta. Diseña tu hogar, cuida de tus aldeanos, pesca, atrapa insectos, recolecta fósiles y disfruta de las estaciones y eventos estacionales.",
-    "size": "11GB",
-    "format": "XCI",
-    "languages": "EN/ES/JP",
-    "update": "v3.0.3",
-    "gameId": "01006F8002326000",
     "firmware": "11.0.0",
-    "mode": "Multiplayer",
-    "year": "2020"
+    "id": "0Bzx8b0xWLHS2m6XTIv9"
   },
   {
     "desc": "Peso: 2.78GB Update 1.0.1",
@@ -31,6 +31,7 @@
     "link1": "https://www.mediafire.com/file/nyx22p090wb66we/Shantae+Half+Genie+Hero+Ultimate+Edition+[v1.0.1].xci/file",
     "nombre": "Shantae Half Genie Hero Ultimate Edition",
     "link2": "",
+    "screenshots": [],
     "id": "0fPHIEQCLbm9vXqQqWot"
   },
   {
@@ -39,6 +40,7 @@
     "nombre": "The Legend of Zelda: Skyward Sword HD",
     "link1": "https://www.mediafire.com/file/zl5eumnm7kgq5iw/The+Legend+of+Zelda+Skyward+Sword+HD+[v1.0.1].nsp/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ42FU5ZDLikLyjaDTpKISDlzKt2R4MLrBeX",
+    "screenshots": [],
     "id": "0qWXbNk2gXZiRU5VfOob"
   },
   {
@@ -47,6 +49,7 @@
     "nombre": "WarioWare Get It Together",
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/AW7NA.png?1631301710",
+    "screenshots": [],
     "id": "0zbaViUZ29E63ENMli5u"
   },
   {
@@ -55,6 +58,7 @@
     "desc": "Peso: 6.1GB Update 1.1.1",
     "link2": "",
     "link1": "https://www.mediafire.com/file/kidsb5tlp2lbr9y/PK_Legends_Arceus_%255Bv1.1.1%255D.xci/file",
+    "screenshots": [],
     "id": "1FQv6NZCzaXu1cCndO91"
   },
   {
@@ -63,6 +67,7 @@
     "desc": "Peso: 10.59GB Update 1.31 + 7 DLCs",
     "link1": "https://www.mediafire.com/file/t23ytq9jetqf7mr/Sonic+Racing+CrossWorlds+[v1.31+++7+DLCs].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "1JPT9iQMXUI4NsON3grx"
   },
   {
@@ -71,6 +76,7 @@
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/BFLTA.png?1777479857",
     "desc": "Peso: 3.20GB",
+    "screenshots": [],
     "id": "1ss9WfaoUzLfXaDNjdNT"
   },
   {
@@ -79,6 +85,7 @@
     "link1": "https://www.mediafire.com/file/ss00ns04w4vk1sl/Hello+Neighbor+[v1.0].xci/file",
     "nombre": "Hello Neighbor",
     "link2": "",
+    "screenshots": [],
     "id": "1tGrV624pPq3N14GGKYL"
   },
   {
@@ -87,6 +94,7 @@
     "desc": "Peso: 5GB",
     "link1": "https://www.mediafire.com/file/dcroccl5ii015pf/Kerv_regresa_a_la_tierra_de_los_sue%25C3%25B1os_de_lujo.zip/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZIMrO5Z2QYGqQQQkQVQULCkNPEV5y5SgLHX",
+    "screenshots": [],
     "id": "2CnMvc37U2TCriryr5Kt"
   },
   {
@@ -95,6 +103,7 @@
     "desc": "Peso: 5.55GB Update 1.0.4 + 6 Juegos ",
     "link1": "https://www.mediafire.com/folder/p4d0araq9v2h0/FF_Collection",
     "link2": "",
+    "screenshots": [],
     "id": "2K4ISeMq8vgcEch3Hby5"
   },
   {
@@ -103,6 +112,7 @@
     "desc": "Peso: 8.89GB Update 1.6.2225577 + 7 DLCs",
     "link2": "",
     "link1": "https://www.mediafire.com/file/n597c7wysk13l5j/Mario+++Rabbids+Sparks+of+Hope++[v1.6.2225577+++7+DLCs].xci/file",
+    "screenshots": [],
     "id": "2i2CowkJKXAhsZbrkAZ4"
   },
   {
@@ -111,6 +121,7 @@
     "img": "https://art.gametdb.com/switch/box/US/A7YPB.png?1707616130",
     "link2": "",
     "nombre": "Sonic Superstars",
+    "screenshots": [],
     "id": "2mCGmmi7FxCzinVSv5x3"
   },
   {
@@ -119,6 +130,7 @@
     "desc": "Peso: 12.3GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/rsl5693toybhusp/Batman+Arkham+City+[v1.0.2].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "2s5SHGGll8jBrQpRFaao"
   },
   {
@@ -127,6 +139,7 @@
     "desc": "Peso: 18.77 Update 1.6.0 + 10 DLCs",
     "img": "https://art.gametdb.com/switch/box/US/A9VZB.png?1703792628",
     "nombre": "NARUTO X BORUTO Ultimate Ninja STORM CONNECTIONS",
+    "screenshots": [],
     "id": "2saqwb68rzslgksj9Ro5"
   },
   {
@@ -135,6 +148,7 @@
     "desc": "Peso: 2.41GB Update 3.1.0",
     "link1": "https://www.mediafire.com/file/vipd6ems4xrm0r9/Mario_Tennis_Aces_%255Bv3.1.0%255D.xci/file",
     "link2": "https://drive.google.com/file/d/1PV92A2YBdBCik6kjPVdRcJfJyUNoiSeu/view?usp=sharing",
+    "screenshots": [],
     "id": "2yhsSsRBb3lCBCiqh29r"
   },
   {
@@ -143,6 +157,7 @@
     "desc": "Peso: 10.78GB Update 1.0.1",
     "link1": "https://www.mediafire.com/file/h54rigq1xhiu1cb/WORLD+OF+FINAL+FANTASY+MAXIMA+[v1.0.1].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "3OhGYTkkLzmPH10RSb2R"
   },
   {
@@ -151,6 +166,7 @@
     "img": "assets/covers/cover shantae.png",
     "link2": "",
     "nombre": "Shantae",
+    "screenshots": [],
     "id": "3Z8XaRg39xJmypyNeL5d"
   },
   {
@@ -159,6 +175,7 @@
     "desc": "Peso: 12.4GB Update 1.3.2 + 2 DLCs",
     "link1": "",
     "link2": "https://drive.google.com/file/d/1QIKLu0-sdGkJXbZ_R5ZjjWBdJfD0KkI5/view",
+    "screenshots": [],
     "id": "3fKbdbzByiRbYVLFqUaa"
   },
   {
@@ -167,6 +184,7 @@
     "link1": "https://www.mediafire.com/file/296abf6mznjai03/Five+Nights+at+Freddy's+Security+Breach+[v0.5].xci/file",
     "nombre": "Five Nights at Freddy's: Security Breach",
     "img": "https://art.gametdb.com/switch/box/US/A96ZA.png?1741534949",
+    "screenshots": [],
     "id": "3niQVUhpIwKFy3YRdWeO"
   },
   {
@@ -175,6 +193,7 @@
     "img": "https://art.gametdb.com/switch/box/US/APWSA.png?1557424051",
     "link1": "https://www.mediafire.com/folder/bp1px8e3un93y/Undertale",
     "desc": "Peso: 207.42MB Update 1.11 + Mod Español",
+    "screenshots": [],
     "id": "3w6e0MutNNW1xSX4C7RR"
   },
   {
@@ -183,6 +202,7 @@
     "nombre": "Pikmin 3",
     "desc": "Peso: 6.52GB Update 1.1.1",
     "link1": "https://www.mediafire.com/file/njhbjg0kisppqmt/Pikmin+3+Deluxe+[v1.1.1].xci/file",
+    "screenshots": [],
     "id": "4eUr53lkkA2ltbxIbKuL"
   },
   {
@@ -191,6 +211,7 @@
     "img": "https://art.gametdb.com/switch/box/JA/ATQ8A.png?1594470668",
     "link2": "",
     "nombre": "My Hero Ones Justice 2",
+    "screenshots": [],
     "id": "4nZCKWFFNHzWj9vvnmhZ"
   },
   {
@@ -199,6 +220,7 @@
     "desc": "Peso: 15.1GB Update 1.0.3 + DLC",
     "link1": "https://www.mediafire.com/file/e38zrdeif9w5pcx/Batman_The_Enemy_Within_%255Bv1.0.3_%252B_DLC%255D.xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "50LTg6o8NG7zogapSRJ5"
   },
   {
@@ -207,6 +229,7 @@
     "nombre": "Scott Pilgrim vs. The World: The Game",
     "link1": "https://www.mediafire.com/file/1vid169makr6oxx/Scott+Pilgrim+vs+The+World+The+Game+[v1.0.3].xci/file",
     "img": "https://art.gametdb.com/switch/box/US/AX4WA.png?1768319551",
+    "screenshots": [],
     "id": "5ayYt2zPOw4WRi33V5AL"
   },
   {
@@ -215,6 +238,7 @@
     "desc": "Peso: 17.78GB Update 2.1.0 + 7 DLCs",
     "link1": "https://www.mediafire.com/file/xqm6h9gl90sw9ii/Xenoblade+Chronicles+2+[v2.1.0+++7+DLCs].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "6IF71Gi6iSRBgt9cqhXy"
   },
   {
@@ -223,6 +247,7 @@
     "desc": "Peso: 35GB Update 1.0.26 + 30 DLCs",
     "link1": "https://cold-na-phx-4.gofile.io/download/direct/12df09b5-57e0-4b19-b2ad-d4c7794caa87/Mortal%20Kombat%2011%20%5Bv1.0.26%20%2B%2030%20DLCs%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "6KD5OLnCAPfhmqYcRrFU"
   },
   {
@@ -231,6 +256,7 @@
     "desc": "Peso: 5.01GB Update 1.0.1_5",
     "link1": "https://www.mediafire.com/file/64iggfftx0ixnc7/FINAL+FANTASY+IX+[v1.0.1_5].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "7DfWqQrt78JeCqBk2yxs"
   },
   {
@@ -239,6 +265,7 @@
     "desc": "Peso: 4.19GB Update 1.2.0",
     "link1": "https://www.mediafire.com/file/u7mhqh60ari7toa/PK_Lets_Go%252C_Eevee%2521_%255Bv1.0.2%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZgzFU5Zh8Q5YkODeY8etBCuhAxhvu8O3Lly",
+    "screenshots": [],
     "id": "7FRnDnvOa11kFDPUYAub"
   },
   {
@@ -247,6 +274,7 @@
     "desc": "Peso: 8.53GB Update 1.0.4 + DLC",
     "link1": "https://www.mediafire.com/file/3oz717z29j6yr1a/Batman+The+Telltale+Series+[v1.0.4+++DLC].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "7lWGNDBfUYzwe5aUqFyA"
   },
   {
@@ -255,6 +283,7 @@
     "desc": "Peso: 8.11GB Update 5.5.2 + 2 DLCs",
     "link1": "https://www.mediafire.com/file/c0ffuebpbxw9a91/Splatoon+2+[Update+5.5.2+++2+DLCs].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "89xQAxYId9vfDD8AbWJu"
   },
   {
@@ -263,6 +292,7 @@
     "desc": "Peso: 35.3GB Update 1.3 + 5 DLCs",
     "link1": "https://cold4.gofile.io/download/direct/a52dfd73-af92-41a1-8fac-e6130aff52c4/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "8A1cgPGnA0sC8XNwWX2t"
   },
   {
@@ -271,25 +301,25 @@
     "link1": "https://www.mediafire.com/file/sxpjgzi14sbcmiw/Persona+5+Royal+[v1.0.2].xci/file",
     "link2": "",
     "nombre": " Persona 5 Royal",
-    "id": "8hUu7SIdCLECaxQ54RzR",
+    "gameId": "0100B5100D6E8000",
+    "languages": "EN/ES/JP",
+    "year": "2019",
+    "format": "XCI",
+    "rating": "95",
+    "update": "v1.0.2",
     "screenshots": [
       "https://www.rpgfan.com/wp-content/uploads/2020/06/Persona-5-Royal-Screenshot-163.jpg",
       "https://www.rpgfan.com/wp-content/uploads/2020/06/Persona-5-Royal-Screenshot-162.jpg",
       "https://www.rpgfan.com/wp-content/uploads/2020/06/Persona-5-Royal-Screenshot-161.jpg"
     ],
+    "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=N7KopQi79UM",
-    "rating": "95",
+    "size": "12.7GB",
     "genre": "RPG",
     "developer": "Atlus",
     "previewDesc": "Prepara para la experiencia RPG premiada. Obligado a trasladarse a una escuela secundaria en Tokio, el protagonista tiene un sueño extraño. Con el objetivo de 'rehabilitación' amenazando, debe salvar a otros de deseos distorsionados usando la máscara de un Ladrón Fantasma.",
-    "size": "12.7GB",
-    "format": "XCI",
-    "languages": "EN/ES/JP",
-    "update": "v1.0.2",
-    "gameId": "0100B5100D6E8000",
     "firmware": "11.0.0",
-    "mode": "Single Player",
-    "year": "2019"
+    "id": "8hUu7SIdCLECaxQ54RzR"
   },
   {
     "nombre": "Minecraft: Story Mode - The Complete Adventure",
@@ -297,6 +327,7 @@
     "desc": "Peso: 4.33GB",
     "link1": "https://www.mediafire.com/file/8dfn60vxztaqtb8/Minecraft+Story+Mode+The+Complete+Adventure.nsp/file",
     "link2": "",
+    "screenshots": [],
     "id": "8k7BHuDrYmvWj7kPwoDg"
   },
   {
@@ -305,6 +336,7 @@
     "desc": "Peso: 5.93GB",
     "link1": "https://www.mediafire.com/file/ko8d3hsyopbz1z3/Minecraft+Story+Mode+Season+Two.nsp/file",
     "link2": "",
+    "screenshots": [],
     "id": "93TW0gWBxXJJcpmDWQpN"
   },
   {
@@ -313,6 +345,7 @@
     "link1": "https://www.mediafire.com/file/7gqpacbg9q0l9qd/Persona+5+Tactica+[v1.1.0+++4+DLCs].xci/file",
     "img": "assets/covers/cover p5t.png",
     "desc": "Peso: 12GB Update 1.1.0 + 4 DLCs",
+    "screenshots": [],
     "id": "99BvABfpzqC1p5kmXZWz"
   },
   {
@@ -321,6 +354,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/4hy8qwbm2s25f1v/Minecraft+Bedrock+NS+[v1.26.33].xci/file",
     "desc": "Peso: 1.72GB Update 1.26.33",
+    "screenshots": [],
     "id": "AVyRS13jHkZRjw2wyMv1"
   },
   {
@@ -329,6 +363,7 @@
     "desc": "Peso: 6GB Update 2.0.2 + DLCs",
     "link1": "https://www.mediafire.com/file/jdo8gf4slba9hmu/PK_Z-A_%255B2.0.2_%252B_2_DLCs%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZlbKO5ZDHxq99F922y6uhi2yS4AEHp5paoX",
+    "screenshots": [],
     "id": "AidyIz88CqWn3hSHMl5r"
   },
   {
@@ -337,6 +372,7 @@
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/BCK6A.png?1728235155",
     "link1": "https://www.mediafire.com/folder/1asqx4n8blrit/Luma_Storage",
+    "screenshots": [],
     "id": "Ak38hSotVRu75YdjZrjm"
   },
   {
@@ -345,6 +381,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/yc19vw1tdgl1uws/Yoshis+Crafted+World+[v1.0.1].xci/file",
     "desc": "Peso: 5.60GB Update 1.0.1",
+    "screenshots": [],
     "id": "AoVlBR8PX9WqLWKMAbL5"
   },
   {
@@ -353,6 +390,7 @@
     "link1": "https://www.mediafire.com/file/jh424rtfsl117tj/Cuphead+[v1.3.7+++DLC].xci/file",
     "link2": "",
     "desc": "Peso: 5.11GB Update 1.3.7",
+    "screenshots": [],
     "id": "AveZoZizLuustFbsZuqp"
   },
   {
@@ -361,6 +399,7 @@
     "img": "https://art.gametdb.com/switch/box/KO/A54GC.png?1667754815",
     "link2": "https://drive.google.com/file/d/1bsVzI2SSijU5nJIfbhOQSaldTNAF-rtj/view?usp=drivesdk",
     "link1": "https://www.mediafire.com/file/ar8i82mmyi4ayyr/Demon+Slayer+Kimetsu+no+Yaiba+The+Hinokami+Chronicles+[v1.53+++10+DLCs].xci/file",
+    "screenshots": [],
     "id": "B95QZL8Iot726qpwruxC"
   },
   {
@@ -369,6 +408,7 @@
     "desc": "Peso: 5.33GB Update 1.1 + 3 DLCs",
     "img": "assets/covers/cover hn2.png",
     "link1": "https://www.mediafire.com/file/pbf6ped681b3bqw/Hello+Neighbor+2+[v1.1+++3+DLCs].xci/file",
+    "screenshots": [],
     "id": "BSxkNRN9nb0emwzJ9C3K"
   },
   {
@@ -377,6 +417,7 @@
     "desc": "Peso: 3.06GB 1.0.8 + DLC",
     "img": "https://art.gametdb.com/switch/box/US/BBLYA.png?1708841429",
     "nombre": "Blasphemous II",
+    "screenshots": [],
     "id": "BfaLs7EVSRwR0knrhFUu"
   },
   {
@@ -385,6 +426,7 @@
     "link1": "https://www.mediafire.com/folder/ibov7jkoffm6g/Luma_Storage",
     "img": "assets/covers/cover oct0.png",
     "nombre": "OCTOPATH TRAVELER 0 ",
+    "screenshots": [],
     "id": "Bja5ZPLFU40atPKJScSP"
   },
   {
@@ -393,6 +435,7 @@
     "desc": "Peso: 13.5GB Update 1.0.2 + DLC",
     "link1": "https://www.mediafire.com/file/l7gjfnrya00lv9v/Xenoblade+Chronicles+X+Definitive+Edition+[v1.0.2+++DLC].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "BtuhY8O2BlXwJjqVk8im"
   },
   {
@@ -401,6 +444,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/wli0m0hn05oc7d1/DELTARUNE+[v1.06].xci/file",
     "desc": "Peso: 958MB Update 1.06",
+    "screenshots": [],
     "id": "BzRsJWnXKGVRYyhsMCgH"
   },
   {
@@ -409,6 +453,7 @@
     "desc": "Peso: 5.59GB Update 1.1.0",
     "link1": "https://www.mediafire.com/file/vynk6lcwl2j1sh4/The+Legend+of+Zelda+Echoes+of+Wisdom+[v1.1.0].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ4AJU5ZuSpv8IwMfpuGymzVruaJSHYYujck",
+    "screenshots": [],
     "id": "C5oxrWIe92yCzsi9K3he"
   },
   {
@@ -417,6 +462,7 @@
     "nombre": "Crysis 3 Remastered",
     "link1": "https://www.mediafire.com/file/wzjhojb2hk2ta8e/Crysis+3+Remastered+[v1.3.0].xci/file",
     "img": "assets/covers/cover cy3r.jpg",
+    "screenshots": [],
     "id": "C8VEZhWd3nOKOW4jcGuq"
   },
   {
@@ -425,6 +471,7 @@
     "desc": "Peso: 5.87 Update 1.1.0",
     "link1": "https://www.mediafire.com/file/pwj22g5optitwil/The+Legend+of+Zelda+Link's+Awakening+[v1.1.0].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ0kFU5Z6P0m7iNwot4oRn3dcCyO8fT3rHbX",
+    "screenshots": [],
     "id": "CD9yF3qXypG3uuKtSSSZ"
   },
   {
@@ -433,6 +480,7 @@
     "link1": "https://www.mediafire.com/file/z9rtl4qndbdaf2b/Resident_Evil_6_%255Bv1.0.2%255D.xci/file",
     "link2": "",
     "img": "assets/covers/cover re6.png",
+    "screenshots": [],
     "id": "CEqT6SgHBZk45s8DsaMG"
   },
   {
@@ -441,6 +489,7 @@
     "img": "https://art.gametdb.com/switch/box/US/AMPYA.png?1768148291",
     "nombre": "Pikmin 4",
     "link1": "https://www.mediafire.com/file/gyal65vpj8iouqx/Pikmin+4+[v1.0.2].xci/file",
+    "screenshots": [],
     "id": "DCwWWC8vv7wSSKitCDoE"
   },
   {
@@ -449,6 +498,7 @@
     "desc": "Peso: 9.97GB Update 1.0.1",
     "link2": "",
     "link1": "https://www.mediafire.com/file/jj4i9yy9s35zfud/Mario+&+Luigi+Brothership+[v1.0.1].xci/file",
+    "screenshots": [],
     "id": "DnddqNHISThqgiW1Czjl"
   },
   {
@@ -457,6 +507,7 @@
     "link1": "https://www.mediafire.com/file/cclgyqpy69vzjr1/Blasphemous_%255Bv1.0.8_%252B_DLC%255D.xci/file",
     "desc": "Peso: 7.10GB 1.0.8 + DLC",
     "link2": "",
+    "screenshots": [],
     "id": "DqwcfbWtkyMGyuR25NXI"
   },
   {
@@ -465,6 +516,7 @@
     "desc": "Peso: 374MB Update 1.0.2c",
     "link1": "https://www.mediafire.com/file/n0d6xrj6eme8vv1/Backyard+Baseball+'97+[v1.0.2c].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "DvJtOXYF20f6uHkwPgv6"
   },
   {
@@ -473,6 +525,7 @@
     "desc": "Peso: 12.49GB Update v11.2.0 + 3 DLCs",
     "link1": "https://www.mediafire.com/file/p6x94qe3x5ei8ka/Splatoon+3+[Update+11.2.0+++3+DLCs].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "E6obhDdBGz2uDlwJIpEF"
   },
   {
@@ -481,6 +534,7 @@
     "desc": "Peso: 3.99GB",
     "link1": "https://www.mediafire.com/file/pho46249b7752hx/Burnout_Paradise_-_Remastered.nsp/file",
     "link2": "",
+    "screenshots": [],
     "id": "EOc76oQD88T7YoKOLcCl"
   },
   {
@@ -489,6 +543,7 @@
     "desc": "Peso: 12.4GB Update 1.3.2 + 2 DLCs",
     "link1": "",
     "link2": "https://drive.google.com/file/d/17u-nQyWdRC5inE8IdzEp-Rnu5_KkW9kG/view",
+    "screenshots": [],
     "id": "EduC2oDw5KYq9QhgJeIG"
   },
   {
@@ -497,6 +552,7 @@
     "img": "https://art.gametdb.com/switch/box/US/AAB7B.png?1557250363",
     "link1": "https://www.mediafire.com/file/nxnptjj0fo9qztk/Monster+Hunter+Generations+Ultimate+[v1.4.0].xci/file",
     "nombre": "Monster Hunter: Generations Ultimate",
+    "screenshots": [],
     "id": "FT1uhxl7XFhsqJEWLdZw"
   },
   {
@@ -505,6 +561,7 @@
     "link2": "",
     "desc": "Peso: 1.4GB Update 1.5.12620 ",
     "link1": "https://www.mediafire.com/file/vconngydzq3bwyu/Hollow+Knight+[v1.5.12620].xci/file",
+    "screenshots": [],
     "id": "FU3UdWqY45Wepma3dTlY"
   },
   {
@@ -513,6 +570,7 @@
     "link1": "https://www.mediafire.com/file/14ntay5expkrryh/SONIC+FORCES+[1.1.0+++6+DLCs].xci/file",
     "link2": "",
     "desc": "Peso: 6.87GB Update 1.1.0 + 6 DLCs",
+    "screenshots": [],
     "id": "FfcEgIcpu9XbOYt6FVYy"
   },
   {
@@ -521,6 +579,7 @@
     "desc": "Peso: 19.7GB Update 1.0.5 + 5 DLCs + ES-LA",
     "link1": "https://www.mediafire.com/file/l3buhxcmvw3sj90/Hogwarts+Legacy+[v1.0.5+++5+DLCs+++ES-LA].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "FhvCui7BUiLQ3SPd7Xk5"
   },
   {
@@ -529,6 +588,7 @@
     "desc": "Peso: 7.04GB Update 1.0.3",
     "nombre": "Team Sonic Racing",
     "img": "https://art.gametdb.com/switch/box/EN/AMKCB.png?1558347292",
+    "screenshots": [],
     "id": "G4hI2tpM0f1U64HWowFy"
   },
   {
@@ -537,6 +597,7 @@
     "desc": "Peso: 3.34GB Update 4.0.0",
     "link1": "https://www.mediafire.com/file/vja5m8xz3dy39wb/Kirby_Star_Allies_%255Bv4.0.0%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZlOaO5ZX7fs5TzQ8GyOvQ963tYDAffx5JLV",
+    "screenshots": [],
     "id": "GCCN4o8mxyxRXdDnOesE"
   },
   {
@@ -545,6 +606,7 @@
     "desc": "Peso: 1.35GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/xvdbwj5wl9phw06/DOOM_%2B_DOOM_II_%5Bv1.0.2%5D.xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "GkArKqufFhwLiesNYY2z"
   },
   {
@@ -553,6 +615,7 @@
     "desc": "Peso: 9.26GB Update 1.0.15 + 10 DLCs",
     "link1": "https://www.mediafire.com/file/0m5hoihs24ag6y2/Crash_Team_Racing_Nitro_Fueled_%255Bv1.0.15_%252B_10_DLCs%255D.xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "H7ASr3tb1LZUDn3z5Vrb"
   },
   {
@@ -561,6 +624,7 @@
     "link1": "https://www.mediafire.com/file/thdutdm4x063vh0/Shantae+and+the+Seven+Sirens+[v1.3].xci/file",
     "img": "assets/covers/cover satss.png",
     "nombre": "Shantae and the Seven Sirens",
+    "screenshots": [],
     "id": "HJCeIpL7dCcULkR0sU0X"
   },
   {
@@ -569,6 +633,7 @@
     "desc": "Peso: 4.6GB",
     "link2": "https://u.pcloud.link/publink/show?code=XZJufO5ZO8j2hY0EICXF5StsOG7VkVuioWOk",
     "link1": "https://www.mediafire.com/file/o2iinm0mut1jqaq/Princess+Peach+Showtime!.nsp/file",
+    "screenshots": [],
     "id": "HbyfMmaGjaG8ZCuSF4Zl"
   },
   {
@@ -577,6 +642,7 @@
     "desc": "Peso: 25.59GB Update 1.0.8 + 3 juegos por separado",
     "img": "https://art.gametdb.com/switch/box/US/A5RBA.png?1645277471",
     "nombre": "Grand Theft Auto: The Trilogy - The Definitive Edition",
+    "screenshots": [],
     "id": "Hdcre3IP3zuBdaOhSF8e"
   },
   {
@@ -585,6 +651,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/kqk11jx4smff4mm/MONSTER+HUNTER+RISE+[v16.0.2+++264+DLCs].xci/file",
     "nombre": "Monster Hunter Rise",
+    "screenshots": [],
     "id": "HdgLur8cfDz7EZZ3PMYh"
   },
   {
@@ -593,6 +660,7 @@
     "desc": "Peso: 6.52GB",
     "link1": "https://www.mediafire.com/file/l5kehym6u2dhz7z/Super+Mario+RPG+[v1.0.1].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZrzdO5ZPE4HLT83OXynH3iEwA4BO8UgJnJX",
+    "screenshots": [],
     "id": "HjiSMMNFnO7hpqk83ahf"
   },
   {
@@ -601,6 +669,7 @@
     "desc": "Peso: 4.19GB Update 1.2.0",
     "link1": "https://www.mediafire.com/file/uyy8gg7i9dhj80q/PK_Lets_Go%252C_Pikachu%2521_%255Bv1.0.2%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZcQFU5Zyg7hsVePN9LpNMQ05pU8rjkUzcSk",
+    "screenshots": [],
     "id": "IAmRV9qSHanpujIWOgnc"
   },
   {
@@ -609,6 +678,7 @@
     "desc": "Peso: 4.43GB Update 1.9.589692 + 4 DLCs",
     "link2": "",
     "link1": "https://www.mediafire.com/file/c81o3073j9katty/Mario+++Rabbids+Kingdom+Battle+[v1.9.589692+++4+DLCs].xci/file",
+    "screenshots": [],
     "id": "IMjHhqHHypNrT4py9wJG"
   },
   {
@@ -617,6 +687,7 @@
     "link1": "https://www.mediafire.com/file/ulke0u4oklaxnpx/Call+of+Juarez+Gunslinger+[v1.0.5].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZay3E5Z9WU7xAtAYujrldyXOxo6WYSluJiX",
     "img": "https://madelrandel-blip.github.io/Luma/assets/covers/cover%20cfzr.png",
+    "screenshots": [],
     "id": "IfePj8lEh9KWhQN6356k"
   },
   {
@@ -625,6 +696,7 @@
     "link1": "https://www.mediafire.com/file/5rl0l9y4lla6d0a/GUILTY+GEAR+STRIVE+[v1.08+++4+DLCs].xci/file",
     "desc": "Peso: 5.39GB Update 1.08 + 4 DLCs",
     "img": "assets/covers/cover ggs.png",
+    "screenshots": [],
     "id": "JHu79ELrFpmlFsiM20Cg"
   },
   {
@@ -633,6 +705,7 @@
     "desc": "Peso: 5.35GB Update 2.3.0",
     "link1": "https://www.mediafire.com/file/i67mqp2b6k735et/Super+Mario+Party+Jamboree+[v2.3.0].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZwNUE5Zup1GElMVG0BPJjtdxBlMbf0rOJ07",
+    "screenshots": [],
     "id": "JyXdF8MvPK7HundObjTD"
   },
   {
@@ -641,6 +714,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/luq241i8syqqq73/DARK_SOULS_REMASTERED_%255Bv1.0.3%255D.xci/file",
     "nombre": "Dark Souls Remastered",
+    "screenshots": [],
     "id": "Kd7xmHX63tTZ4MttFJvr"
   },
   {
@@ -649,6 +723,7 @@
     "desc": "Peso: 14GB Update 1.1.2",
     "link2": "https://drive.google.com/file/d/1spDDYQJ_2Nq8Zm_HBf5tdxvy1j5cRUpp/view",
     "link1": "https://www.mediafire.com/file/7ii4mdfoqgyum2a/Xenoblade+Chronicles+Definitive+Edition+[v1.1.2].xci/file",
+    "screenshots": [],
     "id": "Ko6hVifmQP5ANN9Ac7Pr"
   },
   {
@@ -657,6 +732,7 @@
     "desc": "Peso: 3.05GB Update 3.0.3",
     "link1": "https://www.mediafire.com/file/oqblv5keuqswim7/SUPER+MARIO+MAKER+2+[v3.0.3].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "LCjOC8p3JEhj5jyphklO"
   },
   {
@@ -665,6 +741,7 @@
     "desc": "Peso: 12.9GB Update 1.0.1",
     "link1": "https://www.mediafire.com/file/nfbef4pymyuf1tu/Tomb+Raider+IV-V-VI+Remastered+[v1.0.1].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "LLKTOsNlx6OR2LkcMRQ0"
   },
   {
@@ -673,6 +750,7 @@
     "desc": "Peso: 22GB Update 1.4",
     "link1": "https://store-na-phx-1.gofile.io/download/direct/8af745f3-4b83-4fe7-84b7-76bb175182ea/DOOM%20%5Bv1.4%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "MRfVhKa0RN4qq5BtegQv"
   },
   {
@@ -681,6 +759,7 @@
     "link1": "",
     "desc": "Peso: 11.6GB Update 1.0.4",
     "img": "https://art.gametdb.com/switch/box/US/BAF2A.png?1708920044",
+    "screenshots": [],
     "id": "NMDjfuetgVTljB5aPtDy"
   },
   {
@@ -689,6 +768,7 @@
     "desc": "Peso: 17.31GB Update 1.0.1",
     "nombre": "Naruto Shippuden Ultimate Storm Trilogy",
     "link1": "https://www.mediafire.com/folder/m2djbtw6oh2g1/Luma_Storage_Naruto_Shippuden_Ultimate_Storm_Trilogy",
+    "screenshots": [],
     "id": "NjOQDpFldOl3r8jcTKi8"
   },
   {
@@ -697,6 +777,7 @@
     "desc": "Peso: 12.54GB Update 1.0.2 + DLC",
     "link1": "https://www.mediafire.com/file/v624ickc8firv3d/BioShock_Remastered_%255Bv1.0.2_%252B_DLC%255D.xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "O71FMvRLqJmyXBAruGPb"
   },
   {
@@ -705,6 +786,7 @@
     "link2": "",
     "img": "assets/covers/cover cc.png",
     "nombre": "Crow Country",
+    "screenshots": [],
     "id": "O81j3JzpYCsMimtCzB5P"
   },
   {
@@ -713,6 +795,7 @@
     "desc": "Peso: 6.45GB Update 1.3.1",
     "link1": "https://www.mediafire.com/folder/z9bhz12s0q7f6/luma",
     "link2": "",
+    "screenshots": [],
     "id": "O9Uqm0eL5uWhriyaMmbT"
   },
   {
@@ -721,6 +804,7 @@
     "link1": "https://www.mediafire.com/file/vs8tkrfagbp4mhb/Resident+Evil+4+[v1.0.2].xci/file",
     "link2": "",
     "img": "assets/covers/cover re4hd.png",
+    "screenshots": [],
     "id": "OI3ooSuI9f3LpEQNM24e"
   },
   {
@@ -729,6 +813,7 @@
     "link1": "https://www.mediafire.com/file/u59ng7hpcm45zcr/Ori+and+the+Will+of+the+Wisps+[v1.2.1].xci/file",
     "link2": "",
     "img": "assets/covers/cover ori-atwofw.png",
+    "screenshots": [],
     "id": "OIdvb9MsZProepg2Aiks"
   },
   {
@@ -737,6 +822,7 @@
     "desc": "Peso: 15.27GB Update 1.4.1 + 5 DLCs ",
     "link1": "https://www.mediafire.com/file/w9jqhz41ihoq2vg/Sonic+Frontiers+[v1.4.1+++5+DLCs].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "OsrqV6Nm4Ync8Hd58KAA"
   },
   {
@@ -745,6 +831,7 @@
     "desc": "Peso: 6.31GB Update 1.0.1",
     "link1": "https://www.mediafire.com/file/gp2d07n6mxklb1b/Peppa+Pig+World+Adventures+[v1.0.1].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "Oz5jqiI5nJS9DqP2xKy5"
   },
   {
@@ -753,6 +840,7 @@
     "link1": "https://www.mediafire.com/file/14rac7gjireoi3b/Starlink+Battle+for+Atlas+[v1.0.6+++22+DLCs].xci/file",
     "nombre": "Starlink: Battle for Atlas",
     "desc": "Peso: 16.53GB Update 1.0.6 + 22 DLCs",
+    "screenshots": [],
     "id": "P3bZ8vrcbKLa20v0gOsD"
   },
   {
@@ -761,6 +849,7 @@
     "nombre": "Mario Golf Super Rush",
     "img": "https://art.gametdb.com/switch/box/US/AT9HA.png?1625345286",
     "link2": "",
+    "screenshots": [],
     "id": "PapXrO4j5qTuFOv3ZKpN"
   },
   {
@@ -769,6 +858,7 @@
     "desc": "Peso: 26GB Update 1.1.0",
     "link1": "https://cold-na-phx-1.gofile.io/download/direct/e13b8bb3-225c-49a3-83ce-ef079d2df494/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "PktuvmCpoc2FoCgJcffM"
   },
   {
@@ -777,6 +867,7 @@
     "desc": "Peso: 12.6GB Update 1.2.0 + 6 DLCs",
     "link1": "https://www.mediafire.com/file/pxrnn0bydesyrrb/Fire+Emblem+Three+Houses+[v1.2.0+++6+DLCs].xci/file",
     "link2": "https://drive.google.com/file/d/1s0nOiBlkbfrXTG9bG-fy5o-CvOfngcs1/view",
+    "screenshots": [],
     "id": "Qi51QM2gzHh7vWF61ePv"
   },
   {
@@ -785,6 +876,7 @@
     "nombre": "Sonic Mania Plus",
     "link1": "https://www.mediafire.com/file/2aasu9uru6kbufm/Sonic+Mania+[v1.04+++DLC].xci/file",
     "desc": "Peso: 381.80MB Update 1.04",
+    "screenshots": [],
     "id": "QwqJ8aRaT4Y7XSZLudut"
   },
   {
@@ -793,6 +885,7 @@
     "desc": "Peso: 12.9GB Update 1.0.1",
     "link2": "https://drive.google.com/file/d/17MIL3DVIkxASh0PCNmg5Rj_IouDLAaB7/view",
     "link1": "https://www.mediafire.com/file/ie606p1tcfb7pmb/Hyrule+Warriors+Definitive+Edition+[v1.0.1].xci/file",
+    "screenshots": [],
     "id": "QywqTHioBRxq4TJmWxNd"
   },
   {
@@ -801,6 +894,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/fztani0ju76htur/Hollow+Knight+Silksong+[v1.0.3].xci/file",
     "img": "assets/covers/cover skg.png",
+    "screenshots": [],
     "id": "Rh8W7Hp8n2X0JdKUw9QI"
   },
   {
@@ -809,6 +903,7 @@
     "desc": "Peso: 35.4GB Update 1.14 + 5 DLCs",
     "link1": "https://store-eu-par-8.gofile.io/download/direct/ce56a5c5-0525-4ef5-90a9-2ddeffa8a2c3/DOOM%20Eternal%20%5Bv1.14%20%2B%205%20DLCs%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "RxEa6a8Nmj0jP5PcRNuG"
   },
   {
@@ -817,6 +912,7 @@
     "desc": "Peso: 5.75GB Update 1.0.38233",
     "link2": "",
     "link1": "https://www.mediafire.com/file/hzr1tscn5cq176p/Hades_%255Bv1.0.38233%255D.xci/file",
+    "screenshots": [],
     "id": "RyJYdnpZQ66MNZKqzvC3"
   },
   {
@@ -825,6 +921,7 @@
     "desc": "Peso: 2.96GB Update 1.2.2",
     "link2": "",
     "link1": "https://www.mediafire.com/file/9f7gzfunotpythc/Super_Mario_3D_World_%252B_Bowser%2527s_Fury_%255Bv1.2.2%255D.xci/file",
+    "screenshots": [],
     "id": "SZOJVorliohrd2T1AFr8"
   },
   {
@@ -833,6 +930,7 @@
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/AL72B.png?1631740456",
     "nombre": "My Hero One's Justice",
+    "screenshots": [],
     "id": "SdL3vhEusAGskYfkT8wi"
   },
   {
@@ -841,6 +939,7 @@
     "link1": "https://www.mediafire.com/file/ybohtr1gcuxqord/Paper+Mario+The+Thousand-Year+Door+[v1.0.1].xci/file",
     "desc": "Peso: 5.11GB Update 1.0.1",
     "link2": "https://u.pcloud.link/publink/show?code=XZ1WcO5ZRU0xfo2rq3QdCNLqmfzcdYe5YTV7",
+    "screenshots": [],
     "id": "SlxJBIy7CXwz74Ru0bH7"
   },
   {
@@ -849,6 +948,7 @@
     "link1": "https://www.mediafire.com/file/43gi3co876plvqq/DRAGON+BALL+XENOVERSE+2+[v1.26.00+++84+DLCs].xci/file",
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/EN/ABYBA.png?1516992721",
+    "screenshots": [],
     "id": "TfDl57g8p7JE4yZ8tGZK"
   },
   {
@@ -857,6 +957,7 @@
     "link1": "https://www.mediafire.com/file/lzm9yj9myl9o1hq/Spyro+Reignited+Trilogy+[v1.0.1].xci/file",
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/EN/AT3CA.png?1586192675",
+    "screenshots": [],
     "id": "TqYPITeGe4Vi5XrEblAe"
   },
   {
@@ -865,6 +966,7 @@
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/ACF3A.png?1768332973",
     "nombre": "Celeste",
+    "screenshots": [],
     "id": "V3pRVvxdKctxsJxawn9h"
   },
   {
@@ -873,6 +975,7 @@
     "link1": "https://www.mediafire.com/file/dnpcmns9w7bn0sc/DREDGE+[v1.5.3+++4+DLCs].xci/file",
     "nombre": "DREDGE",
     "desc": "Peso: 1.31GBGB Update 1.5.3 + 4 DLCs",
+    "screenshots": [],
     "id": "VO0n39byzkkbYPhDVIB8"
   },
   {
@@ -881,6 +984,7 @@
     "desc": "Peso: 484.07MB Update 1.0.1",
     "nombre": "Shantae and the Pirates Curse",
     "img": "assets/covers/cover satpc.png",
+    "screenshots": [],
     "id": "VTpEXAAkfh9njCkGXVGe"
   },
   {
@@ -889,6 +993,7 @@
     "desc": "Peso: 16.4GB Update 1.4.3",
     "link2": "",
     "link1": "https://www.mediafire.com/file/yuee12ssuw37kdu/The+Legend+of+Zelda+Tears+of+the+Kingdom+[v1.4.3].xci/file",
+    "screenshots": [],
     "id": "VmjZPSjoeuaFPnNh3YJ3"
   },
   {
@@ -897,6 +1002,7 @@
     "desc": "Peso: 12.1GB Update 1.1.0",
     "link2": "",
     "link1": "https://www.mediafire.com/file/ljoih1pbwl71u6j/Donkey+Kong+Country+Returns+HD+[v1.1.0].xci/file",
+    "screenshots": [],
     "id": "W84PgWTmNzOkJmn119Sl"
   },
   {
@@ -905,6 +1011,7 @@
     "link1": "https://www.mediafire.com/file/e8q03oki5qz93zu/NARUTO+SHIPPUDEN+ULTIMATE+NINJA+STORM+4+ROAD+TO+BORUTO+[v1.3.0+++2+DLCs].xci/file",
     "nombre": "NARUTO SHIPPUDEN: Ultimate Ninja STORM 4 Road to Boruto",
     "img": "https://art.gametdb.com/switch/box/KO/ASQZD.png?1595530726",
+    "screenshots": [],
     "id": "W9WzQaL8J6XxL1uRboVq"
   },
   {
@@ -913,6 +1020,7 @@
     "desc": "Peso: 11.89GB Update 1.0.2",
     "link2": "",
     "link1": "https://www.mediafire.com/file/kjhcndtyzb7rhdy/NieR_Automata_The_End_of_YoRHa_Edition_%255B1.0.2%255D.nsp/file",
+    "screenshots": [],
     "id": "WEjjxsj9IMBZC1V9hEGf"
   },
   {
@@ -921,6 +1029,7 @@
     "nombre": "Minecraft Dungeons",
     "link2": "",
     "link1": "https://www.mediafire.com/file/dtjbfnmsxjs5jx8/Minecraft_Dungeons_%255Bv1.17.0.0_%252B_7_DLCs%255D.xci/file",
+    "screenshots": [],
     "id": "WUSJe3P2lN0iDbEM7aZ0"
   },
   {
@@ -929,6 +1038,7 @@
     "desc": "Peso: 15.7GB Update 1.9.0 + 2 DLCs",
     "link2": "",
     "link1": "https://www.mediafire.com/file/anfj4q0v678d2z3/The+Legend+of+Zelda+Breath+of+the+Wild+[v1.9.0+++2+DLCs].xci/file",
+    "screenshots": [],
     "id": "WmtUhqugaODKrcvU5LiT"
   },
   {
@@ -937,6 +1047,7 @@
     "desc": "Peso: 10.28GB Update 1.0.2 + 2 DLCs",
     "link1": "https://www.mediafire.com/file/vgo8vu3jbzeix6x/Crash+Bandicoot+4+Its+About+Time+[v1.0.2+++2+DLCs].xci/file",
     "link2": "https://drive.google.com/file/d/1mtgJOR3Cqj6iJhXJFhkfJROjw0mGpPDL/view?usp=sharing",
+    "screenshots": [],
     "id": "XRGF8MTftpIcEButR3Oe"
   },
   {
@@ -945,6 +1056,7 @@
     "desc": "Peso: 14.70GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/e80m9x6svx6uzg1/Persona+4+Arena+ULTIMAX+[v1.0.2].xci/file",
     "img": "assets/covers/cover p4au.png",
+    "screenshots": [],
     "id": "XUnVCEd8uHSq4Qi4uM6a"
   },
   {
@@ -953,6 +1065,7 @@
     "link2": "",
     "desc": "Peso: 2.70GB Update 1.5",
     "nombre": "Nine Sols",
+    "screenshots": [],
     "id": "XgUGQWR8vuRac3Wwkgo2"
   },
   {
@@ -961,6 +1074,7 @@
     "link1": "https://www.mediafire.com/file/irwav3swhgrkinf/Persona+5+Strikers+[2+DLCs].xci/file",
     "desc": "Peso: 12GB + 2 DLCs",
     "link2": "",
+    "screenshots": [],
     "id": "XkFhMxVCSyyunphXWrqQ"
   },
   {
@@ -969,6 +1083,7 @@
     "img": "https://art.gametdb.com/switch/box/US/BDZZA.png?1729369062",
     "link1": "https://www.mediafire.com/folder/ruj39r9j1c92v/Luma_Storage",
     "link2": "",
+    "screenshots": [],
     "id": "XuyYjYRjQIdXWGXZ8JPm"
   },
   {
@@ -977,6 +1092,7 @@
     "link2": "https://u.pcloud.link/publink/show?code=XZqArO5ZDJxpT59NtzjPNVclvTqkKS7EJuzV",
     "nombre": "Kirby Fighters - Super Kirby Clash",
     "img": "assets/covers/cover skc1.png",
+    "screenshots": [],
     "id": "YEWwy3D0xqPZ92Lm6Ydm"
   },
   {
@@ -985,6 +1101,7 @@
     "link2": "",
     "desc": "Peso: 175.48MB Update 1.0.1",
     "img": "assets/covers/cover srrdc.png",
+    "screenshots": [],
     "id": "YTwg5Bh4q7FpAlhUdABv"
   },
   {
@@ -993,6 +1110,7 @@
     "desc": "Peso: 1,30GB Update 1.0.1",
     "link1": "https://www.mediafire.com/file/t4y2npeyegzsrcc/Mario_vs._Donkey_Kong_%255Bv1.0.1%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ18aO5ZiUgt8rNV7TQ1VFbIJTBWnQXamY27",
+    "screenshots": [],
     "id": "YWuYdOyz3DGCx0IO6u2k"
   },
   {
@@ -1001,6 +1119,7 @@
     "desc": "Peso: 10.10GB Update 1.50 + 35 DLCs",
     "img": "https://art.gametdb.com/switch/box/US/AM5WA.png?1556583432",
     "nombre": "DRAGON BALL FighterZ",
+    "screenshots": [],
     "id": "Z2Q1KBUJR6BWB823FqGI"
   },
   {
@@ -1009,6 +1128,7 @@
     "desc": "Peso: 6.62GB Update 1.0.3",
     "link1": "https://www.mediafire.com/file/eaziwjj63wbt4g7/Tomb_Raider_I-III_Remastered_%255Bv1.0.3%255D.xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "a0BYOXHPmOyZraD4v57W"
   },
   {
@@ -1017,6 +1137,7 @@
     "desc": "Peso: 1.61GB Update 1.6.15.3",
     "link1": "https://www.mediafire.com/file/kjq615ndwo90v16/Stardew+Valley+[1.6.15.3].xci/file",
     "nombre": "Stardew Valley",
+    "screenshots": [],
     "id": "aAHYLCEx81ebTT4j7poD"
   },
   {
@@ -1025,6 +1146,7 @@
     "desc": "Peso: 7.68GB Update 1.8.0",
     "link2": "",
     "img": "assets/covers/cover cyr.png",
+    "screenshots": [],
     "id": "aco6ardKXMbnpf5ZJkmg"
   },
   {
@@ -1033,6 +1155,7 @@
     "desc": "Peso: 2.48GB Update 1.5.27 + 6 DLCs",
     "link1": "https://www.mediafire.com/file/hgy0b0xcv4ahpce/Cult+of+the+Lamb+[v1.5.27+++6+DLCs].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "afRM5LrlH8aNgHos7GJK"
   },
   {
@@ -1041,6 +1164,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/cd5fl2wiu6gg5ap/Octopath+Traveler+II+[v1.1.1+++DLC].xci/file",
     "desc": "Peso: 6.08GB Update 1.1.1 + DLC",
+    "screenshots": [],
     "id": "awtHr6kHPVjGwwpqHecv"
   },
   {
@@ -1049,6 +1173,7 @@
     "img": "https://art.gametdb.com/switch/box/US/ACVKA.png?1557337980",
     "link2": "",
     "nombre": "Rayman Legends: Definitive Edition",
+    "screenshots": [],
     "id": "aySkPbDpMyOSmpGvBCI1"
   },
   {
@@ -1057,6 +1182,7 @@
     "link2": "",
     "nombre": "Terraria",
     "link1": "https://www.mediafire.com/file/ffc1l0gh2osomo6/Terraria+[v4.5.4].xci/file",
+    "screenshots": [],
     "id": "b4d59V2mp380xuOnB8Af"
   },
   {
@@ -1065,6 +1191,7 @@
     "img": "https://art.gametdb.com/switch/box/US/AABQA.png?1516992605",
     "link2": "",
     "nombre": "ARMS",
+    "screenshots": [],
     "id": "bMTwUDVOExj21ZJLVU6g"
   },
   {
@@ -1073,6 +1200,7 @@
     "desc": "Peso: 1.65GB Update 1.7.9b + DLC",
     "link1": "https://www.mediafire.com/file/ek339vtv170asnc/The+Binding+of+Isaac+Afterbirth+Plus+[v1.7.9b+++DLC].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "bmv7qa9x7mVeG4FR7vHy"
   },
   {
@@ -1081,6 +1209,7 @@
     "img": "https://art.gametdb.com/switch/box/EN/AS44B.png?1628501844",
     "link2": "",
     "nombre": "Monster Hunter Stories 2: Wings of Ruin",
+    "screenshots": [],
     "id": "bslc82vV3edLokLg1oEw"
   },
   {
@@ -1089,6 +1218,7 @@
     "desc": "Peso: 12GB Update 1.0.7",
     "link1": "https://www.mediafire.com/file/muo4veyt01jubda/Mortal+Kombat+Legacy+Kollection+[v1.0.7].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "cPrwZmDM0Okot34HPgMU"
   },
   {
@@ -1097,6 +1227,7 @@
     "nombre": "Overcooked! All You Can Eat",
     "desc": "Peso: 15.52GB Update 1.0.11 + DLC",
     "link1": "https://www.mediafire.com/file/lx3it8t3q0we74j/Overcooked!+All+You+Can+Eat+[v1.0.11+++DLC].xci/file",
+    "screenshots": [],
     "id": "cUl7enfhw0yiQbjurrot"
   },
   {
@@ -1105,6 +1236,7 @@
     "desc": "Peso: 27.9GB 1 + 0",
     "link1": "",
     "link2": "",
+    "screenshots": [],
     "id": "cdI9JRrO4OhASXNGLMOQ"
   },
   {
@@ -1113,6 +1245,7 @@
     "desc": "Peso: 6.84GB Update 1.3.0",
     "link1": "https://www.mediafire.com/file/b52d87mx8mfgsmx/PK_Shining_Pearl_%255Bv1.3.0%255D.xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "cjwAU6Bg2ZWYtfMign5D"
   },
   {
@@ -1121,6 +1254,7 @@
     "img": "https://art.gametdb.com/switch/box/US/AVSCA.png?1730792226",
     "link1": "https://www.mediafire.com/folder/fnhtdsgu8z6gm/Luma_Storage",
     "nombre": "Overcooked! Special Edition + Overcooked! 2",
+    "screenshots": [],
     "id": "cyuDAUOrkT5SVYDeq62P"
   },
   {
@@ -1129,6 +1263,7 @@
     "desc": "Peso: 6.67GB",
     "link2": "https://u.pcloud.link/publink/show?code=XZUTUE5ZCJzzQUt4e87jsXiyPHzobVRpusUV",
     "link1": "https://www.mediafire.com/file/4c51iyly6q8m63d/Metroid+Prime+REMASTERED.nsp/file",
+    "screenshots": [],
     "id": "d0QeP4ksQLHIhWUFk71V"
   },
   {
@@ -1137,6 +1272,7 @@
     "desc": "Peso: 3.78GB Update 1.0.4",
     "link1": "https://www.mediafire.com/file/mpj27coarnunpk7/My+friend+Peppa+Pig+Complete+Edition+[v1.0.4].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "dAu2Eke5dOOodmmY6TOS"
   },
   {
@@ -1145,6 +1281,7 @@
     "desc": "Peso: 5.25GB",
     "link1": "https://www.mediafire.com/file/sprv1h0mivx88kx/Carlos+-+El+topo+que+gira.zip/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ4QEO5Z7gSsw9qvvWbC0PmlUjSRHQi1mnLV",
+    "screenshots": [],
     "id": "dTadRWghrjADFYyWBOIk"
   },
   {
@@ -1153,6 +1290,7 @@
     "desc": "Peso: 2.51GB Update 1.0.2",
     "link2": "https://u.pcloud.link/publink/show?code=XZzrcO5Zk1h9vTmcUQFWYxOq14aIspPUFjBy",
     "link1": "https://www.mediafire.com/file/x8p5rup2o4mk02f/New+Super+Mario+Bros+U+Deluxe+[v1.0.2].zip/file",
+    "screenshots": [],
     "id": "dqDaJjPv6Ss9Z3UNjVu4"
   },
   {
@@ -1161,6 +1299,7 @@
     "link2": "",
     "nombre": "Crysis 2 Remastered",
     "link1": "https://www.mediafire.com/file/xpbdpi08uzf8rwz/Crysis+2+Remastered+[v1.3.0].xci/file",
+    "screenshots": [],
     "id": "e6Om0zGmANBgAdfqxVms"
   },
   {
@@ -1169,6 +1308,7 @@
     "desc": "Peso: 6.96GB Update 1.0.137848",
     "link1": "https://www.mediafire.com/file/gmom6unjv97r5uq/Hades+II+[v1.0.137848].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "e7OYgiBtxXqeI4NnYpFB"
   },
   {
@@ -1177,6 +1317,7 @@
     "desc": "Peso: 1.66GB Update 1.5.0 + 4 DLCs",
     "link1": "https://www.mediafire.com/file/kzxfu0oezb3exrd/Cadence+of+Hyrule+Crypt+[v1.5.0+++4+DLCs].xci/file",
     "link2": "https://drive.google.com/file/d/11x_UbtfU0YFrQ_MCMBkHKHkgtiFpv7d3/view?usp=sharing",
+    "screenshots": [],
     "id": "euExbIM6yaLpb4V4RAph"
   },
   {
@@ -1185,6 +1326,7 @@
     "desc": "Peso: 12.6GB Update 1.1.0",
     "link1": "https://www.mediafire.com/file/x1ch8rn7d0mdygs/FINAL+FANTASY+XII+THE+ZODIAC+AGE+[v1.1.0].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "exiiCftFpjEnuPRNxHdw"
   },
   {
@@ -1193,6 +1335,7 @@
     "desc": "Peso: 6.68GB Update 1.0.2",
     "link2": "",
     "link1": "https://www.mediafire.com/file/i1p5yoe7dw71h40/Donkey+Kong+Country+Tropical+Freeze+[v1.0.2].xci/file",
+    "screenshots": [],
     "id": "fujld1p49NcAqXia7mZj"
   },
   {
@@ -1201,6 +1344,7 @@
     "desc": "Peso: 9.40GB Update 1.0.1",
     "link1": "https://www.mediafire.com/file/d91manmbj69w964/Batman_Arkham_Asylum_%255Bv1.0.1%255D.xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "gTSBzF45gweK0gFW3MTG"
   },
   {
@@ -1209,6 +1353,7 @@
     "desc": "Peso: 14GB Update 1.2.0",
     "link2": "https://drive.google.com/file/d/1DWIYPqSrYJatCahnnfCncKz7-2R370FT/view",
     "link1": "https://www.mediafire.com/file/tkpsowasfsp3i30/Bayonetta+3+[v1.2.0].xci/file",
+    "screenshots": [],
     "id": "gn8k7knb8kOAzrL5T8dd"
   },
   {
@@ -1217,6 +1362,7 @@
     "link1": "https://www.mediafire.com/file/5iiuvbsqhic00oj/Resident+Evil+5+[1.0.3].xci/file",
     "link2": "",
     "img": "assets/covers/cover re5.png",
+    "screenshots": [],
     "id": "gx4M2foRtfNaLLuIlmTE"
   },
   {
@@ -1225,6 +1371,7 @@
     "desc": "Peso: 4.26GB Update 2.1.0",
     "link1": "https://www.mediafire.com/file/vegifp5y36tsgyr/Metroid_Dread_%255Bv2.1.0%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZT4oO5ZA452Qv4739zODAKHUuPtBRkwmxfk",
+    "screenshots": [],
     "id": "iLBChuJzvOE5vGtdz5Uu"
   },
   {
@@ -1233,6 +1380,7 @@
     "nombre": "Five Nights at Freddy's Into the Pit",
     "link2": "",
     "img": "assets/covers/cover fnafitp.png",
+    "screenshots": [],
     "id": "inGE6XijWpmCCyYsKM3C"
   },
   {
@@ -1241,6 +1389,7 @@
     "link1": "https://www.mediafire.com/file/bj70e04gasiyj81/MONSTER+HUNTER+STORIES+[v1.0.1+++DLC].xci/file",
     "desc": "Peso: 10.5GB Update 1.0.1 + DLC",
     "nombre": "Monster Hunter Stories",
+    "screenshots": [],
     "id": "ippbztY6HlfMnOrlYuqL"
   },
   {
@@ -1249,6 +1398,7 @@
     "desc": "Peso: 3.64GB Update 1.2.1",
     "link1": "https://www.mediafire.com/file/wt4xxtwsdxvkqbs/Super+Mario+Bros.+Wonder+[v1.2.1].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "ivkMQypQZ8cIlGtx5EkN"
   },
   {
@@ -1257,6 +1407,7 @@
     "desc": "Peso: 27.1GB Update 1.70 + 20 DLCs",
     "link1": "https://store-eu-par-6.gofile.io/download/direct/65d26111-1dce-46df-a6f5-55bf1fd1b994/DRAGON%20BALL%20Z%20KAKAROT%20%2B%20A%20NEW%20POWER%20AWAKENS%20SET%20%5Bv1.70%20%2B%2020%20DLCs%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "jhdtiyJsAlczLhgi50ow"
   },
   {
@@ -1265,6 +1416,7 @@
     "link1": "https://www.mediafire.com/file/xoej61xtjjkorw4/Tomodachi+Life+Living+the+Dream+[v1.0.3].xci/file",
     "link2": "",
     "desc": "Peso: 6.3GB Update 1.0.3",
+    "screenshots": [],
     "id": "kV3Jgdc3Dh1O4Pas90Zd"
   },
   {
@@ -1273,6 +1425,7 @@
     "nombre": "Digimon Story Time Stranger",
     "link1": "https://www.mediafire.com/file/blepv76chrduuvb/Digimon+Story+Time+Stranger+[v1.2.1+++14+DLCs].xci/file",
     "desc": "Peso: 12.1GB Update 1.2.1 + 14 DLCs",
+    "screenshots": [],
     "id": "kX8l9FmlbWpgTMXj1WXL"
   },
   {
@@ -1281,6 +1434,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/folder/6uppi97iktwah/Mariano_Cra",
     "desc": "Peso: 11.2GB Update 3.0.5 + DLCs",
+    "screenshots": [],
     "id": "kZ48cF2UMca2EFGHvj1f"
   },
   {
@@ -1289,6 +1443,7 @@
     "link2": "",
     "desc": "Peso: 9.08GB Update 2.0.76 + 13 DLCs",
     "nombre": "DRAGON BALL: Sparking! ZERO",
+    "screenshots": [],
     "id": "kazYfBtFlfoE24TRRgOW"
   },
   {
@@ -1297,6 +1452,7 @@
     "link2": "",
     "desc": "Peso: 9.11GB Update 1.0.2",
     "img": "assets/covers/cover p4g.png",
+    "screenshots": [],
     "id": "koFrlNOtbeaQXmvqzE6N"
   },
   {
@@ -1305,6 +1461,7 @@
     "img": "https://art.gametdb.com/switch/box/CA/ALZXA.png?1767742270",
     "link2": "",
     "link1": "https://www.mediafire.com/file/8vrh7zu75uwvafo/PK+Scarlet+[v4.0.0+++DLC].xci/file",
+    "screenshots": [],
     "id": "lOORPAyBdmbg7ZiV1Dd6"
   },
   {
@@ -1313,6 +1470,7 @@
     "desc": "Peso: 555MB Update 1.0.923142 + DLC",
     "link1": "https://www.mediafire.com/file/dxmoazdbwpkw9jz/Shantae+Advance+Risky+Revolution+[v1.0.923142+++DLC].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "lqcArjkyhOyXeuMF2ZeQ"
   },
   {
@@ -1321,6 +1479,7 @@
     "link1": "https://www.mediafire.com/file/ns79l6ox0ksf9pg/Kirby+Fighters+2.nsp/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZSycO5Z3zlsSkgDeJm4zTj0idtRKYdOztSk",
     "img": "assets/covers/cover kf2.png",
+    "screenshots": [],
     "id": "m3zjCKAE0q4t6HEnn6W1"
   },
   {
@@ -1329,6 +1488,7 @@
     "desc": "Peso: 6.91GB Update 1.0.1_5",
     "link1": "https://www.mediafire.com/folder/8ddp9dxr5xqvd/Luma_Storage",
     "link2": "",
+    "screenshots": [],
     "id": "mEBSMVwA05EzwbU9xIzp"
   },
   {
@@ -1337,6 +1497,7 @@
     "link2": "",
     "nombre": "Sonic Origins Plus",
     "desc": "Peso: 4.26GB Update 2.0.2 + 4 DLCs",
+    "screenshots": [],
     "id": "mEJGqKbskk5DTodzF0r6"
   },
   {
@@ -1345,6 +1506,7 @@
     "desc": "Peso: 20.4GB Update 1.0.3 + 17 DLCs",
     "link1": "https://cold-na-phx-6.gofile.io/download/direct/ff57c584-636e-4114-8b86-e49a2859724f/Assassin's%20Creed%20III%20Remastered%20%5Bv1.0.3%20%2B%2017%20DLCs%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "mIAfO0dvCxoJIXcILUds"
   },
   {
@@ -1353,6 +1515,7 @@
     "desc": "Peso: 1.13GB + 1.4.4",
     "link2": "",
     "nombre": "Slime Rancher: Plortable Edition",
+    "screenshots": [],
     "id": "moOv6vMV3E60qhtPM6uM"
   },
   {
@@ -1361,6 +1524,7 @@
     "desc": "Peso: 17.3GB Update 13.0.4 + 99 DLCs",
     "link2": "",
     "link1": "https://www.mediafire.com/folder/bvizctcuc1wsi/Smash",
+    "screenshots": [],
     "id": "n0hUlesy1wMoR73nshLh"
   },
   {
@@ -1369,6 +1533,7 @@
     "desc": "Peso: 23GB Update 1.0.0 + 9 DLCs",
     "link1": "https://store9.gofile.io/download/direct/aeb13d1b-2bc4-4ffc-8bd2-a7eeab4cbe25/Assassins%20Creed%20The%20Rebel%20Collection%20%5Bv1.0.0%20%2B%209%20DLCs%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "nDI2Afg0fXPeBji1TDub"
   },
   {
@@ -1377,6 +1542,7 @@
     "desc": "Peso: 7.70GB Update 1.4.0 + 2 DLCs",
     "link1": "https://www.mediafire.com/file/xxg6b994hdmi2h7/Las+flipantes+aventuras+de+Mario+verde+y+su+mansion+parte+3.zip/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ1xlO5ZyjYOA1bb6gYYxnvG7inurmDWhkFy",
+    "screenshots": [],
     "id": "nQxZzowZxjwKKs94optI"
   },
   {
@@ -1385,6 +1551,7 @@
     "desc": "Peso: 12.4GB Update 1.3.0 + 4 DLCs",
     "link2": "https://drive.usercontent.google.com/download?id=1uw2Ddz81v7Wk82UP_x3pIX6T8MJEUQ-d&export=download",
     "link1": "https://www.mediafire.com/file/b0oneu30p3z7eqb/Hyrule_Warriors_Age_of_Calamity_%255Bv1.3.0_%252B_4_DLCs%255D.xci/file",
+    "screenshots": [],
     "id": "oOCWhfDLOKkq1aJ7myzM"
   },
   {
@@ -1393,6 +1560,7 @@
     "desc": "Peso: 20.7GB Update 1.0.2",
     "link1": "https://store3.gofile.io/download/direct/21d00094-2888-4a45-82f5-fc7755a1050c/BioShock%20Infinite%20The%20Complete%20Edition%20%5Bv1.0.2%5D.xci",
     "link2": "",
+    "screenshots": [],
     "id": "oOGF3UPbsXBwEGEtVsBb"
   },
   {
@@ -1401,6 +1569,7 @@
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/A2A2A.png?1615740875",
     "link1": "https://www.mediafire.com/folder/ml3itblool64e/Five_Nights_at_Freddy's_Core_Collection",
+    "screenshots": [],
     "id": "oOg1T6ITduB78b34T1OA"
   },
   {
@@ -1409,6 +1578,7 @@
     "desc": "Peso: 18.8GB Update 2.2.1 + 4 DLCs",
     "link1": "https://www.mediafire.com/file/1zjznsopdmzhtyj/Xenoblade+Chronicles+3+[v2.2.1+++4+DLCs].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "oPtjZ0EEEA5yxmdDDxSR"
   },
   {
@@ -1417,6 +1587,7 @@
     "link1": "https://www.mediafire.com/file/2mhqjvii7xmno64/Bayonetta++[v1.1].xci/file",
     "link2": "",
     "desc": "Peso: 8.78GB Update 1.1.0",
+    "screenshots": [],
     "id": "ofRV48JcEQOZ9ygIocEF"
   },
   {
@@ -1425,6 +1596,7 @@
     "desc": "Peso: 11.16GB Update 2.2.0 + 3 DLCs",
     "link1": "https://www.mediafire.com/file/dsohndwpcba5jpm/Yo-kai+Watch+4+PuraPura.zip/file",
     "link2": "",
+    "screenshots": [],
     "id": "oiFQbUj0j16peddJpf7C"
   },
   {
@@ -1433,6 +1605,7 @@
     "desc": "Peso: 23.65GB Update 1.0.2",
     "link1": "https://store9.gofile.io/download/direct/4ce3670a-ad31-48ad-b297-901f184365f9/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci?inline=true",
     "link2": "",
+    "screenshots": [],
     "id": "oqqbfIEFBrsmWoBmwRrO"
   },
   {
@@ -1441,6 +1614,7 @@
     "desc": "Peso: 7.33GB Update 1.18.19068.0",
     "link1": "https://www.mediafire.com/file/8wmyroz3hjy18m7/Minecraft+Legends+[v1.18.19068.0].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "q5RwTHJOni91xp5gkX4Y"
   },
   {
@@ -1449,6 +1623,7 @@
     "img": "https://art.gametdb.com/switch/box/US/A9QEA.png?1699981195",
     "link2": "",
     "desc": "Peso: 1.30GB",
+    "screenshots": [],
     "id": "qxW01DoPoaimXaCQgmWT"
   },
   {
@@ -1457,6 +1632,7 @@
     "img": "https://art.gametdb.com/switch/box/US/ALBLA.png?1573580385",
     "link1": "https://www.mediafire.com/file/jb3xadrj35i99uj/A+Hat+in+Time+[v1.0.4+++2+DLCs].xci/file",
     "nombre": "A Hat in Time",
+    "screenshots": [],
     "id": "rJkwteHRh1RO09sIft8e"
   },
   {
@@ -1465,6 +1641,7 @@
     "link1": "https://www.mediafire.com/file/8hnip0cf64jod6d/Super_Mario_3D_All_Stars_%255Bv1.1.1%255D.xci/file",
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/AVP3A.png?1599759761",
+    "screenshots": [],
     "id": "rYnBtjtFquNywvAd5S4T"
   },
   {
@@ -1473,6 +1650,7 @@
     "nombre": "Catherine Full Body",
     "link2": "",
     "link1": "https://www.mediafire.com/file/zsuwp4knvh3tfns/Catherine+Full+Body+[v1.0.1].xci/file",
+    "screenshots": [],
     "id": "rfFi736ioZAZaYOQESrW"
   },
   {
@@ -1481,6 +1659,7 @@
     "desc": "Peso: 14.3GB Update 1.0.4 + DLC",
     "link1": "https://www.mediafire.com/file/gh9ert80vhhy0yv/CRISIS+CORE+FINAL+FANTASY+VII+REUNION+[v1.0.4+++DLC].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "s9bZsmzcPuJu8CEVKqe1"
   },
   {
@@ -1489,6 +1668,7 @@
     "link2": "https://drive.google.com/file/d/1Ph2bqsb4srcore-48lfbHY77_RgrxkXN/view",
     "desc": "Peso: 12.53GB Update 1.2.0",
     "link1": "https://www.mediafire.com/file/5dall6bkuxsc5ql/Bayonetta_2_%255Bv1.2.0%255D_.xci/file",
+    "screenshots": [],
     "id": "sTvf2iLGKp9ogwOf3IwY"
   },
   {
@@ -1497,6 +1677,7 @@
     "desc": "Peso: 5.59GB Update 1.3.0",
     "link1": "https://www.mediafire.com/file/lgchu7th5lamy6w/Super_Mario_Odyssey_%255Bv1.3.0%255D.xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "sVZMjQRyYRQVTO1ZBSIW"
   },
   {
@@ -1505,6 +1686,7 @@
     "link1": "https://www.mediafire.com/file/v4hqp9b44z4yqxg/Resident+Evil+Revelations+[v1.0.1].xci/file",
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/JA/ACC2A.png?1517183235",
+    "screenshots": [],
     "id": "sxZM4AmQXETqeKzGQfgF"
   },
   {
@@ -1513,6 +1695,7 @@
     "desc": "Peso: 7.13GB Update 1.0.2",
     "img": "https://art.gametdb.com/switch/box/US/A4TPA.png?1712259747",
     "nombre": "Persona 3 Portable",
+    "screenshots": [],
     "id": "syat1Ec5hpK8If0mrVGS"
   },
   {
@@ -1521,6 +1704,7 @@
     "desc": "Peso: 10.4GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/mh9x65rw7hmdhm1/BioShock+2+Remastered+[v1.0.2].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "t7iQoDEPNrSVvQQnYkSJ"
   },
   {
@@ -1529,6 +1713,7 @@
     "desc": "Peso: 2.84GB Update 1.1.1",
     "link2": "https://u.pcloud.link/publink/show?code=XZipfO5ZKnR70slCGeJxSgwSNuvblHwH0j6X",
     "link1": "https://www.mediafire.com/file/z2d07nzjmvae4w2/Mario+Party+Superstars+[v1.1.1].xci/file",
+    "screenshots": [],
     "id": "tOc9WzACNKFrwbtqVRlz"
   },
   {
@@ -1537,6 +1722,7 @@
     "desc": "Peso: 130.40MB + 2 Juegos + ES-EN",
     "link1": "https://www.mediafire.com/file/j2npq2yfwh9jwtt/PK+Red+&+Green.zip/file",
     "link2": "",
+    "screenshots": [],
     "id": "thww7VKerbhMX3dd7rTJ"
   },
   {
@@ -1545,6 +1731,7 @@
     "desc": "Peso: 6.84GB Update 1.3.0",
     "link2": "",
     "link1": "https://www.mediafire.com/file/haeesmncfs3ruqc/PK_Brilliant_Diamond_%255Bv1.3.0%255D.xci/file",
+    "screenshots": [],
     "id": "tn87X3vTvosQO1MdtzJY"
   },
   {
@@ -1553,6 +1740,7 @@
     "desc": "Peso: 3.50GB Update 1.0.2",
     "link2": "",
     "link1": "https://www.mediafire.com/file/43kfkfdlo7g8a03/Ori_And_The_Blind_Forest_Definitive_Edition_%5Bv1.0.2%5D.nsp/file",
+    "screenshots": [],
     "id": "tqwYymYMliBJG64B4eGp"
   },
   {
@@ -1561,6 +1749,7 @@
     "desc": "Peso: 17.31GB Update 1.0.2",
     "nombre": "Borderlands: GAME OF THE YEAR EDITION",
     "link2": "",
+    "screenshots": [],
     "id": "trDnmurLrD8xJvkPtngt"
   },
   {
@@ -1569,6 +1758,7 @@
     "desc": "Peso: 1.9GB Update 1.0.17 + 38 DLCs",
     "link1": "https://www.mediafire.com/file/8421r2adx640ejj/Minecraft+Nintendo+Switch+Edition+[v1.0.17+++38+DLCs].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "tuo9aFph8YrZzgB3f6Qi"
   },
   {
@@ -1577,6 +1767,7 @@
     "desc": "Peso: 5GB Update 1.3.0 + Mod Español",
     "link1": "https://www.mediafire.com/file/stp09ovnfr8yzsb/Yo-kai+Watch+1+for+Nintendo+Switch.zip/file",
     "link2": "",
+    "screenshots": [],
     "id": "u3iNfYZq4lKJ5YgmDLfA"
   },
   {
@@ -1585,6 +1776,7 @@
     "img": "https://art.gametdb.com/switch/box/US/AUXRA.png?1594125566",
     "nombre": "Cooking Mama Cookstar",
     "link1": "https://www.mediafire.com/file/41xost013o7w1n9/Cooking+Mama+Cookstar.nsp/file",
+    "screenshots": [],
     "id": "uEzcUz9CwOrO3VVtMKzp"
   },
   {
@@ -1593,6 +1785,7 @@
     "desc": "Peso: 19.14GB Update 1.0.3 + 3 Juegos",
     "link1": "https://www.mediafire.com/folder/nzd8cptw06wc3/Luma_Storage",
     "link2": "",
+    "screenshots": [],
     "id": "udTEiXsleMxmaVTEHNzD"
   },
   {
@@ -1601,6 +1794,7 @@
     "desc": "Peso: 14.87GB Update 2.5.1 + DLC",
     "link1": "https://www.mediafire.com/file/vuj0g8fj9dbl93l/GOD+EATER+3+[v2.5.1+++DLC].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "ueUmOmkZfC9ma5a0GIml"
   },
   {
@@ -1609,6 +1803,7 @@
     "desc": "Peso: 2.99GB",
     "link2": "https://gofile.io/d/NbkwbQ",
     "link1": "https://www.mediafire.com/file/401anam770j17ri/MANSION2HD.rar/file",
+    "screenshots": [],
     "id": "uvvpYtkYf9x6yHfu7w9H"
   },
   {
@@ -1617,6 +1812,7 @@
     "desc": "Peso: 6.48GB Update 1.0.1",
     "link1": "https://www.mediafire.com/file/qvmtz63g3f06gq1/Paper_Mario_The_Origami_King_%255Bv1.0.1%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZL8cO5ZJLG9lAdY130AsSCPECweOBzzWim7",
+    "screenshots": [],
     "id": "v8UcK4LXECjZ9PCPQW48"
   },
   {
@@ -1625,6 +1821,7 @@
     "link1": "https://www.mediafire.com/folder/knhma00wbnl0b/Pikmin_1_%2B_2",
     "img": "https://art.gametdb.com/switch/box/US/BAMEA.png?1768147972",
     "nombre": "Pikmin 1 + 2",
+    "screenshots": [],
     "id": "wPRu6ElvSf25UHKhvKgn"
   },
   {
@@ -1633,6 +1830,7 @@
     "desc": "Peso: 11.1GB Update 4.0.0 + DLC",
     "link2": "",
     "link1": "https://www.mediafire.com/file/mle2jke07jqjacn/PK_Violet_%255Bv4.0.0_%252B_DLC%255D.xci/file",
+    "screenshots": [],
     "id": "wUzdi0oKSNE8nR3amwbM"
   },
   {
@@ -1641,6 +1839,7 @@
     "nombre": "Mario Strikers: Battle League",
     "link1": "https://www.mediafire.com/file/mqeabz4e2kfx7r1/Mario+Strikers+[v1.3.2+++Parche].zip/file",
     "link2": "https://gofile.io/d/Of6wiL",
+    "screenshots": [],
     "id": "wgwFNjOocFcuTwwiIGgf"
   },
   {
@@ -1649,6 +1848,7 @@
     "desc": "Peso: 5.8 GB Update 1.1.0",
     "link1": "https://www.mediafire.com/file/ajctzjlueppc9fj/Kirby+and+the+Forgotten+Land+[v1.1.0].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ43aO5ZCFUjkrwgM5LaYMDfIAyto7sFyuuX",
+    "screenshots": [],
     "id": "xD6U9G0sEMvS55iDD6KE"
   },
   {
@@ -1657,6 +1857,7 @@
     "nombre": "Scott Pilgrim EX",
     "img": "assets/covers/cover scex.png",
     "link1": "https://www.mediafire.com/file/kvdp33zk5newziy/Scott+Pilgrim+EX+[v1.0.0.14131].xci/file",
+    "screenshots": [],
     "id": "xyGvzWnQ6gKiqTW0TqtS"
   },
   {
@@ -1665,6 +1866,7 @@
     "nombre": "Katana Zero",
     "link2": "",
     "link1": "https://www.mediafire.com/file/x0me67oncvdopzd/Katana+ZERO+[v1.0.5].xci/file",
+    "screenshots": [],
     "id": "yTQdqSCMyCzfNHiFEssi"
   },
   {
@@ -1673,6 +1875,7 @@
     "img": "https://art.gametdb.com/switch/box/US/AGY7B.png?1557185473",
     "nombre": "Octopath Traveler",
     "desc": "Peso: 3.08GB Update 1.0.5",
+    "screenshots": [],
     "id": "zHee8oS6jiBHYu9YCvne"
   },
   {
@@ -1681,6 +1884,7 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/eif9ps0eowsew1t/Guardianes_de_la_Noche_-Kimetsu_No_Yaiba-_Las_Cronicas_de_Hinokami_2_%255Bv1.80_%252B_12_DLCs%255D.xci/file",
     "desc": "Peso: 18GB Update v1.80 + 12 DLCs",
+    "screenshots": [],
     "id": "zIpPdijxaLxDicPgsOHD"
   },
   {
@@ -1689,6 +1893,7 @@
     "nombre": "Plants vs. Zombies Replanted",
     "link2": "",
     "img": "assets/covers/cover pvz.png",
+    "screenshots": [],
     "id": "zLUHVMZVqKa6EFh7y6aW"
   },
   {
@@ -1697,6 +1902,7 @@
     "link1": "https://www.mediafire.com/file/bi6a2jgd2yg4452/Kirbys+Dream+Buffet.nsp/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZqKrO5Z4cCnAUv7hrb3s1aIUmeIKR4QHYgX",
     "img": "assets/covers/cover kdbt.png",
+    "screenshots": [],
     "id": "zWMNy0bemhdKIP06ifIz"
   },
   {
@@ -1705,6 +1911,7 @@
     "desc": "Peso: 2.89GB Update 1.1.0",
     "link2": "https://u.pcloud.link/publink/show?code=XZuEaE5ZmcHLkcgUEkYFcmUBrYaRYLoH1izy",
     "link1": "https://www.mediafire.com/file/2fyiytnzowjcis5/Super_Mario_Party_%255Bv1.1.0%255D.xci/file",
+    "screenshots": [],
     "id": "zYrGqBBTXtVJWqKd8Yau"
   },
   {
@@ -1713,6 +1920,7 @@
     "desc": "Peso: 9.81GB Update 1.0.1",
     "link1": "https://www.mediafire.com/file/acscug517mlmwog/ASTRAL+CHAIN+[v1.0.1].xci/file",
     "link2": "",
+    "screenshots": [],
     "id": "zedHae89wP2RLlSX7Ydj"
   }
 ]
