@@ -258,6 +258,14 @@
     "id": "89xQAxYId9vfDD8AbWJu"
   },
   {
+    "nombre": "Assassin's Creed: THE EZIO COLLECTION",
+    "img": "https://art.gametdb.com/switch/box/US/A3L2A.png?1684363806",
+    "desc": "Peso: 35.3GB Update 1.3 + 5 DLCs",
+    "link1": "https://cold4.gofile.io/download/direct/a52dfd73-af92-41a1-8fac-e6130aff52c4/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
+    "link2": "",
+    "id": "8A1cgPGnA0sC8XNwWX2t"
+  },
+  {
     "img": "https://art.gametdb.com/switch/box/US/A42UC.png?1684364405",
     "desc": "Peso: 14.2GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/sxpjgzi14sbcmiw/Persona+5+Royal+[v1.0.2].xci/file",
@@ -450,6 +458,14 @@
     "desc": "Peso: 7.10GB 1.0.8 + DLC",
     "link2": "",
     "id": "DqwcfbWtkyMGyuR25NXI"
+  },
+  {
+    "nombre": "Backyard Baseball '97",
+    "img": "assets/covers/cover bb97.png",
+    "desc": "Peso: 374MB Update 1.0.2c",
+    "link1": "https://www.mediafire.com/file/n0d6xrj6eme8vv1/Backyard+Baseball+'97+[v1.0.2c].xci/file",
+    "link2": "",
+    "id": "DvJtOXYF20f6uHkwPgv6"
   },
   {
     "nombre": "Splatoon 3",
@@ -1372,6 +1388,14 @@
     "id": "oOCWhfDLOKkq1aJ7myzM"
   },
   {
+    "nombre": "BioShock Infinite The Complete Edition",
+    "img": "assets/covers/cover bi.png",
+    "desc": "Peso: 20.7GB Update 1.0.2",
+    "link1": "https://store3.gofile.io/download/direct/21d00094-2888-4a45-82f5-fc7755a1050c/BioShock%20Infinite%20The%20Complete%20Edition%20%5Bv1.0.2%5D.xci",
+    "link2": "",
+    "id": "oOGF3UPbsXBwEGEtVsBb"
+  },
+  {
     "desc": "Peso: 3.01GB Update 1.0.4 + 5 juegos por separado",
     "nombre": "Five Nights at Freddy's [Core Collection]",
     "link2": "",
@@ -1564,6 +1588,14 @@
     "id": "uEzcUz9CwOrO3VVtMKzp"
   },
   {
+    "nombre": "S.T.A.L.K.E.R: LEGENDS OF THE ZONE TRILOGY",
+    "img": "assets/covers/cover slotzt.png",
+    "desc": "Peso: 19.14GB Update 1.0.3 + 3 Juegos",
+    "link1": "https://www.mediafire.com/folder/nzd8cptw06wc3/Luma_Storage",
+    "link2": "",
+    "id": "udTEiXsleMxmaVTEHNzD"
+  },
+  {
     "nombre": "GOD EATER 3",
     "img": "https://art.gametdb.com/switch/box/US/ALHZA.png?1573417739",
     "desc": "Peso: 14.87GB Update 2.5.1 + DLC",
@@ -1674,5 +1706,13 @@
     "link2": "https://u.pcloud.link/publink/show?code=XZuEaE5ZmcHLkcgUEkYFcmUBrYaRYLoH1izy",
     "link1": "https://www.mediafire.com/file/2fyiytnzowjcis5/Super_Mario_Party_%255Bv1.1.0%255D.xci/file",
     "id": "zYrGqBBTXtVJWqKd8Yau"
+  },
+  {
+    "nombre": "Astral Chain",
+    "img": "https://art.gametdb.com/switch/box/US/AB48A.png?1567880066",
+    "desc": "Peso: 9.81GB Update 1.0.1",
+    "link1": "https://www.mediafire.com/file/acscug517mlmwog/ASTRAL+CHAIN+[v1.0.1].xci/file",
+    "link2": "",
+    "id": "zedHae89wP2RLlSX7Ydj"
   }
 ]
