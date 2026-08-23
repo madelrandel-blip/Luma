@@ -149,15 +149,8 @@
     "link2": "",
     "gameId": "010076400B522000",
     "languages": "EN/ES",
-    "year": 2023,
     "format": "XCI",
-    "rating": 91,
     "update": "v1.0.2",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/114/1582559481_7737.webp",
-      "https://files.vgtimes.com/gallery/main/114/1582559480_1568.webp",
-      "https://files.vgtimes.com/gallery/main/114/1582559479_8314.webp"
-    ],
     "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=BfbDen-HDqQ",
     "size": "12.3GB",
@@ -165,6 +158,13 @@
     "developer": "Rocksteady Studios",
     "previewDesc": "Batman se enfrenta a los criminales más peligrosos de Gotham en una prisión al aire libre. Combina sigilo, combate y exploración en un mundo abierto.",
     "firmware": "11.0.0",
+    "year": 2023,
+    "rating": 91,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/114/1582559481_7737.webp",
+      "https://files.vgtimes.com/gallery/main/114/1582559480_1568.webp",
+      "https://files.vgtimes.com/gallery/main/114/1582559479_8314.webp"
+    ],
     "id": "2s5SHGGll8jBrQpRFaao"
   },
   {
@@ -2223,15 +2223,8 @@
     "desc": "Peso: 8.78GB Update 1.1.0",
     "gameId": "0100E5E00A2B4000",
     "languages": "ES/JP/EN",
-    "year": 2018,
     "format": "XCI",
-    "rating": 87,
     "update": "1.1.0",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/136446/1576833631_3357.webp",
-      "https://files.vgtimes.com/gallery/main/136446/1576833630_3696.webp",
-      "https://files.vgtimes.com/gallery/main/136446/1576833628_3096.webp"
-    ],
     "mode": "Single Player",
     "trailer": "XN-lQc2slvM",
     "size": "8.78GB",
@@ -2239,6 +2232,13 @@
     "developer": "PlatinumGames",
     "previewDesc": "La hechicera umbra Bayonetta despierta tras siglos de sueño en un mundo lleno de ángeles y demonios. Con armas letales, habilidades mágicas y su icónico movimiento Witch Time, deverá descubrir los secretos de su pasado.",
     "firmware": "5.0.0+",
+    "year": 2018,
+    "rating": 87,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/136446/1576833631_3357.webp",
+      "https://files.vgtimes.com/gallery/main/136446/1576833630_3696.webp",
+      "https://files.vgtimes.com/gallery/main/136446/1576833628_3096.webp"
+    ],
     "id": "ofRV48JcEQOZ9ygIocEF"
   },
   {
