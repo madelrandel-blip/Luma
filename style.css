@@ -1505,11 +1505,11 @@ header {
         margin: 0 auto !important;
     }
     .header-actions > button:not(.admin-profile-btn):not(#logoutBtn) {
-        width: 112px !important;
-        min-width: 112px !important;
-        height: 42px !important;
-        font-size: 13px !important;
-        padding: 6px 8px !important;
+        width: 101px !important;
+        min-width: 101px !important;
+        height: 38px !important;
+        font-size: 12px !important;
+        padding: 5px 7px !important;
         justify-self: center !important;
         align-self: center !important;
     }
@@ -2221,9 +2221,21 @@ header {
         padding: 14px;
     }
 
+    .preview-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .preview-info {
+        order: 1 !important;
+    }
+
+    .preview-cover {
+        order: 2 !important;
+    }
+
     .preview-cover img {
-        max-height: 200px;
-        object-fit: cover;
+        display: none !important;
     }
 
     .preview-title {
@@ -2242,14 +2254,16 @@ header {
 
     .preview-thumbs {
         gap: 6px;
-        overflow-x: auto;
+        overflow-x: hidden;
         padding-bottom: 4px;
-        -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .preview-thumbs .thumb {
-        width: 96px;
-        height: 55px;
+        width: 80px;
+        height: 46px;
     }
 
     .preview-meta {
