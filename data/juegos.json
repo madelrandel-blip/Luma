@@ -1620,7 +1620,24 @@
     "desc": "Peso: 10.10GB Update 1.50 + 35 DLCs",
     "img": "https://art.gametdb.com/switch/box/US/AM5WA.png?1556583432",
     "nombre": "DRAGON BALL FighterZ",
-    "screenshots": [],
+    "gameId": "0100A250097F0000",
+    "languages": "ES/EN/FR/DE/IT/PT/RU/KO/ZH-CN/ZH-TW/JP",
+    "year": "2018",
+    "format": "XCI",
+    "rating": "87",
+    "update": "1.50 + 35 DLCs",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/142359/1503404605_9115.webp",
+      "https://files.vgtimes.com/gallery/thumb/142359/1503404610_8269.webp",
+      "https://files.vgtimes.com/gallery/thumb/142359/1503404600_5765.webp"
+    ],
+    "mode": "1–6 Local / 2–6 Local inalámbrico / 2–6 Online",
+    "trailer": "https://youtu.be/m5mfUiDWYmE",
+    "size": "10.10GB",
+    "genre": "Action",
+    "developer": "Arc System Works",
+    "previewDesc": "DRAGON BALL FighterZ es un juego de lucha 2D/3D desarrollado por Arc System Works que combina combates rápidos con espectaculares gráficos inspirados directamente en el anime. Los combates utilizan equipos de 3 personajes, permitiendo realizar cambios, asistencias y combos aéreos.",
+    "firmware": "",
     "id": "Z2Q1KBUJR6BWB823FqGI"
   },
   {
@@ -2085,7 +2102,24 @@
     "nombre": "Digimon Story Time Stranger",
     "link1": "https://www.mediafire.com/file/blepv76chrduuvb/Digimon+Story+Time+Stranger+[v1.2.1+++14+DLCs].xci/file",
     "desc": "Peso: 12.1GB Update 1.2.1 + 14 DLCs",
-    "screenshots": [],
+    "gameId": "0100E9C01B2A8000",
+    "languages": "ES/EN/FR/DE/IT/PT/JP/KO/ZH",
+    "year": "2026",
+    "format": "XCI",
+    "rating": "79",
+    "update": "1.2.1 + 14 DLCs",
+    "mode": "Single Player",
+    "trailer": "https://youtu.be/AbYa4l02nVQ",
+    "size": "12.1GB",
+    "genre": "RPG",
+    "developer": "Media.Vision",
+    "previewDesc": "Digimon Story: Time Stranger es un RPG de colección y entrenamiento de Digimon. La historia comienza en Tokio, donde un agente de una organización secreta presencia una explosión que destruye la ciudad y, posteriormente, despierta ocho años en el pasado.",
+    "firmware": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/209515/3161259066_cd5d6febd61d6a170d48db10e32bf9828e0c830e.webp",
+      "https://files.vgtimes.com/gallery/thumb/209514/741857600_ss_e119215706a1b0469c756c0ec2148d09777e4.webp",
+      "https://files.vgtimes.com/gallery/thumb/209514/5972785719_ss_c5cd1a4175c36d25836d262ce4f32b66ea8d2.webp"
+    ],
     "id": "kX8l9FmlbWpgTMXj1WXL"
   },
   {
