@@ -161,9 +161,9 @@
     "year": 2023,
     "rating": 91,
     "screenshots": [
-      "https://files.vgtimes.com/gallery/main/114/1582559481_7737.webp",
-      "https://files.vgtimes.com/gallery/main/114/1582559480_1568.webp",
-      "https://files.vgtimes.com/gallery/main/114/1582559479_8314.webp"
+      "https://files.vgtimes.com/gallery/thumb/114/068_lieutenant_17199.webp",
+      "https://files.vgtimes.com/gallery/thumb/114/bac_gargoyle_17199.webp",
+      "https://files.vgtimes.com/gallery/thumb/114/2013-03-24_00001.webp"
     ],
     "id": "2s5SHGGll8jBrQpRFaao"
   },
@@ -1584,7 +1584,6 @@
     "year": 2022,
     "format": "XCI",
     "rating": 79,
-    "update": "v1.5.27",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/183179/8967172249_cotl_unholyalliance_1.webp",
       "https://files.vgtimes.com/gallery/main/183179/4644530487_cotl_unholyalliance_7.webp",
@@ -1597,6 +1596,7 @@
     "developer": "Massive Monster",
     "previewDesc": "Construye tu culto, explora mazmorras y derrota a los herejes. Combina combate roguelike con gestión de secta en una estética kawaii oscura.",
     "firmware": "13.0.0+",
+    "update": "v1.5.27 + 6 DLCs",
     "id": "afRM5LrlH8aNgHos7GJK"
   },
   {
@@ -2236,8 +2236,8 @@
     "rating": 87,
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/136446/1576833631_3357.webp",
-      "https://files.vgtimes.com/gallery/main/136446/1576833630_3696.webp",
-      "https://files.vgtimes.com/gallery/main/136446/1576833628_3096.webp"
+      "https://files.vgtimes.com/gallery/thumb/136446/bayonetta-2017-04-26-02-20-44-71.webp",
+      "https://files.vgtimes.com/gallery/thumb/136446/1576833627_4519.webp"
     ],
     "id": "ofRV48JcEQOZ9ygIocEF"
   },
