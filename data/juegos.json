@@ -1132,7 +1132,24 @@
     "desc": "Peso: 22GB Update 1.4",
     "link1": "https://store-na-phx-1.gofile.io/download/direct/8af745f3-4b83-4fe7-84b7-76bb175182ea/DOOM%20%5Bv1.4%5D.xci",
     "link2": "",
-    "screenshots": [],
+    "gameId": "0100B1F0050CA000",
+    "languages": "ES/EN/FR/DE/IT/RU",
+    "year": "2017",
+    "format": "XCI",
+    "rating": "79",
+    "update": "v1.4",
+    "mode": "Single Player / 4-12 Online",
+    "trailer": "https://youtu.be/6lRpoGucGA0",
+    "size": "22GB",
+    "genre": "FPS / Action",
+    "developer": "Id Software",
+    "previewDesc": "DOOM (2016) es un FPS de acción frenético en el que encarnas al Doom Slayer, despertado en Marte para enfrentarse a una invasión demoníaca. Combina tiroteos rápidos, ejecuciones Glory Kill, armas devastadoras y mejoras de habilidades.",
+    "firmware": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/602/ohvrcw6.webp",
+      "https://files.vgtimes.com/gallery/thumb/602/011.webp",
+      "https://files.vgtimes.com/gallery/thumb/602/012.webp"
+    ],
     "id": "MRfVhKa0RN4qq5BtegQv"
   },
   {
@@ -1302,7 +1319,24 @@
     "desc": "Peso: 35.4GB Update 1.14 + 5 DLCs",
     "link1": "https://store-eu-par-8.gofile.io/download/direct/ce56a5c5-0525-4ef5-90a9-2ddeffa8a2c3/DOOM%20Eternal%20%5Bv1.14%20%2B%205%20DLCs%5D.xci",
     "link2": "",
-    "screenshots": [],
+    "gameId": "0100B1A00D8CE000",
+    "languages": "ES/EN/FR/DE/IT/PT/RU/JP/ZH/KO",
+    "year": "2020",
+    "format": "XCI",
+    "rating": "79",
+    "update": "1.14 + 5 DLCs",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/167936/1584819713_661.webp",
+      "https://files.vgtimes.com/gallery/thumb/167937/1534148580_6751.webp",
+      "https://files.vgtimes.com/gallery/thumb/167937/1534148625_2283.webp"
+    ],
+    "mode": "Single Player / Online 2-3",
+    "trailer": "https://youtu.be/2wdW0HB_NhM",
+    "size": "35.4GB",
+    "genre": "FPS / Action",
+    "developer": "Id Software",
+    "previewDesc": "DOOM Eternal continúa la historia de DOOM (2016). Los ejércitos del Infierno han invadido la Tierra y el Doom Slayer debe abrirse camino a través de hordas de demonios para detener la destrucción de la humanidad.",
+    "firmware": "",
     "id": "RxEa6a8Nmj0jP5PcRNuG"
   },
   {
