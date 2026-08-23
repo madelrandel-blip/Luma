@@ -705,6 +705,32 @@
     "id": "CEqT6SgHBZk45s8DsaMG"
   },
   {
+    "img": "assets/covers/cover b2gotye.png",
+    "desc": "Peso: 26.6GB Update 1.0.2 + 2 DLCs",
+    "link2": "",
+    "trailer": "https://youtu.be/tVmsF0FoM1E",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/556/49520_screenshots_2013-01-10_00001.webp",
+      "https://files.vgtimes.com/gallery/thumb/556/20121009154913970.webp",
+      "https://files.vgtimes.com/gallery/thumb/556/1369747309-2k-bl2-ttadk-badassgolem.webp"
+    ],
+    "genre": "Shooter",
+    "developer": "Gearbox Software",
+    "mode": "Single Player / Local 2 / Online 4",
+    "year": "2020",
+    "rating": "82",
+    "gameId": "010096F00FF22000",
+    "size": "26.6GB",
+    "format": "XCI",
+    "languages": "EN/ES/JP/FR/IT/DE",
+    "firmware": "10.2.0",
+    "update": "v1.0.2 + 2 DLCs",
+    "previewDesc": "Borderlands 2 es un shooter en primera persona con elementos de RPG ambientado en Pandora. Juegas como uno de los nuevos Vault Hunters, enfrentándote al tiránico Jack el Guapo mientras exploras Pandora, completas misiones, derrotas enemigos y consigues miles de armas con estadísticas y características diferentes.",
+    "link1": "",
+    "nombre": "Borderlands 2: GAME OF THE YEAR EDITION",
+    "id": "Cqb5NT2omeoMKeEiGNOH"
+  },
+  {
     "desc": "Peso: 10.4GB Update 1.0.2",
     "link2": "https://drive.google.com/file/d/17E42NikUgoCBGsrsDoBP0S2tzQkOJ64Y/view?usp=drivesdk",
     "img": "https://art.gametdb.com/switch/box/US/AMPYA.png?1768148291",
@@ -2515,7 +2541,24 @@
     "desc": "Peso: 17.31GB Update 1.0.2",
     "nombre": "Borderlands: GAME OF THE YEAR EDITION",
     "link2": "",
-    "screenshots": [],
+    "gameId": "010064800F66A000",
+    "languages": "ES/EN/FR/DE/IT/JP",
+    "year": "2020",
+    "format": "XCI",
+    "rating": "76",
+    "update": "1.0.2",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/142530/1502964874_9810.webp",
+      "https://files.vgtimes.com/gallery/thumb/142530/1502964872_2083.webp",
+      "https://files.vgtimes.com/gallery/thumb/142530/1502964860_6960.webp"
+    ],
+    "mode": "Single Player / Local 2 / Online 4",
+    "trailer": "https://youtu.be/UKzMC90kaRw",
+    "size": "17.31GB",
+    "genre": "Shooter",
+    "developer": "Gearbox Software",
+    "previewDesc": "Borderlands: Game of the Year Edition es un shooter en primera persona con elementos de RPG y un enorme sistema de botín. Viaja por el planeta Pandora como uno de los cuatro Vault Hunters, buscando la legendaria Cámara mientras luchas contra bandidos, criaturas y corporaciones",
+    "firmware": "10.0.3",
     "id": "trDnmurLrD8xJvkPtngt"
   },
   {
