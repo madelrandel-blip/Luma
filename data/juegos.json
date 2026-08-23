@@ -1385,7 +1385,6 @@
     "languages": "ES/EN/FR/DE/IT/PT/RU/KO/ZH-CN/ZH-TW/JP",
     "year": "2017",
     "format": "XCI",
-    "rating": "",
     "update": "1.26.00 + 84 DLCs",
     "mode": "1–2 Local / 2–6 Local inalámbrico / 2–6 Online",
     "trailer": "https://youtu.be/H1z7YY7AHRI",
@@ -1393,6 +1392,7 @@
     "genre": "Action / RPG",
     "developer": "Dimps Corporation",
     "previewDesc": "DRAGON BALL XENOVERSE 2 es un RPG de acción y lucha ambientado en el universo de Dragon Ball. Creas tu propio Time Patroller, personalizas su raza, apariencia, habilidades y técnicas, y viajas por Conton City para proteger la historia de Dragon Ball de las alteraciones provocadas por enemigos.",
+    "rating": "72",
     "firmware": "22.1.0",
     "screenshots": [],
     "id": "TfDl57g8p7JE4yZ8tGZK"
