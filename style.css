@@ -1875,13 +1875,13 @@ header {
 /* Botones debajo de la portada */
 .preview-links{
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     gap:8px;
 }
 
 .preview-links .btn{
-    width:100%;
-    padding:10px 16px;
+    flex:1;
+    padding:9px 12px;
     border-radius:8px;
     font-size:13px;
     font-weight:700;

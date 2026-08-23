@@ -595,7 +595,7 @@ function mostrarPreview(img, nombre, link1, link2, screenshots, trailer, rating,
 
     let botones = "";
     if(link1) botones += `<button class="btn blue" onclick="playClick();cerrarPreview();abrirLink('${escapeComillas(link1)}', '${escapeComillas(nombre)}')">Obtener</button>`;
-    if(link2) botones += `<button class="btn green" onclick="playClick();cerrarPreview();abrirLink('${escapeComillas(link2)}', '${escapeComillas(nombre)} (Tutorial)')">Tutorial</button>`;
+    if(link2) botones += `<button class="btn green" onclick="playClick();cerrarPreview();abrirLink('${escapeComillas(link2)}', '${escapeComillas(nombre)} (Obtener)')">Obtener</button>`;
     previewLinks.innerHTML = botones;
 
     let thumbs = "";
@@ -611,6 +611,10 @@ function mostrarPreview(img, nombre, link1, link2, screenshots, trailer, rating,
         const videoId = trailer.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
         if(videoId){
             trailerSrc = videoId[1];
+        } else if(/^[a-zA-Z0-9_-]{11,}$/.test(trailer)){
+            trailerSrc = trailer;
+        }
+        if(trailerSrc){
             thumbs += `<div class="thumb thumb-video" onclick="verTrailerEnMain('${trailerSrc}',this)"><img src="https://img.youtube.com/vi/${trailerSrc}/mqdefault.jpg" loading="lazy"><div class="play-icon"></div></div>`;
         }
     }
@@ -1034,7 +1038,6 @@ function render(lista){
                 <div class="btns">
                     ${(j.link1 || j.link2) ? `<button class="btn blue" onclick="playClick();abrirPreview(this)" data-img="${j.img}" data-nombre="${j.nombre}" data-link1="${j.link1||''}" data-link2="${j.link2||''}" data-screenshots='${JSON.stringify(j.screenshots||[])}' data-trailer="${j.trailer||''}" data-rating="${j.rating||''}" data-genre="${j.genre||''}" data-developer="${j.developer||''}" data-desc="${j.previewDesc||''}" data-size="${j.size||''}" data-format="${j.format||''}" data-languages="${j.languages||''}" data-update="${j.update||''}" data-gameid="${j.gameId||''}" data-firmware="${j.firmware||''}" data-mode="${j.mode||''}" data-year="${j.year||''}">Ver enlace</button>` : ''}
                     ${j.link1 ? `<button class="btn blue cart-add-btn" onclick="playClick();agregarAlCarrito('${escapeComillas(j.nombre)}', '${escapeComillas(j.link1)}', '${escapeComillas(j.img)}')"><i class="fa-solid fa-cart-arrow-down"></i> Agregar</button>` : ''}
-                    ${j.link2 ? `<button class="btn green cart-add-btn" onclick="playClick();agregarAlCarrito('${escapeComillas(j.nombre)} (Parte 2)', '${escapeComillas(j.link2)}', '${escapeComillas(j.img)}')"><i class="fa-solid fa-cart-arrow-down"></i> Agregar</button>` : ''}
                 </div>
 
                 ${admin ? `
