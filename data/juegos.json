@@ -586,7 +586,24 @@
     "img": "https://art.gametdb.com/switch/box/KO/A54GC.png?1667754815",
     "link2": "https://drive.google.com/file/d/1bsVzI2SSijU5nJIfbhOQSaldTNAF-rtj/view?usp=drivesdk",
     "link1": "https://www.mediafire.com/file/ar8i82mmyi4ayyr/Demon+Slayer+Kimetsu+no+Yaiba+The+Hinokami+Chronicles+[v1.53+++10+DLCs].xci/file",
-    "screenshots": [],
+    "gameId": "0100C9A00E8B8000",
+    "languages": "ES/EN/FR/DE/IT/JP/ZH",
+    "year": "2022",
+    "format": "XCI",
+    "rating": "74",
+    "update": "1.53 + 10 DLCs",
+    "mode": "Single Player / Local 2 / Online 2",
+    "size": "11GB",
+    "genre": "Adventure / Action ",
+    "developer": "CyberConnect2",
+    "firmware": "16.0.2",
+    "trailer": "https://youtu.be/-27dyW50PhU",
+    "previewDesc": "Demon Slayer: Kimetsu no Yaiba – The Hinokami Chronicles es un juego de acción y lucha basado en el anime Demon Slayer. En el Modo Aventura, revives la historia de Tanjiro Kamado desde su ingreso al Cuerpo de Exterminio de Demonios hasta los acontecimientos del Arco del Tren Infinito.",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/182273/1656357267_9748.webp",
+      "https://files.vgtimes.com/gallery/thumb/182273/1656357180_1593.webp",
+      "https://files.vgtimes.com/gallery/thumb/182273/1656357268_9678.webp"
+    ],
     "id": "B95QZL8Iot726qpwruxC"
   },
   {
@@ -2760,7 +2777,24 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/eif9ps0eowsew1t/Guardianes_de_la_Noche_-Kimetsu_No_Yaiba-_Las_Cronicas_de_Hinokami_2_%255Bv1.80_%252B_12_DLCs%255D.xci/file",
     "desc": "Peso: 18GB Update v1.80 + 12 DLCs",
-    "screenshots": [],
+    "gameId": "0100E9C01B2A8000",
+    "languages": "ES/EN/FR/DE/IT/JP/ZH",
+    "year": "2025",
+    "format": "XCI",
+    "rating": "76",
+    "update": "v1.80 + 12 DLCs",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/204884/7256783284_ad2645dc7e20177e9b552b09e7bf80a64cd788dc.webp",
+      "https://files.vgtimes.com/gallery/thumb/204883/7352561778_ss_65bda7a462256287baf41fe28c42268ad2e38.webp",
+      "https://files.vgtimes.com/gallery/thumb/204883/300675600_ss_4a2fec226d07f5969a036267cb6b44119d5bf.webp"
+    ],
+    "mode": "Single Player / Local 2 / Online 2",
+    "trailer": "https://youtu.be/I874nZLbpho",
+    "size": "18GB",
+    "genre": "Adventure / Action",
+    "developer": "CyberConnect2",
+    "firmware": "",
+    "previewDesc": "Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles 2 es un juego de acción y lucha 3D basado en Kimetsu no Yaiba. Continúa la historia de Tanjiro y permite revivir diferentes arcos del anime mientras combates contra demonios y otros personajes.",
     "id": "zIpPdijxaLxDicPgsOHD"
   },
   {
