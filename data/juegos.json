@@ -438,7 +438,6 @@
     "link2": "",
     "nombre": " Persona 5 Royal",
     "gameId": "0100B5100D6E8000",
-    "languages": "EN/ES/JP",
     "year": "2019",
     "format": "XCI",
     "rating": "95",
@@ -455,6 +454,7 @@
     "developer": "Atlus",
     "previewDesc": "Prepara para la experiencia RPG premiada. Obligado a trasladarse a una escuela secundaria en Tokio, el protagonista tiene un sueño extraño. Con el objetivo de 'rehabilitación' amenazando, debe salvar a otros de deseos distorsionados usando la máscara de un Ladrón Fantasma.",
     "firmware": "11.0.0",
+    "languages": "EN/ES/JP/FR/DE/IT",
     "id": "8hUu7SIdCLECaxQ54RzR"
   },
   {
