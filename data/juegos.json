@@ -1017,8 +1017,25 @@
     "desc": "Peso: 2.64GB Update 1.0.5",
     "link1": "https://www.mediafire.com/file/ulke0u4oklaxnpx/Call+of+Juarez+Gunslinger+[v1.0.5].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZay3E5Z9WU7xAtAYujrldyXOxo6WYSluJiX",
-    "img": "https://madelrandel-blip.github.io/Luma/assets/covers/cover%20cfzr.png",
-    "screenshots": [],
+    "gameId": "0100B4700BFC6000",
+    "img": "assets/covers/cover cfzr.png",
+    "languages": "ES/EN/FR/DE/IT/PT/RU/JP",
+    "year": "2019",
+    "format": "XCI",
+    "rating": "72",
+    "update": "1.0.5",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/1062/1366648225-cojg-screen-train.webp",
+      "https://files.vgtimes.com/gallery/thumb/1062/1362676536-4.webp",
+      "https://files.vgtimes.com/gallery/thumb/1062/1366648227-cojg-screen-sense-of-death.webp"
+    ],
+    "mode": "Single Player",
+    "size": "2.64GB",
+    "genre": "Action / Shooter",
+    "developer": "Techland",
+    "previewDesc": "Call of Juarez: Gunslinger es un FPS ambientado en el Salvaje Oeste. Tomas el papel de Silas Greaves, un implacable cazarrecompensas que persigue a algunos de los forajidos más famosos de la historia, como Billy the Kid, Jesse James y Pat Garrett.",
+    "firmware": "9.0.1",
+    "trailer": "https://youtu.be/RZxdxjySW-0",
     "id": "IfePj8lEh9KWhQN6356k"
   },
   {
@@ -2361,7 +2378,24 @@
     "nombre": "Catherine Full Body",
     "link2": "",
     "link1": "https://www.mediafire.com/file/zsuwp4knvh3tfns/Catherine+Full+Body+[v1.0.1].xci/file",
-    "screenshots": [],
+    "gameId": "0100BF00112C0000",
+    "languages": "ES/EN/FR/DE/IT",
+    "year": "2020",
+    "format": "XCI",
+    "rating": "81",
+    "update": "1.0.1",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/158499/1545424168_4912.webp",
+      "https://files.vgtimes.com/gallery/thumb/158499/1545424164_7406.webp",
+      "https://files.vgtimes.com/gallery/thumb/158499/1545424084_1056.webp"
+    ],
+    "mode": "1-2 Local / Online 2",
+    "trailer": "https://youtu.be/y3Q_MZRJTZ4",
+    "size": "14.2GB",
+    "genre": "Romance / Puzzle",
+    "developer": "Atlus",
+    "previewDesc": "Catherine: Full Body es una aventura de acción y puzzles protagonizada por Vincent, un hombre atrapado en un complicado triángulo amoroso entre Katherine, Catherine y la misteriosa Rin. Sus decisiones afectan directamente a la historia y pueden llevar a 13 finales diferentes.",
+    "firmware": "20.0.1.0",
     "id": "rfFi736ioZAZaYOQESrW"
   },
   {
