@@ -42,22 +42,22 @@
     "link2": "https://u.pcloud.link/publink/show?code=XZ42FU5ZDLikLyjaDTpKISDlzKt2R4MLrBeX",
     "gameId": "01002DA013484000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/RU/KO/ZH",
+    "year": "2021",
     "format": "NSP",
-    "update": "v1.0.1",
     "rating": 81,
-    "genre": "Acción-Aventura",
-    "developer": "Nintendo EPD",
-    "mode": "Single Player",
-    "firmware": "11.0.1",
-    "size": "7.07GB",
+    "update": "v1.0.1",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/181139/2021080822464600.webp",
       "https://files.vgtimes.com/gallery/main/181139/2021080822354100.webp",
       "https://files.vgtimes.com/gallery/main/181139/2021080822254600.webp"
     ],
+    "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=X27t1VEU4d0",
+    "size": "7.07GB",
+    "genre": "Acción-Aventura",
+    "developer": "Nintendo EPD",
     "previewDesc": "Viaja al origen de la leyenda de Zelda en esta versión HD del clásico de Wii. Explora Skyloft y las ruinas antiguas mientras enfrentas al oscuro Ghirahim en una aventura épica que conecta el pasado y el presente de la franquicia.",
-    "year": "2021",
+    "firmware": "11.0.1",
     "id": "0qWXbNk2gXZiRU5VfOob"
   },
   {
@@ -676,22 +676,22 @@
     "link2": "https://u.pcloud.link/publink/show?code=XZ4AJU5ZuSpv8IwMfpuGymzVruaJSHYYujck",
     "gameId": "01008CF01BAAC000",
     "languages": "ES/EN/JP/FR/DE/IT/PT/NL/RU/KO/ZH",
+    "year": "2024",
     "format": "XCI",
-    "update": "v1.1.0",
     "rating": 85,
-    "genre": "Acción-Aventura",
-    "developer": "Grezzo",
-    "mode": "Single Player",
-    "firmware": "18.1.0",
-    "size": "5.59GB",
+    "update": "v1.1.0",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/202020/7587278579_1725045099_4125.webp",
       "https://files.vgtimes.com/gallery/main/202020/1627757697_1725045095_5065.webp",
       "https://files.vgtimes.com/gallery/main/202020/1294992891_1725045094_5668.webp"
     ],
+    "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=94RTrH2erPE",
+    "size": "5.59GB",
+    "genre": "Acción-Aventura",
+    "developer": "Grezzo",
     "previewDesc": "Por primera vez en la historia, Zelda es la protagonista. Con la habilidad de crear Echoes de objetos y enemigos, deberás resolver puzzles, explorar mazmorras y derrotar criaturas para rescatar a Link y salvar Hyrule de una amenaza desconocida.",
-    "year": "2024",
+    "firmware": "18.1.0",
     "id": "C5oxrWIe92yCzsi9K3he"
   },
   {
@@ -723,27 +723,27 @@
   {
     "nombre": "The Legend of Zelda: Link's Awakening",
     "img": "https://art.gametdb.com/switch/box/US/AR3NA.png?1685768661",
-    "desc": "Peso: 5.87GB Update 1.1.0",
     "link1": "https://www.mediafire.com/file/pwj22g5optitwil/The+Legend+of+Zelda+Link's+Awakening+[v1.1.0].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ0kFU5Z6P0m7iNwot4oRn3dcCyO8fT3rHbX",
     "gameId": "01006BB00C6F0000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/RU/KO/ZH",
+    "year": "2019",
     "format": "XCI",
-    "update": "v1.1.0",
     "rating": 87,
-    "genre": "Acción-Aventura",
-    "developer": "Grezzo",
-    "mode": "Single Player",
-    "firmware": "8.1.0",
-    "size": "5.87GB",
+    "update": "v1.1.0",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/170997/1583037257_4063.webp",
       "https://files.vgtimes.com/gallery/main/170997/1583037256_9491.webp",
       "https://files.vgtimes.com/gallery/main/170997/1583037256_4729.webp"
     ],
+    "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=wm7LBjYQB_Y",
+    "size": "5.87GB",
+    "genre": "Acción-Aventura",
+    "developer": "Grezzo",
     "previewDesc": "Una reimagining del clásico de Game Boy con un estilo visual de muñeco de arcilla. Link naufraga en la misteriosa Isla Koholint y debe despertar al Pez Viento mientras descubre los secretos de esta tierra onírica llena de criaturas y puzzle.",
-    "year": "2019",
+    "firmware": "8.1.0",
+    "desc": "Peso: 5.87GB Update 1.1.0",
     "id": "CD9yF3qXypG3uuKtSSSZ"
   },
   {
@@ -1445,7 +1445,11 @@
     "previewDesc": "DRAGON BALL XENOVERSE 2 es un RPG de acción y lucha ambientado en el universo de Dragon Ball. Creas tu propio Time Patroller, personalizas su raza, apariencia, habilidades y técnicas, y viajas por Conton City para proteger la historia de Dragon Ball de las alteraciones provocadas por enemigos.",
     "rating": "72",
     "firmware": "22.1.0",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/139636/patroller_rank_2_1474462185_bmp_jpgcopy.webp",
+      "https://files.vgtimes.com/gallery/thumb/139636/e3_screen_3_1465913512.webp",
+      "https://files.vgtimes.com/gallery/thumb/139636/expert_missions_1_1471597585_bmp_jpgcopy.webp"
+    ],
     "id": "TfDl57g8p7JE4yZ8tGZK"
   },
   {
@@ -1509,22 +1513,22 @@
     "link1": "https://www.mediafire.com/file/yuee12ssuw37kdu/The+Legend+of+Zelda+Tears+of+the+Kingdom+[v1.4.3].xci/file",
     "gameId": "0100F2C0115B6000",
     "languages": "ES/EN/JP/FR/DE/IT/PT/NL/RU/KO/ZH",
+    "year": "2023",
     "format": "XCI",
-    "update": "v1.4.3",
     "rating": 96,
-    "genre": "Acción-Aventura",
-    "developer": "Nintendo EPD",
-    "mode": "Single Player",
-    "firmware": "15.0.0",
-    "size": "16.4GB",
+    "update": "v1.4.3",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/171775/6475359665_img_3399.webp",
       "https://files.vgtimes.com/gallery/main/171775/5570243956_img_3895.webp",
       "https://files.vgtimes.com/gallery/main/171775/5532880784_img_3516.webp"
     ],
+    "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=uHGShqcAHlQ",
+    "size": "16.4GB",
+    "genre": "Acción-Aventura",
+    "developer": "Nintendo EPD",
     "previewDesc": "La ambiciosa secuela de Breath of the Wild que expande el mundo abierto hacia las islas flotantes y las profundidades de Hyrule. Con nuevas habilidades como Ultrahand y Fuse, crea armas, vehículos y estructuras para explorar un mapa masivo y enfrentar nuevos enemigos.",
-    "year": "2023",
+    "firmware": "15.0.0",
     "id": "VmjZPSjoeuaFPnNh3YJ3"
   },
   {
@@ -1571,22 +1575,22 @@
     "link1": "https://www.mediafire.com/file/anfj4q0v678d2z3/The+Legend+of+Zelda+Breath+of+the+Wild+[v1.9.0+++2+DLCs].xci/file",
     "gameId": "01007EF00011E000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/RU/KO/ZH",
+    "year": "2017",
     "format": "XCI",
     "update": "v1.9.0 + 2 DLCs",
-    "rating": 97,
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=zw47_q9wbBE",
+    "size": "15.7GB",
     "genre": "Acción-Aventura",
     "developer": "Nintendo EPD",
-    "mode": "Single Player",
+    "previewDesc": "El juego que redefinió la franquicia Zelda con un mundo abierto masivo y sin precedentes. Despierta tras 100 años de sueño, explora Hyrule libremente, resuelve santuarios, derrota a los Cinco Campeones y enfrenta a Ganon en una aventura que marcó un antes y un después en los videojuegos.",
     "firmware": "7.0.1",
-    "size": "15.7GB",
+    "rating": "97",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/139628/1583037054_4063.webp",
       "https://files.vgtimes.com/gallery/main/139628/1583037053_476.webp",
-      "https://files.vgtimes.com/gallery/main/139628/1583037053_5517.webp"
+      "https://files.vgtimes.com/gallery/thumb/139628/1497378577_8569.webp"
     ],
-    "trailer": "https://www.youtube.com/watch?v=zw47_q9wbBE",
-    "previewDesc": "El juego que redefinió la franquicia Zelda con un mundo abierto masivo y sin precedentes. Despierta tras 100 años de sueño, explora Hyrule libremente, resuelve santuarios, derrota a los Cinco Campeones y enfrenta a Ganon en una aventura que marcó un antes y un después en los videojuegos.",
-    "year": "2017",
     "id": "WmtUhqugaODKrcvU5LiT"
   },
   {
@@ -2043,22 +2047,22 @@
     "link2": "https://drive.google.com/file/d/11x_UbtfU0YFrQ_MCMBkHKHkgtiFpv7d3/view?usp=sharing",
     "gameId": "01000B900D8B0000",
     "languages": "ES/EN/JP/FR/DE/IT",
+    "year": "2019",
     "format": "XCI",
-    "update": "v1.5.0 + 4 DLCs",
     "rating": 85,
-    "genre": "Roguelike/Ritmo",
-    "developer": "Brace Yourself Games",
-    "mode": "Multiplayer",
-    "firmware": "8.0.1",
-    "size": "1.66GB",
+    "update": "v1.5.0 + 4 DLCs",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/171009/1595272497_244.webp",
       "https://files.vgtimes.com/gallery/main/171009/1595272497_7294.webp",
       "https://files.vgtimes.com/gallery/main/171009/1595272496_6647.webp"
     ],
+    "mode": "Multiplayer",
     "trailer": "https://www.youtube.com/watch?v=hSAVJqQpO0A",
+    "size": "1.66GB",
+    "genre": "Roguelike/Ritmo",
+    "developer": "Brace Yourself Games",
     "previewDesc": "Un crossover único entre Crypt of the NecroDancer y The Legend of Zelda. Cadence debe viajar a Hyrule y usar el ritmo para explorar mazmorras, combatir enemigos y resolver puzzles al ritmo de remezclas de la música clásica de Zelda. Incluye 4 DLCs con personajes adicionales.",
-    "year": "2019",
+    "firmware": "8.0.1",
     "id": "euExbIM6yaLpb4V4RAph"
   },
   {
@@ -2212,7 +2216,11 @@
     "developer": "CyberConnect2",
     "previewDesc": "DRAGON BALL Z: KAKAROT es un RPG de acción que te permite vivir la historia de Goku y los Guerreros Z a través de los principales acontecimientos de Dragon Ball Z. Además de los combates, puedes explorar grandes zonas, volar, pescar, cocinar, entrenar y completar numerosas misiones secundarias.",
     "firmware": "",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/170921/1621624339_1529.webp",
+      "https://files.vgtimes.com/gallery/thumb/170921/1580322136_1617.webp",
+      "https://files.vgtimes.com/gallery/thumb/170921/3263888545_1673990055_3552.webp"
+    ],
     "id": "jhdtiyJsAlczLhgi50ow"
   },
   {
