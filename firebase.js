@@ -320,16 +320,16 @@ window.agregarJuego = async function(){
     }
 
     cancelarEdicion();
+    await cargar();
     guardando = false;
     btnGuardar.disabled = false;
-    cargar();
 };
 
 /* ========= ELIMINAR ========= */
 window.eliminar = async (id) => {
     try{
         await deleteDoc(doc(db, "juegos", id));
-        cargar();
+        await cargar();
     }catch(error){
         console.error("Error eliminando:", error);
     }
