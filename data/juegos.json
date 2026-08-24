@@ -858,12 +858,12 @@
     "developer": "ACQUIRE",
     "previewDesc": "Mario y Luigi navegan por alta mar explorando el mundo de Concordia. Combates dinámicos por turnos donde los hermanos deben sincronizarse para ejecutar los poderosos Ataques Bros.",
     "firmware": "18.1.0",
-    "year": "2024",
-    "rating": "77",
+    "year": 2024,
+    "rating": 77,
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/202024/1832442338_1731042672_7767.webp",
-      "https://files.vgtimes.com/gallery/main/202024/759733965_1718997198_4096.webp",
-      "https://files.vgtimes.com/gallery/main/202024/175101560_1731042665_2758.webp"
+      "https://files.vgtimes.com/gallery/main/202024/9047520967_1731042669_6389.webp",
+      "https://files.vgtimes.com/gallery/main/202024/115263079_1731042667_3624.webp"
     ],
     "id": "DnddqNHISThqgiW1Czjl"
   },
@@ -1607,9 +1607,9 @@
     "year": "2024",
     "rating": "88",
     "screenshots": [
-      "https://cdn.mobygames.com/promos/18703658-paper-mario-the-thousand-year-door-screenshot.jpg",
-      "https://cdn.mobygames.com/promos/18703670-paper-mario-the-thousand-year-door-screenshot.jpg",
-      "https://cdn.mobygames.com/promos/18703650-paper-mario-the-thousand-year-door-screenshot.jpg"
+      "https://www.mobygames.com/game/224693/paper-mario-the-thousand-year-door/promo/group-145666/image-1135403/",
+      "https://www.mobygames.com/game/224693/paper-mario-the-thousand-year-door/promo/group-145666/image-1135399/",
+      "https://www.mobygames.com/game/224693/paper-mario-the-thousand-year-door/promo/group-145666/image-1135404/"
     ],
     "id": "SlxJBIy7CXwz74Ru0bH7"
   },
@@ -3047,12 +3047,12 @@
     "developer": "NDcube",
     "previewDesc": "Una colección nostalgica con los mejores tableros y minijuegos de la historia de Mario Party. Compite en línea o en local con tableros clásicos como Peach's Birthday Cake y Horror Haven.",
     "firmware": "13.0.0",
-    "year": "2021",
-    "rating": "80",
+    "year": 2021,
+    "rating": 80,
     "screenshots": [
-      "https://files.vgtimes.com/gallery/thumb/181743/screenshot01.webp",
-      "https://files.vgtimes.com/gallery/thumb/181743/1632510742_203.webp",
-      "https://files.vgtimes.com/gallery/main/181743/1632510733_3219.webp"
+      "https://files.vgtimes.com/gallery/main/181743/2021110218382100.webp",
+      "https://files.vgtimes.com/gallery/main/181743/2021110217475400.webp",
+      "https://files.vgtimes.com/gallery/main/181743/2021110119542000.webp"
     ],
     "id": "tOc9WzACNKFrwbtqVRlz"
   },
@@ -3392,14 +3392,14 @@
     "developer": "NDcube",
     "previewDesc": "El primer Mario Party en Switch con tableros dinámicos y minijuegos que aprovechan los controles de movimiento del Joy-Con. Compite con amigos por las estrellas en partidas llenas de sorpresas.",
     "firmware": "6.0.0",
-    "year": "2018",
-    "rating": "76",
+    "trailer": "https://www.youtube.com/watch?v=PJhvGdO4hQ0",
+    "year": 2018,
+    "rating": 76,
     "screenshots": [
-      "https://files.vgtimes.com/gallery/thumb/167989/1581418037_3487.webp",
-      "https://files.vgtimes.com/gallery/thumb/167989/1581418041_8627.webp",
-      "https://files.vgtimes.com/gallery/main/167989/1537170465_8869.webp"
+      "https://files.vgtimes.com/gallery/main/144261/1538991365_8165.webp",
+      "https://files.vgtimes.com/gallery/main/144261/1538991364_5863.webp",
+      "https://files.vgtimes.com/gallery/main/144261/1538991363_6321.webp"
     ],
-    "trailer": "https://youtu.be/OrLEHNF8qTg",
     "id": "zYrGqBBTXtVJWqKd8Yau"
   },
   {
