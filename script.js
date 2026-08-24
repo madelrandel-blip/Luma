@@ -9,6 +9,7 @@ let guardando = false;
 let cargando = false;
 
 let juegosData = [];
+let listaActual = [];
 let paginaActual = 1;
 const juegosPorPagina = 14;
 
@@ -519,12 +520,12 @@ if(buscador){
 
             paginaActual = 1;
 
-            render(
-                juegosData.filter(j =>
-                    j.nombre.toLowerCase().includes(texto) ||
-                    j.desc.toLowerCase().includes(texto)
-                )
+            listaActual = juegosData.filter(j =>
+                j.nombre.toLowerCase().includes(texto) ||
+                j.desc.toLowerCase().includes(texto)
             );
+
+            render(listaActual);
         }, 200);
     });
 }
@@ -1130,7 +1131,7 @@ function cambiarPagina(numero){
 
     setTimeout(() => {
         paginaActual = numero;
-        render(juegosData);
+        render(listaActual);
 
         window.scrollTo({
             top: 0,

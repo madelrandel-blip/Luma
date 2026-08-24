@@ -146,7 +146,8 @@ window.cargar = async () => {
 
         paginaActual = 1;
 
-        render(juegosData);
+        listaActual = [...juegosData];
+        render(listaActual);
 
         if(admin){
             listaGlobal = [...juegosData];
