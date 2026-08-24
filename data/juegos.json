@@ -893,15 +893,8 @@
     "link2": "",
     "gameId": "0100C2500F4CC000",
     "languages": "ES/EN/JP",
-    "year": 2022,
     "format": "XCI",
-    "rating": 83,
     "update": "v11.2.0",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/thumb/183756/1660194680_2883.webp",
-      "https://files.vgtimes.com/gallery/main/183756/6564714944_1707851478_4260.webp",
-      "https://files.vgtimes.com/gallery/main/183756/3386338260_1707851475_8906.webp"
-    ],
     "mode": "Multiplayer / Single Player",
     "trailer": "GUYDXVDLmns",
     "size": "12.49GB",
@@ -909,6 +902,13 @@
     "developer": "Nintendo",
     "previewDesc": "La siguiente entrega de la saga Splatoon en el desierto de Splatlands. Nuevos supers, salmon run mejorado, historia épica y batallas en Bikini Bottom (colaboración con SpongeBob).",
     "firmware": "14.0.0+",
+    "year": "2022",
+    "rating": "83",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/183756/5515771149_1675977366_4576.webp",
+      "https://files.vgtimes.com/gallery/main/183756/6564714944_1707851478_4260.webp",
+      "https://files.vgtimes.com/gallery/main/183756/1660158818_3938.webp"
+    ],
     "id": "E6obhDdBGz2uDlwJIpEF"
   },
   {
@@ -1595,15 +1595,8 @@
     "link2": "https://u.pcloud.link/publink/show?code=XZ1WcO5ZRU0xfo2rq3QdCNLqmfzcdYe5YTV7",
     "gameId": "0100ECD018EBE000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/KO/ZH",
-    "year": 2024,
     "format": "XCI",
-    "rating": 88,
     "update": "v1.0.1",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/133085/1583121582_5209.webp",
-      "https://files.vgtimes.com/gallery/main/133085/1583121582_5680.webp",
-      "https://files.vgtimes.com/gallery/main/133085/1583121581_3712.webp"
-    ],
     "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=1CSAQ8UxK64",
     "size": "5.11GB",
@@ -1611,6 +1604,13 @@
     "developer": "Intelligent Systems",
     "previewDesc": "Paper Mario regresa en Switch con gráficos renovados y el encantador mundo de papel. Mario debe explorar Rogueport y descubrir el tesoro oculto tras la Puerta Milenaria en un RPG por turnos con un sistema de batallas único.",
     "firmware": "17.0.0",
+    "year": 2024,
+    "rating": 88,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/133085/1583121582_5209.webp",
+      "https://files.vgtimes.com/gallery/main/133085/1583121582_5680.webp",
+      "https://files.vgtimes.com/gallery/main/133085/1583121581_3712.webp"
+    ],
     "id": "SlxJBIy7CXwz74Ru0bH7"
   },
   {
@@ -3038,15 +3038,8 @@
     "link1": "https://www.mediafire.com/file/z2d07nzjmvae4w2/Mario+Party+Superstars+[v1.1.1].xci/file",
     "gameId": "0100F3E013F54000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/PT/RU/KO/ZH",
-    "year": 2021,
     "format": "XCI",
-    "rating": 80,
     "update": "v1.1.1",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/181743/2021110218382100.webp",
-      "https://files.vgtimes.com/gallery/main/181743/2021110217475400.webp",
-      "https://files.vgtimes.com/gallery/main/181743/2021110119542000.webp"
-    ],
     "mode": "Multiplayer (1-4, online)",
     "trailer": "https://www.youtube.com/watch?v=sKnjyMsjkBA",
     "size": "2.84GB",
@@ -3054,6 +3047,13 @@
     "developer": "NDcube",
     "previewDesc": "Una colección nostalgica con los mejores tableros y minijuegos de la historia de Mario Party. Compite en línea o en local con tableros clásicos como Peach's Birthday Cake y Horror Haven.",
     "firmware": "13.0.0",
+    "year": 2021,
+    "rating": 80,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/181743/2021110218382100.webp",
+      "https://files.vgtimes.com/gallery/main/181743/2021110217475400.webp",
+      "https://files.vgtimes.com/gallery/main/181743/2021110119542000.webp"
+    ],
     "id": "tOc9WzACNKFrwbtqVRlz"
   },
   {
@@ -3278,15 +3278,8 @@
     "link2": "https://gofile.io/d/Of6wiL",
     "gameId": "0100C1F00EC42000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/PT/RU/KO/ZH",
-    "year": 2022,
     "format": "XCI",
-    "rating": 69,
     "update": "v1.3.2 + Mods",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/185824/1663132639_6311.webp",
-      "https://files.vgtimes.com/gallery/main/185824/1663132638_6898.webp",
-      "https://files.vgtimes.com/gallery/main/185824/1663132638_931.webp"
-    ],
     "mode": "Multiplayer (1-5 local, 1-5 online)",
     "trailer": "https://www.youtube.com/watch?v=BRSGJq5NuNU",
     "size": "2.27GB",
@@ -3294,6 +3287,13 @@
     "developer": "Next Level Games",
     "previewDesc": "Fútbol arcade caótico donde Mario y compañía compiten en campos llenos de trampas y Power-ups destructibles. Compite en ligas online o enfrenta a amigos con equipos personalizables.",
     "firmware": "14.0.0",
+    "year": 2022,
+    "rating": 69,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/185824/1663132639_6311.webp",
+      "https://files.vgtimes.com/gallery/main/185824/1663132638_6898.webp",
+      "https://files.vgtimes.com/gallery/main/185824/1663132638_931.webp"
+    ],
     "id": "wgwFNjOocFcuTwwiIGgf"
   },
   {
@@ -3384,22 +3384,22 @@
     "link1": "https://www.mediafire.com/file/2fyiytnzowjcis5/Super_Mario_Party_%255Bv1.1.0%255D.xci/file",
     "gameId": "01003D300AD8E000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/RU/KO/ZH",
-    "year": 2018,
     "format": "XCI",
-    "rating": 76,
     "update": "v1.1.0",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/144261/1538991365_8165.webp",
-      "https://files.vgtimes.com/gallery/main/144261/1538991364_5863.webp",
-      "https://files.vgtimes.com/gallery/main/144261/1538991363_6321.webp"
-    ],
     "mode": "Multiplayer (1-4)",
-    "trailer": "https://www.youtube.com/watch?v=PJhvGdO4hQ0",
     "size": "2.89GB",
     "genre": "Party",
     "developer": "NDcube",
     "previewDesc": "El primer Mario Party en Switch con tableros dinámicos y minijuegos que aprovechan los controles de movimiento del Joy-Con. Compite con amigos por las estrellas en partidas llenas de sorpresas.",
     "firmware": "6.0.0",
+    "trailer": "https://www.youtube.com/watch?v=PJhvGdO4hQ0",
+    "year": 2018,
+    "rating": 76,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/144261/1538991365_8165.webp",
+      "https://files.vgtimes.com/gallery/main/144261/1538991364_5863.webp",
+      "https://files.vgtimes.com/gallery/main/144261/1538991363_6321.webp"
+    ],
     "id": "zYrGqBBTXtVJWqKd8Yau"
   },
   {
