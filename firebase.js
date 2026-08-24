@@ -338,6 +338,11 @@ window.eliminar = async (id) => {
 
 /* ========= EDITAR: cargar datos al formulario ========= */
 window.editarJuego = function(juego){
+    if(editIndex && editIndex !== juego.id){
+        if(!confirm("Tienes cambios sin guardar. ¿Descartarlos y editar " + juego.nombre + "?")){
+            return;
+        }
+    }
     editIndex = juego.id;
     nombre.value = juego.nombre || "";
     img.value = juego.img || "";
