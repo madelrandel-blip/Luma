@@ -44,13 +44,7 @@
     "languages": "ES/EN/JP/FR/DE/IT/NL/RU/KO/ZH",
     "year": "2021",
     "format": "NSP",
-    "rating": 81,
     "update": "v1.0.1",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/181139/2021080822464600.webp",
-      "https://files.vgtimes.com/gallery/main/181139/2021080822354100.webp",
-      "https://files.vgtimes.com/gallery/main/181139/2021080822254600.webp"
-    ],
     "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=X27t1VEU4d0",
     "size": "7.07GB",
@@ -58,6 +52,12 @@
     "developer": "Nintendo EPD",
     "previewDesc": "Viaja al origen de la leyenda de Zelda en esta versión HD del clásico de Wii. Explora Skyloft y las ruinas antiguas mientras enfrentas al oscuro Ghirahim en una aventura épica que conecta el pasado y el presente de la franquicia.",
     "firmware": "11.0.1",
+    "rating": 81,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/181139/2021080822464600.webp",
+      "https://files.vgtimes.com/gallery/main/181139/2021080822354100.webp",
+      "https://files.vgtimes.com/gallery/main/181139/2021080822254600.webp"
+    ],
     "id": "0qWXbNk2gXZiRU5VfOob"
   },
   {
@@ -678,13 +678,7 @@
     "languages": "ES/EN/JP/FR/DE/IT/PT/NL/RU/KO/ZH",
     "year": "2024",
     "format": "XCI",
-    "rating": 85,
     "update": "v1.1.0",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/202020/7587278579_1725045099_4125.webp",
-      "https://files.vgtimes.com/gallery/main/202020/1627757697_1725045095_5065.webp",
-      "https://files.vgtimes.com/gallery/main/202020/1294992891_1725045094_5668.webp"
-    ],
     "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=94RTrH2erPE",
     "size": "5.59GB",
@@ -692,6 +686,12 @@
     "developer": "Grezzo",
     "previewDesc": "Por primera vez en la historia, Zelda es la protagonista. Con la habilidad de crear Echoes de objetos y enemigos, deberás resolver puzzles, explorar mazmorras y derrotar criaturas para rescatar a Link y salvar Hyrule de una amenaza desconocida.",
     "firmware": "18.1.0",
+    "rating": 85,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/202020/7587278579_1725045099_4125.webp",
+      "https://files.vgtimes.com/gallery/main/202020/1627757697_1725045095_5065.webp",
+      "https://files.vgtimes.com/gallery/main/202020/1294992891_1725045094_5668.webp"
+    ],
     "id": "C5oxrWIe92yCzsi9K3he"
   },
   {
@@ -1515,13 +1515,7 @@
     "languages": "ES/EN/JP/FR/DE/IT/PT/NL/RU/KO/ZH",
     "year": "2023",
     "format": "XCI",
-    "rating": 96,
     "update": "v1.4.3",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/171775/6475359665_img_3399.webp",
-      "https://files.vgtimes.com/gallery/main/171775/5570243956_img_3895.webp",
-      "https://files.vgtimes.com/gallery/main/171775/5532880784_img_3516.webp"
-    ],
     "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=uHGShqcAHlQ",
     "size": "16.4GB",
@@ -1529,6 +1523,12 @@
     "developer": "Nintendo EPD",
     "previewDesc": "La ambiciosa secuela de Breath of the Wild que expande el mundo abierto hacia las islas flotantes y las profundidades de Hyrule. Con nuevas habilidades como Ultrahand y Fuse, crea armas, vehículos y estructuras para explorar un mapa masivo y enfrentar nuevos enemigos.",
     "firmware": "15.0.0",
+    "rating": 96,
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/171775/6475359665_img_3399.webp",
+      "https://files.vgtimes.com/gallery/main/171775/5570243956_img_3895.webp",
+      "https://files.vgtimes.com/gallery/main/171775/5532880784_img_3516.webp"
+    ],
     "id": "VmjZPSjoeuaFPnNh3YJ3"
   },
   {
