@@ -1593,12 +1593,12 @@
       "https://files.vgtimes.com/gallery/main/167314/1524760956_1049.webp"
     ],
     "mode": "Single Player / Co-op (1-4)",
-    "trailer": "",
     "size": "381.80MB",
     "genre": "2D Platformer",
     "developer": "Sonic Team",
     "previewDesc": "El clásico 2D Sonic en su máxima expresión. Vuelve a las Chemical Plant, Green Hill y más pistas icónicas con Mighty the Armadillo y Ray the Flying Squirrel como nuevos personajes jugables.",
     "firmware": "",
+    "trailer": "https://youtu.be/5ATRBrixJNY",
     "id": "QwqJ8aRaT4Y7XSZLudut"
   },
   {
@@ -1975,7 +1975,24 @@
     "img": "https://art.gametdb.com/switch/box/US/BDZZA.png?1729369062",
     "link1": "https://www.mediafire.com/folder/ruj39r9j1c92v/Luma_Storage",
     "link2": "",
-    "screenshots": [],
+    "gameId": "0100C5B01D14E000",
+    "languages": "EN/ES/FR/DE/IT/JP/KO/ZH",
+    "year": "2024",
+    "format": "XCI",
+    "rating": "76",
+    "update": "1.10 + 4 DLCs",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/199521/9839742811_1717823437_4017.webp",
+      "https://files.vgtimes.com/gallery/thumb/199521/998024109_1717823439_6901.webp",
+      "https://files.vgtimes.com/gallery/main/199521/4022037070_1717823579_1335.webp"
+    ],
+    "mode": "Single Player",
+    "size": "15.29GB",
+    "genre": "Action-Platformer",
+    "developer": "Sonic Team",
+    "previewDesc": "La colección definitiva: Sonic Generations remasterizado más una campaña nueva de Shadow. Revive niveles clásicos renovados y descubre la historia de Shadow en su propia aventura.",
+    "firmware": "",
+    "trailer": "https://youtu.be/Gfl6-GMFz_Q",
     "id": "XuyYjYRjQIdXWGXZ8JPm"
   },
   {
