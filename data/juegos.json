@@ -338,7 +338,24 @@
     "nombre": "Pikmin 3",
     "desc": "Peso: 6.52GB Update 1.1.1",
     "link1": "https://www.mediafire.com/file/njhbjg0kisppqmt/Pikmin+3+Deluxe+[v1.1.1].xci/file",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/PT/ZH",
+    "year": "2020",
+    "format": "XCI",
+    "rating": "85",
+    "update": "1.1.1",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/176889/pikmin3deluxe-scrn-018original.webp",
+      "https://files.vgtimes.com/gallery/main/176889/pikmin3deluxe-scrn-017original.webp",
+      "https://files.vgtimes.com/gallery/main/176889/pikmin3deluxe-scrn-014original.webp"
+    ],
+    "mode": "Single Player / Co-op (1-2)",
+    "size": "6.52GB",
+    "genre": "Strategy / Puzzle",
+    "developer": "Nintendo EPD / Eighting",
+    "previewDesc": "Comanda Pikmin de distintos tipos para explorar el planeta PNF-404, recolectar frutas y salvar a tu planeta hambriento. Explora un mundo vasto desde una perspectiva diminuta con modos co-op y misiones extra incluidas en esta versión Deluxe.",
+    "firmware": "",
+    "trailer": "https://youtu.be/aSSQ0Z6eDhU",
     "id": "4eUr53lkkA2ltbxIbKuL"
   },
   {
@@ -872,7 +889,24 @@
     "img": "https://art.gametdb.com/switch/box/US/AMPYA.png?1768148291",
     "nombre": "Pikmin 4",
     "link1": "https://www.mediafire.com/file/gyal65vpj8iouqx/Pikmin+4+[v1.0.2].xci/file",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/PT/ZH",
+    "year": "2023",
+    "format": "XCI",
+    "rating": "87",
+    "update": "1.0.2",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/156318/1441188908_img_3798.webp",
+      "https://files.vgtimes.com/gallery/main/156318/7986252727_img_3800.webp",
+      "https://files.vgtimes.com/gallery/main/156318/7624225210_img_3796.webp"
+    ],
+    "mode": "Single Player / Co-op (1-2)",
+    "size": "10.4GB",
+    "genre": "Strategy / Puzzle",
+    "developer": "Nintendo EPD / Eighting",
+    "previewDesc": "Únete al Cuerpo de Rescate para explorar un misterioso planeta y rescatar al Capitán Olimar. Comanda Pikmin —incluyendo los nuevos Pikmin de Hielo— y cuenta con la ayuda del fiel perro Oatchi para recoger tesoros y enfrentar criaturas peligrosas.",
+    "firmware": "",
+    "trailer": "https://youtu.be/tqpbMLVa9EI",
     "id": "DCwWWC8vv7wSSKitCDoE"
   },
   {
@@ -3377,7 +3411,24 @@
     "link1": "https://www.mediafire.com/folder/knhma00wbnl0b/Pikmin_1_%2B_2",
     "img": "https://art.gametdb.com/switch/box/US/BAMEA.png?1768147972",
     "nombre": "Pikmin 1 + 2",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/PT/ZH",
+    "format": "XCI",
+    "update": "Update 1.1.0",
+    "trailer": "https://youtu.be/xVuVaMkgBEg",
+    "size": "2.25GB",
+    "genre": "Strategy / Puzzle",
+    "developer": "Nintendo EPD / Eighting",
+    "firmware": "",
+    "mode": "Single Player",
+    "year": "2023",
+    "rating": "81",
+    "previewDesc": "Dos clásicos de GameCube llegan a Switch en un solo paquete. En el primero, Olimar naufraga y debe confiar en Pikmin para reparar su nave. En el segundo, explora mazmorras subterráneas para saldar una deuda empresarial. Ambos con gráficos HD.",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/197787/7700514276_kf83n59nk5.webp",
+      "https://files.vgtimes.com/gallery/main/197787/7489692306_5yj2zuu7kz.webp",
+      "https://files.vgtimes.com/gallery/main/197787/6821718364_z5hjkh8k85.webp"
+    ],
     "id": "wPRu6ElvSf25UHKhvKgn"
   },
   {
