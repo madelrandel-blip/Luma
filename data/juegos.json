@@ -775,7 +775,24 @@
     "desc": "Peso: 13.5GB Update 1.0.2 + DLC",
     "link1": "https://www.mediafire.com/file/l7gjfnrya00lv9v/Xenoblade+Chronicles+X+Definitive+Edition+[v1.0.2+++DLC].xci/file",
     "link2": "",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/KO/ZH",
+    "year": "2025",
+    "format": "XCI",
+    "rating": "87",
+    "update": "1.0.2 + DLC",
+    "screenshots": [
+      "https://cdn.mobygames.com/promos/29611431-xenoblade-chronicles-x-definitive-edition-screenshot.jpg",
+      "https://cdn.mobygames.com/promos/29611426-xenoblade-chronicles-x-definitive-edition-screenshot.jpg",
+      "https://cdn.mobygames.com/promos/29611450-xenoblade-chronicles-x-definitive-edition-screenshot.jpg"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://youtu.be/meabXp-IFkM",
+    "size": "13.5GB",
+    "genre": "Action RPG / Open World",
+    "developer": "Monolith Soft",
+    "previewDesc": "La Tierra ha sido destruida y los supervivientes aterrizan en el planeta Mira. Como miembro de BLADE, reconstruye la colonia, explora mundos y pilotea poderosas mecas Skell para salvar a la humanidad. Mundo abierto masivo con libertad total.",
+    "firmware": "19.0.0",
     "id": "BtuhY8O2BlXwJjqVk8im"
   },
   {
