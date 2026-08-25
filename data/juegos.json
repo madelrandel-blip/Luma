@@ -1493,7 +1493,24 @@
     "desc": "Peso: 15.27GB Update 1.4.1 + 5 DLCs ",
     "link1": "https://www.mediafire.com/file/w9jqhz41ihoq2vg/Sonic+Frontiers+[v1.4.1+++5+DLCs].xci/file",
     "link2": "",
-    "screenshots": [],
+    "gameId": "01008B70173B8000",
+    "languages": "EN/ES/FR/DE/IT/JP/KO/ZH",
+    "year": "2022",
+    "format": "XCI",
+    "rating": "72",
+    "update": "1.4.1 + 5 DLCs ",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/179120/1655147474_4838.webp",
+      "https://files.vgtimes.com/gallery/thumb/179120/1662095455_7370.webp",
+      "https://files.vgtimes.com/gallery/main/179120/7843484464_1679346910_3012.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://youtu.be/zDZAbmxP7Yw",
+    "size": "15.27GB",
+    "genre": "Action-Adventure / Open World",
+    "developer": "Sonic Team",
+    "previewDesc": "Explora las Starfall Islands en un mundo abierto completamente nuevo. Enfrenta a titanes masivos, resuelve puzzles y descubre los secretos de las islas mientras Sonic domina nuevas habilidades.",
+    "firmware": "",
     "id": "OsrqV6Nm4Ync8Hd58KAA"
   },
   {
@@ -1564,7 +1581,24 @@
     "nombre": "Sonic Mania Plus",
     "link1": "https://www.mediafire.com/file/2aasu9uru6kbufm/Sonic+Mania+[v1.04+++DLC].xci/file",
     "desc": "Peso: 381.80MB Update 1.04",
-    "screenshots": [],
+    "gameId": "0100136006DC0000",
+    "languages": "EN/ES/FR/DE/IT/JP",
+    "year": "2018",
+    "format": "XCI",
+    "rating": "84",
+    "update": "1.04",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/167314/1524760964_4617.webp",
+      "https://files.vgtimes.com/gallery/main/167314/1524760972_674.webp",
+      "https://files.vgtimes.com/gallery/main/167314/1524760956_1049.webp"
+    ],
+    "mode": "Single Player / Co-op (1-4)",
+    "trailer": "",
+    "size": "381.80MB",
+    "genre": "2D Platformer",
+    "developer": "Sonic Team",
+    "previewDesc": "El clásico 2D Sonic en su máxima expresión. Vuelve a las Chemical Plant, Green Hill y más pistas icónicas con Mighty the Armadillo y Ray the Flying Squirrel como nuevos personajes jugables.",
+    "firmware": "",
     "id": "QwqJ8aRaT4Y7XSZLudut"
   },
   {
