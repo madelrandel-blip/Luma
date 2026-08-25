@@ -143,19 +143,11 @@
     "nombre": "Kirby's Return to Dream Land Deluxe",
     "img": "https://art.gametdb.com/switch/box/US/A2JYA.png?1677278053",
     "desc": "Peso: 5GB",
-    "link1": "https://www.mediafire.com/file/dcroccl5ii015pf/Kerv_regresa_a_la_tierra_de_los_sue%25C3%25B1os_de_lujo.zip/file",
-    "link2": "https://u.pcloud.link/publink/show?code=XZIMrO5Z2QYGqQQQkQVQULCkNPEV5y5SgLHX",
-    "gameId": "",
     "languages": "ES/EN/JP/FR/DE/IT/NL/KO/PT/ZH",
     "year": "2023",
     "format": "NSP",
     "rating": "73",
     "update": "",
-    "screenshots": [
-      "https://files.vgtimes.com/gallery/main/130724/1583026348_639.webp",
-      "https://files.vgtimes.com/gallery/main/130724/1583026348_9660.webp",
-      "https://files.vgtimes.com/gallery/main/130724/1583026347_5408.webp"
-    ],
     "mode": "Multiplayer (1-4)",
     "trailer": "https://youtu.be/wqVGD_aNLdM",
     "size": "5GB",
@@ -163,6 +155,14 @@
     "developer": "HAL Laboratory",
     "previewDesc": "Hasta cuatro jugadores pueden unirse a Kirby y sus amigos para recorrer Dream Land y ayudar a Magolor a reparar su nave espacial. Incluye habilidades de copia, la nueva habilidad Meca y el modo Merry Magoland con múltiples minijuegos.",
     "firmware": "",
+    "screenshots": [
+      "https://cdn.mobygames.com/promos/15574439-kirbys-return-to-dream-land-deluxe-screenshot.jpg",
+      "https://cdn.mobygames.com/promos/15574429-kirbys-return-to-dream-land-deluxe-screenshot.jpg",
+      "https://cdn.mobygames.com/promos/15574449-kirbys-return-to-dream-land-deluxe-screenshot.jpg"
+    ],
+    "gameId": "01006B601380E000",
+    "link1": "https://store3.gofile.io/download/direct/9cfe389c-1c8c-4958-9c2b-aeee9957b064/Kirbys%20Return%20to%20Dream%20Land%20Deluxe.nsp",
+    "link2": "",
     "id": "2CnMvc37U2TCriryr5Kt"
   },
   {
@@ -1132,7 +1132,24 @@
     "desc": "Peso: 3.34GB Update 4.0.0",
     "link1": "https://www.mediafire.com/file/vja5m8xz3dy39wb/Kirby_Star_Allies_%255Bv4.0.0%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZlOaO5ZX7fs5TzQ8GyOvQ963tYDAffx5JLV",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/ZH",
+    "year": "2018",
+    "format": "XCI",
+    "rating": "73",
+    "update": "4.0.0",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/142098/1583026383_3451.webp",
+      "https://files.vgtimes.com/gallery/main/142098/1583026382_1385.webp",
+      "https://files.vgtimes.com/gallery/main/142098/1583026382_3254.webp"
+    ],
+    "mode": "Multiplayer (1-4)",
+    "size": "3.34GB",
+    "genre": "2D Platformer",
+    "developer": "HAL Laboratory",
+    "previewDesc": "Kirby recluta enemigos con corazones para formar un equipo de hasta cuatro jugadores. Acción colorida y accesible con habilidades combinadas y modo multijugador local en pantalla dividida.",
+    "firmware": "",
+    "trailer": "https://youtu.be/FNPf9KkL-ik",
     "id": "GCCN4o8mxyxRXdDnOesE"
   },
   {
@@ -2047,12 +2064,29 @@
     "id": "XuyYjYRjQIdXWGXZ8JPm"
   },
   {
-    "desc": "Peso: 1.09GB",
     "link1": "https://www.mediafire.com/file/59967zop21ajw1h/Super+Kirby+Clash+[v1.0.1].xci/file",
-    "link2": "https://u.pcloud.link/publink/show?code=XZqArO5ZDJxpT59NtzjPNVclvTqkKS7EJuzV",
     "nombre": "Kirby Fighters - Super Kirby Clash",
     "img": "assets/covers/cover skc1.png",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/ZH",
+    "year": "2019",
+    "format": "XCI",
+    "rating": "74",
+    "update": "1.0.1",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/176751/nswitchds_superkirbyclash_shop2.webp",
+      "https://files.vgtimes.com/gallery/main/176751/nswitchds_superkirbyclash_mainvillage.webp",
+      "https://files.vgtimes.com/gallery/main/176751/nswitchds_superkirbyclash_bossfight_veno.webp"
+    ],
+    "mode": "Multiplayer (1-4)",
+    "trailer": "https://youtu.be/Z4bOr6C7IfY",
+    "size": "1.09GB",
+    "genre": "Action RPG",
+    "developer": "HAL Laboratory / Vanpool",
+    "previewDesc": "¡Derrota a jefes épicos en equipo de cuatro! Elige entre roles como Rey de la Espada, As del Martillo o Doctor erudito. Crea armas y armaduras, y juega local o online con amigos.\nscreenshots:",
+    "firmware": "",
+    "desc": "Peso: 1.09GB Update 1.0.1",
+    "link2": "",
     "id": "YEWwy3D0xqPZ92Lm6Ydm"
   },
   {
@@ -2783,9 +2817,26 @@
     "nombre": "Kirby Fighters 2",
     "desc": "Peso: 1.11GB",
     "link1": "https://www.mediafire.com/file/ns79l6ox0ksf9pg/Kirby+Fighters+2.nsp/file",
-    "link2": "https://u.pcloud.link/publink/show?code=XZSycO5Z3zlsSkgDeJm4zTj0idtRKYdOztSk",
     "img": "assets/covers/cover kf2.png",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/ZH",
+    "year": "2022",
+    "format": "NSP",
+    "rating": "65",
+    "update": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/176749/nswitchds_kirbyfighters2_09.webp",
+      "https://files.vgtimes.com/gallery/main/176749/nswitchds_kirbyfighters2_06.webp",
+      "https://files.vgtimes.com/gallery/main/176749/nswitchds_kirbyfighters2_03.webp"
+    ],
+    "mode": "Multiplayer (1-4)",
+    "trailer": "https://youtu.be/Hml3EdmvAXo",
+    "size": "1.11GB",
+    "genre": "Fighting",
+    "developer": "HAL Laboratory / Vanpool",
+    "link2": "",
+    "previewDesc": "Combates frenéticos con múltiples Kirbys. Elige tu habilidad de copia favorita y compite en modos competitivos y cooperativos. Juega local o online con hasta tres amigos.",
+    "firmware": "",
     "id": "m3zjCKAE0q4t6HEnn6W1"
   },
   {
@@ -3503,10 +3554,27 @@
   {
     "nombre": "Kirby Forgotten Land",
     "img": "https://art.gametdb.com/switch/box/US/ARZGA.png",
-    "desc": "Peso: 5.8 GB Update 1.1.0",
     "link1": "https://www.mediafire.com/file/ajctzjlueppc9fj/Kirby+and+the+Forgotten+Land+[v1.1.0].xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZ43aO5ZCFUjkrwgM5LaYMDfIAyto7sFyuuX",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/ZH",
+    "year": "2022",
+    "format": "XCI",
+    "rating": "85",
+    "update": "1.1.0",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/183752/1649481042_8147.webp",
+      "https://files.vgtimes.com/gallery/main/183752/1649481040_760.webp",
+      "https://files.vgtimes.com/gallery/main/183752/1644520307_6135.webp"
+    ],
+    "mode": "Single Player / Co-op (1-2)",
+    "trailer": "https://youtu.be/H3LAkr0ANgw",
+    "size": "5.8 GB",
+    "genre": "3D Platformer",
+    "developer": "HAL Laboratory",
+    "previewDesc": "Kirby explora un misterioso mundo de civilizaciones abandonadas, rescatando Waddle Dees del salvaje Beast Pack. Introduce el innovador Modo Boca Grande y capacidades de copia evolucionables en un vibrante mundo 3D.",
+    "firmware": "",
+    "desc": "Peso: 5.8GB Update 1.1.0",
     "id": "xD6U9G0sEMvS55iDD6KE"
   },
   {
@@ -3575,9 +3643,26 @@
     "nombre": "Kirbys Dream buffet",
     "desc": "Peso: 1.20GB",
     "link1": "https://www.mediafire.com/file/bi6a2jgd2yg4452/Kirbys+Dream+Buffet.nsp/file",
-    "link2": "https://u.pcloud.link/publink/show?code=XZqKrO5Z4cCnAUv7hrb3s1aIUmeIKR4QHYgX",
     "img": "assets/covers/cover kdbt.png",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/PT/ZH",
+    "year": "2022",
+    "format": "NSP",
+    "rating": "67",
+    "update": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/187889/nswitchds_kirbysdreambuffet_4_2.webp",
+      "https://files.vgtimes.com/gallery/main/187889/nswitchds_kirbysdreambuffet_4_1.webp",
+      "https://files.vgtimes.com/gallery/main/187889/nswitchds_kirbysdreambuffet_3_3.webp"
+    ],
+    "mode": "Multiplayer (1-4)",
+    "trailer": "https://youtu.be/qOGQv0hJNJ8",
+    "size": "1.20GB",
+    "genre": "Party / Racing",
+    "developer": "HAL Laboratory",
+    "link2": "",
+    "previewDesc": "Kirby, transformado en una bola rodante, compite en carreras y minijuegos sobre gigantescas tortas y postres. Recoge fresas para crecer de tamaño y usa habilidades copiadas para derrotar a tus rivales.",
+    "firmware": "14.0.0",
     "id": "zWMNy0bemhdKIP06ifIz"
   },
   {
