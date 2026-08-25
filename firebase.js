@@ -265,12 +265,22 @@ window.cargarRecursos = async () => {
     }
 };
 
+let screenshotsOriginales = [];
+
 /* ========= AGREGAR / EDITAR ========= */
 window.agregarJuego = async function(){
     if(guardando) return;
 
     guardando = true;
     btnGuardar.disabled = true;
+
+    let screenshotsFinales = screenshots.value
+        ? screenshots.value.split("\n").map(u => u.trim()).filter(Boolean)
+        : [];
+
+    if(editIndex && screenshotsFinales.length === 0 && screenshotsOriginales.length > 0){
+        screenshotsFinales = screenshotsOriginales;
+    }
 
     const nuevo = {
         nombre: nombre.value,
@@ -280,7 +290,7 @@ window.agregarJuego = async function(){
         link2: link2.value,
         previewDesc: previewDesc.value || "",
         trailer: trailer.value || "",
-        screenshots: screenshots.value ? screenshots.value.split("\n").map(u => u.trim()).filter(Boolean) : [],
+        screenshots: screenshotsFinales,
         genre: genre.value || "",
         developer: developer.value || "",
         mode: mode.value || "",
@@ -344,6 +354,21 @@ window.editarJuego = function(juego){
         }
     }
     editIndex = juego.id;
+
+    let ss = [];
+    if(Array.isArray(juego.screenshots)){
+        ss = juego.screenshots;
+    }else if(typeof juego.screenshots === "string" && juego.screenshots.trim()){
+        try{
+            const parsed = JSON.parse(juego.screenshots);
+            ss = Array.isArray(parsed) ? parsed : [juego.screenshots.trim()];
+        }catch(e){
+            ss = juego.screenshots.split("\n").map(u => u.trim()).filter(Boolean);
+        }
+    }
+    screenshotsOriginales = [...ss];
+    screenshots.value = ss.join("\n");
+
     nombre.value = juego.nombre || "";
     img.value = juego.img || "";
     desc.value = juego.desc || "";
@@ -351,7 +376,6 @@ window.editarJuego = function(juego){
     link2.value = juego.link2 || "";
     previewDesc.value = juego.previewDesc || "";
     trailer.value = juego.trailer || "";
-    screenshots.value = Array.isArray(juego.screenshots) ? juego.screenshots.join("\n") : "";
     genre.value = juego.genre || "";
     developer.value = juego.developer || "";
     mode.value = juego.mode || "";
@@ -374,6 +398,7 @@ window.editarJuego = function(juego){
 /* ========= CANCELAR EDICION ========= */
 window.cancelarEdicion = function(){
     editIndex = null;
+    screenshotsOriginales = [];
     nombre.value = "";
     img.value = "";
     desc.value = "";
