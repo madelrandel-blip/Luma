@@ -30,6 +30,29 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
+/* ========= REFERENCIAS EXPLÍCITAS ========= */
+const elNombre     = document.getElementById("nombre");
+const elImg        = document.getElementById("img");
+const elDesc       = document.getElementById("desc");
+const elLink1      = document.getElementById("link1");
+const elLink2      = document.getElementById("link2");
+const elPreviewDesc= document.getElementById("previewDesc");
+const elTrailer    = document.getElementById("trailer");
+const elScreenshots= document.getElementById("screenshots");
+const elGenre      = document.getElementById("genre");
+const elDeveloper  = document.getElementById("developer");
+const elMode       = document.getElementById("mode");
+const elYear       = document.getElementById("year");
+const elRating     = document.getElementById("rating");
+const elGameId     = document.getElementById("gameId");
+const elSize       = document.getElementById("size");
+const elFormat     = document.getElementById("format");
+const elLanguages  = document.getElementById("languages");
+const elFirmware   = document.getElementById("firmware");
+const elUpdate     = document.getElementById("update");
+const elUser       = document.getElementById("user");
+const elPass       = document.getElementById("pass");
+
 /* ========= LOGIN ESTADO ========= */
 onAuthStateChanged(auth, (user) => {
     admin = !!user;
@@ -54,8 +77,8 @@ window.login = async () => {
     try{
         await signInWithEmailAndPassword(
             auth,
-            user.value,
-            pass.value
+            elUser.value,
+            elPass.value
         );
 
         cerrarLogin();
@@ -274,8 +297,8 @@ window.agregarJuego = async function(){
     guardando = true;
     btnGuardar.disabled = true;
 
-    let screenshotsFinales = screenshots.value
-        ? screenshots.value.split("\n").map(u => u.trim()).filter(Boolean)
+    let screenshotsFinales = elScreenshots.value
+        ? elScreenshots.value.split("\n").map(u => u.trim()).filter(Boolean)
         : [];
 
     if(editIndex && screenshotsFinales.length === 0 && screenshotsOriginales.length > 0){
@@ -283,31 +306,33 @@ window.agregarJuego = async function(){
     }
 
     const nuevo = {
-        nombre: nombre.value,
-        img: img.value,
-        desc: desc.value,
-        link1: link1.value,
-        link2: link2.value,
-        previewDesc: previewDesc.value || "",
-        trailer: trailer.value || "",
+        nombre: elNombre.value,
+        img: elImg.value,
+        desc: elDesc.value,
+        link1: elLink1.value,
+        link2: elLink2.value,
+        previewDesc: elPreviewDesc.value || "",
+        trailer: elTrailer.value || "",
         screenshots: screenshotsFinales,
-        genre: genre.value || "",
-        developer: developer.value || "",
-        mode: mode.value || "",
-        year: year.value || "",
-        rating: rating.value || "",
-        gameId: gameId.value || "",
-        size: size.value || "",
-        format: format.value || "",
-        languages: languages.value || "",
-        firmware: firmware.value || "",
-        update: update.value || ""
+        genre: elGenre.value || "",
+        developer: elDeveloper.value || "",
+        mode: elMode.value || "",
+        year: elYear.value || "",
+        rating: elRating.value || "",
+        gameId: elGameId.value || "",
+        size: elSize.value || "",
+        format: elFormat.value || "",
+        languages: elLanguages.value || "",
+        firmware: elFirmware.value || "",
+        update: elUpdate.value || ""
     };
+
+    console.log("[Luma] Guardando:", nuevo.nombre, "| editIndex:", editIndex, "| screenshots:", screenshotsFinales);
 
     try{
         const q = query(
             collection(db, "juegos"),
-            where("nombre", "==", nombre.value)
+            where("nombre", "==", elNombre.value)
         );
 
         const snap = await getDocs(q);
@@ -367,57 +392,57 @@ window.editarJuego = function(juego){
         }
     }
     screenshotsOriginales = [...ss];
-    screenshots.value = ss.join("\n");
+    elScreenshots.value = ss.join("\n");
 
-    nombre.value = juego.nombre || "";
-    img.value = juego.img || "";
-    desc.value = juego.desc || "";
-    link1.value = juego.link1 || "";
-    link2.value = juego.link2 || "";
-    previewDesc.value = juego.previewDesc || "";
-    trailer.value = juego.trailer || "";
-    genre.value = juego.genre || "";
-    developer.value = juego.developer || "";
-    mode.value = juego.mode || "";
-    year.value = juego.year || "";
-    rating.value = juego.rating || "";
-    gameId.value = juego.gameId || "";
-    size.value = juego.size || "";
-    format.value = juego.format || "";
-    languages.value = juego.languages || "";
-    firmware.value = juego.firmware || "";
-    update.value = juego.update || "";
+    elNombre.value = juego.nombre || "";
+    elImg.value = juego.img || "";
+    elDesc.value = juego.desc || "";
+    elLink1.value = juego.link1 || "";
+    elLink2.value = juego.link2 || "";
+    elPreviewDesc.value = juego.previewDesc || "";
+    elTrailer.value = juego.trailer || "";
+    elGenre.value = juego.genre || "";
+    elDeveloper.value = juego.developer || "";
+    elMode.value = juego.mode || "";
+    elYear.value = juego.year || "";
+    elRating.value = juego.rating || "";
+    elGameId.value = juego.gameId || "";
+    elSize.value = juego.size || "";
+    elFormat.value = juego.format || "";
+    elLanguages.value = juego.languages || "";
+    elFirmware.value = juego.firmware || "";
+    elUpdate.value = juego.update || "";
     btnGuardar.innerText = "Actualizar juego";
     btnGuardar.classList.add("editando");
     document.getElementById("adminMode").classList.add("editing");
     document.getElementById("adminModeText").innerText = "Editando: " + juego.nombre;
     document.getElementById("btnCancelar").style.display = "inline-block";
-    nombre.focus();
+    elNombre.focus();
 };
 
 /* ========= CANCELAR EDICION ========= */
 window.cancelarEdicion = function(){
     editIndex = null;
     screenshotsOriginales = [];
-    nombre.value = "";
-    img.value = "";
-    desc.value = "";
-    link1.value = "";
-    link2.value = "";
-    previewDesc.value = "";
-    trailer.value = "";
-    screenshots.value = "";
-    genre.value = "";
-    developer.value = "";
-    mode.value = "";
-    year.value = "";
-    rating.value = "";
-    gameId.value = "";
-    size.value = "";
-    format.value = "";
-    languages.value = "";
-    firmware.value = "";
-    update.value = "";
+    elNombre.value = "";
+    elImg.value = "";
+    elDesc.value = "";
+    elLink1.value = "";
+    elLink2.value = "";
+    elPreviewDesc.value = "";
+    elTrailer.value = "";
+    elScreenshots.value = "";
+    elGenre.value = "";
+    elDeveloper.value = "";
+    elMode.value = "";
+    elYear.value = "";
+    elRating.value = "";
+    elGameId.value = "";
+    elSize.value = "";
+    elFormat.value = "";
+    elLanguages.value = "";
+    elFirmware.value = "";
+    elUpdate.value = "";
     btnGuardar.innerText = "Guardar juego";
     btnGuardar.classList.remove("editando");
     document.getElementById("adminMode").classList.remove("editing");
