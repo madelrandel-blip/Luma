@@ -499,7 +499,19 @@
     "img": "https://art.gametdb.com/switch/box/JA/ATQ8A.png?1594470668",
     "link2": "",
     "nombre": "My Hero Ones Justice 2",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/171936/283235063_1688965943_8546.webp",
+      "https://files.vgtimes.com/gallery/main/171936/3376342186_1688965942_6501.webp",
+      "https://files.vgtimes.com/gallery/main/171936/8941442101_1688965941_8337.webp"
+    ],
+    "mode": "Single Player / Multiplayer",
+    "trailer": "https://www.youtube.com/watch?v=4c00Up11Gno",
+    "genre": "Fighting / Action",
+    "developer": "Byking",
+    "year": 2020,
+    "rating": 65,
+    "previewDesc": "Secuela del combate 3D anime basado en My Hero Academia. Nuevos personajes como Mirio Togata y Kai Chisaki, con modos Historia y Misiones que exploran ambos lados de la justicia.",
+    "firmware": "",
     "id": "4nZCKWFFNHzWj9vvnmhZ"
   },
   {
@@ -534,7 +546,19 @@
     "nombre": "Scott Pilgrim vs. The World: The Game",
     "link1": "https://www.mediafire.com/file/1vid169makr6oxx/Scott+Pilgrim+vs+The+World+The+Game+[v1.0.3].xci/file",
     "img": "https://art.gametdb.com/switch/box/US/AX4WA.png?1768319551",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/32835/sp_screen_7_200910_945pm_cest.webp",
+      "https://files.vgtimes.com/gallery/main/32835/sp_screen_6_200910_945pm_cest.webp",
+      "https://files.vgtimes.com/gallery/main/32835/sp_screen_5_200910_945pm_cest.webp"
+    ],
+    "mode": "Multiplayer (1-4)",
+    "trailer": "https://www.youtube.com/watch?v=ucKXs6ufDQU",
+    "genre": "Beat 'em up / Arcade",
+    "developer": "Ubisoft Montreal / Ubisoft Chengdu",
+    "year": 2021,
+    "rating": 79,
+    "previewDesc": "Remaster del aclamado beat 'em up pixel art. Scott y amigos derrotan a los ex novios de Ramona Flowers. Incluye co-op para 4 jugadores, banda sonora de Anamanaguchi y todo el DLC.",
+    "firmware": "",
     "id": "5ayYt2zPOw4WRi33V5AL"
   },
   {
@@ -569,7 +593,19 @@
     "desc": "Peso: 35GB Update 1.0.26 + 30 DLCs",
     "link1": "https://cold-na-phx-4.gofile.io/download/direct/12df09b5-57e0-4b19-b2ad-d4c7794caa87/Mortal%20Kombat%2011%20%5Bv1.0.26%20%2B%2030%20DLCs%5D.xci",
     "link2": "",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/162859/ejzxk8avkaatrs1.webp",
+      "https://files.vgtimes.com/gallery/main/162859/ejzxjfxvoaqwz4y.webp",
+      "https://files.vgtimes.com/gallery/main/162859/ejzxj6vvgaa9alo.webp"
+    ],
+    "mode": "Single Player / Multiplayer",
+    "trailer": "https://www.youtube.com/watch?v=7zwQPJmg-Kg",
+    "genre": "Fighting",
+    "developer": "NetherRealm Studios / Shiver Entertainment",
+    "year": 2019,
+    "rating": 78,
+    "previewDesc": "Saga de luchas brutales con fatalities sangrientos. Nuevo sistema de personalización, modo historia con viajes en el tiempo y roster extenso con contenido DLC de Joker y Terminator.",
+    "firmware": "",
     "id": "6KD5OLnCAPfhmqYcRrFU"
   },
   {
@@ -578,7 +614,19 @@
     "desc": "Peso: 5.01GB Update 1.0.1_5",
     "link1": "https://www.mediafire.com/file/64iggfftx0ixnc7/FINAL+FANTASY+IX+[v1.0.1_5].xci/file",
     "link2": "",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/1748/1582946002_3901.webp",
+      "https://files.vgtimes.com/gallery/main/1748/1582946001_5039.webp",
+      "https://files.vgtimes.com/gallery/main/1748/1582946001_9043.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=V9GMKshn0Ck",
+    "genre": "RPG",
+    "developer": "Square Enix",
+    "year": 2019,
+    "rating": 76,
+    "previewDesc": "RPG clásico que sigue a Zidane y sus compañeros en un viaje épico por Gaia. Sistema de batalla por turnos, gráficos pre-renderizados y una de las narrativas más emotivas de la saga.",
+    "firmware": "",
     "id": "7DfWqQrt78JeCqBk2yxs"
   },
   {
@@ -805,7 +853,19 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/yc19vw1tdgl1uws/Yoshis+Crafted+World+[v1.0.1].xci/file",
     "desc": "Peso: 5.60GB Update 1.0.1",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/169051/1583331349_3540.webp",
+      "https://files.vgtimes.com/gallery/main/169051/1583331348_3816.webp",
+      "https://files.vgtimes.com/gallery/main/169051/1583331348_8076.webp"
+    ],
+    "mode": "Single Player / Co-op (1-2)",
+    "trailer": "https://www.youtube.com/watch?v=k9xHZXiLvLY",
+    "genre": "Platformer",
+    "developer": "Good-Feel",
+    "year": 2019,
+    "rating": 79,
+    "previewDesc": "Yoshi explora un mundo hecho de objetos artesanales. Cada nivel tiene una cara oculta con secretos. Co-op para 2 jugadores y modo Relax para jugar sin prisas.",
+    "firmware": "",
     "id": "AoVlBR8PX9WqLWKMAbL5"
   },
   {
@@ -866,7 +926,19 @@
     "desc": "Peso: 5.33GB Update 1.1 + 3 DLCs",
     "img": "assets/covers/cover hn2.png",
     "link1": "https://www.mediafire.com/file/pbf6ped681b3bqw/Hello+Neighbor+2+[v1.1+++3+DLCs].xci/file",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/175827/1670389841_440.webp",
+      "https://files.vgtimes.com/gallery/main/175827/1670389840_8864.webp",
+      "https://files.vgtimes.com/gallery/main/175827/1670389840_7699.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=ymjSheE36BI",
+    "genre": "Stealth Horror",
+    "developer": "Eerie Guest Studios / tinyBuild",
+    "year": 2022,
+    "rating": 59,
+    "previewDesc": "Periodista investiga desapariciones en Raven Brooks. Infiltrte en casas de vecinos sospechosos mientras esquivas IAs que aprenden de tus movimientos. Mundo abierto expandido.",
+    "firmware": "",
     "id": "BSxkNRN9nb0emwzJ9C3K"
   },
   {
@@ -875,7 +947,19 @@
     "desc": "Peso: 3.06GB 1.0.8 + DLC",
     "img": "https://art.gametdb.com/switch/box/US/BBLYA.png?1708841429",
     "nombre": "Blasphemous II",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/184907/2648830972_pvqgvvfnem.webp",
+      "https://files.vgtimes.com/gallery/main/184907/7813725046_qu4e1j958q.webp",
+      "https://files.vgtimes.com/gallery/main/184907/6291346698_bszht7fyx.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=00B3pbxoFvI",
+    "genre": "Metroidvania / Action",
+    "developer": "The Game Kitchen",
+    "year": 2023,
+    "rating": 84,
+    "previewDesc": "El Penitente explora un reino gótico con nuevas armas, combos extendidos y mapa no lineal. Enfrenta enemigos grotescos y jefes titánicos en una secuela que perfecciona al original.",
+    "firmware": "",
     "id": "BfaLs7EVSRwR0knrhFUu"
   },
   {
@@ -884,7 +968,19 @@
     "link1": "https://www.mediafire.com/folder/ibov7jkoffm6g/Luma_Storage",
     "img": "assets/covers/cover oct0.png",
     "nombre": "OCTOPATH TRAVELER 0 ",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/141091/1581452925_3414.webp",
+      "https://files.vgtimes.com/gallery/main/141091/1581452924_5450.webp",
+      "https://files.vgtimes.com/gallery/main/141091/1581452923_3374.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=Fmi8KrntszI",
+    "genre": "JRPG",
+    "developer": "Square Enix / Acquire",
+    "year": 2018,
+    "rating": 83,
+    "previewDesc": "Ocho viajeros con historias independientes en Orsterra. Estilo visual HD-2D que combina píxeles con entornos 3D. Combate por turnos profundo y reclutamiento de personajes secundarios.",
+    "firmware": "",
     "id": "Bja5ZPLFU40atPKJScSP"
   },
   {
@@ -919,7 +1015,19 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/wli0m0hn05oc7d1/DELTARUNE+[v1.06].xci/file",
     "desc": "Peso: 958MB Update 1.06",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/183634/5131354442_1748459481_1015.webp",
+      "https://files.vgtimes.com/gallery/main/183634/7598041094_1748459480_3358.webp",
+      "https://files.vgtimes.com/gallery/main/183634/8823828691_1748459479_7472.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=n5y22LUfetA",
+    "genre": "RPG",
+    "developer": "Toby Fox",
+    "year": 2025,
+    "rating": 86,
+    "previewDesc": "Historia paralela a UNDERTALE. Controla a Kris junto a Susie y Ralsei. Batalla con acción y estrategia, sistema de esquivar proyectiles. Capítulos 1-5 en Switch.",
+    "firmware": "",
     "id": "BzRsJWnXKGVRYyhsMCgH"
   },
   {
