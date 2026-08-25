@@ -101,7 +101,24 @@
     "desc": "Peso: 10.59GB Update 1.31 + 7 DLCs",
     "link1": "https://www.mediafire.com/file/t23ytq9jetqf7mr/Sonic+Racing+CrossWorlds+[v1.31+++7+DLCs].xci/file",
     "link2": "",
-    "screenshots": [],
+    "gameId": "0100B1F01E6C4000",
+    "languages": "EN/ES/FR/DE/IT/JP/KO/ZH/PT/RU",
+    "year": "2025",
+    "format": "XCI",
+    "rating": "76",
+    "update": "1.31 + 7 DLCs",
+    "mode": "Single Player / Multiplayer (1-4, up to 12 online)",
+    "size": "10.59GB",
+    "genre": "Racing / Arcade",
+    "developer": "Sonic Team",
+    "previewDesc": "Corre a toda velocidad por tierra, mar, aire, espacio y tiempo. Usa los Travel Rings para saltar a nuevas dimensiones en cada carrera. Compite solo o en equipo con hasta 12 jugadores online.",
+    "firmware": "",
+    "trailer": "https://youtu.be/Ks_Uxuhz6nc",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/204967/1817919355_1749582650_2023.webp",
+      "https://files.vgtimes.com/gallery/main/204967/6302316183_ss_75a67e6430238f70c74f4caa2f9609e9d70f3.webp",
+      "https://files.vgtimes.com/gallery/main/204967/5476665252_ss_9156c3a5f1404b392ec9f218ecb12bf6cf195.webp"
+    ],
     "id": "1JPT9iQMXUI4NsON3grx"
   },
   {
@@ -172,7 +189,24 @@
     "img": "https://art.gametdb.com/switch/box/US/A7YPB.png?1707616130",
     "link2": "",
     "nombre": "Sonic Superstars",
-    "screenshots": [],
+    "gameId": "010028101A8C6000",
+    "languages": "EN/ES/FR/DE/IT/JP/KO/ZH",
+    "year": "2023",
+    "format": "XCI",
+    "rating": "67 ",
+    "update": "1.1.8 + 9 DLCs",
+    "mode": "Single Player / Co-op (1-4)",
+    "trailer": "https://youtu.be/MsL9pKdJ1A8",
+    "size": "7.86GB ",
+    "genre": "2D Platformer",
+    "developer": "Arzest / Sonic Team",
+    "previewDesc": "Aventura por las místicas Northstar Islands en una nueva interpretación del clásico 2D Sonic. Juega como Sonic, Tails, Knuckles y Amy Rose y usa los nuevos poderes de las Esmeraldas.",
+    "firmware": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/195627/1203882448_1692767426_620.webp",
+      "https://files.vgtimes.com/gallery/thumb/195627/3808874788_1692767428_742.webp",
+      "https://files.vgtimes.com/gallery/main/195627/7284412876_ss1_1920.webp"
+    ],
     "id": "2mCGmmi7FxCzinVSv5x3"
   },
   {
@@ -986,7 +1020,24 @@
     "link1": "https://www.mediafire.com/file/14ntay5expkrryh/SONIC+FORCES+[1.1.0+++6+DLCs].xci/file",
     "link2": "",
     "desc": "Peso: 6.87GB Update 1.1.0 + 6 DLCs",
-    "screenshots": [],
+    "gameId": "0100D170034C8000",
+    "languages": "EN/ES/FR/DE/IT/JP/KO/ZH",
+    "year": "2017",
+    "format": "XCI",
+    "rating": "57",
+    "update": "1.1.0 + 6 DLCs",
+    "mode": "Single Player",
+    "trailer": "https://youtu.be/9tDMLXn99P4",
+    "size": "6.87GB",
+    "genre": "3D Platformer",
+    "developer": "Sonic Team",
+    "previewDesc": "El Dr. Eggman ha conquistado el mundo con una nueva amenaza. Únete a la Resistencia junto a Sonic Classic y un héroe personalizado para recuperar el planeta en una aventura 3D veloz.",
+    "firmware": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/141537/1489774535_6807.webp",
+      "https://files.vgtimes.com/gallery/thumb/141537/1493143120_4353.webp",
+      "https://files.vgtimes.com/gallery/thumb/141537/1496828396_6679.webp"
+    ],
     "id": "FfcEgIcpu9XbOYt6FVYy"
   },
   {
@@ -1004,7 +1055,24 @@
     "desc": "Peso: 7.04GB Update 1.0.3",
     "nombre": "Team Sonic Racing",
     "img": "https://art.gametdb.com/switch/box/EN/AMKCB.png?1558347292",
-    "screenshots": [],
+    "gameId": "010068C00A59E000",
+    "languages": "EN/ES/FR/DE/IT/JP/KO/ZH",
+    "year": "2019",
+    "format": "XCI",
+    "rating": "71",
+    "update": "1.0.3",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/167740/1527757146_7850.webp",
+      "https://files.vgtimes.com/gallery/thumb/167739/1559030526_8876.webp",
+      "https://files.vgtimes.com/gallery/thumb/167739/1534754475_7112.webp"
+    ],
+    "mode": "Single Player / Multiplayer (1-4)",
+    "trailer": "https://youtu.be/IZMkv8_w1yI",
+    "size": "7.04GB",
+    "genre": "Racing / Arcade",
+    "developer": "Sumo Digital",
+    "previewDesc": "Compite en equipo con Sonic, Tails y Knuckles. Comparte potenciadores y boosts con tus compañeros en pistas llenas de acción. El modo historia ofrece desafíos únicos de trabajo en equipo.",
+    "firmware": "",
     "id": "G4hI2tpM0f1U64HWowFy"
   },
   {
