@@ -145,7 +145,24 @@
     "desc": "Peso: 5GB",
     "link1": "https://www.mediafire.com/file/dcroccl5ii015pf/Kerv_regresa_a_la_tierra_de_los_sue%25C3%25B1os_de_lujo.zip/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZIMrO5Z2QYGqQQQkQVQULCkNPEV5y5SgLHX",
-    "screenshots": [],
+    "gameId": "",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/KO/PT/ZH",
+    "year": "2023",
+    "format": "NSP",
+    "rating": "73",
+    "update": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/130724/1583026348_639.webp",
+      "https://files.vgtimes.com/gallery/main/130724/1583026348_9660.webp",
+      "https://files.vgtimes.com/gallery/main/130724/1583026347_5408.webp"
+    ],
+    "mode": "Multiplayer (1-4)",
+    "trailer": "https://youtu.be/wqVGD_aNLdM",
+    "size": "5GB",
+    "genre": "2D Platformer",
+    "developer": "HAL Laboratory",
+    "previewDesc": "Hasta cuatro jugadores pueden unirse a Kirby y sus amigos para recorrer Dream Land y ayudar a Magolor a reparar su nave espacial. Incluye habilidades de copia, la nueva habilidad Meca y el modo Merry Magoland con múltiples minijuegos.",
+    "firmware": "",
     "id": "2CnMvc37U2TCriryr5Kt"
   },
   {
