@@ -695,12 +695,12 @@
       "https://files.vgtimes.com/gallery/main/141077/1581515083_9513.webp"
     ],
     "mode": "Multiplayer / Single Player",
-    "trailer": "https://www.youtube.com/watch?v=ylBYfndq8fU",
     "size": "8.11GB",
     "genre": "Shooter / Action",
     "developer": "Nintendo",
     "previewDesc": "Tinta, acción y caos en la región de Inkopolis. Enfréntate en batallas 4v4 con pintura, personaliza tu personaje y compite en modos ranked, turf war y salmon run.",
     "firmware": "3.0.0+",
+    "trailer": "https://www.youtube.com/watch?v=ylBYfndq8fU",
     "id": "89xQAxYId9vfDD8AbWJu"
   },
   {
@@ -1304,19 +1304,18 @@
     "img": "https://art.gametdb.com/switch/box/US/AAB7B.png?1557250363",
     "link1": "https://www.mediafire.com/file/nxnptjj0fo9qztk/Monster+Hunter+Generations+Ultimate+[v1.4.0].xci/file",
     "nombre": "Monster Hunter: Generations Ultimate",
+    "mode": "Single Player / Multiplayer (1-4)",
+    "trailer": "https://www.youtube.com/watch?v=8VwV3lK4RVU",
+    "year": 2018,
+    "genre": "Action RPG",
+    "rating": 80,
+    "developer": "Capcom",
+    "previewDesc": "Monster Hunter Generations Ultimate es una versión mejorada y expandida del popular juego de acción de Capcom para Switch. Presenta hasta 6 estilos de combate únicos y una enorme variedad de monstruos derribables en entornos variados. Permite jugar en solitario o cooperativo con hasta 4 jugadores en línea.",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/167500/monster-hunter-generations-ultimate.webp",
       "https://files.vgtimes.com/gallery/main/167500/monster-hunter-generations-ultimate_2.webp",
       "https://files.vgtimes.com/gallery/main/167500/monster-hunter-generations-ultimate_3.webp"
     ],
-    "mode": "Single Player / Multiplayer (1-4)",
-    "trailer": "https://www.youtube.com/watch?v=8VwV3lK4RVU",
-    "genre": "Action RPG",
-    "developer": "Capcom",
-    "year": 2018,
-    "rating": 80,
-    "previewDesc": "Monster Hunter Generations Ultimate es una versión mejorada y expandida del popular juego de acción de Capcom para Switch. Presenta hasta 6 estilos de combate únicos y una enorme variedad de monstruos derribables en entornos variados. Permite jugar en solitario o cooperativo con hasta 4 jugadores en línea.",
-    "firmware": "",
     "id": "FT1uhxl7XFhsqJEWLdZw"
   },
   {
@@ -1325,19 +1324,18 @@
     "link2": "",
     "desc": "Peso: 1.4GB Update 1.5.12620 ",
     "link1": "https://www.mediafire.com/file/vconngydzq3bwyu/Hollow+Knight+[v1.5.12620].xci/file",
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=Pk98MeQWUTw",
+    "year": 2018,
+    "genre": "Metroidvania / Action",
+    "rating": 90,
+    "developer": "Team Cherry",
+    "previewDesc": "Hollow Knight es un juego de acción y aventura atmosférico ambientado en un vasto reino subterráneo en ruinas habitado por insectos misteriosos. Los jugadores exploran cavernas laberínticas, combaten criaturas corruptas y resuelven antiguos misterios. Incluye todo el contenido DLC de forma gratuita.",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/138318/eh6yzhrmt.webp",
       "https://files.vgtimes.com/gallery/main/138318/mk5qp84p0t.webp",
       "https://files.vgtimes.com/gallery/main/138318/1504253614_117.webp"
     ],
-    "mode": "Single Player",
-    "trailer": "https://www.youtube.com/watch?v=Pk98MeQWUTw",
-    "genre": "Metroidvania / Action",
-    "developer": "Team Cherry",
-    "year": 2018,
-    "rating": 90,
-    "previewDesc": "Hollow Knight es un juego de acción y aventura atmosférico ambientado en un vasto reino subterráneo en ruinas habitado por insectos misteriosos. Los jugadores exploran cavernas laberínticas, combaten criaturas corruptas y resuelven antiguos misterios. Incluye todo el contenido DLC de forma gratuita.",
-    "firmware": "",
     "id": "FU3UdWqY45Wepma3dTlY"
   },
   {
@@ -1372,19 +1370,18 @@
     "desc": "Peso: 19.7GB Update 1.0.5 + 5 DLCs + ES-LA",
     "link1": "https://www.mediafire.com/file/l3buhxcmvw3sj90/Hogwarts+Legacy+[v1.0.5+++5+DLCs+++ES-LA].xci/file",
     "link2": "",
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=ETH1Ew9KGIo",
+    "year": 2023,
+    "genre": "Action RPG",
+    "rating": 84,
+    "developer": "Avalanche Software",
+    "previewDesc": "Hogwarts Legacy es el primer videojuego AAA ambientado en el universo de Harry Potter, un sandbox de mundo abierto con acción en tercera persona. Los jugadores asumen el papel de un estudiante de Hogwarts en el siglo XIX, explorando el castillo, lanzando hechizos y descubriendo secretos oscuros.",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/174851/7329949070_hogwarts-switch-4.webp",
       "https://files.vgtimes.com/gallery/main/174851/7580313233_hogwarts-switch-3.webp",
       "https://files.vgtimes.com/gallery/main/174851/3417888530_hogwarts-switch.webp"
     ],
-    "mode": "Single Player",
-    "trailer": "https://www.youtube.com/watch?v=ETH1Ew9KGIo",
-    "genre": "Action RPG",
-    "developer": "Avalanche Software",
-    "year": 2023,
-    "rating": 84,
-    "previewDesc": "Hogwarts Legacy es el primer videojuego AAA ambientado en el universo de Harry Potter, un sandbox de mundo abierto con acción en tercera persona. Los jugadores asumen el papel de un estudiante de Hogwarts en el siglo XIX, explorando el castillo, lanzando hechizos y descubriendo secretos oscuros.",
-    "firmware": "",
     "id": "FhvCui7BUiLQ3SPd7Xk5"
   },
   {
@@ -1445,19 +1442,18 @@
     "desc": "Peso: 1.35GB Update 1.0.2",
     "link1": "https://www.mediafire.com/file/xvdbwj5wl9phw06/DOOM_%2B_DOOM_II_%5Bv1.0.2%5D.xci/file",
     "link2": "",
+    "mode": "Single Player / Multiplayer (1-16)",
+    "trailer": "https://www.youtube.com/watch?v=0TG4KD51GOg",
+    "year": 2024,
+    "genre": "FPS / Compilation",
+    "rating": 79,
+    "developer": "Nightdive Studios / id Software",
+    "previewDesc": "DOOM + DOOM II reúne las versiones definitivas de los dos clásicos shooter que definieron el género. Incluye 187 mapas de misión, 43 mapas de deathmatch, multijugador en línea con hasta 16 jugadores y soporte para mods de la comunidad.",
     "screenshots": [
       "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000078054/d06f7f4c52d1d6a2c1e08b0a6ec12e9b2b1a0d5f341f2203e0c1d4b0c29e35a1",
       "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000078054/78b21e5c61b6d3e88be25e6b4e4c1368a32b9e4f",
       "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000078054/a3e98b7e9e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e"
     ],
-    "mode": "Single Player / Multiplayer (1-16)",
-    "trailer": "https://www.youtube.com/watch?v=0TG4KD51GOg",
-    "genre": "FPS / Compilation",
-    "developer": "Nightdive Studios / id Software",
-    "year": 2024,
-    "rating": 79,
-    "previewDesc": "DOOM + DOOM II reúne las versiones definitivas de los dos clásicos shooter que definieron el género. Incluye 187 mapas de misión, 43 mapas de deathmatch, multijugador en línea con hasta 16 jugadores y soporte para mods de la comunidad.",
-    "firmware": "",
     "id": "GkArKqufFhwLiesNYY2z"
   },
   {
@@ -1492,19 +1488,18 @@
     "link1": "https://www.mediafire.com/file/thdutdm4x063vh0/Shantae+and+the+Seven+Sirens+[v1.3].xci/file",
     "img": "assets/covers/cover satss.png",
     "nombre": "Shantae and the Seven Sirens",
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=bQXEi0f3kf8",
+    "year": 2020,
+    "genre": "Platformer / Metroidvania",
+    "rating": 79,
+    "developer": "WayForward",
+    "previewDesc": "Shantae and the Seven Sirens es la quinta entrega de la saga de plataformas protagonizada por la semidiosa Shantae. El juego presenta múltiples ciudades, más laberintos que nunca y nuevas habilidades de Fusión Mágica para explorar una vasta ciudad sumergida bajo el mar.",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/175398/1593024010_8622.webp",
       "https://files.vgtimes.com/gallery/main/175398/1593024013_5381.webp",
       "https://files.vgtimes.com/gallery/main/175398/1593024016_5422.webp"
     ],
-    "mode": "Single Player",
-    "trailer": "https://www.youtube.com/watch?v=bQXEi0f3kf8",
-    "genre": "Platformer / Metroidvania",
-    "developer": "WayForward",
-    "year": 2020,
-    "rating": 79,
-    "previewDesc": "Shantae and the Seven Sirens es la quinta entrega de la saga de plataformas protagonizada por la semidiosa Shantae. El juego presenta múltiples ciudades, más laberintos que nunca y nuevas habilidades de Fusión Mágica para explorar una vasta ciudad sumergida bajo el mar.",
-    "firmware": "",
     "id": "HJCeIpL7dCcULkR0sU0X"
   },
   {
@@ -1513,19 +1508,18 @@
     "desc": "Peso: 4.6GB",
     "link2": "https://u.pcloud.link/publink/show?code=XZJufO5ZO8j2hY0EICXF5StsOG7VkVuioWOk",
     "link1": "https://www.mediafire.com/file/o2iinm0mut1jqaq/Princess+Peach+Showtime!.nsp/file",
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=rp4CGMbKQwU",
+    "year": 2024,
+    "rating": 74,
+    "genre": "Action-adventure / Platformer",
+    "developer": "Good-Feel",
+    "previewDesc": "Princess Peach debe salvar el Sparkle Theater del malvado Grape y la Sour Bunch. A través de diversas transformaciones como espadachima, vaquera, ninja o detective, Peach usará habilidades únicas para rescatar las obras de teatro secuestradas.",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/197083/278983324_1712553038_69.webp",
       "https://files.vgtimes.com/gallery/main/197083/7238211570_1712553036_2559.webp",
       "https://files.vgtimes.com/gallery/main/197083/8403636935_1712553034_9893.webp"
     ],
-    "mode": "Single Player",
-    "trailer": "https://www.youtube.com/watch?v=rp4CGMbKQwU",
-    "genre": "Action-adventure / Platformer",
-    "developer": "Good-Feel",
-    "year": 2024,
-    "rating": 74,
-    "previewDesc": "Princess Peach debe salvar el Sparkle Theater del malvado Grape y la Sour Bunch. A través de diversas transformaciones como espadachima, vaquera, ninja o detective, Peach usará habilidades únicas para rescatar las obras de teatro secuestradas.",
-    "firmware": "",
     "id": "HbyfMmaGjaG8ZCuSF4Zl"
   },
   {
@@ -1534,19 +1528,18 @@
     "desc": "Peso: 25.59GB Update 1.0.8 + 3 juegos por separado",
     "img": "https://art.gametdb.com/switch/box/US/A5RBA.png?1645277471",
     "nombre": "Grand Theft Auto: The Trilogy - The Definitive Edition",
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=D71cBUeAL58",
+    "year": 2021,
+    "genre": "Action-adventure / Open world",
+    "rating": 46,
+    "developer": "Rockstar Games / Grove Street Games",
+    "previewDesc": "Recopilación remasterizada que incluye GTA III, Vice City y San Andreas con gráficos mejorados. Explora tres ciudades icónicas en un solo paquete, aunque la versión de Switch ha recibido críticas por problemas técnicos.",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/184028/1636133543_5.webp",
       "https://files.vgtimes.com/gallery/main/184028/1636133514_7.webp",
       "https://files.vgtimes.com/gallery/main/184028/1636133493_2.webp"
     ],
-    "mode": "Single Player",
-    "trailer": "https://www.youtube.com/watch?v=D71cBUeAL58",
-    "genre": "Action-adventure / Open world",
-    "developer": "Rockstar Games / Grove Street Games",
-    "year": 2021,
-    "rating": 46,
-    "previewDesc": "Recopilación remasterizada que incluye GTA III, Vice City y San Andreas con gráficos mejorados. Explora tres ciudades icónicas en un solo paquete, aunque la versión de Switch ha recibido críticas por problemas técnicos.",
-    "firmware": "",
     "id": "Hdcre3IP3zuBdaOhSF8e"
   },
   {
@@ -1555,19 +1548,18 @@
     "link2": "",
     "link1": "https://www.mediafire.com/file/kqk11jx4smff4mm/MONSTER+HUNTER+RISE+[v16.0.2+++264+DLCs].xci/file",
     "nombre": "Monster Hunter Rise",
+    "mode": "Single Player / Multiplayer (1-4)",
+    "trailer": "https://www.youtube.com/watch?v=F_Jg1INt2Q0",
+    "year": 2021,
+    "genre": "Action RPG",
+    "rating": 88,
+    "developer": "Capcom",
+    "previewDesc": "El juego más reciente de la serie Monster Hunter, ambientado en la aldea ninja de Kamura Village. Usa el Wirebug para traversar el mapa con libertad sin precedentes y monta en Palamute para cazar monstruos enormes. Combate cooperativo para hasta 4 jugadores con 14 tipos de armas.",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/176588/1670008389_4874.webp",
       "https://files.vgtimes.com/gallery/main/176588/1670008387_7886.webp",
       "https://files.vgtimes.com/gallery/main/176588/1670008386_1645.webp"
     ],
-    "mode": "Single Player / Multiplayer (1-4)",
-    "trailer": "https://www.youtube.com/watch?v=F_Jg1INt2Q0",
-    "genre": "Action RPG",
-    "developer": "Capcom",
-    "year": 2021,
-    "rating": 88,
-    "previewDesc": "El juego más reciente de la serie Monster Hunter, ambientado en la aldea ninja de Kamura Village. Usa el Wirebug para traversar el mapa con libertad sin precedentes y monta en Palamute para cazar monstruos enormes. Combate cooperativo para hasta 4 jugadores con 14 tipos de armas.",
-    "firmware": "",
     "id": "HdgLur8cfDz7EZZ3PMYh"
   },
   {
@@ -1588,12 +1580,12 @@
       "https://files.vgtimes.com/gallery/main/195823/499593879_supermariorpg_scrn_15.webp"
     ],
     "mode": "Single Player",
-    "trailer": "https://www.youtube.com/watch?v=zju4gITxkm0",
     "size": "6.52GB",
     "genre": "RPG",
     "developer": "ArtePiazza",
     "previewDesc": "El clásico de SNES regresa completamente renovado con gráficos modernos. Mario se alía con Bowser, Peach y Mallow para rescatar la Estrella Camino en combates por turnos con comandos activos.",
     "firmware": "11.0.0",
+    "trailer": "https://www.youtube.com/watch?v=zju4gITxkm0",
     "id": "HjiSMMNFnO7hpqk83ahf"
   },
   {
