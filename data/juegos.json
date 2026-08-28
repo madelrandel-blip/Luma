@@ -1243,7 +1243,24 @@
     "link1": "https://www.mediafire.com/file/cclgyqpy69vzjr1/Blasphemous_%255Bv1.0.8_%252B_DLC%255D.xci/file",
     "desc": "Peso: 7.10GB 1.0.8 + DLC",
     "link2": "",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/170839/552624635_1688620313_9288.webp",
+      "https://files.vgtimes.com/gallery/main/170839/2965078045_1688620312_8470.webp",
+      "https://files.vgtimes.com/gallery/main/170839/3958882820_1688620311_8543.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=Ctm-GClM6wo",
+    "genre": "Metroidvania / Acción",
+    "developer": "The Game Kitchen",
+    "year": 2019,
+    "rating": 77,
+    "gameId": "0100698009C6E000",
+    "languages": "ES/EN/FR/DE/IT/PT/RU/ZH/JA/KO",
+    "format": "XCI",
+    "update": "v1.0.8 + DLC",
+    "size": "7.10GB",
+    "firmware": "8.0.1",
+    "previewDesc": "Blasphemous es un action-platformer castigador de estética gótica andaluza. El Penitente recorre Cvstodia en un mundo no lineal, con combate hack-and-slash preciso y una narrativa evocadora y oscura, heredera del terror religioso de su tierra.",
     "id": "DqwcfbWtkyMGyuR25NXI"
   },
   {
@@ -1706,7 +1723,24 @@
     "link1": "https://www.mediafire.com/file/5rl0l9y4lla6d0a/GUILTY+GEAR+STRIVE+[v1.08+++4+DLCs].xci/file",
     "desc": "Peso: 5.39GB Update 1.08 + 4 DLCs",
     "img": "assets/covers/cover ggs.png",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/172450/662255502_1714417881_7872.webp",
+      "https://files.vgtimes.com/gallery/main/172450/1914722763_1714417880_8361.webp",
+      "https://files.vgtimes.com/gallery/main/172450/7356088596_1714417878_9701.webp"
+    ],
+    "mode": "Single Player / Versus Local y Online",
+    "trailer": "https://www.youtube.com/watch?v=wNDlK5HYGlI",
+    "genre": "Lucha 2.5D",
+    "developer": "Arc System Works",
+    "year": 2025,
+    "rating": 83,
+    "gameId": "0100AB401F136000",
+    "languages": "ES/EN/JA/KO",
+    "format": "XCI",
+    "update": "v1.08 + 4 DLCs",
+    "size": "5.39GB",
+    "firmware": "18.1.0",
+    "previewDesc": "GUILTY GEAR STRIVE lleva a Switch el aclamado juego de lucha 2.5D de Arc System Works con sus 28 personajes y todo el contenido hasta la temporada 3. Un port muy fiel que corre a 60 fps, con ausencia de crossplay y algunos recortes gráficos como únicas concesiones.",
     "id": "JHu79ELrFpmlFsiM20Cg"
   },
   {
@@ -1819,7 +1853,24 @@
     "desc": "Peso: 12.9GB Update 1.0.1",
     "link1": "https://www.mediafire.com/file/nfbef4pymyuf1tu/Tomb+Raider+IV-V-VI+Remastered+[v1.0.1].xci/file",
     "link2": "",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/204008/8941156413_tomb-raider-iv-vi.webp",
+      "https://files.vgtimes.com/gallery/main/204008/4823919505_tomb-raider-iv-vi.webp",
+      "https://files.vgtimes.com/gallery/main/204008/1191512589_tomb-raider-iv-vi.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=Ow6cM-fgiB4",
+    "genre": "Action-Adventure / Compilación",
+    "developer": "Aspyr / Crystal Dynamics",
+    "year": 2025,
+    "rating": 66,
+    "gameId": "0100BC101C896000",
+    "languages": "ES/EN/FR/DE/IT/JP/KO/ZH",
+    "format": "XCI",
+    "update": "v1.0.1",
+    "size": "12.9GB",
+    "firmware": "19.0.0",
+    "previewDesc": "Recopilatorio que remasteriza La Última Revelación, Chronicles y The Angel of Darkness con gráficos mejorados, controles modernos y opciones clásicas. Funciona como un documental jugable y actualiza la etapa final de la era clásica de Lara Croft para plataformas actuales.",
     "id": "LLKTOsNlx6OR2LkcMRQ0"
   },
   {
@@ -1854,7 +1905,24 @@
     "link1": "",
     "desc": "Peso: 11.6GB Update 1.0.4",
     "img": "https://art.gametdb.com/switch/box/US/BAF2A.png?1708920044",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/134287/6088271746_1728501223_2139.webp",
+      "https://files.vgtimes.com/gallery/main/134287/9592475211_ss_ab8b27a0106acdf42892707bdc6cb415b63ed.webp",
+      "https://files.vgtimes.com/gallery/main/134287/625419776_ss_09ad23f476dbb9c853cc6d59f3fef97397bd2.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=X45at1JxZqk",
+    "genre": "Acción-Aventura / Mundo Abierto",
+    "developer": "Rockstar San Diego",
+    "year": 2023,
+    "rating": 83,
+    "gameId": "01007820196A6000",
+    "languages": "ES/EN/FR/DE/IT/PT/KO/ZH/RU/PL",
+    "format": "XCI",
+    "update": "v1.0.4",
+    "size": "11.6GB",
+    "firmware": "17.0.0",
+    "previewDesc": "John Marston, antiguo forajido, caza a los criminales de su antigua banda por el salvaje Oeste de principios del siglo XX. Incluye el DLC Undead Nightmare, aunque sin multijugador en esta edición de Switch. Un port técnico impecable del clásico de Rockstar.",
     "id": "NMDjfuetgVTljB5aPtDy"
   },
   {
@@ -2072,7 +2140,24 @@
     "desc": "Peso: 26GB Update 1.1.0",
     "link1": "https://cold-na-phx-1.gofile.io/download/direct/e13b8bb3-225c-49a3-83ce-ef079d2df494/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
     "link2": "",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/159891/935459133_switch_metroidprime4beyond-scrn-17.webp",
+      "https://files.vgtimes.com/gallery/main/159891/8033235097_switch_metroidprime4beyond-scrn-04.webp",
+      "https://files.vgtimes.com/gallery/main/159891/3095934886_switch_metroidprime4beyond-scrn-18.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=mMAgmdR8jwU",
+    "genre": "FPS / Aventura",
+    "developer": "Retro Studios",
+    "year": 2025,
+    "rating": 78,
+    "gameId": "010019A01E2F2000",
+    "languages": "ES/EN/JP/FR/DE/IT/NL/PT/KO/ZH",
+    "format": "XCI",
+    "update": "v1.1.0",
+    "size": "26GB",
+    "firmware": "18.0.0",
+    "previewDesc": "Samus Aran explora el misterioso planeta Viewros con nuevas habilidades psíquicas, escaneando ruinas en busca de pistas para regresar a casa. Combate contra criaturas alienígenas, conduce el vehículo Vi-O-La y enfréntate a Sylux, un cazarrecompensas con cuentas pendientes. El regreso de la saga Prime.",
     "id": "PktuvmCpoc2FoCgJcffM"
   },
   {
@@ -2437,7 +2522,7 @@
     "desc": "Peso: 12.1GB Update 1.1.0",
     "link2": "",
     "link1": "https://www.mediafire.com/file/ljoih1pbwl71u6j/Donkey+Kong+Country+Returns+HD+[v1.1.0].xci/file",
-    "gameId": "",
+    "gameId": "01009D901BC56000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/KO/ZH",
     "year": "2025",
     "format": "XCI",
@@ -2450,7 +2535,11 @@
     "developer": "Forever Entertainment",
     "previewDesc": "Remaster en HD del clásico de Wii con 80 niveles en 9 mundos, incluyendo el contenido extra de 3DS. Donkey Kong y Diddy Kong recuperan su reserva de plátanos del malvado Tiki Tak Tribe con modo cooperativo local.",
     "firmware": "19.0.0",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/202022/411350959_switch_donkeykongcountryreturnshd_scrn_0.webp",
+      "https://files.vgtimes.com/gallery/main/202022/7976526789_switch_donkeykongcountryreturnshd_scrn_2.webp",
+      "https://files.vgtimes.com/gallery/main/202022/7659258663_switch_donkeykongcountryreturnshd_scrn_1.webp"
+    ],
     "id": "W84PgWTmNzOkJmn119Sl"
   },
   {
@@ -3048,7 +3137,24 @@
     "desc": "Peso: 12GB Update 1.0.7",
     "link1": "https://www.mediafire.com/file/muo4veyt01jubda/Mortal+Kombat+Legacy+Kollection+[v1.0.7].xci/file",
     "link2": "",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/207647/3196062129_ss_dc56f3d878ccdf3470f8b71c9f7fadf647819.webp",
+      "https://files.vgtimes.com/gallery/main/207647/8144681085_ss_81c97260a169b9941010bb277cc12d1cfc52c.webp",
+      "https://files.vgtimes.com/gallery/main/207647/4909937696_ss_d0b3cb5e536c8374d30e215c66cc43f2b320d.webp"
+    ],
+    "mode": "Single Player / Versus Local",
+    "trailer": "https://www.youtube.com/watch?v=BiKcvGLfkLE",
+    "genre": "Lucha / Compilación",
+    "developer": "Digital Eclipse",
+    "year": 2025,
+    "rating": 84,
+    "gameId": "01005E902232A000",
+    "languages": "ES/EN/PT/FR/DE/IT",
+    "format": "XCI",
+    "update": "v1.0.7",
+    "size": "12GB",
+    "firmware": "20.5.0",
+    "previewDesc": "Compilación de los clásicos de Mortal Kombat presentada como un documental interactivo por Digital Eclipse. Reúne más de 20 versiones arcade y de consola con filtros CRT, retroceso y material inédito del equipo original. Una cápsula del tiempo única para los fans de la saga.",
     "id": "cPrwZmDM0Okot34HPgMU"
   },
   {
@@ -3316,7 +3422,7 @@
     "desc": "Peso: 6.68GB Update 1.0.2",
     "link2": "",
     "link1": "https://www.mediafire.com/file/i1p5yoe7dw71h40/Donkey+Kong+Country+Tropical+Freeze+[v1.0.2].xci/file",
-    "gameId": "",
+    "gameId": "0100C1F0051B6000",
     "languages": "ES/EN/JP/FR/DE/IT",
     "year": "2018",
     "format": "XCI",
@@ -3329,7 +3435,11 @@
     "developer": "Retro Studios",
     "previewDesc": "Los invasores árticos han congelado la Isla Donkey Kong. Salta, bate y revienta barriles a través de niveles impecables con los Kongs clásicos, o juega como Funky Kong en el nuevo Funky Mode.",
     "firmware": "4.0.0",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/1697/1582783615_8950.webp",
+      "https://files.vgtimes.com/gallery/main/1697/1582783615_7682.webp",
+      "https://files.vgtimes.com/gallery/main/1697/1582783614_5557.webp"
+    ],
     "id": "fujld1p49NcAqXia7mZj"
   },
   {
@@ -3451,7 +3561,24 @@
     "link1": "https://www.mediafire.com/file/bj70e04gasiyj81/MONSTER+HUNTER+STORIES+[v1.0.1+++DLC].xci/file",
     "desc": "Peso: 10.5GB Update 1.0.1 + DLC",
     "nombre": "Monster Hunter Stories",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/169109/1326410991_1714021816_2066.webp",
+      "https://files.vgtimes.com/gallery/main/169109/1079829928_1714021815_8058.webp",
+      "https://files.vgtimes.com/gallery/main/169109/2572644952_1714021814_3806.webp"
+    ],
+    "mode": "Single Player",
+    "trailer": "https://www.youtube.com/watch?v=lUh18R_I1Jw",
+    "genre": "JRPG",
+    "developer": "Capcom",
+    "year": 2024,
+    "rating": 77,
+    "gameId": "010069301B1D4800",
+    "languages": "ES/EN/FR/DE/IT/JA/KO/PT/RU/ZH",
+    "format": "XCI",
+    "update": "v1.0.1 + DLC",
+    "size": "10.5GB",
+    "firmware": "18.1.0",
+    "previewDesc": "Remasterización HD del JRPG de Capcom donde, en lugar de cazar monstruos, los Monster Riders crían y forman vínculos con ellos. Añade voces en japonés e inglés, un modo Museo y todo el contenido exclusivo de Japón, con una presentación renovada.",
     "id": "ippbztY6HlfMnOrlYuqL"
   },
   {
@@ -4446,7 +4573,24 @@
     "desc": "Peso: 14.87GB Update 2.5.1 + DLC",
     "link1": "https://www.mediafire.com/file/vuj0g8fj9dbl93l/GOD+EATER+3+[v2.5.1+++DLC].xci/file",
     "link2": "",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/142916/1581356645_9732.webp",
+      "https://files.vgtimes.com/gallery/main/142916/1581356643_8682.webp",
+      "https://files.vgtimes.com/gallery/main/142916/1581356641_8598.webp"
+    ],
+    "mode": "Single Player / Co-op Online",
+    "trailer": "https://www.youtube.com/watch?v=Vg6sLWRQBOk",
+    "genre": "Action RPG",
+    "developer": "BANDAI NAMCO / Shift",
+    "year": 2019,
+    "rating": 74,
+    "gameId": "01001C700873E000",
+    "languages": "ES/EN/FR/DE/IT/JA/RU/KO/ZH/PT",
+    "format": "XCI",
+    "update": "v2.5.1 + DLC",
+    "size": "14.87GB",
+    "firmware": "8.0.1",
+    "previewDesc": "God Eater 3 lleva a Nintendo Switch la frenética acción de cazar aragamis con el Arca Divina, un arma variable entre espada, arma de fuego y escudo. Combate veloz, cooperativo online y una historia intensa ambientada en un mundo postapocalíptico.",
     "id": "ueUmOmkZfC9ma5a0GIml"
   },
   {
@@ -4611,7 +4755,24 @@
     "nombre": "Scott Pilgrim EX",
     "img": "assets/covers/cover scex.png",
     "link1": "https://www.mediafire.com/file/kvdp33zk5newziy/Scott+Pilgrim+EX+[v1.0.0.14131].xci/file",
-    "screenshots": [],
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/32835/sp_screen_7_200910_945pm_cest.webp",
+      "https://files.vgtimes.com/gallery/main/32835/sp_screen_6_200910_945pm_cest.webp",
+      "https://files.vgtimes.com/gallery/main/32835/sp_screen_5_200910_945pm_cest.webp"
+    ],
+    "mode": "Single Player / Co-op (1-4)",
+    "trailer": "https://www.youtube.com/watch?v=KBvsS6zRAAA",
+    "genre": "Beat 'Em Up",
+    "developer": "Engine Software / Ubisoft",
+    "year": 2021,
+    "rating": 79,
+    "gameId": "0100394011C30000",
+    "languages": "ES/EN/FR/DE/IT",
+    "format": "XCI",
+    "update": "v1.0.0.14131",
+    "size": "1.31GB",
+    "firmware": "13.0.0",
+    "previewDesc": "Beat 'em up retro inspirado en el cómic y la película, en su edición completa que incluye los DLC Knives Chau y Wallace Wells. Combate frenético de estilo arcade, banda sonora de Anamanaguchi y cooperativo de hasta 4 jugadores, local u online.",
     "id": "xyGvzWnQ6gKiqTW0TqtS"
   },
   {
