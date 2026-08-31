@@ -11,7 +11,11 @@ let cargando = false;
 let juegosData = [];
 let listaActual = [];
 let paginaActual = 1;
-const juegosPorPagina = 14;
+let juegosPorPagina = 12;
+
+function getFilas(){
+    return window.innerWidth <= 768 ? 6 : 3;
+}
 
 /* ========= ELEMENTOS ========= */
 const loginBox = document.getElementById("loginBox");
@@ -264,10 +268,13 @@ function posicionarPlaylist(){
 
     musicPlaylist.style.left = left + "px";
 
-    const esMovil = window.innerWidth <= 768;
+    const esMovil = window.innerWidth <= 1100;
+    const menuHeight = musicPlaylist.offsetHeight || 260;
+    const espacioAbajo = window.innerHeight - rect.bottom;
 
-    if(esMovil){
-        // La barra está abajo: el menú se abre hacia arriba
+    if(esMovil || espacioAbajo < menuHeight + 10){
+        // Sin espacio debajo: el desplegable se abre hacia arriba,
+        // anclado a la parte inferior, como en la barra inferior de Android
         musicPlaylist.style.top = "auto";
         musicPlaylist.style.bottom = (window.innerHeight - rect.top + 10) + "px";
     }else{
@@ -1014,15 +1021,41 @@ function escapeComillas(str){
     return (str || "").replace(/\\/g, "\\\\").replace(/'/g, "\\'");
 }
 
+function getColumnas(){
+    const w = window.innerWidth;
+    if(w <= 768) return 2;
+    if(w <= 900) return 3;
+    if(w <= 1080) return 4;
+    if(w <= 1280) return 5;
+    if(w <= 1600) return 6;
+    if(w <= 1920) return 7;
+    if(w <= 2560) return 8;
+    return 10;
+}
+
+function ajustarPaginacion(){
+    const nuevo = getColumnas() * getFilas();
+    if(juegosPorPagina === nuevo) return;
+
+    juegosPorPagina = nuevo;
+
+    if(listaActual.length > 0){
+        const totalPaginas = Math.max(1, Math.ceil(listaActual.length / juegosPorPagina));
+        if(paginaActual > totalPaginas) paginaActual = totalPaginas;
+        render(listaActual);
+    }
+}
+
 function render(lista){
     if(!store) return;
 
     let html = "";
 
+    juegosPorPagina = getColumnas() * getFilas();
+
     const inicio = (paginaActual - 1) * juegosPorPagina;
     const fin = inicio + juegosPorPagina;
 
-    // IMPORTANTE: esto faltaba
     const juegosPagina = lista.slice(inicio, fin);
 
     juegosPagina.forEach(j => {
@@ -1144,6 +1177,11 @@ function cambiarPagina(numero){
         }
     }, 250);
 }
+
+/* Reajusta la cantidad de tarjetas al cambiar la resolución */
+window.addEventListener("resize", () => {
+    ajustarPaginacion();
+});
 
 /* ========= ESTRELLAS ========= */
 const canvas = document.getElementById("stars");

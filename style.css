@@ -1112,7 +1112,7 @@ header {
    ========================================================================== */
 .store {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 6px;
     padding: 14px 20px 4px;
     justify-content: center;
@@ -1121,40 +1121,42 @@ header {
     transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* ===== SOLO LA TIENDA PRINCIPAL ===== */
+/* ===== SOLO LA TIENDA PRINCIPAL (ajustada por resolución) ===== */
 
 #store {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(10, 1fr); /* 4K > 2560 */
+}
+
+@media (max-width: 2560px) {
+    #store { grid-template-columns: repeat(8, 1fr); } /* 2K */
+}
+
+@media (max-width: 1920px) {
+    #store { grid-template-columns: repeat(7, 1fr); } /* 1440p */
+}
+
+@media (max-width: 1600px) {
+    #store { grid-template-columns: repeat(6, 1fr); } /* 1080p */
 }
 
 @media (max-width: 1280px) {
-    #store {
-        grid-template-columns: repeat(5, 1fr);
-    }
+    #store { grid-template-columns: repeat(5, 1fr); }
 }
 
 @media (max-width: 1080px) {
-    #store {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    #store { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (max-width: 900px) {
-    #store {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    #store { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 700px) {
-    #store {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    #store { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 450px) {
-    #store {
-        grid-template-columns: repeat(1, 144px);
-    }
+    #store { grid-template-columns: repeat(1, 144px); }
 }
 
 .store.page-transition {
@@ -1416,12 +1418,19 @@ header {
     }
 }
 
-@media (max-width: 768px) {
-    /* Sin blur en el header móvil para que la barra flotante del
-       reproductor pueda anclarse a la pantalla (position: fixed) */
-    header {
+/* El reproductor no cabe arriba en pantallas medianas/estrechas:
+   adelanta el salto a la barra flotante inferior (como Android). */
+@media (max-width: 1100px) {
+    /* Sin blur/filtro/transform en el header para que la barra flotante
+       pueda anclarse a la pantalla (position: fixed) y no al header */
+    header,
+    .header-btn {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        transform: none !important;
+    }
+    header {
         z-index: auto !important;
     }
 
@@ -1430,6 +1439,94 @@ header {
         padding-bottom: 90px !important;
     }
 
+    /* Los toasts suben para no tapar la barra flotante inferior */
+    #toastContainer {
+        bottom: 80px !important;
+        right: 10px !important;
+        left: 10px !important;
+    }
+
+    /* Barra flotante del reproductor en la parte inferior, compacta y centrada */
+    .music-control {
+        display: flex !important;
+        position: fixed !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: 12px !important;
+        top: auto !important;
+        transform: translateX(-50%) !important;
+        z-index: 2000 !important;
+        width: auto !important;
+        max-width: min(600px, calc(100vw - 24px)) !important;
+        min-width: 0 !important;
+        margin: 0 auto !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 10px !important;
+        padding: 10px 18px !important;
+        background: rgba(10, 15, 30, 0.92) !important;
+        border: 1px solid rgba(125, 211, 252, 0.20) !important;
+        border-radius: 18px !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+    }
+}
+
+/* Icono de usuario: en pantallas medianas (769-1100px) queda al lado
+   de la barra de búsqueda, en la misma fila, dentro del header. */
+@media (max-width: 1100px) and (min-width: 769px) {
+    .header-btn {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 12px 10px !important;
+    }
+
+    /* Hace que los botones del header-actions se integren al header-btn */
+    .header-actions {
+        display: contents !important;
+    }
+
+    /* Fila del buscador: se une con el icono de usuario a su lado */
+    .header-btn #buscador {
+        order: 2 !important;
+        width: auto !important;
+        max-width: none !important;
+        flex: 1 1 auto !important;
+        margin: 0 !important;
+    }
+
+    .header-actions .admin-profile-btn {
+        order: 3 !important;
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        flex: 0 0 auto !important;
+        margin: 0 0 0 6px !important;
+        flex-direction: row !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .header-actions .admin-profile-btn span {
+        display: none !important;
+    }
+
+    /* El resto de botones de acciones van después, en su propia fila */
+    .header-actions > button:not(.admin-profile-btn) {
+        order: 4 !important;
+    }
+}
+
+@media (max-width: 768px) {
     /*Ajustes para que las tarjetas de la tienda no se rompan en tablets */
     .store {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -1474,33 +1571,6 @@ header {
         font-size: 14px !important;
         padding: 10px 14px !important;
         border-radius: 12px !important;
-    }
-
-    /* Barra flotante del reproductor en la parte inferior */
-    .music-control {
-        display: flex !important;
-        position: fixed !important;
-        left: 12px !important;
-        right: 12px !important;
-        bottom: 12px !important;
-        top: auto !important;
-        transform: none !important;
-        z-index: 2000 !important;
-        width: auto !important;
-        max-width: none !important;
-        min-width: 0 !important;
-        margin: 0 auto !important;
-        justify-content: center !important;
-        align-items: center !important;
-        flex-wrap: nowrap !important;
-        gap: 10px !important;
-        padding: 10px 14px !important;
-        background: rgba(10, 15, 30, 0.92) !important;
-        border: 1px solid rgba(125, 211, 252, 0.20) !important;
-        border-radius: 18px !important;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45) !important;
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
     }
 
     /* Logo pequeño */
@@ -2209,12 +2279,6 @@ header {
 }
 
 @media (max-width: 768px) {
-    #toastContainer {
-        bottom: 80px !important;
-        right: 10px !important;
-        left: 10px !important;
-    }
-
     /* ===== PREVIEW MODAL ANDROID ===== */
     #previewBox {
         padding: 8px;
