@@ -38,15 +38,15 @@ const CAMPOS_PERMITIDOS = [
     "gameId", "size", "format", "languages", "firmware", "update"
 ];
 
-async function importarJuegos() {
+async function importarJuegos(coleccionNombre, rutaJson) {
     // Leer el JSON actualizado
-    const rutaJson = path.join(__dirname, "..", "data", "juegos.json");
-    const juegos = JSON.parse(fs.readFileSync(rutaJson, "utf-8"));
+    const ruta = path.join(__dirname, "..", rutaJson);
+    const juegos = JSON.parse(fs.readFileSync(ruta, "utf-8"));
 
-    console.log(`Leyendo ${juegos.length} juegos desde data/juegos.json...`);
+    console.log(`Leyendo ${juegos.length} juegos desde ${rutaJson}...`);
 
     // Obtener todos los documentos existentes en Firestore (para matchear por nombre)
-    const snapshot = await db.collection("juegos").get();
+    const snapshot = await db.collection(coleccionNombre).get();
     const existentes = {};
     snapshot.forEach(docSnap => {
         const data = docSnap.data();
@@ -76,7 +76,7 @@ async function importarJuegos() {
 
         if (existentes[nombre]) {
             // Ya existe → actualizar
-            const docRef = db.collection("juegos").doc(existentes[nombre]);
+            const docRef = db.collection(coleccionNombre).doc(existentes[nombre]);
             const docSnap = await docRef.get();
             const actual = docSnap.data();
 
@@ -96,20 +96,22 @@ async function importarJuegos() {
             }
         } else {
             // Nuevo → crear
-            await db.collection("juegos").add(datos);
+            await db.collection(coleccionNombre).add(datos);
             console.log(`  + Creado: ${nombre}`);
             creados++;
         }
     }
 
-    console.log(`\n--- Importación completada ---`);
+    console.log(`\n--- Importación completada [${coleccionNombre}] ---`);
     console.log(`  Creados:     ${creados}`);
     console.log(`  Actualizados: ${actualizados}`);
     console.log(`  Sin cambios:  ${sinCambios}`);
     console.log(`  Total en JSON: ${juegos.length}`);
 }
 
-importarJuegos().catch(error => {
-    console.error("Error importando a Firestore:", error);
-    process.exit(1);
-});
+importarJuegos("juegos", "data/juegos.json")
+    .then(() => importarJuegos("homebrew", "data/homebrew.json"))
+    .catch(error => {
+        console.error("Error importando a Firestore:", error);
+        process.exit(1);
+    });

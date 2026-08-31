@@ -23,6 +23,7 @@ const db = admin.firestore();
 // Colecciones a exportar y el archivo destino de cada una
 const colecciones = {
     juegos: "../data/juegos.json",
+    homebrew: "../data/homebrew.json",
     emuladores: "../data/emuladores.json",
     recursos: "../data/recursos.json"
 };

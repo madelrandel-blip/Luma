@@ -68,6 +68,12 @@
             placeholder="🔍 Buscar juegos"
         >
 
+        <label class="homebrew-switch" id="homebrewSwitch" title="Alternar entre catálogo de Juegos y Homebrew">
+            <input type="checkbox" id="homebrewToggle" class="hbs-input">
+            <span class="hbs-track"><span class="hbs-knob"></span></span>
+            <span class="hbs-label" id="homebrewLabel">Juegos</span>
+        </label>
+
         <button id="panelToggleBtn" class="panel-toggle-btn" onclick="toggleAdminPanel()" style="display:none;">
             Panel
         </button>
@@ -192,6 +198,11 @@
                     <div class="admin-field full">
                         <label>Descripción preview</label>
                         <textarea id="previewDesc" placeholder="Descripción del juego para el modal preview" rows="2"></textarea>
+                    </div>
+                    <div class="admin-field full">
+                        <label class="admin-homebrew-label">
+                            <input type="checkbox" id="esHomebrew"> ¿Es Homebrew? <small>(juego portado por la comunidad → sección Homebrew)</small>
+                        </label>
                     </div>
                 </div>
             </div>

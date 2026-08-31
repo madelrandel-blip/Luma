@@ -12,9 +12,15 @@ let juegosData = [];
 let listaActual = [];
 let paginaActual = 1;
 let juegosPorPagina = 12;
+let homebrewData = [];
+let mostrandoHomebrew = false;
 
 function getFilas(){
-    return window.innerWidth <= 768 ? 6 : 3;
+    const w = window.innerWidth;
+    if(w <= 768) return 6;   /* Android: 12 juegos en 2 columnas */
+    if(w <= 1600) return 2;  /* 1080p: 2 filas */
+    if(w <= 2560) return 3;  /* 1440p y 2K: 3 filas */
+    return 4;                /* 4K: 4 filas */
 }
 
 /* ========= ELEMENTOS ========= */
@@ -28,6 +34,10 @@ const panelToggleBtn = document.getElementById("panelToggleBtn");
 const buscador = document.getElementById("buscador");
 const store = document.getElementById("store");
 const pagination = document.getElementById("pagination");
+
+const homebrewToggle = document.getElementById("homebrewToggle");
+const homebrewLabel = document.getElementById("homebrewLabel");
+const homebrewSwitch = document.getElementById("homebrewSwitch");
 
 const bgMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
@@ -516,24 +526,47 @@ function abrirDiscord(){
 }
 
 /* ========= BUSCADOR ========= */
+function getCatalogoBase(){
+    return mostrandoHomebrew ? homebrewData : juegosData;
+}
+
+function aplicarBusqueda(){
+    const texto = (buscador ? buscador.value : "").toLowerCase();
+
+    paginaActual = 1;
+
+    let base = getCatalogoBase();
+
+    if(texto){
+        base = base.filter(j =>
+            j.nombre.toLowerCase().includes(texto) ||
+            (j.desc || "").toLowerCase().includes(texto)
+        );
+    }
+
+    listaActual = base;
+    render(listaActual);
+}
+
 if(buscador){
     let temporizadorBusqueda = null;
 
     buscador.addEventListener("input", () => {
         clearTimeout(temporizadorBusqueda);
 
-        temporizadorBusqueda = setTimeout(() => {
-            const texto = buscador.value.toLowerCase();
+        temporizadorBusqueda = setTimeout(aplicarBusqueda, 200);
+    });
+}
 
-            paginaActual = 1;
+/* ========= SWITCH JUEGOS / HOMEBREW ========= */
+if(homebrewToggle){
+    homebrewToggle.addEventListener("change", () => {
+        mostrandoHomebrew = homebrewToggle.checked;
 
-            listaActual = juegosData.filter(j =>
-                j.nombre.toLowerCase().includes(texto) ||
-                j.desc.toLowerCase().includes(texto)
-            );
+        if(homebrewSwitch) homebrewSwitch.classList.toggle("active", mostrandoHomebrew);
+        if(homebrewLabel) homebrewLabel.textContent = mostrandoHomebrew ? "Homebrew" : "Juegos";
 
-            render(listaActual);
-        }, 200);
+        aplicarBusqueda();
     });
 }
 
@@ -1027,10 +1060,10 @@ function getColumnas(){
     if(w <= 900) return 3;
     if(w <= 1080) return 4;
     if(w <= 1280) return 5;
-    if(w <= 1600) return 6;
-    if(w <= 1920) return 7;
-    if(w <= 2560) return 8;
-    return 10;
+    if(w <= 1600) return 7;
+    if(w <= 1920) return 8;
+    if(w <= 2560) return 10;
+    return 14;
 }
 
 function ajustarPaginacion(){

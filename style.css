@@ -181,6 +181,73 @@ header {
     background: rgba(255, 255, 255, 0.08);
 }
 
+/* Switch Juegos / Homebrew */
+.homebrew-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-left: 8px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.homebrew-switch:hover {
+    border-color: rgba(125, 211, 252, 0.30);
+}
+
+.homebrew-switch.active {
+    border-color: rgba(125, 211, 252, 0.45);
+    background: rgba(125, 211, 252, 0.10);
+}
+
+.homebrew-switch .hbs-input {
+    display: none;
+}
+
+.homebrew-switch .hbs-track {
+    width: 40px;
+    height: 22px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.14);
+    position: relative;
+    flex-shrink: 0;
+    transition: background 0.25s ease;
+}
+
+.homebrew-switch .hbs-knob {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease;
+}
+
+.homebrew-switch .hbs-input:checked + .hbs-track {
+    background: rgba(125, 211, 252, 0.50);
+}
+
+.homebrew-switch .hbs-input:checked + .hbs-track .hbs-knob {
+    transform: translateX(18px);
+}
+
+.homebrew-switch .hbs-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+}
+
 
 .header-btn button, .music-control {
     flex-shrink: 0;
@@ -946,6 +1013,47 @@ header {
     text-transform: uppercase;
     letter-spacing: 0.3px;
 }
+.admin-field .admin-homebrew-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: none;
+    letter-spacing: 0;
+    cursor: pointer;
+    padding: 9px 11px;
+    border: 1px solid rgba(106, 90, 205, 0.4);
+    border-radius: 6px;
+    background: rgba(106, 90, 205, 0.08);
+}
+.admin-field .admin-homebrew-label small {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: none;
+}
+.admin-field .admin-homebrew-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #6a5acd;
+    cursor: pointer;
+}
+.hb-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 6px;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    color: #6a5acd;
+    background: rgba(106, 90, 205, 0.15);
+    border: 1px solid rgba(106, 90, 205, 0.45);
+    border-radius: 4px;
+    vertical-align: middle;
+}
 .admin-field input,
 .admin-field textarea {
     padding: 7px 10px;
@@ -1124,19 +1232,19 @@ header {
 /* ===== SOLO LA TIENDA PRINCIPAL (ajustada por resolución) ===== */
 
 #store {
-    grid-template-columns: repeat(10, 1fr); /* 4K > 2560 */
+    grid-template-columns: repeat(14, 1fr); /* 4K > 2560 */
 }
 
 @media (max-width: 2560px) {
-    #store { grid-template-columns: repeat(8, 1fr); } /* 2K */
+    #store { grid-template-columns: repeat(10, 1fr); } /* 2K */
 }
 
 @media (max-width: 1920px) {
-    #store { grid-template-columns: repeat(7, 1fr); } /* 1440p */
+    #store { grid-template-columns: repeat(8, 1fr); } /* 1440p */
 }
 
 @media (max-width: 1600px) {
-    #store { grid-template-columns: repeat(6, 1fr); } /* 1080p */
+    #store { grid-template-columns: repeat(7, 1fr); } /* 1080p */
 }
 
 @media (max-width: 1280px) {
@@ -1183,7 +1291,7 @@ header {
 }
 
 .card img {
-    width: 90%;
+    width: 90.3%;
     display: block;
     margin: 0 auto;
     border-radius: 10px;
@@ -1497,6 +1605,12 @@ header {
         margin: 0 !important;
     }
 
+    /* Switch Juegos / Homebrew a la derecha del buscador */
+    .homebrew-switch {
+        order: 2 !important;
+        margin-left: 8px !important;
+    }
+
     .header-actions .admin-profile-btn {
         order: 3 !important;
         position: relative !important;
@@ -1564,13 +1678,21 @@ header {
     /* Buscador debajo de los botones en Android */
     #buscador {
         order: 10 !important;
-        width: 100% !important;
+        width: auto !important;
         max-width: 100% !important;
-        margin: 8px auto 0 !important;
+        flex: 1 1 auto !important;
+        margin: 8px 0 0 !important;
         display: block !important;
         font-size: 14px !important;
         padding: 10px 14px !important;
         border-radius: 12px !important;
+    }
+
+    /* Switch Juegos / Homebrew a la derecha del buscador en Android */
+    .homebrew-switch {
+        order: 10 !important;
+        margin: 8px 0 0 8px !important;
+        flex-shrink: 0 !important;
     }
 
     /* Logo pequeño */

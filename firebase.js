@@ -50,8 +50,12 @@ const elFormat     = document.getElementById("format");
 const elLanguages  = document.getElementById("languages");
 const elFirmware   = document.getElementById("firmware");
 const elUpdate     = document.getElementById("update");
+const elEsHomebrew = document.getElementById("esHomebrew");
 const elUser       = document.getElementById("user");
 const elPass       = document.getElementById("pass");
+
+// Colección a la que pertenece el juego en edición (juegos | homebrew)
+let coleccionEdicion = "juegos";
 
 /* ========= LOGIN ESTADO ========= */
 onAuthStateChanged(auth, (user) => {
@@ -167,13 +171,41 @@ window.cargar = async () => {
             )
         );
 
+        if(admin){
+            // El admin necesita ver el estado real también de colección homebrew
+            homebrewData = [];
+
+            const snapH = await getDocs(collection(db, "homebrew"));
+
+            snapH.forEach(docSnap => {
+                const j = docSnap.data();
+                j.id = docSnap.id;
+                j.coleccion = "homebrew";
+
+                homebrewData.push(j);
+            });
+
+        }else{
+            homebrewData = await cargarJsonEstatico("data/homebrew.json");
+        }
+
         paginaActual = 1;
 
         listaActual = [...juegosData];
         render(listaActual);
 
         if(admin){
+            // Marcar colección en los juegos normales
+            juegosData.forEach(j => { j.coleccion = "juegos"; });
+
+            // La lista del panel muestra normales + homebrew
             listaGlobal = [...juegosData];
+
+            homebrewData.forEach(h => {
+                h.coleccion = "homebrew";
+                listaGlobal.push(h);
+            });
+
             renderAdminList(listaGlobal);
         }
 
@@ -330,8 +362,14 @@ window.agregarJuego = async function(){
     console.log("[Luma] Guardando:", nuevo.nombre, "| editIndex:", editIndex, "| screenshots:", screenshotsFinales);
 
     try{
+        // Colección de destino: si se edita, la del juego en edición; si es nuevo,
+        // la que indique el checkbox "¿Es Homebrew?"
+        const destino = editIndex
+            ? (coleccionEdicion === "homebrew" ? "homebrew" : "juegos")
+            : (elEsHomebrew && elEsHomebrew.checked ? "homebrew" : "juegos");
+
         const q = query(
-            collection(db, "juegos"),
+            collection(db, destino),
             where("nombre", "==", elNombre.value)
         );
 
@@ -345,10 +383,11 @@ window.agregarJuego = async function(){
         }
 
         if(editIndex == null){
-            await addDoc(collection(db, "juegos"), nuevo);
+            await addDoc(collection(db, destino), nuevo);
         }else{
-            await updateDoc(doc(db, "juegos", editIndex), nuevo);
+            await updateDoc(doc(db, destino, editIndex), nuevo);
             editIndex = null;
+            coleccionEdicion = "juegos";
         }
 
     }catch(error){
@@ -362,9 +401,9 @@ window.agregarJuego = async function(){
 };
 
 /* ========= ELIMINAR ========= */
-window.eliminar = async (id) => {
+window.eliminar = async (id, coleccion = "juegos") => {
     try{
-        await deleteDoc(doc(db, "juegos", id));
+        await deleteDoc(doc(db, coleccion, id));
         await cargar();
     }catch(error){
         console.error("Error eliminando:", error);
@@ -379,6 +418,11 @@ window.editarJuego = function(juego){
         }
     }
     editIndex = juego.id;
+    coleccionEdicion = juego.coleccion === "homebrew" ? "homebrew" : "juegos";
+
+    if(elEsHomebrew){
+        elEsHomebrew.checked = coleccionEdicion === "homebrew";
+    }
 
     let ss = [];
     if(Array.isArray(juego.screenshots)){
@@ -423,6 +467,8 @@ window.editarJuego = function(juego){
 /* ========= CANCELAR EDICION ========= */
 window.cancelarEdicion = function(){
     editIndex = null;
+    coleccionEdicion = "juegos";
+    if(elEsHomebrew) elEsHomebrew.checked = false;
     screenshotsOriginales = [];
     elNombre.value = "";
     elImg.value = "";
@@ -457,15 +503,16 @@ window.renderAdminList = function(lista){
     container.innerHTML = "";
     lista.forEach(j => {
         const item = document.createElement("div");
-        item.className = "admin-game-item";
+        item.className = "admin-game-item" + (j.coleccion === "homebrew" ? " is-homebrew" : "");
+        const hb = j.coleccion === "homebrew";
         item.innerHTML = `
             <img src="${j.img || ''}" alt="" onerror="this.src='assets/icon.png'">
             <div class="admin-game-item-info">
-                <span>${j.nombre}</span>
+                <span>${j.nombre}${hb ? ' <em class="hb-badge">Homebrew</em>' : ''}</span>
                 <small>${j.genre || 'Sin género'} ${j.year ? '· ' + j.year : ''}</small>
             </div>
             <button class="btn-edit" title="Editar" onclick="event.stopPropagation(); editarPorId('${j.id}')">✎</button>
-            <button class="btn-delete" title="Eliminar" onclick="event.stopPropagation(); confirmarEliminar('${j.id}','${(j.nombre||'').replace(/'/g,"\\'")}')">✕</button>
+            <button class="btn-delete" title="Eliminar" onclick="event.stopPropagation(); confirmarEliminar('${j.id}','${(j.nombre||'').replace(/'/g,"\\'")}','${hb ? 'homebrew' : 'juegos'}')">✕</button>
         `;
         container.appendChild(item);
     });
@@ -476,9 +523,9 @@ window.editarPorId = function(id){
     if(juego) editarJuego(juego);
 };
 
-window.confirmarEliminar = function(id, nombre){
+window.confirmarEliminar = function(id, nombre, coleccion = "juegos"){
     if(confirm('¿Eliminar "' + nombre + '"?')){
-        eliminar(id);
+        eliminar(id, coleccion);
     }
 };
 
