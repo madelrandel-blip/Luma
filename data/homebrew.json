@@ -19,7 +19,6 @@
   },
   {
     "nombre": "2 Ship 2 Harkinian",
-    "img": "assets/images/Luma icon.webp",
     "desc": "Port de la comunidad de The Legend of Zelda: Majora's Mask",
     "previewDesc": "Port por descompilación de The Legend of Zelda: Majora's Mask para PC/consolas. Trae mejoras de rendimiento, resolución 4K, 60 FPS y opciones adicionales pensadas para la comunidad.",
     "screenshots": [],
@@ -33,6 +32,7 @@
     "format": "NSP",
     "languages": "EN/ES",
     "update": "v3.0",
+    "img": "assets/covers/cover tlozmm.png",
     "id": "Xzlf1lwBLIhM8CfZ6OoR"
   }
 ]
