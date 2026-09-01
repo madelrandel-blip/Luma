@@ -172,7 +172,10 @@ window.cargar = async () => {
         );
 
         if(admin){
-            // El admin necesita ver el estado real también de colección homebrew
+            // El admin necesita ver el estado real de Firestore, pero si la
+            // colección homebrew aún está vacía (no importada/agregada),
+            // reutiliza el JSON estático para que los ports ya publicados
+            // sigan visibles mientras se puebla Firestore.
             homebrewData = [];
 
             const snapH = await getDocs(collection(db, "homebrew"));
@@ -184,6 +187,11 @@ window.cargar = async () => {
 
                 homebrewData.push(j);
             });
+
+            if(homebrewData.length === 0){
+                homebrewData = await cargarJsonEstatico("data/homebrew.json");
+                homebrewData.forEach(h => { h.id = h.id || ("hb-" + h.nombre); });
+            }
 
         }else{
             homebrewData = await cargarJsonEstatico("data/homebrew.json");
