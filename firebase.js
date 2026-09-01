@@ -173,20 +173,23 @@ window.cargar = async () => {
 
         if(admin){
             // El admin necesita ver el estado real de Firestore, pero si la
-            // colección homebrew aún está vacía (no importada/agregada),
-            // reutiliza el JSON estático para que los ports ya publicados
-            // sigan visibles mientras se puebla Firestore.
+            // colección homebrew falla (reglas, vacía, etc.) se reutiliza el
+            // JSON estático para que los ports ya publicados sigan visibles.
             homebrewData = [];
 
-            const snapH = await getDocs(collection(db, "homebrew"));
+            try{
+                const snapH = await getDocs(collection(db, "homebrew"));
 
-            snapH.forEach(docSnap => {
-                const j = docSnap.data();
-                j.id = docSnap.id;
-                j.coleccion = "homebrew";
+                snapH.forEach(docSnap => {
+                    const j = docSnap.data();
+                    j.id = docSnap.id;
+                    j.coleccion = "homebrew";
 
-                homebrewData.push(j);
-            });
+                    homebrewData.push(j);
+                });
+            }catch(error){
+                console.error("Error leyendo colección homebrew:", error);
+            }
 
             if(homebrewData.length === 0){
                 homebrewData = await cargarJsonEstatico("data/homebrew.json");
