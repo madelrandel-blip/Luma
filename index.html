@@ -170,7 +170,10 @@
 <!-- PANEL ADMIN -->
 <div id="adminPanel">
     <div class="admin-header">
-        <h3>Panel Administrador</h3>
+        <div class="admin-header-title">
+            <h3><i class="fa-solid fa-gauge-high"></i> Panel Administrador</h3>
+            <p class="admin-header-sub">Gestiona el catálogo de Juegos y Homebrew</p>
+        </div>
         <div class="admin-mode" id="adminMode">
             <span class="mode-dot"></span>
             <span id="adminModeText">Nuevo juego</span>
@@ -181,7 +184,7 @@
         <!-- FORMULARIO -->
         <div class="admin-form">
             <div class="admin-section">
-                <h4>Información básica</h4>
+                <h4><i class="fa-solid fa-circle-info"></i> Información básica</h4>
                 <div class="admin-grid">
                     <div class="admin-field">
                         <label>Nombre</label>
@@ -201,14 +204,14 @@
                     </div>
                     <div class="admin-field full">
                         <label class="admin-homebrew-label">
-                            <input type="checkbox" id="esHomebrew"> ¿Es Homebrew? <small>(juego portado por la comunidad → sección Homebrew)</small>
+                            <input type="checkbox" id="esHomebrew"> <i class="fa-solid fa-puzzle-piece"></i> ¿Es Homebrew? <small>(juego portado por la comunidad → sección Homebrew)</small>
                         </label>
                     </div>
                 </div>
             </div>
 
             <div class="admin-section">
-                <h4>Enlaces de descarga</h4>
+                <h4><i class="fa-solid fa-link"></i> Enlaces de descarga</h4>
                 <div class="admin-grid">
                     <div class="admin-field full">
                         <label>Link 1</label>
@@ -222,7 +225,7 @@
             </div>
 
             <div class="admin-section">
-                <h4>Media</h4>
+                <h4><i class="fa-solid fa-photo-film"></i> Media</h4>
                 <div class="admin-grid">
                     <div class="admin-field full">
                         <label>Trailer (URL YouTube)</label>
@@ -236,7 +239,7 @@
             </div>
 
             <div class="admin-section">
-                <h4>Detalles del juego</h4>
+                <h4><i class="fa-solid fa-list-check"></i> Detalles del juego</h4>
                 <div class="admin-grid cols-3">
                     <div class="admin-field">
                         <label>Género</label>
@@ -262,7 +265,7 @@
             </div>
 
             <div class="admin-section">
-                <h4>Info del archivo</h4>
+                <h4><i class="fa-solid fa-file-lines"></i> Info del archivo</h4>
                 <div class="admin-grid cols-3">
                     <div class="admin-field">
                         <label>ID del juego</label>
@@ -292,15 +295,21 @@
             </div>
 
             <div class="admin-actions-bar">
-                <button id="btnGuardar" onclick="agregarJuego()">Guardar juego</button>
-                <button id="btnCancelar" onclick="cancelarEdicion()" style="display:none;">Cancelar edición</button>
+                <button id="btnGuardar" onclick="agregarJuego()"><i class="fa-solid fa-floppy-disk"></i> Guardar juego</button>
+                <button id="btnCancelar" onclick="cancelarEdicion()" style="display:none;"><i class="fa-solid fa-xmark"></i> Cancelar edición</button>
             </div>
         </div>
 
         <!-- LISTA DE JUEGOS -->
         <div class="admin-list">
-            <h4>Juegos existentes</h4>
-            <input type="text" id="adminSearch" placeholder="Buscar juego..." oninput="filtrarAdmin()">
+            <div class="admin-list-header">
+                <h4><i class="fa-solid fa-layer-group"></i> Juegos existentes</h4>
+                <span class="admin-count" id="adminCount">0</span>
+            </div>
+            <div class="admin-search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="adminSearch" placeholder="Buscar juego..." oninput="filtrarAdmin()">
+            </div>
             <div class="admin-game-list" id="adminGameList"></div>
         </div>
     </div>

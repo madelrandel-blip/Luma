@@ -477,8 +477,22 @@ function cerrarLogin(){
 window.toggleAdminPanel = function(){
     if(!adminPanel) return;
     playAdminClick();
-    const visible = adminPanel.style.display === "block";
-    adminPanel.style.display = visible ? "none" : "block";
+
+    const visible = adminPanel.classList.contains("open");
+
+    if(visible){
+        adminPanel.classList.remove("open");
+        setTimeout(() => {
+            if(!adminPanel.classList.contains("open")){
+                adminPanel.style.display = "none";
+            }
+        }, 220);
+    }else{
+        adminPanel.style.display = "block";
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => adminPanel.classList.add("open"));
+        });
+    }
 };
 
 /* ========= EMULADORES ========= */
@@ -1110,7 +1124,7 @@ function render(lista){
 
                 ${admin ? `
                 <div class="admin-actions">
-                    <button onclick="eliminar('${j.id}')">🗑️</button>
+                    <button onclick="eliminar('${j.id}', '${mostrandoHomebrew ? "homebrew" : "juegos"}')" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
                 </div>` : ""}
             </div>
         </div>`;

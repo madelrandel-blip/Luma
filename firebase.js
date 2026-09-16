@@ -7,6 +7,7 @@ import {
     deleteDoc,
     doc,
     updateDoc,
+    setDoc,
     query,
     where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -62,6 +63,7 @@ onAuthStateChanged(auth, (user) => {
     admin = !!user;
 
     if(adminPanel){
+        adminPanel.classList.remove("open");
         adminPanel.style.display = "none";
     }
 
@@ -177,6 +179,8 @@ window.cargar = async () => {
             // JSON estático para que los ports ya publicados sigan visibles.
             homebrewData = [];
 
+            let errorLeyendoHomebrew = false;
+
             try{
                 const snapH = await getDocs(collection(db, "homebrew"));
 
@@ -189,11 +193,16 @@ window.cargar = async () => {
                 });
             }catch(error){
                 console.error("Error leyendo colección homebrew:", error);
+                errorLeyendoHomebrew = true;
             }
 
             if(homebrewData.length === 0){
                 homebrewData = await cargarJsonEstatico("data/homebrew.json");
                 homebrewData.forEach(h => { h.id = h.id || ("hb-" + h.nombre); });
+
+                if(errorLeyendoHomebrew && typeof mostrarToast === "function"){
+                    mostrarToast('<i class="fa-solid fa-triangle-exclamation" style="color:#f59e0b;"></i> No se pudo leer "homebrew" desde Firestore (revisa los permisos). Mostrando datos estáticos.');
+                }
             }
 
         }else{
@@ -337,6 +346,14 @@ let screenshotsOriginales = [];
 window.agregarJuego = async function(){
     if(guardando) return;
 
+    const nombreLimpio = (elNombre.value || "").trim();
+
+    if(!nombreLimpio){
+        alert("El nombre del juego es obligatorio.");
+        elNombre.focus();
+        return;
+    }
+
     guardando = true;
     btnGuardar.disabled = true;
 
@@ -349,7 +366,7 @@ window.agregarJuego = async function(){
     }
 
     const nuevo = {
-        nombre: elNombre.value,
+        nombre: nombreLimpio,
         img: elImg.value,
         desc: elDesc.value,
         link1: elLink1.value,
@@ -370,43 +387,72 @@ window.agregarJuego = async function(){
         update: elUpdate.value || ""
     };
 
-    console.log("[Luma] Guardando:", nuevo.nombre, "| editIndex:", editIndex, "| screenshots:", screenshotsFinales);
+    // Colección de destino: siempre según el checkbox "¿Es Homebrew?",
+    // tanto al crear un juego nuevo como al editar uno existente. Antes,
+    // al editar, se ignoraba el checkbox y se usaba la colección original,
+    // así que no había forma de mover un juego a/desde Homebrew.
+    const destino = elEsHomebrew && elEsHomebrew.checked ? "homebrew" : "juegos";
+    const esNuevaColeccion = editIndex != null && destino !== coleccionEdicion;
+
+    console.log("[Luma] Guardando:", nuevo.nombre, "| destino:", destino, "| editIndex:", editIndex, "| screenshots:", screenshotsFinales);
 
     try{
-        // Colección de destino: si se edita, la del juego en edición; si es nuevo,
-        // la que indique el checkbox "¿Es Homebrew?"
-        const destino = editIndex
-            ? (coleccionEdicion === "homebrew" ? "homebrew" : "juegos")
-            : (elEsHomebrew && elEsHomebrew.checked ? "homebrew" : "juegos");
-
         const q = query(
             collection(db, destino),
-            where("nombre", "==", elNombre.value)
+            where("nombre", "==", nombreLimpio)
         );
 
         const snap = await getDocs(q);
 
-        if(!snap.empty && editIndex == null){
-            alert("Este juego ya existe");
+        const yaExiste = snap.docs.some(d => d.id !== editIndex);
+
+        if(yaExiste && (editIndex == null || esNuevaColeccion)){
+            alert(`Ya existe un juego llamado "${nombreLimpio}" en ${destino === "homebrew" ? "Homebrew" : "Juegos"}.`);
             guardando = false;
             btnGuardar.disabled = false;
             return;
         }
 
         if(editIndex == null){
+            // Juego nuevo.
             await addDoc(collection(db, destino), nuevo);
+
+        }else if(esNuevaColeccion){
+            // El juego cambió de colección (p. ej. de Juegos a Homebrew):
+            // se crea en la colección nueva y se borra de la anterior.
+            await setDoc(doc(db, destino, editIndex), nuevo);
+            await deleteDoc(doc(db, coleccionEdicion, editIndex)).catch(err => {
+                console.error("No se pudo borrar el documento original tras mover el juego:", err);
+            });
+
         }else{
-            await updateDoc(doc(db, destino, editIndex), nuevo);
-            editIndex = null;
-            coleccionEdicion = "juegos";
+            // Misma colección: se usa setDoc con merge en lugar de updateDoc
+            // porque updateDoc falla si el documento no existe todavía en
+            // Firestore (por ejemplo, cuando la lista de Homebrew se cargó
+            // como respaldo desde data/homebrew.json con un id generado).
+            await setDoc(doc(db, destino, editIndex), nuevo, { merge: true });
         }
+
+        if(typeof mostrarToast === "function"){
+            mostrarToast(`<i class="fa-solid fa-circle-check" style="color:#10b981;"></i> "${nombreLimpio}" guardado en ${destino === "homebrew" ? "Homebrew" : "Juegos"}`);
+        }
+
+        editIndex = null;
+        coleccionEdicion = "juegos";
+        cancelarEdicion();
+        await cargar();
 
     }catch(error){
         console.error("Error guardando:", error);
+        alert(
+            "No se pudo guardar el juego" + (destino === "homebrew" ? " en Homebrew" : "") + ".\n\n" +
+            "Detalle: " + error.message + "\n\n" +
+            "Si el error menciona permisos (permission-denied), revisa que las reglas de seguridad de Firestore " +
+            'permitan leer y escribir también la colección "homebrew", no solo "juegos".'
+        );
+        // No se limpia el formulario ni se recarga para no perder lo escrito.
     }
 
-    cancelarEdicion();
-    await cargar();
     guardando = false;
     btnGuardar.disabled = false;
 };
@@ -415,9 +461,15 @@ window.agregarJuego = async function(){
 window.eliminar = async (id, coleccion = "juegos") => {
     try{
         await deleteDoc(doc(db, coleccion, id));
+
+        if(typeof mostrarToast === "function"){
+            mostrarToast('<i class="fa-solid fa-trash" style="color:#ef4444;"></i> Juego eliminado');
+        }
+
         await cargar();
     }catch(error){
         console.error("Error eliminando:", error);
+        alert("No se pudo eliminar el juego.\n\nDetalle: " + error.message);
     }
 };
 
@@ -467,7 +519,7 @@ window.editarJuego = function(juego){
     elLanguages.value = juego.languages || "";
     elFirmware.value = juego.firmware || "";
     elUpdate.value = juego.update || "";
-    btnGuardar.innerText = "Actualizar juego";
+    btnGuardar.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Actualizar juego';
     btnGuardar.classList.add("editando");
     document.getElementById("adminMode").classList.add("editing");
     document.getElementById("adminModeText").innerText = "Editando: " + juego.nombre;
@@ -500,7 +552,7 @@ window.cancelarEdicion = function(){
     elLanguages.value = "";
     elFirmware.value = "";
     elUpdate.value = "";
-    btnGuardar.innerText = "Guardar juego";
+    btnGuardar.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Guardar juego';
     btnGuardar.classList.remove("editando");
     document.getElementById("adminMode").classList.remove("editing");
     document.getElementById("adminModeText").innerText = "Nuevo juego";
@@ -511,7 +563,17 @@ window.cancelarEdicion = function(){
 window.renderAdminList = function(lista){
     const container = document.getElementById("adminGameList");
     if(!container) return;
+
+    const contador = document.getElementById("adminCount");
+    if(contador) contador.textContent = lista.length;
+
     container.innerHTML = "";
+
+    if(lista.length === 0){
+        container.innerHTML = '<p class="admin-empty">No hay juegos que coincidan.</p>';
+        return;
+    }
+
     lista.forEach(j => {
         const item = document.createElement("div");
         item.className = "admin-game-item" + (j.coleccion === "homebrew" ? " is-homebrew" : "");
@@ -522,8 +584,8 @@ window.renderAdminList = function(lista){
                 <span>${j.nombre}${hb ? ' <em class="hb-badge">Homebrew</em>' : ''}</span>
                 <small>${j.genre || 'Sin género'} ${j.year ? '· ' + j.year : ''}</small>
             </div>
-            <button class="btn-edit" title="Editar" onclick="event.stopPropagation(); editarPorId('${j.id}')">✎</button>
-            <button class="btn-delete" title="Eliminar" onclick="event.stopPropagation(); confirmarEliminar('${j.id}','${(j.nombre||'').replace(/'/g,"\\'")}','${hb ? 'homebrew' : 'juegos'}')">✕</button>
+            <button class="btn-edit" title="Editar" onclick="event.stopPropagation(); editarPorId('${j.id}')"><i class="fa-solid fa-pen"></i></button>
+            <button class="btn-delete" title="Eliminar" onclick="event.stopPropagation(); confirmarEliminar('${j.id}','${(j.nombre||'').replace(/'/g,"\\'")}','${hb ? 'homebrew' : 'juegos'}')"><i class="fa-solid fa-trash"></i></button>
         `;
         container.appendChild(item);
     });
