@@ -1,5 +1,31 @@
 [
   {
+    "img": "assets/covers/cover NFSMW.png",
+    "desc": "Disponible pronto",
+    "link1": "",
+    "link2": "",
+    "previewDesc": "Corre al límite en un mundo abierto sin pantallas de carga. Sube en la Blacklist desafiando a los corredores más buscados, esquivando persecuciones policiales cada vez más intensas y personalizando tu coche hasta el último detalle. Con gráficos en alta definición y logros exclusivos.",
+    "trailer": "https://youtu.be/YWZaz8TcEnM",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/844/1583100044_1695.webp",
+      "https://files.vgtimes.com/gallery/main/844/1582033533_8339.webp",
+      "https://files.vgtimes.com/gallery/main/844/1582033527_2735.webp"
+    ],
+    "genre": "Racing",
+    "developer": "Electronic Arts Canada",
+    "mode": "Single Player",
+    "year": "2005",
+    "rating": "83",
+    "gameId": "",
+    "size": "7.29GB",
+    "format": "NSP",
+    "languages": "",
+    "firmware": "",
+    "update": "1.0.0",
+    "nombre": "Need for Speed Most Wanted Recompiled",
+    "id": "6bMImJxaTQcUL2MfJrQN"
+  },
+  {
     "nombre": "Ship of Harkinian",
     "desc": "Port de la comunidad de The Legend of Zelda: Ocarina of Time a 4K/60fps",
     "previewDesc": "Versión descompilada y portada por la comunidad del clásico de Zelda. Incluye mejoras como resolución 4K, 60 FPS, texturas HD, opción de hacer encogido a Link como en los juegos en 2D y numerosas opciones de calidad de vida.",
@@ -34,5 +60,31 @@
     "update": "v3.0",
     "img": "assets/covers/cover tlozmm.png",
     "id": "Xzlf1lwBLIhM8CfZ6OoR"
+  },
+  {
+    "img": "assets/covers/cover gta5.png",
+    "desc": "Dispónible pronto",
+    "link1": "",
+    "link2": "",
+    "previewDesc": "Continuación legendaria de la popular serie Grand Theft Auto. La acción se desarrolla en la ciudad de Los Santos, querida desde Grand Theft Auto: San Andreas. Por primera vez, el juego cuenta la historia de tres personajes: Michael, Trevor y Franklin, entre los que puedes cambiar en cualquier momento.",
+    "trailer": "https://youtu.be/3DBrG2YjqQA",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/231/8748628283_bc80f1ebfe42bf9345a079ed7cbc7728ad75277a.webp",
+      "https://files.vgtimes.com/gallery/main/231/1646409659_2-1.webp",
+      "https://files.vgtimes.com/gallery/main/231/gta5-2016-12-15-22-18-50-96.webp"
+    ],
+    "genre": "Action",
+    "developer": "Rockstar North",
+    "mode": "Single Player",
+    "year": "2014",
+    "rating": "92",
+    "gameId": "",
+    "size": "",
+    "format": "NSP",
+    "languages": "",
+    "firmware": "",
+    "update": "",
+    "nombre": "Grand Theft Auto V",
+    "id": "vnwKq6VRgOWztQjaEeBJ"
   }
 ]
