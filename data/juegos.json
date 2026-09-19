@@ -3525,6 +3525,32 @@
     "id": "dTadRWghrjADFYyWBOIk"
   },
   {
+    "nombre": "CAPTAIN TSUBASA 2 WORLD FIGHTERS",
+    "img": "assets/covers/cover ct2wf.png",
+    "desc": "Peso: 11.9GB 1.0.2 + 4 DLCs",
+    "link1": "https://www.mediafire.com/file/0sc0fo5hgxhp43x/CAPTAIN+TSUBASA+2+WORLD+FIGHTERS+[v1.0.2+++4+DLCs].xci/file",
+    "link2": "",
+    "trailer": "https://www.youtube.com/watch?v=k1ik2WwxYzE",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/214481/3994285769_ss_b0be89a51f160fb6b9c3c337a071a46822d67.webp",
+      "https://files.vgtimes.com/gallery/main/214481/6253790209_ss_21cc5dd8ea39ee7fc761fd17ee8fae9dbea5b.webp",
+      "https://files.vgtimes.com/gallery/main/214481/355856191_ss_0e4960f9fd8de80c5caeffcc6c778c7576816.webp"
+    ],
+    "genre": "Soccer",
+    "developer": "Tamsoft Corporation",
+    "mode": "Single Player / 2 Local / 2 Multiplayer ",
+    "year": "2026",
+    "rating": "75",
+    "gameId": "01009720213B0000",
+    "size": "11.9GB",
+    "format": "XCI",
+    "languages": "EN/ES/FR/DE/IT/JP/KO/ZH/PL",
+    "firmware": "22.5.0",
+    "update": "v1.0.2 + 4 DLCs",
+    "previewDesc": "Fútbol de acción estilo arcade: crea tu propio jugador, únete a la selección de Japón y acompaña a Tsubasa hacia el Campeonato Mundial Juvenil, con historia supervisada por el creador Yōichi Takahashi.",
+    "id": "dhaEgguX2gP5agPojWuY"
+  },
+  {
     "nombre": "New Super Mario Bros. U Deluxe",
     "img": "https://art.gametdb.com/switch/box/US/ADALA.png?1767741029",
     "desc": "Peso: 2.51GB Update 1.0.2",
