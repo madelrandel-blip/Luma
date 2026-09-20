@@ -1766,6 +1766,32 @@
     "id": "IfePj8lEh9KWhQN6356k"
   },
   {
+    "nombre": "The Lord of the Rings War in the North Legacy Edition",
+    "img": "assets/covers/cover tlotrwitnle.png",
+    "desc": "Peso. 17.5GB Update 1.0.1",
+    "link1": "https://www.mediafire.com/file/ivwen3iauinxeac/The+Lord+of+the+Rings+War+in+the+North+Legacy+Edition+[v.1.0.1].xci/file",
+    "link2": "",
+    "previewDesc": "Una sombra se alza en el Norte: expándete en el legendarium de Tolkien con la brutal historia de Agandaûr, sirviente de Sauron. Controla a tres héroes intercambiables (Eradan, Andriel y Farin) para defender el Norte. RPG de acción con co-op online y cameos de Aragorn, Gandalf y Elrond.",
+    "trailer": "https://www.youtube.com/watch?v=I3Bk2E3fJT4",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/214265/280823663_1894c70908d321be82200a6b211c4373ffd126cc.webp",
+      "https://files.vgtimes.com/gallery/thumb/214264/7248692245_ss_bde35066e2a98748b6e9162720e725a31ff32.webp",
+      "https://files.vgtimes.com/gallery/thumb/214264/9149722767_ss_ffc92c9424883ff105ba90f8f76bfd285c0aa.webp"
+    ],
+    "genre": "Action RPG",
+    "developer": "Aspyr",
+    "mode": "Single Player",
+    "year": "2026",
+    "rating": "64",
+    "gameId": "01004D501F078000",
+    "size": "17.5GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/IT/ES/RU/ZH/PT-BR/PL/JP",
+    "firmware": "22.5.0",
+    "update": "v1.0.1",
+    "id": "J0rU5Ecbquj74D6xNrR4"
+  },
+  {
     "nombre": "GUILTY GEAR STRIVE",
     "link2": "",
     "link1": "https://www.mediafire.com/file/5rl0l9y4lla6d0a/GUILTY+GEAR+STRIVE+[v1.08+++4+DLCs].xci/file",
@@ -2830,6 +2856,32 @@
       "https://files.vgtimes.com/gallery/thumb/135211/4019035545_1684091411_5707.webp"
     ],
     "id": "XUnVCEd8uHSq4Qi4uM6a"
+  },
+  {
+    "nombre": "Bayonetta Origins Cereza and the Lost Demon",
+    "img": "https://art.gametdb.com/switch/box/US/AXB8A.png?1684372698",
+    "desc": "Peso: 3.19GB",
+    "link1": "https://www.mediafire.com/file/7nurzso7r6f3ghe/Bayonetta+Origins+Cereza+and+the+Lost+Demon.nsp/file",
+    "link2": "",
+    "previewDesc": "Una vez, hubo una joven bruja llamada Cereza. Antes de convertirse en Bayonetta, entró al prohibido Bosque de Avalon junto a su primer demonio, Cheshire, poseedor de su peluche. Juega con ambos para resolver puzles y derrotar hadas, en una aventura estilo cuento ilustrado por el poder de salvar a su madre.",
+    "trailer": "https://www.youtube.com/watch?v=EA0sR-Bp07I",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/191647/4694092048_1679555702_6019.webp",
+      "https://files.vgtimes.com/gallery/main/191647/7101915387_1675977429_1329.webp",
+      "https://files.vgtimes.com/gallery/main/191647/1672686750_7931.webp"
+    ],
+    "genre": "Action Adventure",
+    "developer": "PlatinumGames",
+    "mode": "Single Player",
+    "year": "2023",
+    "rating": "80",
+    "gameId": "0100CF5010FEC000",
+    "size": "3.19GB",
+    "format": "NSP",
+    "languages": "EN/FR/DE/IT/ES/JP/KO/RU/ZH",
+    "firmware": "15.0.1",
+    "update": "v1.0.0",
+    "id": "XeF4K5rbOK161riedF7g"
   },
   {
     "link1": "https://www.mediafire.com/file/lxcihedyqx76j6v/Nine+Sols+[v1.5].xci/file",
