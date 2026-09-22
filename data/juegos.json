@@ -858,16 +858,13 @@
     "id": "AVyRS13jHkZRjw2wyMv1"
   },
   {
-    "nombre": "Pokémon Legends Z-A",
     "img": "https://art.gametdb.com/switch/box/US/ALZLA.png?1760718085",
     "desc": "Peso: 6GB Update 2.0.2 + DLCs",
     "link1": "https://www.mediafire.com/file/jdo8gf4slba9hmu/PK_Z-A_%255B2.0.2_%252B_2_DLCs%255D.xci/file",
     "link2": "https://u.pcloud.link/publink/show?code=XZlbKO5ZDHxq99F922y6uhi2yS4AEHp5paoX",
     "gameId": "010026201F438000",
     "languages": "ES/JP/EN",
-    "year": 2025,
     "format": "XCI",
-    "rating": 78,
     "update": "v2.0.2 + DLCs",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/200081/9102468922_pokemon_legends_z.webp",
@@ -881,6 +878,9 @@
     "developer": "Game Freak",
     "previewDesc": "Una nueva aventura en la región de Kalos con una trama completamente original. Mega Evolución regresa en esta reimaginación moderna con gráficos y combate renovados.",
     "firmware": "15.0.0+",
+    "year": "2025",
+    "rating": "78",
+    "nombre": "Pokemon Legends Z-A",
     "id": "AidyIz88CqWn3hSHMl5r"
   },
   {
@@ -5357,6 +5357,32 @@
     "previewDesc": "Beat 'em up retro inspirado en el cómic y la película, en su edición completa que incluye los DLC Knives Chau y Wallace Wells. Combate frenético de estilo arcade, banda sonora de Anamanaguchi y cooperativo de hasta 4 jugadores, local u online.",
     "firmware": "13.0.0",
     "id": "xyGvzWnQ6gKiqTW0TqtS"
+  },
+  {
+    "nombre": "Pokémon Legends Z-A",
+    "img": "https://art.gametdb.com/switch/box/US/ALZLA.png?1760718085",
+    "desc": "Peso: 6GB Update 2.0.2 + DLCs",
+    "link1": "https://www.mediafire.com/file/jdo8gf4slba9hmu/PK_Z-A_%255B2.0.2_%252B_2_DLCs%255D.xci/file",
+    "link2": "https://u.pcloud.link/publink/show?code=XZlbKO5ZDHxq99F922y6uhi2yS4AEHp5paoX",
+    "previewDesc": "Una nueva aventura en la región de Kalos con una trama completamente original. Mega Evolución regresa en esta reimaginación moderna con gráficos y combate renovados.",
+    "trailer": "tezs2FsIxgA",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/200081/9102468922_pokemon_legends_z.webp",
+      "https://files.vgtimes.com/gallery/main/200081/2327981218_pokemon_legends_z.webp",
+      "https://files.vgtimes.com/gallery/main/200081/267447075_pokemon_legends_z.webp"
+    ],
+    "genre": "RPG / Action",
+    "developer": "Game Freak",
+    "mode": "Single Player",
+    "year": 2025,
+    "rating": 78,
+    "gameId": "010026201F438000",
+    "size": "6GB",
+    "format": "XCI",
+    "languages": "ES/JP/EN",
+    "firmware": "15.0.0+",
+    "update": "v2.0.2 + DLCs",
+    "id": "yCnW1j8IQ2OztZ44EnFq"
   },
   {
     "desc": "Peso: 345.53MB Update 1.0.5",
