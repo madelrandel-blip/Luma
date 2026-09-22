@@ -1792,6 +1792,32 @@
     "id": "J0rU5Ecbquj74D6xNrR4"
   },
   {
+    "nombre": "River City Girls 2",
+    "img": "https://art.gametdb.com/switch/box/US/A6Q6A.png?1684366355",
+    "desc": "Peso: 7.13GB Update 1.1.2 + DLC",
+    "link1": "https://www.mediafire.com/file/2qc71xo2ntu8ehy/River+City+Girls+2+[v1.1.2+++DLC].xci/file",
+    "link2": "",
+    "previewDesc": "Las River City Girls vuelven a la carga. Cuando un viejo enemigo resurge, Misako, Kyoko, Kunio y Riki salen a la calle junto a Marian y Provie en un beat 'em up 2D más grande y salvaje que el original.",
+    "trailer": "https://www.youtube.com/watch?v=DMxzG-z_qDw",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/185021/1671218021_3882.webp",
+      "https://files.vgtimes.com/gallery/main/185021/1662405097_8898.webp",
+      "https://files.vgtimes.com/gallery/main/185021/1662405085_519.webp"
+    ],
+    "genre": "Action 2D",
+    "developer": "WayForward",
+    "mode": "Single Player / Local 4 / Online 2",
+    "year": "2022",
+    "rating": "78",
+    "gameId": "0100026016320000",
+    "size": "7.13GB",
+    "format": "XCI",
+    "languages": "EN/FR/CA/FR/DE/IT/ES/JP/KO/ZH",
+    "firmware": "19.0.1",
+    "update": "v1.1.2 + DLC",
+    "id": "JAv4T5527EyyhcgHbALj"
+  },
+  {
     "nombre": "GUILTY GEAR STRIVE",
     "link2": "",
     "link1": "https://www.mediafire.com/file/5rl0l9y4lla6d0a/GUILTY+GEAR+STRIVE+[v1.08+++4+DLCs].xci/file",
@@ -2024,6 +2050,32 @@
     "previewDesc": "Colección que reúne los tres primeros títulos de la saga Ultimate Ninja Storm remasterizados para Switch: Storm, Storm 2 y Storm 3 Full Burst. Recorre la historia de Naruto desde la Aldea Oculta de la Hoja hasta la Gran Guerra Ninja, con combates frenéticos en 3D y cientos de personajes del anime.",
     "firmware": "13.0.0",
     "id": "NjOQDpFldOl3r8jcTKi8"
+  },
+  {
+    "nombre": "River City Girls",
+    "img": "https://art.gametdb.com/switch/box/US/AT2EA.png?1684370377",
+    "desc": "Peso: 4.79GB Update 1.2.0",
+    "link1": "https://www.mediafire.com/file/h2q2szkem0veu5t/River_City_Girls_%255Bv1.2.0%255D.xci/file",
+    "link2": "",
+    "previewDesc": "Controla a Kyoko y Misako, dos duras estudiantes que cruzan las seis regiones de River City para rescatar a sus novios Kunio y Riki. Combos, agarres, especiales, armas y subida de nivel para potenciar a las heroínas.",
+    "trailer": "https://www.youtube.com/watch?v=80ZyztIMKDs",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/171145/1563203652_7523.webp",
+      "https://files.vgtimes.com/gallery/main/171145/1563203628_3152.webp",
+      "https://files.vgtimes.com/gallery/main/171145/1563203634_1592.webp"
+    ],
+    "genre": "Action Adeventure",
+    "developer": "WayForward",
+    "mode": "Single Player / Local 2 ",
+    "year": "2019",
+    "rating": "79",
+    "gameId": "01004E700DFE6000",
+    "size": "4.79GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/IT/ES/JP/RU",
+    "firmware": "9.1.0",
+    "update": "v1.2.0",
+    "id": "NwqMgPjXrg8HEPGmqff2"
   },
   {
     "nombre": "BioShock Remastered",
