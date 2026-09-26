@@ -1,5 +1,31 @@
 [
   {
+    "nombre": "Half Life 2",
+    "img": "assets/covers/cover hl2.png",
+    "desc": "Peso: 6.31GB + 2 DLCs",
+    "link1": "https://www.mediafire.com/file/3qlxi3z54d4wnxr/Half+Life+2+Switch.zip/file",
+    "link2": "",
+    "previewDesc": "Half-Life 2 es una continuación del legendario shooter de aventuras con vista en primera persona",
+    "trailer": "https://youtu.be/3w6rUeb0tWE",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/1405/070325_half-life_2_04.webp",
+      "https://files.vgtimes.com/gallery/main/1405/hl2-airboat2.webp",
+      "https://files.vgtimes.com/gallery/main/1405/d1_trainstation_010005.webp"
+    ],
+    "genre": "FPS",
+    "developer": "Valve",
+    "mode": "Single Player / Online",
+    "year": "2004",
+    "rating": "93",
+    "gameId": "",
+    "size": "6.31GB",
+    "format": "NSP",
+    "languages": "EN/ES",
+    "firmware": "",
+    "update": "",
+    "id": "00MSTnoZt3gCRxQUFp8c"
+  },
+  {
     "img": "assets/covers/cover NFSMW.png",
     "desc": "Disponible pronto",
     "link1": "",
