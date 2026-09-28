@@ -3457,9 +3457,7 @@
   {
     "nombre": ".Need for Speed Most Wanted Recompiled",
     "img": "assets/covers/cover NFSMW.png",
-    "desc": "Disponible pronto",
     "previewDesc": "Corre al límite en un mundo abierto sin pantallas de carga. Sube en la Blacklist desafiando a los corredores más buscados, esquivando persecuciones policiales cada vez más intensas y personalizando tu coche hasta el último detalle. Con gráficos en alta definición y logros exclusivos.",
-    "trailer": "https://youtu.be/YWZaz8TcEnM",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/844/1583100044_1695.webp",
       "https://files.vgtimes.com/gallery/main/844/1582033533_8339.webp",
@@ -3471,8 +3469,15 @@
     "year": "2005",
     "rating": "83",
     "size": "7.29GB",
-    "format": "NSP",
     "update": "1.0.0",
+    "gameId": "",
+    "languages": "",
+    "link1": "https://www.mediafire.com/file/bgc4s75yd3xo3ta/nfsmw-nx.zip/file",
+    "link2": "",
+    "firmware": "",
+    "format": "NRO",
+    "trailer": "https://youtu.be/HwtMmDr14nY",
+    "desc": "Peso: 7GB",
     "id": "cd98KMlMH1OgpmzRTTKp"
   },
   {
