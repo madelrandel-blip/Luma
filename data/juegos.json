@@ -1218,6 +1218,32 @@
     "id": "Cqb5NT2omeoMKeEiGNOH"
   },
   {
+    "nombre": "Poppy Playtime: Chapter 4",
+    "img": "assets/covers/cover pp4.png",
+    "desc": "Peso: 2.68GB Update v1.3",
+    "link1": "https://www.mediafire.com/file/hvmdspimlmt0xbg/Poppy_Playtime_Chapter_4_%255Bv1.3%255D.xci/file",
+    "link2": "",
+    "previewDesc": "El capítulo más oscuro de la saga de Mob Entertainment te hunde en las profundidades desconocidas de la fábrica de Playtime Co., muy por debajo de todo lo que el mundo conocía. Aquí te esperan nuevas y aterradoras criaturas",
+    "trailer": "https://www.youtube.com/watch?v=wbN-lTHD_L0",
+    "screenshots": [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3008670/9661c7062695cce0d9655cf4d0e84565c6688268/ss_9661c7062695cce0d9655cf4d0e84565c6688268.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3008670/2137393b334a72e76adf67a99e4caf398fb985b3/ss_2137393b334a72e76adf67a99e4caf398fb985b3.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3008670/8b374d7244145c71cbb83843fcbc60a7cd6c0dfd/ss_8b374d7244145c71cbb83843fcbc60a7cd6c0dfd.jpg"
+    ],
+    "genre": "Horror",
+    "developer": "Mob",
+    "mode": "Single Player",
+    "year": "2025",
+    "rating": "65",
+    "gameId": "0100A2902051A000",
+    "size": "2.68GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/IT/ES/PT/JP/KO/RU",
+    "firmware": "20.4.0",
+    "update": "v1.3",
+    "id": "CrYdHbFPA2HyHWTgKKVi"
+  },
+  {
     "desc": "Peso: 10.4GB Update 1.0.2",
     "link2": "https://drive.google.com/file/d/17E42NikUgoCBGsrsDoBP0S2tzQkOJ64Y/view?usp=drivesdk",
     "img": "https://art.gametdb.com/switch/box/US/AMPYA.png?1768148291",
@@ -4360,6 +4386,32 @@
     "previewDesc": "Cría slimes adorables en un rancho de mundo abierto. Explora el Rancho Lejano, colecciona plorts y amplía tu granja en primera persona. Relajante y colorido, perfecto para sesiones cortas.",
     "firmware": "12.1.0",
     "id": "moOv6vMV3E60qhtPM6uM"
+  },
+  {
+    "nombre": "Poppy Playtime: Chapter 5",
+    "img": "assets/covers/cover pp5.png",
+    "desc": "Peso: 11.9GB Update 2.0",
+    "link1": "https://www.mediafire.com/file/7yl5ks4erfjr9zj/Poppy_Playtime_Chapter_5_%255Bv2.0%255D.xci/file",
+    "link2": "",
+    "previewDesc": "En el capítulo más reciente de la saga de Mob Entertainment, te adentras en las profundidades más horribles de la fábrica de Playtime Co. mientras el sistema de seguridad Huggy Wuggy te persigue sin tregua",
+    "trailer": "https://www.youtube.com/watch?v=EriEensiy0I",
+    "screenshots": [
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4100940/cd22a6fed289e7295ec38134b70b2079583c19b5/ss_cd22a6fed289e7295ec38134b70b2079583c19b5.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4100940/0ad4456b8439e79bb2c31529096adf3c590b2147/ss_0ad4456b8439e79bb2c31529096adf3c590b2147.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4100940/6246aa7eeca00dd1815de9c7ead1d1fb4609248e/ss_6246aa7eeca00dd1815de9c7ead1d1fb4609248e.jpg"
+    ],
+    "genre": "Horror",
+    "developer": "Mob",
+    "mode": "Single Player",
+    "year": "2026",
+    "rating": "69",
+    "gameId": "010075D026910000",
+    "size": "11.9GB",
+    "format": "XCI",
+    "languages": " EN/FR/DE/IT/ES/PT/JP/KO/RU/ZH",
+    "firmware": "22.5.0",
+    "update": "v2.0",
+    "id": "muy2sYxq6o5yETPhzcX3"
   },
   {
     "nombre": "Super Smash Bros Ultimate",
