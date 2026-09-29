@@ -4699,6 +4699,32 @@
     "id": "oqqbfIEFBrsmWoBmwRrO"
   },
   {
+    "nombre": "Hotline Miami Collection",
+    "img": "assets/covers/cover hmc.png",
+    "desc": "Peso: 1.21GB Update 2.0.3",
+    "link1": "https://www.mediafire.com/file/g005zin7bg6jo7t/Hotline+Miami+Collection+[v2.0.3].xci/file",
+    "link2": "",
+    "previewDesc": "Recopilación que reúne los dos juegos legendarios de Dennaton Games: Hotline Miami y Hotline Miami 2: Wrong Number, ambos en un solo paquete para Switch",
+    "trailer": "https://youtu.be/h6pBJjEuaOI",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/197765/7304721571_nintendoswitch_hotlinemiami_screenshot_0.webp",
+      "https://files.vgtimes.com/gallery/main/197765/466866084_nintendoswitch_hotlinemiami_screenshot_0.webp",
+      "https://files.vgtimes.com/gallery/main/197765/5440620283_nintendoswitch_hotlinemiami_screenshot_0.webp"
+    ],
+    "genre": "Action",
+    "developer": "Abstraction Games",
+    "mode": "Single Player",
+    "year": "2019",
+    "rating": "82",
+    "gameId": "0100D0E00E51E000",
+    "size": "1.21GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/PT/RU/JA",
+    "firmware": "12.0.2",
+    "update": "2.0.3",
+    "id": "pLy3PVuPUVx9o7u2uY67"
+  },
+  {
     "nombre": "Minecraft Legends: Deluxe Edition",
     "img": "https://art.gametdb.com/switch/box/US/AZJ4A.png?1685771960",
     "desc": "Peso: 7.33GB Update 1.18.19068.0",
