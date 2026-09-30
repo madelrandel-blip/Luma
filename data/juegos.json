@@ -4388,6 +4388,32 @@
     "id": "mIAfO0dvCxoJIXcILUds"
   },
   {
+    "nombre": "LEGO Jurassic World",
+    "img": "https://art.gametdb.com/switch/box/US/AUM9A.png?1620588857",
+    "desc": "Peso: 4.74GB Update 1.0.1",
+    "link1": "https://www.mediafire.com/file/4e2ozwtamrdazvd/LEGO_Jurassic_World_%5Bv1.0.1%5D.xci/file",
+    "link2": "",
+    "previewDesc": " Revive los cuatro primeros filmes de la saga Jurassic, parque Jurásico, El Mundo Perdido, parque Jurásico III y Mundo Jurásico reconstruidos en su totalidad con los ladrillos de LEGO",
+    "trailer": "https://youtu.be/EJYmfPhxNmE",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/137071/1434119987-lego-jurassic-world-1.webp",
+      "https://files.vgtimes.com/gallery/thumb/137071/1434119985-lego-jurassic-world-2.webp",
+      "https://files.vgtimes.com/gallery/thumb/137071/1434119987-lego-jurassic-world-4.webp"
+    ],
+    "genre": "Adventure",
+    "developer": "TT Games",
+    "mode": "Single Player",
+    "year": "2019",
+    "rating": "71",
+    "gameId": "01001C100E772000",
+    "size": "4.74GB",
+    "format": "XCI",
+    "languages": "EN/FR/ES/DE/IT/PT/NL/RU/JA",
+    "firmware": "9.0.0",
+    "update": "v1.0.1",
+    "id": "mYcQCDHYpsVsuXUVHd6D"
+  },
+  {
     "img": "https://art.gametdb.com/switch/box/US/A3YNA.png?1767627709",
     "link1": "https://www.mediafire.com/file/agvrd1bhxmdy5tl/Slime+Rancher+Plortable+Edition+[v1.4.4].xci/file",
     "desc": "Peso: 1.13GB + 1.4.4",
