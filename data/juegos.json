@@ -1740,6 +1740,32 @@
     "id": "IAmRV9qSHanpujIWOgnc"
   },
   {
+    "nombre": "LEGO City Undercover",
+    "img": "https://art.gametdb.com/switch/box/US/ABM2A.png?1556585320",
+    "desc": "Peso: 8.70GB Update 1.0.3",
+    "link1": "https://www.mediafire.com/file/suk96m63xg02b01/LEGO+CITY+UNDERCOVER+[v1.0.3].xci/file",
+    "link2": "",
+    "previewDesc": "Controla al detective Chase McCain, un policía que se infiltra bajo cubierta para capturar al notorio criminal Rex Fury y acabar con su ola de crimen por toda la ciudad",
+    "trailer": "https://youtu.be/G__nLsIiuoE",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/1075/1493026589_6258.webp",
+      "https://files.vgtimes.com/gallery/thumb/1075/1493026596_4097.webp",
+      "https://files.vgtimes.com/gallery/thumb/1075/1493026609_7710.webp"
+    ],
+    "genre": "Action",
+    "developer": "TT Games",
+    "mode": "Single Player",
+    "year": "2017",
+    "rating": "78",
+    "gameId": "010085500130A000",
+    "size": "8.70GB",
+    "format": "XCI",
+    "languages": "EN/FR/ES/DE/IT/NL/PT/RU/ZH",
+    "firmware": "13.2.1",
+    "update": "v1.0.3",
+    "id": "IMcCqLhLzGAoMiEbtx5C"
+  },
+  {
     "nombre": "Mario + Rabbids: Kingdom Battle",
     "img": "https://art.gametdb.com/switch/box/US/BAANA.png?1557250065",
     "desc": "Peso: 4.43GB Update 1.9.589692 + 4 DLCs",
