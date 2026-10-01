@@ -3842,6 +3842,32 @@
     "id": "exiiCftFpjEnuPRNxHdw"
   },
   {
+    "nombre": "The LEGO NINJAGO Movie Video Game",
+    "img": "https://art.gametdb.com/switch/box/US/AB4JA.png?1516992616",
+    "desc": "Peso: 7.54GB Update 1.0.2",
+    "link1": "https://www.mediafire.com/file/lmdud4sdfxy4j1h/The_LEGO_NINJAGO_Movie_Video_Game_%255Bv1.0.2%255D.xci/file",
+    "link2": "",
+    "trailer": "https://youtu.be/PfUwnd2TC2k",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/142535/1502989712_1812.webp",
+      "https://files.vgtimes.com/gallery/thumb/142535/1502989706_7771.webp",
+      "https://files.vgtimes.com/gallery/thumb/142535/1502989717_4011.webp"
+    ],
+    "genre": "Action / Adventure",
+    "developer": "TT Games",
+    "mode": "Single Player / Local 4",
+    "year": "2017",
+    "rating": "66",
+    "gameId": "01007FC00206E000",
+    "size": "7.54GB",
+    "format": "XCI",
+    "languages": "EN/FR/ES/DE/IT/NL",
+    "firmware": "4.0.0",
+    "update": "v1.0.2",
+    "previewDesc": "Compatible con la película homónima, te pone al mando de los seis ninjas Lloyd, Jay, Kai, Cole, Zane y Nya junto al maestro Wu para defender su isla de Ninjago del malvado Lord Garmadon y su Ejército Tiburón.",
+    "id": "feXEjxi3ygmtLpv6azZ2"
+  },
+  {
     "nombre": "Donkey Kong Country: Tropical Freeze",
     "img": "https://art.gametdb.com/switch/box/US/AFWTA.png?1557052835",
     "desc": "Peso: 6.68GB Update 1.0.2",
