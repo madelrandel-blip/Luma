@@ -1628,6 +1628,32 @@
     "id": "HJCeIpL7dCcULkR0sU0X"
   },
   {
+    "nombre": "LEGO MARVEL Super Heroes",
+    "img": "assets/covers/cover lmsh.png",
+    "desc": "Peso: 5.9GB Update 1.0.1",
+    "link1": "https://www.mediafire.com/file/uf0kx4jx64uosjr/LEGO_MARVEL_Super_Heroes_%5Bv1.0.1%5D.xci/file",
+    "link2": "",
+    "previewDesc": "Historia original que cruza todo el universo Marvel: Iron Man, Spider-Man, Hulk, Capitán América, Lobezno y más de 150 personajes unen fuerzas para impedir que Loki y demás villanos ensamblen un superarma capaz de destruir el mundo.",
+    "trailer": "https://youtu.be/vixl-uscO0o",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/1369/1583039545_4864.webp",
+      "https://files.vgtimes.com/gallery/thumb/1369/1583039557_7723.webp",
+      "https://files.vgtimes.com/gallery/main/1369/1583039552_286.webp"
+    ],
+    "genre": "Action / Adventure",
+    "developer": "TT Games",
+    "mode": "Single Player / Local 2",
+    "year": "2021",
+    "rating": "79",
+    "gameId": "01006F600FFC4000",
+    "size": "5.9GB",
+    "format": "XCI",
+    "languages": "JA/EN/FR/ES/DE/IT/NL/PT/RU",
+    "firmware": "12.1.0",
+    "update": "v1.0.1",
+    "id": "HRubwIcLzVMFd2dzRUQo"
+  },
+  {
     "nombre": "Princess Peach Showtime!",
     "img": "https://art.gametdb.com/switch/box/US/AMJJA.png?1768282218",
     "desc": "Peso: 4.6GB",
@@ -4801,6 +4827,32 @@
     "firmware": "12.0.2",
     "update": "2.0.3",
     "id": "pLy3PVuPUVx9o7u2uY67"
+  },
+  {
+    "nombre": "LEGO Marvel Super Heroes 2",
+    "img": "https://art.gametdb.com/switch/box/US/AEANA.png?1518045081",
+    "desc": "Peso: 13.4GB Update 1.0.7",
+    "link1": "https://www.mediafire.com/file/mlhzgdt82cgf1lz/LEGO+MARVEL+Super+Heroes+2+[v1.0.7+++10+DLCs].xci/file",
+    "link2": "",
+    "previewDesc": "Ante Kang el Conquistador, héroes y villanos de distintas eras y realidades se enfrentan en una aventura original ambientada en Chronópolis, la ciudad arrojada por los tiempos que combina el Antiguo Egipto, el Salvaje Oeste, Sakaar y la Nueva York de 2099",
+    "trailer": "https://youtu.be/ZFzICY8MJdc",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/main/141923/4933293721_1686165102_4000.webp",
+      "https://files.vgtimes.com/gallery/main/141923/lego-marvel-super-heroes_15.webp",
+      "https://files.vgtimes.com/gallery/main/141923/1508177476_3883.webp"
+    ],
+    "genre": "Action / Adventure",
+    "developer": "TT Games",
+    "mode": "Single Player ",
+    "year": "2017",
+    "rating": "76",
+    "gameId": "01007690040A0000",
+    "size": "13.4GB",
+    "format": "XCI",
+    "languages": "EN/FR/ES/DE/IT/NL/PT/RU/KO/ZH",
+    "firmware": "13.2.1",
+    "update": "v1.0.7 + 10 DLCs",
+    "id": "pxDRQI0B4PG1WvwxuwL3"
   },
   {
     "nombre": "Minecraft Legends: Deluxe Edition",
