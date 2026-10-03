@@ -5753,6 +5753,32 @@
     "id": "zLUHVMZVqKa6EFh7y6aW"
   },
   {
+    "nombre": "LEGO The Incredibles",
+    "img": "https://art.gametdb.com/switch/box/US/AH3EA.png?1556584650",
+    "desc": "Peso: 9.81 Update 1.0.2",
+    "link1": "https://www.mediafire.com/file/0qb4qmqi5t7rzm6/LEGO_The_Incredibles_%255Bv1.0.2_%252B_DLCs%255D.xci/file",
+    "link2": "",
+    "previewDesc": "Revive las dos películas de los Parr, Los Increíbles e Increíbles 2 en ladrillos LEGO, alternando el combate contra el crimen con la caótica vida familiar. Usa los superpoderes únicos de cada miembro: la fuerza de Sr. Increíble, las acrobacias de Dash, la elasticidad de Elastigirl o la invisibilidad y escudos de Jack-Jack y Violeta, en niveles llenos de acción y rompecabezas hasta derrotar a Síndrome, el Minando y el francotirador Screenslaver.",
+    "trailer": "https://youtu.be/MWMPW4X3bQs",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/166994/1522312243_4902.webp",
+      "https://files.vgtimes.com/gallery/thumb/166994/1522312246_8486.webp",
+      "https://files.vgtimes.com/gallery/thumb/166994/1529385435_4134.webp"
+    ],
+    "genre": "Action Adventure",
+    "developer": "TT Games",
+    "mode": "Single Player / Local 2",
+    "year": "2018",
+    "rating": "65",
+    "gameId": "0100F19006E04000",
+    "size": "9.81",
+    "format": "XCI",
+    "languages": "EN/FR/ES/DE/IT/NL/PT/RU/KO/ZH",
+    "firmware": "5.1.0",
+    "update": "v1.0.2",
+    "id": "zQTWOQ2jKc3q6SD71IaT"
+  },
+  {
     "nombre": "Kirbys Dream buffet",
     "desc": "Peso: 1.20GB",
     "link1": "https://www.mediafire.com/file/bi6a2jgd2yg4452/Kirbys+Dream+Buffet.nsp/file",
