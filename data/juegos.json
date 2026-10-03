@@ -2312,6 +2312,32 @@
     "id": "OIdvb9MsZProepg2Aiks"
   },
   {
+    "nombre": "LEGO Harry Potter Collection",
+    "img": "https://art.gametdb.com/switch/box/US/AQPZA.png?1557138476",
+    "desc": "Peso: 12.1GB Update 1.0.2",
+    "link1": "https://www.mediafire.com/file/w8zb4kkol3giagu/LEGO+Harry+Potter+Collection+[v1.0.2].xci/file",
+    "link2": "",
+    "previewDesc": "Compilación remasterizada que reúne LEGO Harry Potter: Years 1-4 y Years 5-7 en un solo cartucho, cubriendo las ocho películas de la saga del joven mago. Recorre Hogwarts como un hub inmenso y lleno de secretos, lanza hechizos, prepara pociones, acude a clases, resuelve puzles y desafía a otros alumnos en duelos mientras revives momentos icónicos de los filmes.",
+    "trailer": "https://youtu.be/6-DZpDNQ9Tc",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/140678/1478557027_29.webp",
+      "https://files.vgtimes.com/gallery/thumb/140678/3712797527_ss_17f844b07632f01848c8d267374732a63a459.webp",
+      "https://files.vgtimes.com/gallery/thumb/140678/1184785993_ss_32bc0df7a1cbbed8118a318e435fa2578881c.webp"
+    ],
+    "genre": "Fantasy",
+    "developer": "TT Games",
+    "mode": "Single Player ",
+    "year": "2018",
+    "rating": "73",
+    "gameId": "010052A00B5D2000",
+    "size": "12.1GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/IT/ES",
+    "update": "v1.0.2",
+    "firmware": "6.2.0",
+    "id": "Oa525pffIcbSdzXQnvQ0"
+  },
+  {
     "nombre": "Sonic Frontiers",
     "img": "https://art.gametdb.com/switch/box/US/A39ZA.png?1667937852",
     "desc": "Peso: 15.27GB Update 1.4.1 + 5 DLCs ",
@@ -4362,6 +4388,32 @@
     "id": "lOORPAyBdmbg7ZiV1Dd6"
   },
   {
+    "nombre": "LEGO Brawls",
+    "img": "https://art.gametdb.com/switch/box/US/A6AUA.png?1684366064",
+    "desc": "Peso: 3.47GB Update 1.0.7",
+    "link1": "https://www.mediafire.com/file/2ymriwbfb84qz9d/LEGO+Brawls+[v1.0.7].xci/file",
+    "link2": "",
+    "previewDesc": "Construye al minifigura definitivo desde un cactus gruñón hasta un ninja conserje con gallinas de pelea y enfréntate en el primer brawler de acción por equipos del universo LEGO. Combates 4 contra 4.",
+    "trailer": "https://youtu.be/MuYe0URoSVc",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/171572/1652296443_6112.webp",
+      "https://files.vgtimes.com/gallery/thumb/171572/1652296440_705.webp",
+      "https://files.vgtimes.com/gallery/thumb/171572/1652296445_4155.webp"
+    ],
+    "genre": "Party",
+    "developer": "Red Games Co.",
+    "mode": "Multiplayer / Local 8",
+    "year": "2022",
+    "rating": "38",
+    "gameId": "010038A01628A000",
+    "size": "3.47GB",
+    "format": "XCI",
+    "languages": "JA/EN/FR/DE/IT/ES/NL/PT/RU/KO/ZH",
+    "firmware": "17.0.1",
+    "update": "v1.0.7",
+    "id": "lVoB2Z6OWupS7g4IkKcv"
+  },
+  {
     "nombre": "Shantae Advance: Risky Revolution",
     "img": "https://art.gametdb.com/switch/box/US/BFJ4A.png?1755944743",
     "desc": "Peso: 555MB Update 1.0.923142 + DLC",
@@ -5131,6 +5183,32 @@
       "https://files.vgtimes.com/gallery/main/141076/1505420193_7912.webp"
     ],
     "id": "sVZMjQRyYRQVTO1ZBSIW"
+  },
+  {
+    "nombre": "LEGO 2K Drive",
+    "img": "https://art.gametdb.com/switch/box/US/A8G7A.png?1757362948",
+    "desc": "Peso: 8.47GB Update 1.17 + 13 DLCs",
+    "link1": "https://www.mediafire.com/file/epaslmwpxo8ghup/LEGO+2K+Drive+[v1.17+++13+DLCs].xci/file",
+    "link2": "",
+    "previewDesc": "Bienvenido a Bricklandia, el enorme mundo abierto de ladrillo donde tu vehículo de juguete se transforma en segundos para saltar sin pausas entre pistas de carreras, terrenos todoterreno y aguas abiertas.",
+    "trailer": "https://youtu.be/1YhIrHH3p-k",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/194048/6735361475_xt3ucchxqcuex3wv10k7ia.webp",
+      "https://files.vgtimes.com/gallery/thumb/194048/2674783117_2zsggwpnnx7w4soauxzbzq.webp",
+      "https://files.vgtimes.com/gallery/thumb/194048/5751796190_sdku2n1dk0w1w51oxgo0dg.webp"
+    ],
+    "genre": "Racings / Arcade",
+    "developer": "Visual Concepts (2K)",
+    "mode": "Multiplayer / Local 2",
+    "year": "2023",
+    "rating": "61",
+    "gameId": "0100739018020000",
+    "size": "8.47GB",
+    "format": "XCI",
+    "languages": "JA/EN/FR/DE/IT/ES/NL/PT/RU/KO/ZH",
+    "firmware": "18.0.0",
+    "update": "v1.17",
+    "id": "srMSAvweGFcErGG3g7eu"
   },
   {
     "nombre": "Resident Evil: Revelations",
