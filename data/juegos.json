@@ -1002,6 +1002,32 @@
     "id": "BSxkNRN9nb0emwzJ9C3K"
   },
   {
+    "nombre": "The LEGO Movie 2 Videogame",
+    "img": "https://art.gametdb.com/switch/box/US/AREHA.png?1556381444",
+    "desc": "Peso: 6.36GB Update 1.0.3",
+    "link1": "https://www.mediafire.com/file/yt1rzx341zi50pu/The_LEGO_Movie_2_Videogame_%255Bv1.0.3_%252B_2_DLCs%255D.xci/file",
+    "link2": "",
+    "previewDesc": "Tras la invasión alienígena que deja Bricksburg en ruinas y secuestra a sus amigos, Emmet debe viajar más allá de su mundo hasta el misterioso Sistema Systar para rescatarlos. Inspirado en la película La LEGO Película 2, el juego mezcla niveles de acción con exploración en mundos abiertos tipo sandbox donde hay que reunir recursos, construir nuevos artilugios y usar las habilidades de distintos personajes.",
+    "trailer": "https://youtu.be/yeXV6kVwT48",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/169531/1543334565_5767.webp",
+      "https://files.vgtimes.com/gallery/thumb/169531/lego-film-2_-videoigra_20190302001308.webp",
+      "https://files.vgtimes.com/gallery/main/169531/lego-film-2_-videoigra_20190301235224.webp"
+    ],
+    "genre": "Action / Adventure",
+    "developer": "TT Games",
+    "mode": "Single Player / Local 2",
+    "year": "2019",
+    "rating": "56",
+    "gameId": "0100A4400BE74000",
+    "size": "6.36GB",
+    "format": "XCI",
+    "languages": "JA/EN/FR/DE/IT/ES/NL/PT/RU/KO/ZH",
+    "firmware": "8.0.1",
+    "update": "v1.0.3",
+    "id": "Bcl1TSnhgIhhNF1ltoVt"
+  },
+  {
     "link2": "",
     "link1": "https://www.mediafire.com/file/nquzzyr8zj40rgg/Blasphemous+2+[v1.0.8+++DLC].xci/file",
     "desc": "Peso: 3.06GB 1.0.8 + DLC",
