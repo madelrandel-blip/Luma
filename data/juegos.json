@@ -2832,6 +2832,32 @@
     "id": "VTpEXAAkfh9njCkGXVGe"
   },
   {
+    "nombre": "LEGO Horizon Adventures",
+    "img": "https://art.gametdb.com/switch/box/US/BCHKA.png?1740966712",
+    "desc": "Peso: 7.25GB Update 1.4.0 + 2 DLCs",
+    "link1": "https://www.mediafire.com/file/l34jx8cx5h2n4yz/LEGO+Horizon+Adventures+[v1.4.0+++2+DLCs].xci/file",
+    "link2": "",
+    "previewDesc": "Únete a la cazadora Aloy en su versión más divertida de ladrillo mientras intenta salvar la Tierra de un demonio digital ancestral y de una banda de adoradores del sol que quieren vivir sin sombras.",
+    "trailer": "https://youtu.be/D7FOW6GmEhg",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/201480/7684131673_1718046855_7513.webp",
+      "https://files.vgtimes.com/gallery/thumb/201480/9077363773_1731697851_1784.webp",
+      "https://files.vgtimes.com/gallery/thumb/201480/8474830671_1718046857_9294.webp"
+    ],
+    "genre": "Adventure",
+    "developer": "Studio Gobo",
+    "mode": "Singple Player / Local 2",
+    "year": "2024",
+    "rating": "64",
+    "gameId": "010073C01AF34000",
+    "size": "7.25GB",
+    "format": "XCI",
+    "languages": "JA/EN/FR/DE/IT/ES/NL/PT/RU/KO/ZH",
+    "firmware": "19.0.1",
+    "update": "v1.4.0 + 2 DLCs",
+    "id": "VZdc2W8915DDY8hUH4P0"
+  },
+  {
     "nombre": "The Legend of Zelda: Tears of the Kingdom",
     "img": "https://art.gametdb.com/switch/box/US/AXN7A.png",
     "desc": "Peso: 16.4GB Update 1.4.3",
