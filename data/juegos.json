@@ -5577,12 +5577,9 @@
     "img": "https://art.gametdb.com/switch/box/CA/BANRA.png?1767731341",
     "desc": "Peso: 2.99GB",
     "link2": "https://gofile.io/d/NbkwbQ",
-    "link1": "https://www.mediafire.com/file/401anam770j17ri/MANSION2HD.rar/file",
     "gameId": "010048701995E000",
     "languages": "ES/EN/FR/DE/IT/NL/PT/RU",
-    "year": 2024,
     "format": "NSP",
-    "rating": 77,
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/202172/3838865509_1719515544_5749.webp",
       "https://files.vgtimes.com/gallery/main/202172/9284243615_1719515543_7055.webp",
@@ -5595,6 +5592,10 @@
     "developer": "Next Level Games",
     "previewDesc": "El tímido y asustadizo Luigi regresa en esta versión remasterizada en alta definición de su aventura de 3DS. Viaja al Valle Eterno, explora mansiones encantadas y resuelve acertijos paranormales mientras atrapas fantasmas con el Poltergust 5000. Gráficos mejorados, multijugador online y todo el encanto del original de la mano de Nintendo.",
     "firmware": "16.0.0",
+    "link1": "https://www.mediafire.com/file/ph5x2i7n6gecd68/LM2HD.rar/file",
+    "year": "2024",
+    "rating": "77",
+    "update": "",
     "id": "uvvpYtkYf9x6yHfu7w9H"
   },
   {
