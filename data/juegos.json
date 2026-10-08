@@ -2787,6 +2787,39 @@
     "id": "TqYPITeGe4Vi5XrEblAe"
   },
   {
+    "nombre": "LEGO Worlds",
+    "img": "https://art.gametdb.com/switch/box/US/ACL4A.png?1516992637",
+    "desc": "Peso: 2.92GB Update 1.3.2 + DLCs",
+    "previewDesc": "Sandbox de mundo abierto ambientado en mundos generados proceduralmente hechos enteramente de ladrillos LEGO. Exploras, descubres y construyes brick a brick (o con herramientas de paisaje a gran escala), completas misiones para desbloquear objetos, edificios y vehículos, y hay un modo libre para crear tu propio mundo. Incluye los DLC Classic Space y Monsters.",
+    "trailer": "https://www.youtube.com/watch?v=uyEJBDJIwFA",
+    "genre": "Sandbox",
+    "developer": "TT Games",
+    "mode": "Single Player / Local 1-2",
+    "year": "2017",
+    "rating": "59",
+    "gameId": "0100838002AEA000",
+    "size": "2.92GB",
+    "format": "XCI",
+    "languages": "JP/EN/FR/DE/IT/ES/KO/NL/PT/RU/ZH",
+    "firmware": "13.2.1",
+    "update": "v1.3.2 + 4 DLCs",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/2l2zcu9ynngdwvb/LEGO+Worlds+[v1.3.2+++4+DLCs].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/2l2zcu9ynngdwvb/LEGO+Worlds+[v1.3.2+++4+DLCs].xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/137314/ss_4445ee4dd9c56266337aa8943be63afecbf22.webp",
+      "https://files.vgtimes.com/gallery/thumb/137314/ss_d50921469b7279b38f3f88f282f015ab5d0b6.webp",
+      "https://files.vgtimes.com/gallery/thumb/137314/1497478502_3689.webp"
+    ],
+    "id": "UtSmcydKwnUxOzYB3WWI"
+  },
+  {
     "desc": "Peso: 1.53GB Update 1.4.1.1",
     "link1": "https://www.mediafire.com/file/r3zhjyvamo7asw7/Celeste_%255Bv1.4.1.1%255D.xci/file",
     "link2": "",
