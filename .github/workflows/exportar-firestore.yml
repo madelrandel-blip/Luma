@@ -1,12 +1,15 @@
 name: Exportar Firestore a JSON
 
-# Se ejecuta cada 20 minutos y también se puede lanzar a mano
-# desde la pestaña "Actions" de GitHub cuando se quiere reflejar
-# un cambio del panel admin de inmediato en el sitio público.
+# Se ejecuta cada 20 minutos y también a mano desde la pestaña "Actions"
+# para reflejar de inmediato un cambio del panel en el sitio público.
 on:
   schedule:
     - cron: "*/20 * * * *"
   workflow_dispatch: {}
+
+# Evita que importación y exportación se ejecuten al mismo tiempo
+concurrency:
+  group: firestore-sync
 
 permissions:
   contents: write
@@ -44,8 +47,7 @@ jobs:
             exit 0
           fi
           git commit -m "Actualizar datos exportados de Firestore"
-          # Sincronizar con la rama antes de subir: si hay commits nuevos en
-          # main (por ejemplo, cambios de la web), se integran con rebase
-          # para que el push no falle con "non-fast-forward".
+          # Integra con rebase los commits nuevos de main para que el push
+          # no falle con "non-fast-forward".
           git pull --rebase origin main
           git push

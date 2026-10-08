@@ -1,16 +1,19 @@
 name: Importar JSON a Firestore
 
-# Se ejecuta automáticamente cuando se modifican los archivos JSON
-# (push con cambios en data/*.json) o cada 20 minutos.
-# También se puede lanzar a mano desde la pestaña "Actions".
+# Sube los JSON de data/ a Firestore cuando se modifican en el repositorio,
+# o a mano desde la pestaña "Actions".
+# No se programa por horario: una importación periódica sobrescribiría con
+# datos antiguos las ediciones hechas en el panel antes de la siguiente exportación.
 
 on:
   push:
     paths:
       - "data/*.json"
-  schedule:
-    - cron: "*/20 * * * *"
   workflow_dispatch: {}
+
+# Evita que importación y exportación se ejecuten al mismo tiempo
+concurrency:
+  group: firestore-sync
 
 permissions:
   contents: read

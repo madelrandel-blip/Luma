@@ -1,117 +1,81 @@
 /* =========================
    IMPORTAR JSON A FIRESTORE
    ========================= */
-// Se ejecuta desde GitHub Actions o manualmente.
-// Lee /data/juegos.json y lo sube completo a Firestore,
-// creando o actualizando documentos con TODOS los campos.
+// Se ejecuta desde GitHub Actions o a mano. Sube data/juegos.json y
+// data/homebrew.json a Firestore: crea los documentos nuevos y actualiza
+// los que cambiaron (se identifican por nombre).
 
-const admin = require("firebase-admin");
 const fs = require("fs");
 const path = require("path");
+const { db, dataDir } = require("./firestore");
 
-// La credencial puede venir de variable de entorno o de un archivo local
-let credencial;
-if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-    credencial = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-} else {
-    // Para ejecución local: coloca tu serviceAccountKey.json en la raíz
-    const rutaLocal = path.join(__dirname, "..", "serviceAccountKey.json");
-    if (fs.existsSync(rutaLocal)) {
-        credencial = JSON.parse(fs.readFileSync(rutaLocal, "utf-8"));
-    } else {
-        console.error("No se encontró credencial. Define FIREBASE_SERVICE_ACCOUNT o coloca serviceAccountKey.json en la raíz del proyecto.");
-        process.exit(1);
-    }
-}
-
-admin.initializeApp({
-    credential: admin.credential.cert(credencial)
-});
-
-const db = admin.firestore();
-
-// Todos los campos que el formulario admin maneja
+// Campos que maneja el formulario del panel de administración
 const CAMPOS_PERMITIDOS = [
-    "nombre", "img", "desc", "link1", "link2",
+    "nombre", "img", "desc", "link1", "link2", "botones",
     "previewDesc", "trailer", "screenshots",
     "genre", "developer", "mode", "year", "rating",
     "gameId", "size", "format", "languages", "firmware", "update"
 ];
 
-async function importarJuegos(coleccionNombre, rutaJson) {
-    // Leer el JSON actualizado
-    const ruta = path.join(__dirname, "..", rutaJson);
-    const juegos = JSON.parse(fs.readFileSync(ruta, "utf-8"));
+const vacio = (valor) => valor === undefined || valor === null || valor === "";
 
-    console.log(`Leyendo ${juegos.length} juegos desde ${rutaJson}...`);
+function limpiar(juego) {
+    const datos = {};
 
-    // Obtener todos los documentos existentes en Firestore (para matchear por nombre)
-    const snapshot = await db.collection(coleccionNombre).get();
-    const existentes = {};
-    snapshot.forEach(docSnap => {
-        const data = docSnap.data();
-        existentes[data.nombre] = docSnap.id;
-    });
+    for (const campo of CAMPOS_PERMITIDOS) {
+        if (!vacio(juego[campo])) datos[campo] = juego[campo];
+    }
+
+    if (!Array.isArray(datos.screenshots)) datos.screenshots = [];
+
+    return datos;
+}
+
+const huboCambios = (nuevo, actual) =>
+    CAMPOS_PERMITIDOS.some(campo => JSON.stringify(nuevo[campo] ?? null) !== JSON.stringify(actual[campo] ?? null));
+
+async function importarColeccion(coleccion) {
+    const juegos = JSON.parse(fs.readFileSync(path.join(dataDir, `${coleccion}.json`), "utf-8"));
+
+    console.log(`Importando ${juegos.length} documentos a "${coleccion}"...`);
+
+    // Un único listado de Firestore sirve para localizar y comparar cada documento
+    const snapshot = await db.collection(coleccion).get();
+    const existentes = new Map(snapshot.docs.map(d => [d.get("nombre"), d]));
 
     let creados = 0;
     let actualizados = 0;
     let sinCambios = 0;
 
     for (const juego of juegos) {
-        // Construir objeto solo con campos permitidos
-        const datos = {};
-        for (const campo of CAMPOS_PERMITIDOS) {
-            if (juego[campo] !== undefined && juego[campo] !== null && juego[campo] !== "") {
-                datos[campo] = juego[campo];
-            }
-        }
+        const datos = limpiar(juego);
 
-        // Asegurar que screenshots sea array
-        if (!Array.isArray(datos.screenshots)) {
-            datos.screenshots = [];
-        }
+        if (!datos.nombre) continue;
 
-        const nombre = datos.nombre;
-        if (!nombre) continue;
+        const existente = existentes.get(datos.nombre);
 
-        if (existentes[nombre]) {
-            // Ya existe → actualizar
-            const docRef = db.collection(coleccionNombre).doc(existentes[nombre]);
-            const docSnap = await docRef.get();
-            const actual = docSnap.data();
-
-            // Verificar si hay cambios reales
-            const cambio = CAMPOS_PERMITIDOS.some(campo => {
-                const nuevo = JSON.stringify(datos[campo] || null);
-                const viejo = JSON.stringify(actual[campo] || null);
-                return nuevo !== viejo;
-            });
-
-            if (cambio) {
-                await docRef.update(datos);
-                console.log(`  ↻ Actualizado: ${nombre}`);
-                actualizados++;
-            } else {
-                sinCambios++;
-            }
-        } else {
-            // Nuevo → crear
-            await db.collection(coleccionNombre).add(datos);
-            console.log(`  + Creado: ${nombre}`);
+        if (!existente) {
+            await db.collection(coleccion).add(datos);
+            console.log(`  + Creado: ${datos.nombre}`);
             creados++;
+
+        } else if (huboCambios(datos, existente.data())) {
+            await existente.ref.update(datos);
+            console.log(`  ↻ Actualizado: ${datos.nombre}`);
+            actualizados++;
+
+        } else {
+            sinCambios++;
         }
     }
 
-    console.log(`\n--- Importación completada [${coleccionNombre}] ---`);
-    console.log(`  Creados:     ${creados}`);
-    console.log(`  Actualizados: ${actualizados}`);
-    console.log(`  Sin cambios:  ${sinCambios}`);
-    console.log(`  Total en JSON: ${juegos.length}`);
+    console.log(`Importación de "${coleccion}" completada: ${creados} creados, ${actualizados} actualizados, ${sinCambios} sin cambios.\n`);
 }
 
-importarJuegos("juegos", "data/juegos.json")
-    .then(() => importarJuegos("homebrew", "data/homebrew.json"))
-    .catch(error => {
-        console.error("Error importando a Firestore:", error);
-        process.exit(1);
-    });
+(async () => {
+    await importarColeccion("juegos");
+    await importarColeccion("homebrew");
+})().catch(error => {
+    console.error("Error importando a Firestore:", error);
+    process.exit(1);
+});

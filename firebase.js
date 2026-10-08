@@ -1,3 +1,9 @@
+/* =========================
+   LUMA SWITCH - firebase.js
+   Acceso a datos (Firestore + JSON estático), autenticación y panel de administración.
+   Depende de las funciones y el estado globales definidos en script.js.
+   ========================= */
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
     getFirestore,
@@ -6,12 +12,10 @@ import {
     addDoc,
     deleteDoc,
     doc,
-    updateDoc,
     setDoc,
     query,
     where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 import {
     getAuth,
     signInWithEmailAndPassword,
@@ -19,91 +23,187 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-/* ========= CONFIG ========= */
+/* ========= CONFIGURACIÓN ========= */
+// La clave de API de Firebase es pública por diseño; el acceso real
+// se controla con las reglas de seguridad de Firestore.
 const firebaseConfig = {
     apiKey: "AIzaSyCnqFKUPqbcTt0As9atnSQML00ReFgcgbw",
     authDomain: "luma-switch.firebaseapp.com",
-    projectId: "luma-switch",
+    projectId: "luma-switch"
 };
 
-/* ========= INICIALIZAR ========= */
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-/* ========= REFERENCIAS EXPLÍCITAS ========= */
-const elNombre     = document.getElementById("nombre");
-const elImg        = document.getElementById("img");
-const elDesc       = document.getElementById("desc");
-const elLink1      = document.getElementById("link1");
-const elLink2      = document.getElementById("link2");
-const elPreviewDesc= document.getElementById("previewDesc");
-const elTrailer    = document.getElementById("trailer");
-const elScreenshots= document.getElementById("screenshots");
-const elGenre      = document.getElementById("genre");
-const elDeveloper  = document.getElementById("developer");
-const elMode       = document.getElementById("mode");
-const elYear       = document.getElementById("year");
-const elRating     = document.getElementById("rating");
-const elGameId     = document.getElementById("gameId");
-const elSize       = document.getElementById("size");
-const elFormat     = document.getElementById("format");
-const elLanguages  = document.getElementById("languages");
-const elFirmware   = document.getElementById("firmware");
-const elUpdate     = document.getElementById("update");
+/* ========= ESTADO DEL PANEL ========= */
+let cargando = false;
+let guardando = false;
+let editIndex = null;            // id del documento en edición (null = juego nuevo)
+let coleccionEdicion = "juegos"; // colección de origen del documento en edición
+let screenshotsOriginales = [];
+let listaGlobal = [];            // juegos + homebrew mostrados en el panel
+
+// Campos de texto del formulario; el id del elemento coincide con el campo del documento
+const CAMPOS = [
+    "nombre", "img", "desc", "previewDesc", "trailer",
+    "genre", "developer", "mode", "year", "rating",
+    "gameId", "size", "format", "languages", "firmware", "update"
+];
+
+const campos = Object.fromEntries(CAMPOS.map(id => [id, document.getElementById(id)]));
+const elScreenshots = document.getElementById("screenshots");
 const elEsHomebrew = document.getElementById("esHomebrew");
-const elUser       = document.getElementById("user");
-const elPass       = document.getElementById("pass");
+const btnGuardar = document.getElementById("btnGuardar");
+const btnCancelar = document.getElementById("btnCancelar");
+const adminMode = document.getElementById("adminMode");
+const adminModeText = document.getElementById("adminModeText");
 
-// Colección a la que pertenece el juego en edición (juegos | homebrew)
-let coleccionEdicion = "juegos";
+/* ========= EDITOR DE BOTONES ========= */
+const listaBotones = document.getElementById("botonesLista");
+const selectTipoNuevo = document.getElementById("botonTipoNuevo");
 
-/* ========= LOGIN ESTADO ========= */
+const opcionesTipo = (seleccionado) => Object.keys(TIPOS_BOTON)
+    .map(tipo => `<option${tipo === seleccionado ? " selected" : ""}>${tipo}</option>`)
+    .join("");
+
+selectTipoNuevo.innerHTML = opcionesTipo("Obtener");
+
+function agregarFilaBoton({ tipo = "Obtener", texto = "", url = "", color = "" } = {}){
+    if(!TIPOS_BOTON[tipo]) tipo = "Otro";
+
+    const fila = document.createElement("div");
+    fila.className = "boton-fila";
+
+    fila.innerHTML = `
+        <i class="bf-icono ${iconoBoton(tipo)}"></i>
+        <select class="bf-tipo" title="Tipo de botón">${opcionesTipo(tipo)}</select>
+        <input type="text" class="bf-url" placeholder="URL del enlace">
+        <input type="color" class="bf-color" title="Color del botón">
+        <div class="bf-acciones">
+            <button type="button" data-op="subir" title="Subir"><i class="fa-solid fa-chevron-up"></i></button>
+            <button type="button" data-op="bajar" title="Bajar"><i class="fa-solid fa-chevron-down"></i></button>
+            <button type="button" data-op="borrar" title="Quitar"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <input type="text" class="bf-texto" placeholder="Texto del botón">`;
+
+    const inputColor = fila.querySelector(".bf-color");
+
+    fila.querySelector(".bf-url").value = url;
+    fila.querySelector(".bf-texto").value = texto;
+
+    // Si el color guardado es el predeterminado del tipo, seguirá al cambiar de tipo
+    const personalizado = colorValido(color) && color.toLowerCase() !== TIPOS_BOTON[tipo].toLowerCase();
+    fila.dataset.personalizado = personalizado ? "1" : "";
+
+    inputColor.value = colorValido(color) ? color : TIPOS_BOTON[tipo];
+    fila.style.setProperty("--c", inputColor.value);
+    fila.classList.toggle("es-otro", tipo === "Otro");
+
+    listaBotones.appendChild(fila);
+}
+
+function limpiarBotones(){
+    listaBotones.innerHTML = "";
+}
+
+function leerBotones(){
+    return [...listaBotones.children]
+        .map(fila => {
+            const tipo = fila.querySelector(".bf-tipo").value;
+            const boton = {
+                tipo,
+                url: fila.querySelector(".bf-url").value.trim(),
+                color: fila.querySelector(".bf-color").value
+            };
+
+            if(tipo === "Otro") boton.texto = fila.querySelector(".bf-texto").value.trim();
+
+            return boton;
+        })
+        .filter(b => b.url);
+}
+
+document.getElementById("btnAgregarBoton").addEventListener("click", () => {
+    agregarFilaBoton({ tipo: selectTipoNuevo.value });
+});
+
+listaBotones.addEventListener("change", (e) => {
+    const fila = e.target.closest(".boton-fila");
+    if(!fila) return;
+
+    if(e.target.classList.contains("bf-tipo")){
+        fila.classList.toggle("es-otro", e.target.value === "Otro");
+        fila.querySelector(".bf-icono").className = "bf-icono " + iconoBoton(e.target.value);
+
+        if(!fila.dataset.personalizado){
+            const color = fila.querySelector(".bf-color");
+            color.value = TIPOS_BOTON[e.target.value];
+            fila.style.setProperty("--c", color.value);
+        }
+    }
+});
+
+listaBotones.addEventListener("input", (e) => {
+    if(!e.target.classList.contains("bf-color")) return;
+
+    const fila = e.target.closest(".boton-fila");
+    fila.dataset.personalizado = "1";
+    fila.style.setProperty("--c", e.target.value);
+});
+
+listaBotones.addEventListener("click", (e) => {
+    const boton = e.target.closest("button[data-op]");
+    if(!boton) return;
+
+    const fila = boton.closest(".boton-fila");
+
+    if(boton.dataset.op === "subir" && fila.previousElementSibling){
+        fila.previousElementSibling.before(fila);
+    }else if(boton.dataset.op === "bajar" && fila.nextElementSibling){
+        fila.nextElementSibling.after(fila);
+    }else if(boton.dataset.op === "borrar"){
+        fila.remove();
+    }
+});
+
+const etiquetaColeccion = (coleccion) => coleccion === "homebrew" ? "Homebrew" : "Juegos";
+
+agregarFilaBoton();
+
+/* ========= SESIÓN ========= */
 onAuthStateChanged(auth, (user) => {
     admin = !!user;
 
-    if(adminPanel){
-        adminPanel.classList.remove("open");
-        adminPanel.style.display = "none";
-    }
+    adminPanel.classList.remove("open");
+    adminPanel.style.display = "none";
 
-    if(panelToggleBtn){
-        panelToggleBtn.style.display = admin ? "inline-block" : "none";
-    }
-
-    if(logoutBtn){
-        logoutBtn.style.display = admin ? "inline-block" : "none";
-    }
+    panelToggleBtn.style.display = admin ? "inline-block" : "none";
+    logoutBtn.style.display = admin ? "inline-block" : "none";
 
     cargar();
 });
 
-/* ========= LOGIN ========= */
 window.login = async () => {
     try{
         await signInWithEmailAndPassword(
             auth,
-            elUser.value,
-            elPass.value
+            document.getElementById("user").value,
+            document.getElementById("pass").value
         );
 
         cerrarLogin();
 
     }catch(error){
-        alert("Error de acceso: " + error.message);
+        alert("No se pudo iniciar sesión: " + error.message);
     }
 };
 
-/* ========= LOGOUT ========= */
-window.logout = async () => {
-    await signOut(auth);
-};
+window.logout = () => signOut(auth);
 
-/* ========= LEER JSON ESTATICO ========= */
-// Lee un archivo JSON exportado del repositorio (ver /data).
-// Esto evita gastar lecturas de Firestore en cada visita al sitio.
-// Si el archivo no existe todavía o falla la descarga, devuelve un
-// arreglo vacío para que quien llama decida el respaldo.
+/* ========= LECTURA DE DATOS ========= */
+// Lee un JSON exportado al repositorio (ver /data). Así las visitas
+// normales no consumen lecturas de Firestore. Devuelve [] si falla.
 async function cargarJsonEstatico(ruta){
     try{
         const respuesta = await fetch(ruta, { cache: "no-store" });
@@ -115,346 +215,299 @@ async function cargarJsonEstatico(ruta){
         return Array.isArray(datos) ? datos : [];
 
     }catch(error){
-        console.error(`Error leyendo ${ruta}:`, error);
+        console.error(`No se pudo leer ${ruta}:`, error);
 
         return [];
     }
 }
 
-/* ========= CARGAR JUEGOS ========= */
+async function leerColeccion(nombre){
+    const snapshot = await getDocs(collection(db, nombre));
+
+    return snapshot.docs.map(d => ({ ...d.data(), id: d.id }));
+}
+
+// JSON estático primero; Firestore solo si el archivo aún no existe o está vacío
+async function leerConRespaldo(coleccion){
+    const lista = await cargarJsonEstatico(`data/${coleccion}.json`);
+
+    return lista.length > 0 ? lista : leerColeccion(coleccion);
+}
+
+const ordenarPorNombre = (lista) =>
+    lista.sort((a, b) => (a.nombre || "").localeCompare(b.nombre || "", "es", { sensitivity: "base" }));
+
+/* ========= CATÁLOGO PRINCIPAL ========= */
 window.cargar = async () => {
     if(cargando) return;
 
     cargando = true;
 
     try{
-        if(admin){
-            // El admin necesita ver el estado real y actual de
-            // Firestore para poder editar y eliminar con confianza.
-            const snapshot = await getDocs(collection(db, "juegos"));
+        // El administrador siempre lee Firestore para editar sobre datos reales;
+        // los visitantes usan el JSON estático.
+        juegosData = admin ? await leerColeccion("juegos") : await leerConRespaldo("juegos");
+        juegosData.forEach(j => { j.coleccion = "juegos"; });
+        ordenarPorNombre(juegosData);
 
-            juegosData = [];
+        homebrewData = admin ? await leerHomebrewAdmin() : await cargarJsonEstatico("data/homebrew.json");
+        homebrewData.forEach(h => { h.coleccion = "homebrew"; });
+        ordenarPorNombre(homebrewData);
 
-            snapshot.forEach(docSnap => {
-                const j = docSnap.data();
-
-                j.id = docSnap.id;
-
-                juegosData.push(j);
-            });
-
-        }else{
-            // Los visitantes normales leen el JSON estático generado
-            // por GitHub Actions, así no consumen lecturas de Firestore.
-            juegosData = await cargarJsonEstatico("data/juegos.json");
-
-            // Respaldo: si el JSON todavía no se generó (primer
-            // despliegue), se consulta Firestore directamente.
-            if(juegosData.length === 0){
-                const snapshot = await getDocs(collection(db, "juegos"));
-
-                juegosData = [];
-
-                snapshot.forEach(docSnap => {
-                    const j = docSnap.data();
-
-                    j.id = docSnap.id;
-
-                    juegosData.push(j);
-                });
-            }
-        }
-
-        juegosData.sort((a, b) =>
-            a.nombre.localeCompare(
-                b.nombre,
-                "es",
-                { sensitivity: "base" }
-            )
-        );
+        aplicarBusqueda();
 
         if(admin){
-            // El admin necesita ver el estado real de Firestore, pero si la
-            // colección homebrew falla (reglas, vacía, etc.) se reutiliza el
-            // JSON estático para que los ports ya publicados sigan visibles.
-            homebrewData = [];
-
-            let errorLeyendoHomebrew = false;
-
-            try{
-                const snapH = await getDocs(collection(db, "homebrew"));
-
-                snapH.forEach(docSnap => {
-                    const j = docSnap.data();
-                    j.id = docSnap.id;
-                    j.coleccion = "homebrew";
-
-                    homebrewData.push(j);
-                });
-            }catch(error){
-                console.error("Error leyendo colección homebrew:", error);
-                errorLeyendoHomebrew = true;
-            }
-
-            if(homebrewData.length === 0){
-                homebrewData = await cargarJsonEstatico("data/homebrew.json");
-                homebrewData.forEach(h => { h.id = h.id || ("hb-" + h.nombre); });
-
-                if(errorLeyendoHomebrew && typeof mostrarToast === "function"){
-                    mostrarToast('<i class="fa-solid fa-triangle-exclamation" style="color:#f59e0b;"></i> No se pudo leer "homebrew" desde Firestore (revisa los permisos). Mostrando datos estáticos.');
-                }
-            }
-
-        }else{
-            homebrewData = await cargarJsonEstatico("data/homebrew.json");
-        }
-
-        paginaActual = 1;
-
-        listaActual = [...juegosData];
-        render(listaActual);
-
-        if(admin){
-            // Marcar colección en los juegos normales
-            juegosData.forEach(j => { j.coleccion = "juegos"; });
-
-            // La lista del panel muestra normales + homebrew
-            listaGlobal = [...juegosData];
-
-            homebrewData.forEach(h => {
-                h.coleccion = "homebrew";
-                listaGlobal.push(h);
-            });
-
+            listaGlobal = [...juegosData, ...homebrewData];
             renderAdminList(listaGlobal);
         }
 
     }catch(error){
-        console.error("Error cargando juegos:", error);
-    }
+        console.error("Error cargando el catálogo:", error);
 
-    cargando = false;
+    }finally{
+        cargando = false;
+    }
 };
 
-/* ========= CARGAR EMULADORES ========= */
-window.cargarEmuladores = async () => {
-    const emuladoresStore = document.getElementById("emuladoresStore");
-
-    if(!emuladoresStore) return;
-
-    emuladoresStore.innerHTML = "<p style='text-align:center;'>Cargando...</p>";
+// Si la colección "homebrew" no se puede leer (reglas) o está vacía, se usa el
+// JSON estático para que los ports ya publicados sigan visibles en el panel.
+async function leerHomebrewAdmin(){
+    let lista = [];
+    let falloLectura = false;
 
     try{
-        // No hay panel admin para emuladores, así que siempre se lee
-        // el JSON estático y solo se recurre a Firestore como respaldo.
-        let lista = await cargarJsonEstatico("data/emuladores.json");
-
-        if(lista.length === 0){
-            const snapshot = await getDocs(collection(db, "emuladores"));
-
-            lista = [];
-
-            snapshot.forEach(docSnap => lista.push(docSnap.data()));
-        }
-
-        let html = "";
-
-        lista.forEach(e => {
-            html += `
-            <div class="card">
-                <img src="${e.img}" loading="lazy" decoding="async" alt="${e.nombre}">
-                <div class="content">
-                    <div class="info-overlay">
-                        <h3>${e.nombre}</h3>
-                        <p>${e.desc}</p>
-                    </div>
-
-                    <div class="btns" style="opacity:1; transform:none;">
-                        ${e.link1 ? `<button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(e.link1)}')">Descargar</button>` : ''}
-                        ${e.link2 ? `<button class="btn green" onclick="playClick();abrirLink('${escapeComillas(e.link2)}')">Tutorial</button>` : ''}
-                    </div>
-                </div>
-            </div>`;
-        });
-
-        emuladoresStore.innerHTML =
-            html || "<p style='text-align:center;'>No hay emuladores disponibles.</p>";
-
+        lista = await leerColeccion("homebrew");
     }catch(error){
-        console.error("Error cargando emuladores:", error);
-
-        emuladoresStore.innerHTML =
-            "<p style='text-align:center;'>Error al cargar emuladores.</p>";
+        console.error("No se pudo leer la colección homebrew:", error);
+        falloLectura = true;
     }
-};
 
-/* ========= CARGAR RECURSOS ========= */
-window.cargarRecursos = async () => {
-    const recursosStore = document.getElementById("recursosStore");
+    if(lista.length > 0) return lista;
 
-    if(!recursosStore) return;
+    lista = await cargarJsonEstatico("data/homebrew.json");
+    lista.forEach(h => { h.id = h.id || ("hb-" + h.nombre); });
 
-    recursosStore.innerHTML = "<p style='text-align:center;'>Cargando...</p>";
+    if(falloLectura){
+        mostrarToast('No se pudo leer "homebrew" desde Firestore (revisa los permisos). Se muestran los datos estáticos.', "aviso");
+    }
+
+    return lista;
+}
+
+/* ========= EMULADORES Y RECURSOS ========= */
+// No tienen panel de administración: se leen del JSON estático y
+// solo se consulta Firestore como respaldo.
+async function cargarSeccion(coleccion, contenedorId, plural){
+    const contenedor = document.getElementById(contenedorId);
+    if(!contenedor) return;
+
+    contenedor.innerHTML = "<p style='text-align:center;'>Cargando...</p>";
 
     try{
-        // No hay panel admin para recursos, así que siempre se lee
-        // el JSON estático y solo se recurre a Firestore como respaldo.
-        let lista = await cargarJsonEstatico("data/recursos.json");
+        const lista = await leerConRespaldo(coleccion);
 
-        if(lista.length === 0){
-            const snapshot = await getDocs(collection(db, "recursos"));
-
-            lista = [];
-
-            snapshot.forEach(docSnap => lista.push(docSnap.data()));
-        }
-
-        let html = "";
-
-        lista.forEach(r => {
-            html += `
-            <div class="card">
-                <img src="${r.img || ''}" loading="lazy" decoding="async" alt="${r.nombre || 'Sin nombre'}">
-                <div class="content">
-                    <div class="info-overlay">
-                        <h3>${r.nombre || 'Sin nombre'}</h3>
-                        <p>${r.desc || 'Sin descripción'}</p>
-                    </div>
-
-                    <div class="btns" style="opacity:1; transform:none;">
-                        ${r.link1 ? `<button class="btn blue" onclick="playClick();abrirLink('${escapeComillas(r.link1)}')">Descargar</button>` : ''}
-                        ${r.link2 ? `<button class="btn green" onclick="playClick();abrirLink('${escapeComillas(r.link2)}')">Tutorial</button>` : ''}
-                    </div>
-                </div>
-            </div>`;
-        });
-
-        recursosStore.innerHTML =
-            html || "<p style='text-align:center;'>No hay recursos disponibles.</p>";
+        contenedor.innerHTML = lista.length
+            ? lista.map(tarjetaSeccion).join("")
+            : `<p style='text-align:center;'>No hay ${plural} disponibles.</p>`;
 
     }catch(error){
-        console.error("Error cargando recursos:", error);
+        console.error(`Error cargando ${plural}:`, error);
 
-        recursosStore.innerHTML =
-            "<p style='text-align:center;'>Error al cargar recursos.</p>";
+        contenedor.innerHTML = `<p style='text-align:center;'>No se pudieron cargar los ${plural}.</p>`;
     }
-};
+}
 
-let screenshotsOriginales = [];
+function tarjetaSeccion(item){
+    const boton = (clase, texto, link) => link
+        ? `<button class="btn ${clase}" data-link="${esc(link)}" data-nombre="${esc(item.nombre)}">${texto}</button>`
+        : "";
 
-/* ========= AGREGAR / EDITAR ========= */
+    return `
+        <div class="card">
+            <img src="${esc(item.img)}" loading="lazy" decoding="async" alt="${esc(item.nombre)}">
+            <div class="content">
+                <div class="info-overlay">
+                    <h3>${esc(item.nombre || "Sin nombre")}</h3>
+                    <p>${esc(item.desc || "Sin descripción")}</p>
+                </div>
+
+                <div class="btns" style="opacity:1; transform:none;">
+                    ${boton("blue", "Descargar", item.link1)}
+                    ${boton("green", "Tutorial", item.link2)}
+                </div>
+            </div>
+        </div>`;
+}
+
+window.cargarEmuladores = () => cargarSeccion("emuladores", "emuladoresStore", "emuladores");
+window.cargarRecursos = () => cargarSeccion("recursos", "recursosStore", "recursos");
+
+/* ========= FORMULARIO: GUARDAR ========= */
+function leerFormulario(){
+    const datos = {};
+
+    for(const id of CAMPOS){
+        datos[id] = campos[id].value.trim();
+    }
+
+    datos.botones = leerBotones();
+
+    // link1/link2 se mantienen por compatibilidad (carrito y datos antiguos)
+    const principal = datos.botones.find(b => b.tipo === "Obtener") || datos.botones[0];
+    const secundario = datos.botones.find(b => b !== principal);
+
+    datos.link1 = principal ? principal.url : "";
+    datos.link2 = secundario ? secundario.url : "";
+
+    datos.screenshots = elScreenshots.value.split("\n").map(u => u.trim()).filter(Boolean);
+
+    // Al editar, si se vació el campo, se conservan las capturas originales
+    if(editIndex && datos.screenshots.length === 0){
+        datos.screenshots = screenshotsOriginales;
+    }
+
+    return datos;
+}
+
+function bloquearGuardado(bloqueado){
+    guardando = bloqueado;
+    btnGuardar.disabled = bloqueado;
+}
+
 window.agregarJuego = async function(){
     if(guardando) return;
 
-    const nombreLimpio = (elNombre.value || "").trim();
+    const nuevo = leerFormulario();
 
-    if(!nombreLimpio){
+    if(!nuevo.nombre){
         alert("El nombre del juego es obligatorio.");
-        elNombre.focus();
+        campos.nombre.focus();
         return;
     }
 
-    guardando = true;
-    btnGuardar.disabled = true;
+    bloquearGuardado(true);
 
-    let screenshotsFinales = elScreenshots.value
-        ? elScreenshots.value.split("\n").map(u => u.trim()).filter(Boolean)
-        : [];
-
-    if(editIndex && screenshotsFinales.length === 0 && screenshotsOriginales.length > 0){
-        screenshotsFinales = screenshotsOriginales;
-    }
-
-    const nuevo = {
-        nombre: nombreLimpio,
-        img: elImg.value,
-        desc: elDesc.value,
-        link1: elLink1.value,
-        link2: elLink2.value,
-        previewDesc: elPreviewDesc.value || "",
-        trailer: elTrailer.value || "",
-        screenshots: screenshotsFinales,
-        genre: elGenre.value || "",
-        developer: elDeveloper.value || "",
-        mode: elMode.value || "",
-        year: elYear.value || "",
-        rating: elRating.value || "",
-        gameId: elGameId.value || "",
-        size: elSize.value || "",
-        format: elFormat.value || "",
-        languages: elLanguages.value || "",
-        firmware: elFirmware.value || "",
-        update: elUpdate.value || ""
-    };
-
-    // Colección de destino: siempre según el checkbox "¿Es Homebrew?",
-    // tanto al crear un juego nuevo como al editar uno existente. Antes,
-    // al editar, se ignoraba el checkbox y se usaba la colección original,
-    // así que no había forma de mover un juego a/desde Homebrew.
-    const destino = elEsHomebrew && elEsHomebrew.checked ? "homebrew" : "juegos";
-    const esNuevaColeccion = editIndex != null && destino !== coleccionEdicion;
-
-    console.log("[Luma] Guardando:", nuevo.nombre, "| destino:", destino, "| editIndex:", editIndex, "| screenshots:", screenshotsFinales);
+    // La colección de destino la define siempre la casilla "¿Es Homebrew?",
+    // tanto al crear como al editar (permite mover un juego entre secciones).
+    const destino = elEsHomebrew.checked ? "homebrew" : "juegos";
+    const cambiaColeccion = editIndex != null && destino !== coleccionEdicion;
 
     try{
-        const q = query(
-            collection(db, destino),
-            where("nombre", "==", nombreLimpio)
-        );
+        const coincidencias = await getDocs(query(collection(db, destino), where("nombre", "==", nuevo.nombre)));
+        const duplicado = coincidencias.docs.some(d => d.id !== editIndex);
 
-        const snap = await getDocs(q);
-
-        const yaExiste = snap.docs.some(d => d.id !== editIndex);
-
-        if(yaExiste && (editIndex == null || esNuevaColeccion)){
-            alert(`Ya existe un juego llamado "${nombreLimpio}" en ${destino === "homebrew" ? "Homebrew" : "Juegos"}.`);
-            guardando = false;
-            btnGuardar.disabled = false;
+        if(duplicado && (editIndex == null || cambiaColeccion)){
+            alert(`Ya existe un juego llamado "${nuevo.nombre}" en ${etiquetaColeccion(destino)}.`);
             return;
         }
 
         if(editIndex == null){
-            // Juego nuevo.
             await addDoc(collection(db, destino), nuevo);
 
-        }else if(esNuevaColeccion){
-            // El juego cambió de colección (p. ej. de Juegos a Homebrew):
-            // se crea en la colección nueva y se borra de la anterior.
+        }else if(cambiaColeccion){
+            // Se crea en la colección nueva y se elimina de la anterior
             await setDoc(doc(db, destino, editIndex), nuevo);
-            await deleteDoc(doc(db, coleccionEdicion, editIndex)).catch(err => {
-                console.error("No se pudo borrar el documento original tras mover el juego:", err);
+            await deleteDoc(doc(db, coleccionEdicion, editIndex)).catch(error => {
+                console.error("No se pudo eliminar el documento original tras moverlo:", error);
             });
 
         }else{
-            // Misma colección: se usa setDoc con merge en lugar de updateDoc
-            // porque updateDoc falla si el documento no existe todavía en
-            // Firestore (por ejemplo, cuando la lista de Homebrew se cargó
-            // como respaldo desde data/homebrew.json con un id generado).
+            // setDoc con merge en lugar de updateDoc: este último falla si el documento
+            // aún no existe en Firestore (p. ej. homebrew cargado desde el JSON de respaldo).
             await setDoc(doc(db, destino, editIndex), nuevo, { merge: true });
         }
 
-        if(typeof mostrarToast === "function"){
-            mostrarToast(`<i class="fa-solid fa-circle-check" style="color:#10b981;"></i> "${nombreLimpio}" guardado en ${destino === "homebrew" ? "Homebrew" : "Juegos"}`);
-        }
+        mostrarToast(`"${nuevo.nombre}" se guardó en ${etiquetaColeccion(destino)}.`);
 
-        editIndex = null;
-        coleccionEdicion = "juegos";
         cancelarEdicion();
         await cargar();
 
     }catch(error){
         console.error("Error guardando:", error);
+
+        // El formulario no se limpia para no perder lo escrito
         alert(
-            "No se pudo guardar el juego" + (destino === "homebrew" ? " en Homebrew" : "") + ".\n\n" +
+            "No se pudo guardar el juego.\n\n" +
             "Detalle: " + error.message + "\n\n" +
-            "Si el error menciona permisos (permission-denied), revisa que las reglas de seguridad de Firestore " +
-            'permitan leer y escribir también la colección "homebrew", no solo "juegos".'
+            'Si el error es de permisos (permission-denied), verifica que las reglas de Firestore ' +
+            'permitan leer y escribir también la colección "homebrew".'
         );
-        // No se limpia el formulario ni se recarga para no perder lo escrito.
+
+    }finally{
+        bloquearGuardado(false);
+    }
+};
+
+/* ========= FORMULARIO: EDITAR Y CANCELAR ========= */
+function normalizarScreenshots(valor){
+    if(Array.isArray(valor)) return valor;
+    if(typeof valor !== "string" || !valor.trim()) return [];
+
+    try{
+        const parsed = JSON.parse(valor);
+        return Array.isArray(parsed) ? parsed : [valor.trim()];
+    }catch(error){
+        return valor.split("\n").map(u => u.trim()).filter(Boolean);
+    }
+}
+
+function estadoFormulario({ modo, texto, boton, cancelarVisible }){
+    adminMode.classList.toggle("editing", modo === "editando");
+    adminModeText.textContent = texto;
+    btnGuardar.innerHTML = boton;
+    btnGuardar.classList.toggle("editando", modo === "editando");
+    btnCancelar.style.display = cancelarVisible ? "inline-block" : "none";
+}
+
+window.editarJuego = function(juego){
+    if(editIndex && editIndex !== juego.id){
+        if(!confirm(`Hay una edición en curso. ¿Descartar los cambios y editar "${juego.nombre}"?`)) return;
     }
 
-    guardando = false;
-    btnGuardar.disabled = false;
+    editIndex = juego.id;
+    coleccionEdicion = juego.coleccion === "homebrew" ? "homebrew" : "juegos";
+    elEsHomebrew.checked = coleccionEdicion === "homebrew";
+
+    screenshotsOriginales = normalizarScreenshots(juego.screenshots);
+    elScreenshots.value = screenshotsOriginales.join("\n");
+
+    for(const id of CAMPOS){
+        campos[id].value = juego[id] || "";
+    }
+
+    limpiarBotones();
+    obtenerBotones(juego).forEach(agregarFilaBoton);
+
+    estadoFormulario({
+        modo: "editando",
+        texto: "Editando: " + juego.nombre,
+        boton: '<i class="fa-solid fa-floppy-disk"></i> Actualizar juego',
+        cancelarVisible: true
+    });
+
+    campos.nombre.focus();
+};
+
+window.cancelarEdicion = function(){
+    editIndex = null;
+    coleccionEdicion = "juegos";
+    screenshotsOriginales = [];
+    elEsHomebrew.checked = false;
+    elScreenshots.value = "";
+
+    for(const id of CAMPOS){
+        campos[id].value = "";
+    }
+
+    limpiarBotones();
+    agregarFilaBoton();
+
+    estadoFormulario({
+        modo: "nuevo",
+        texto: "Nuevo juego",
+        boton: '<i class="fa-solid fa-floppy-disk"></i> Guardar juego',
+        cancelarVisible: false
+    });
 };
 
 /* ========= ELIMINAR ========= */
@@ -462,150 +515,62 @@ window.eliminar = async (id, coleccion = "juegos") => {
     try{
         await deleteDoc(doc(db, coleccion, id));
 
-        if(typeof mostrarToast === "function"){
-            mostrarToast('<i class="fa-solid fa-trash" style="color:#ef4444;"></i> Juego eliminado');
-        }
+        mostrarToast("Juego eliminado.", "eliminado");
 
         await cargar();
+
     }catch(error){
         console.error("Error eliminando:", error);
         alert("No se pudo eliminar el juego.\n\nDetalle: " + error.message);
     }
 };
 
-/* ========= EDITAR: cargar datos al formulario ========= */
-window.editarJuego = function(juego){
-    if(editIndex && editIndex !== juego.id){
-        if(!confirm("Tienes cambios sin guardar. ¿Descartarlos y editar " + juego.nombre + "?")){
-            return;
-        }
-    }
-    editIndex = juego.id;
-    coleccionEdicion = juego.coleccion === "homebrew" ? "homebrew" : "juegos";
-
-    if(elEsHomebrew){
-        elEsHomebrew.checked = coleccionEdicion === "homebrew";
-    }
-
-    let ss = [];
-    if(Array.isArray(juego.screenshots)){
-        ss = juego.screenshots;
-    }else if(typeof juego.screenshots === "string" && juego.screenshots.trim()){
-        try{
-            const parsed = JSON.parse(juego.screenshots);
-            ss = Array.isArray(parsed) ? parsed : [juego.screenshots.trim()];
-        }catch(e){
-            ss = juego.screenshots.split("\n").map(u => u.trim()).filter(Boolean);
-        }
-    }
-    screenshotsOriginales = [...ss];
-    elScreenshots.value = ss.join("\n");
-
-    elNombre.value = juego.nombre || "";
-    elImg.value = juego.img || "";
-    elDesc.value = juego.desc || "";
-    elLink1.value = juego.link1 || "";
-    elLink2.value = juego.link2 || "";
-    elPreviewDesc.value = juego.previewDesc || "";
-    elTrailer.value = juego.trailer || "";
-    elGenre.value = juego.genre || "";
-    elDeveloper.value = juego.developer || "";
-    elMode.value = juego.mode || "";
-    elYear.value = juego.year || "";
-    elRating.value = juego.rating || "";
-    elGameId.value = juego.gameId || "";
-    elSize.value = juego.size || "";
-    elFormat.value = juego.format || "";
-    elLanguages.value = juego.languages || "";
-    elFirmware.value = juego.firmware || "";
-    elUpdate.value = juego.update || "";
-    btnGuardar.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Actualizar juego';
-    btnGuardar.classList.add("editando");
-    document.getElementById("adminMode").classList.add("editing");
-    document.getElementById("adminModeText").innerText = "Editando: " + juego.nombre;
-    document.getElementById("btnCancelar").style.display = "inline-block";
-    elNombre.focus();
+window.confirmarEliminar = function(id, nombre, coleccion = "juegos"){
+    if(confirm(`¿Eliminar "${nombre}"?`)) eliminar(id, coleccion);
 };
 
-/* ========= CANCELAR EDICION ========= */
-window.cancelarEdicion = function(){
-    editIndex = null;
-    coleccionEdicion = "juegos";
-    if(elEsHomebrew) elEsHomebrew.checked = false;
-    screenshotsOriginales = [];
-    elNombre.value = "";
-    elImg.value = "";
-    elDesc.value = "";
-    elLink1.value = "";
-    elLink2.value = "";
-    elPreviewDesc.value = "";
-    elTrailer.value = "";
-    elScreenshots.value = "";
-    elGenre.value = "";
-    elDeveloper.value = "";
-    elMode.value = "";
-    elYear.value = "";
-    elRating.value = "";
-    elGameId.value = "";
-    elSize.value = "";
-    elFormat.value = "";
-    elLanguages.value = "";
-    elFirmware.value = "";
-    elUpdate.value = "";
-    btnGuardar.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Guardar juego';
-    btnGuardar.classList.remove("editando");
-    document.getElementById("adminMode").classList.remove("editing");
-    document.getElementById("adminModeText").innerText = "Nuevo juego";
-    document.getElementById("btnCancelar").style.display = "none";
-};
-
-/* ========= LISTA DE JUEGOS EN PANEL ========= */
+/* ========= LISTA DEL PANEL ========= */
 window.renderAdminList = function(lista){
-    const container = document.getElementById("adminGameList");
-    if(!container) return;
+    const contenedor = document.getElementById("adminGameList");
+    if(!contenedor) return;
 
     const contador = document.getElementById("adminCount");
     if(contador) contador.textContent = lista.length;
 
-    container.innerHTML = "";
-
     if(lista.length === 0){
-        container.innerHTML = '<p class="admin-empty">No hay juegos que coincidan.</p>';
+        contenedor.innerHTML = '<p class="admin-empty">No hay juegos que coincidan.</p>';
         return;
     }
 
-    lista.forEach(j => {
-        const item = document.createElement("div");
-        item.className = "admin-game-item" + (j.coleccion === "homebrew" ? " is-homebrew" : "");
-        const hb = j.coleccion === "homebrew";
-        item.innerHTML = `
-            <img src="${j.img || ''}" alt="" onerror="this.src='assets/icon.png'">
+    contenedor.innerHTML = lista.map(j => {
+        const esHomebrew = j.coleccion === "homebrew";
+
+        return `
+        <div class="admin-game-item${esHomebrew ? " is-homebrew" : ""}">
+            <img src="${esc(j.img)}" alt="" onerror="this.src='${ICONO_POR_DEFECTO}'">
             <div class="admin-game-item-info">
-                <span>${j.nombre}${hb ? ' <em class="hb-badge">Homebrew</em>' : ''}</span>
-                <small>${j.genre || 'Sin género'} ${j.year ? '· ' + j.year : ''}</small>
+                <span>${esc(j.nombre)}${esHomebrew ? ' <em class="hb-badge">Homebrew</em>' : ""}</span>
+                <small>${esc(j.genre || "Sin género")}${j.year ? " · " + esc(j.year) : ""}</small>
             </div>
-            <button class="btn-edit" title="Editar" onclick="event.stopPropagation(); editarPorId('${j.id}')"><i class="fa-solid fa-pen"></i></button>
-            <button class="btn-delete" title="Eliminar" onclick="event.stopPropagation(); confirmarEliminar('${j.id}','${(j.nombre||'').replace(/'/g,"\\'")}','${hb ? 'homebrew' : 'juegos'}')"><i class="fa-solid fa-trash"></i></button>
-        `;
-        container.appendChild(item);
-    });
+            <button class="btn-edit" title="Editar" data-accion="editar" data-id="${esc(j.id)}"><i class="fa-solid fa-pen"></i></button>
+            <button class="btn-delete" title="Eliminar" data-accion="eliminar" data-id="${esc(j.id)}"><i class="fa-solid fa-trash"></i></button>
+        </div>`;
+    }).join("");
 };
 
-window.editarPorId = function(id){
-    const juego = listaGlobal.find(j => j.id === id);
-    if(juego) editarJuego(juego);
-};
+document.getElementById("adminGameList")?.addEventListener("click", (e) => {
+    const boton = e.target.closest("button[data-accion]");
+    if(!boton) return;
 
-window.confirmarEliminar = function(id, nombre, coleccion = "juegos"){
-    if(confirm('¿Eliminar "' + nombre + '"?')){
-        eliminar(id, coleccion);
-    }
-};
+    const juego = listaGlobal.find(j => j.id === boton.dataset.id);
+    if(!juego) return;
+
+    if(boton.dataset.accion === "editar") editarJuego(juego);
+    else confirmarEliminar(juego.id, juego.nombre, juego.coleccion);
+});
 
 window.filtrarAdmin = function(){
-    const term = document.getElementById("adminSearch").value.toLowerCase();
-    const filtrados = listaGlobal.filter(j => j.nombre.toLowerCase().includes(term));
-    renderAdminList(filtrados);
-};
+    const termino = document.getElementById("adminSearch").value.trim().toLowerCase();
 
-let listaGlobal = [];
+    renderAdminList(listaGlobal.filter(j => (j.nombre || "").toLowerCase().includes(termino)));
+};

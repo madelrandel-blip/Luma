@@ -1,32 +1,21 @@
 /* =========================
    LUMA SWITCH - script.js
+   Interfaz pública: catálogo, reproductor, descargas y carrito.
+   La capa de datos y el panel de administración están en firebase.js.
    ========================= */
 
-/* ========= VARIABLES GLOBALES ========= */
+/* ========= ESTADO ========= */
 let admin = false;
-let editIndex = null;
-let guardando = false;
-let cargando = false;
 
 let juegosData = [];
+let homebrewData = [];
 let listaActual = [];
+let mostrandoHomebrew = false;
 let paginaActual = 1;
 let juegosPorPagina = 12;
-let homebrewData = [];
-let mostrandoHomebrew = false;
-
-function getFilas(){
-    const w = window.innerWidth;
-    if(w <= 768) return 6;   /* Android: 12 juegos en 2 columnas */
-    if(w <= 1600) return 2;  /* 1080p: 2 filas */
-    if(w <= 2560) return 3;  /* 1440p y 2K: 3 filas */
-    return 4;                /* 4K: 4 filas */
-}
 
 /* ========= ELEMENTOS ========= */
 const loginBox = document.getElementById("loginBox");
-const emuladoresBox = document.getElementById("emuladoresBox");
-const recursosBox = document.getElementById("recursosBox");
 const adminPanel = document.getElementById("adminPanel");
 const logoutBtn = document.getElementById("logoutBtn");
 const panelToggleBtn = document.getElementById("panelToggleBtn");
@@ -41,76 +30,171 @@ const homebrewSwitch = document.getElementById("homebrewSwitch");
 
 const bgMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
-const clickSound = document.getElementById("clickSound");
-const adminSound = document.getElementById("adminSound");
-const discordSound = document.getElementById("discordSound");
-const loadingSound = document.getElementById("loadingSound");
+const musicIcon = document.getElementById("musicIcon");
+const musicPlaylist = document.getElementById("musicPlaylist");
 const volumeSlider = document.getElementById("volumeSlider");
-const donationSound = document.getElementById("donationSound");
+const volumeIcon = document.getElementById("volumeIcon");
+const loadingSound = document.getElementById("loadingSound");
 
-/* ========= AUDIO ========= */
-if(clickSound){
-    clickSound.volume = 0.1;
+const ICONO_POR_DEFECTO = "assets/images/Luma icon.webp";
 
-    document.addEventListener("click", () => {
-        clickSound.play().then(() => {
-            clickSound.pause();
-            clickSound.currentTime = 0;
-        }).catch(() => {});
-    }, { once: true });
+/* ========= UTILIDADES ========= */
+function esc(valor){
+    const entidades = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+
+    return String(valor ?? "").replace(/[&<>"']/g, c => entidades[c]);
 }
 
-function playClick(){
+/* ========= BOTONES DE PUBLICACIÓN ========= */
+// Color predeterminado de cada tipo; en el panel se puede personalizar por botón.
+const TIPOS_BOTON = {
+    "Obtener":        "#1565c0",
+    "Tutorial":       "#2e7d32",
+    "Update":         "#ef6c00",
+    "Pack de audios": "#7b1fa2",
+    "Github":         "#24292f",
+    "Otro":           "#455a64"
+};
+
+// Icono Font Awesome de cada tipo
+const ICONOS_BOTON = {
+    "Obtener":        "fa-solid fa-download",
+    "Tutorial":       "fa-solid fa-book-open",
+    "Update":         "fa-solid fa-arrows-rotate",
+    "Pack de audios": "fa-solid fa-music",
+    "Github":         "fa-brands fa-github",
+    "Otro":           "fa-solid fa-link"
+};
+
+const iconoBoton = (tipo) => ICONOS_BOTON[tipo] || ICONOS_BOTON.Otro;
+
+const colorValido = (color) => /^#[0-9a-f]{6}$/i.test(color || "");
+
+function etiquetaBoton(boton){
+    return boton.tipo === "Otro" ? (boton.texto || "Enlace") : boton.tipo;
+}
+
+// Color de texto legible (claro u oscuro) según la luminosidad del fondo
+function colorTextoSobre(fondo){
+    const n = parseInt(fondo.slice(1), 16);
+    const luminancia = (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255;
+
+    return luminancia > 0.65 ? "#111111" : "#ffffff";
+}
+
+// Lista de botones de una publicación. Las publicaciones antiguas solo
+// tienen link1/link2, que se interpretan como "Obtener" y "Tutorial".
+function obtenerBotones(j){
+    if(Array.isArray(j.botones) && j.botones.length > 0){
+        return j.botones.filter(b => b && b.url && b.url.trim());
+    }
+
+    const botones = [];
+
+    if(j.link1) botones.push({ tipo: "Obtener", url: j.link1 });
+    if(j.link2) botones.push({ tipo: "Tutorial", url: j.link2 });
+
+    return botones;
+}
+
+// Enlace que usa el carrito: el primer "Obtener" o, si no hay, el primer botón
+function enlacePrincipal(j){
+    const botones = obtenerBotones(j);
+    const principal = botones.find(b => b.tipo === "Obtener") || botones[0];
+
+    return principal ? principal.url : "";
+}
+
+function abrirModal(id){
+    const modal = document.getElementById(id);
+
+    if(modal) modal.style.display = "flex";
+}
+
+function cerrarModal(id){
+    const modal = document.getElementById(id);
+
+    if(modal) modal.style.display = "none";
+}
+
+const TIPOS_TOAST = {
+    ok:        { icono: "fa-circle-check",       color: "#10b981" },
+    aviso:     { icono: "fa-circle-exclamation", color: "#f59e0b" },
+    error:     { icono: "fa-circle-xmark",       color: "#ef4444" },
+    eliminado: { icono: "fa-trash",              color: "#ef4444" }
+};
+
+function mostrarToast(mensaje, tipo = "ok"){
+    const contenedor = document.getElementById("toastContainer");
+    if(!contenedor) return;
+
+    const { icono, color } = TIPOS_TOAST[tipo] || TIPOS_TOAST.ok;
+
+    const toast = document.createElement("div");
+    toast.className = "toast";
+
+    const i = document.createElement("i");
+    i.className = `fa-solid ${icono}`;
+    i.style.color = color;
+
+    toast.append(i, " ", mensaje);
+    contenedor.appendChild(toast);
+
+    setTimeout(() => toast.remove(), 3000);
+}
+
+/* ========= EFECTOS DE SONIDO ========= */
+function crearEfecto(id, volumen){
+    const audio = document.getElementById(id);
+
+    if(audio) audio.volume = volumen;
+
+    return () => {
+        if(!audio) return;
+
+        audio.pause();
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+    };
+}
+
+const playClick = crearEfecto("clickSound", 0.1);
+const playAdminClick = crearEfecto("adminSound", 0.14);
+const playDiscordClick = crearEfecto("discordSound", 0.15);
+const playDonationClick = crearEfecto("donationSound", 0.15);
+
+// Los navegadores exigen un gesto del usuario antes de reproducir audio;
+// el primer clic "desbloquea" el efecto para que los siguientes suenen sin retraso.
+document.addEventListener("click", () => {
+    const clickSound = document.getElementById("clickSound");
     if(!clickSound) return;
 
-    clickSound.pause();
-    clickSound.currentTime = 0;
-    clickSound.play().catch(() => {});
+    clickSound.play().then(() => {
+        clickSound.pause();
+        clickSound.currentTime = 0;
+    }).catch(() => {});
+}, { once: true });
+
+function playLoadingSound(){
+    if(!loadingSound) return;
+
+    loadingSound.volume = 0.8;
+    loadingSound.currentTime = 0;
+    loadingSound.play().catch(() => {});
 }
 
-if(adminSound){
-    adminSound.volume = 0.14;
+function stopLoadingSound(){
+    if(!loadingSound) return;
+
+    loadingSound.pause();
+    loadingSound.currentTime = 0;
 }
 
-function playAdminClick(){
-    if(!adminSound) return;
-
-    adminSound.pause();
-    adminSound.currentTime = 0;
-    adminSound.play().catch(() => {});
-}
-
-if(discordSound){
-    discordSound.volume = 0.15;
-}
-
-function playDiscordClick(){
-    if(!discordSound) return;
-
-    discordSound.pause();
-    discordSound.currentTime = 0;
-    discordSound.play().catch(() => {});
-}
-
-if (donationSound) {
-    donationSound.volume = 0.15;
-}
-
-function playDonationClick() {
-    if (!donationSound) return;
-
-    donationSound.pause();
-    donationSound.currentTime = 0;
-    donationSound.play().catch(() => {});
-}
-
-const musicIcon = document.getElementById("musicIcon");
-const volumeIcon = document.getElementById("volumeIcon");
-const musicPlaylist = document.getElementById("musicPlaylist");
-
+/* ========= REPRODUCTOR ========= */
 let playlist = [];
 let trackIndex = 0;
 let sonidoMuteado = false;
+let musicaPausadaPorTrailer = false;
 
 if(bgMusic){
     bgMusic.volume = 0.05;
@@ -125,17 +209,25 @@ if(bgMusic){
             actualizarVolumenUI();
         }
 
-        if(musicBtn){
-            musicBtn.innerHTML = "▶";
-        }
+        if(musicBtn) musicBtn.textContent = "▶";
 
         cargarPlaylist();
     });
 
-    // Al terminar una canción, pasa a la siguiente
-    bgMusic.addEventListener("ended", () => {
-        nextTrack(false);
-    });
+    bgMusic.addEventListener("ended", () => nextTrack(false));
+
+    if(volumeSlider){
+        volumeSlider.addEventListener("input", () => {
+            bgMusic.volume = volumeSlider.value / 100;
+
+            if(bgMusic.volume > 0){
+                bgMusic.muted = false;
+                sonidoMuteado = false;
+            }
+
+            actualizarVolumenUI();
+        });
+    }
 }
 
 function actualizarVolumenUI(){
@@ -157,52 +249,34 @@ function alternarMute(){
     if(!bgMusic) return;
 
     sonidoMuteado = !sonidoMuteado;
-
     bgMusic.muted = sonidoMuteado;
 
     actualizarVolumenUI();
 }
 
-if(volumeSlider){
-    volumeSlider.addEventListener("input", () => {
-        bgMusic.volume = volumeSlider.value / 100;
-
-        if(bgMusic.volume > 0){
-            bgMusic.muted = false;
-            sonidoMuteado = false;
-        }
-
-        actualizarVolumenUI();
-    });
-}
-
-/* ========= PLAYLIST ========= */
 async function cargarPlaylist(){
     try{
         const respuesta = await fetch("data/playlist.json", { cache: "no-store" });
 
-        if(!respuesta.ok) throw new Error("No se pudo cargar la playlist");
+        if(!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
 
         const datos = await respuesta.json();
 
         playlist = Array.isArray(datos) ? datos : [];
 
         if(playlist.length > 0){
-            const aleatorio = Math.floor(Math.random() * playlist.length);
-            trackIndex = aleatorio;
-            bgMusic.src = playlist[aleatorio].src;
+            trackIndex = Math.floor(Math.random() * playlist.length);
+            bgMusic.src = playlist[trackIndex].src;
         }
 
         actualizarIcono();
-
         construirPlaylist();
 
     }catch(error){
-        console.error("Error cargando playlist:", error);
+        console.error("No se pudo cargar la playlist:", error);
     }
 }
 
-/* ========= SUBMENÚ DE PLAYLIST ========= */
 function construirPlaylist(){
     if(!musicPlaylist) return;
 
@@ -215,14 +289,13 @@ function construirPlaylist(){
         item.dataset.indice = indice;
 
         const img = document.createElement("img");
-        img.src = cancion.icono || "assets/images/Luma icon.webp";
+        img.src = cancion.icono || ICONO_POR_DEFECTO;
         img.alt = cancion.nombre || "Canción";
 
         const nombre = document.createElement("span");
         nombre.textContent = cancion.nombre || "Sin nombre";
 
-        item.appendChild(img);
-        item.appendChild(nombre);
+        item.append(img, nombre);
 
         item.addEventListener("click", () => {
             playClick();
@@ -239,9 +312,9 @@ function construirPlaylist(){
 function marcarActiva(){
     if(!musicPlaylist) return;
 
-    Array.from(musicPlaylist.children).forEach((item) => {
+    for(const item of musicPlaylist.children){
         item.classList.toggle("active", Number(item.dataset.indice) === trackIndex);
-    });
+    }
 }
 
 function togglePlaylist(){
@@ -251,11 +324,12 @@ function togglePlaylist(){
 
     if(musicPlaylist.classList.contains("open")){
         cerrarPlaylist();
-    }else{
-        marcarActiva();
-        posicionarPlaylist();
-        musicPlaylist.classList.add("open");
+        return;
     }
+
+    marcarActiva();
+    posicionarPlaylist();
+    musicPlaylist.classList.add("open");
 }
 
 function cerrarPlaylist(){
@@ -263,28 +337,23 @@ function cerrarPlaylist(){
 }
 
 function posicionarPlaylist(){
-    if(!musicIcon || !musicPlaylist) return;
+    const reproductor = document.querySelector(".music-control") || musicIcon;
+    if(!reproductor || !musicPlaylist) return;
 
-    const reproductor = document.querySelector(".music-control");
-    const rect = reproductor ? reproductor.getBoundingClientRect() : musicIcon.getBoundingClientRect();
-    const menuWidth = 240;
+    const rect = reproductor.getBoundingClientRect();
+    const anchoMenu = 240;
     const margen = 8;
 
-    let left = rect.left;
-    if(left + menuWidth > window.innerWidth - margen){
-        left = window.innerWidth - menuWidth - margen;
-    }
-    if(left < margen) left = margen;
-
+    const left = Math.max(margen, Math.min(rect.left, window.innerWidth - anchoMenu - margen));
     musicPlaylist.style.left = left + "px";
 
-    const esMovil = window.innerWidth <= 1100;
-    const menuHeight = musicPlaylist.offsetHeight || 260;
+    const altoMenu = musicPlaylist.offsetHeight || 260;
     const espacioAbajo = window.innerHeight - rect.bottom;
+    const esMovil = window.innerWidth <= 1100;
 
-    if(esMovil || espacioAbajo < menuHeight + 10){
-        // Sin espacio debajo: el desplegable se abre hacia arriba,
-        // anclado a la parte inferior, como en la barra inferior de Android
+    // Sin espacio debajo (o en móvil, donde el reproductor va en la barra
+    // inferior), el menú se ancla por abajo y se despliega hacia arriba.
+    if(esMovil || espacioAbajo < altoMenu + 10){
         musicPlaylist.style.top = "auto";
         musicPlaylist.style.bottom = (window.innerHeight - rect.top + 10) + "px";
     }else{
@@ -301,46 +370,21 @@ if(musicIcon){
 }
 
 if(musicPlaylist){
-    musicPlaylist.addEventListener("click", (e) => {
-        e.stopPropagation();
-    });
+    musicPlaylist.addEventListener("click", (e) => e.stopPropagation());
 
-    document.addEventListener("click", () => {
-        cerrarPlaylist();
-    });
+    document.addEventListener("click", cerrarPlaylist);
+    window.addEventListener("resize", cerrarPlaylist);
 
+    // El scroll dentro de la propia lista no debe cerrarla
     window.addEventListener("scroll", (e) => {
-        if(musicPlaylist && e.target && musicPlaylist.contains(e.target)) return;
+        if(e.target && musicPlaylist.contains(e.target)) return;
         cerrarPlaylist();
     }, true);
-
-    window.addEventListener("resize", () => {
-        cerrarPlaylist();
-    });
 }
 
-function reproducirTrack(indice){
-    if(!bgMusic || playlist.length === 0) return;
-
-    if(indice < 0) indice = playlist.length - 1;
-    if(indice >= playlist.length) indice = 0;
-
-    trackIndex = indice;
-
-    const cancion = playlist[trackIndex];
-
-    bgMusic.src = cancion.src;
-
-    bgMusic.muted = false;
-
-    bgMusic.play().then(() => {
-        if(musicBtn) musicBtn.innerHTML = "⏸";
-        if(musicIcon) musicIcon.classList.add("playing");
-    }).catch(error => {
-        console.log("Autoplay bloqueado:", error);
-    });
-
-    actualizarIcono();
+function marcarReproduciendo(reproduciendo){
+    if(musicBtn) musicBtn.textContent = reproduciendo ? "⏸" : "▶";
+    if(musicIcon) musicIcon.classList.toggle("playing", reproduciendo);
 }
 
 function reproducirMusica(){
@@ -348,55 +392,54 @@ function reproducirMusica(){
 
     bgMusic.muted = false;
 
-    bgMusic.play().then(() => {
-        if(musicBtn) musicBtn.innerHTML = "⏸";
-        if(musicIcon) musicIcon.classList.add("playing");
-    }).catch(error => {
-        console.log("Autoplay bloqueado:", error);
-    });
+    bgMusic.play()
+        .then(() => marcarReproduciendo(true))
+        .catch(error => console.warn("Reproducción bloqueada por el navegador:", error));
 }
 
 function pausarMusica(){
     if(!bgMusic) return;
 
     bgMusic.pause();
+    marcarReproduciendo(false);
+}
 
-    if(musicBtn) musicBtn.innerHTML = "▶";
-    if(musicIcon) musicIcon.classList.remove("playing");
+function reproducirTrack(indice){
+    if(!bgMusic || playlist.length === 0) return;
+
+    // Navegación circular por la lista
+    trackIndex = (indice + playlist.length) % playlist.length;
+
+    bgMusic.src = playlist[trackIndex].src;
+
+    reproducirMusica();
+    actualizarIcono();
 }
 
 function actualizarIcono(){
     if(playlist.length === 0) return;
 
     const cancion = playlist[trackIndex];
+    const nombre = cancion.nombre || "Luma Switch";
 
     if(musicIcon){
-        musicIcon.src = cancion.icono || "assets/images/Luma icon.webp";
-        musicIcon.title = cancion.nombre || "Luma Switch";
+        musicIcon.src = cancion.icono || ICONO_POR_DEFECTO;
+        musicIcon.title = nombre;
     }
 
     const musicTitle = document.getElementById("musicTitle");
-    const musicTitleInner = document.getElementById("musicTitleInner");
 
     if(musicTitle){
-        const nombre = cancion.nombre || "Luma Switch";
-
-        if(musicTitleInner){
-            musicTitleInner.textContent = nombre;
-        }else{
-            musicTitle.textContent = nombre;
-        }
-
+        const interior = document.getElementById("musicTitleInner") || musicTitle;
+        interior.textContent = nombre;
         musicTitle.title = nombre;
 
+        // Si el nombre no cabe, se desplaza con la animación "marquee"
         musicTitle.classList.remove("scrolling");
         void musicTitle.offsetWidth;
 
         if(musicTitle.scrollWidth > musicTitle.clientWidth){
-            musicTitle.style.setProperty(
-                "--scroll-dist",
-                (musicTitle.scrollWidth - musicTitle.clientWidth) + "px"
-            );
+            musicTitle.style.setProperty("--scroll-dist", (musicTitle.scrollWidth - musicTitle.clientWidth) + "px");
             musicTitle.classList.add("scrolling");
         }
     }
@@ -409,25 +452,18 @@ function toggleMusic(){
 
     if(!bgMusic) return;
 
-    if(bgMusic.paused){
-        reproducirMusica();
-    }else{
-        pausarMusica();
-    }
+    if(bgMusic.paused) reproducirMusica();
+    else pausarMusica();
 }
 
 function nextTrack(conClick = true){
     if(conClick) playClick();
-
-    if(playlist.length === 0) return;
 
     reproducirTrack(trackIndex + 1);
 }
 
 function prevTrack(){
     playClick();
-
-    if(playlist.length === 0) return;
 
     reproducirTrack(trackIndex - 1);
 }
@@ -436,143 +472,107 @@ function prevTrack(){
 function aceptarBienvenida(){
     const pantalla = document.getElementById("welcomeScreen");
 
-    if(bgMusic){
-        reproducirMusica();
-    }
+    reproducirMusica();
 
-    if(pantalla){
-        pantalla.style.transition = "opacity 0.5s ease";
-        pantalla.style.opacity = "0";
-        pantalla.style.pointerEvents = "none";
+    if(!pantalla) return;
 
-        setTimeout(() => {
-            pantalla.style.display = "none";
-        }, 500);
-    }
+    pantalla.style.transition = "opacity 0.5s ease";
+    pantalla.style.opacity = "0";
+    pantalla.style.pointerEvents = "none";
+
+    setTimeout(() => { pantalla.style.display = "none"; }, 500);
 }
 
-const acceptBtn = document.querySelector("#welcomeScreen .accept-btn");
-
-if(acceptBtn){
-    acceptBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
-
-        playClick();
-        aceptarBienvenida();
-    });
-}
-
-/* ========= LOGIN ========= */
+/* ========= MODALES ========= */
 function abrirLogin(){
     playAdminClick();
-    if(loginBox) loginBox.style.display = "flex";
+    abrirModal("loginBox");
 }
 
 function cerrarLogin(){
-    if(loginBox) loginBox.style.display = "none";
+    cerrarModal("loginBox");
 }
 
-/* ========= PANEL ADMIN TOGGLE ========= */
-window.toggleAdminPanel = function(){
-    if(!adminPanel) return;
-    playAdminClick();
-
-    const visible = adminPanel.classList.contains("open");
-
-    if(visible){
-        adminPanel.classList.remove("open");
-        setTimeout(() => {
-            if(!adminPanel.classList.contains("open")){
-                adminPanel.style.display = "none";
-            }
-        }, 220);
-    }else{
-        adminPanel.style.display = "block";
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => adminPanel.classList.add("open"));
-        });
-    }
-};
-
-/* ========= EMULADORES ========= */
 function abrirEmuladores(){
     playClick();
-
-    if(emuladoresBox){
-        emuladoresBox.style.display = "flex";
-    }
-
-    if(typeof cargarEmuladores === "function"){
-        cargarEmuladores();
-    }
+    abrirModal("emuladoresBox");
+    window.cargarEmuladores?.();
 }
 
 function cerrarEmuladores(){
-    if(emuladoresBox){
-        emuladoresBox.style.display = "none";
-    }
+    cerrarModal("emuladoresBox");
 }
 
-/* ========= RECURSOS ========= */
 function abrirRecursos(){
     playClick();
-
-    if(recursosBox){
-        recursosBox.style.display = "flex";
-    }
-
-    if(typeof cargarRecursos === "function"){
-        cargarRecursos();
-    }
+    abrirModal("recursosBox");
+    window.cargarRecursos?.();
 }
 
 function cerrarRecursos(){
-    if(recursosBox){
-        recursosBox.style.display = "none";
-    }
+    cerrarModal("recursosBox");
 }
 
-/* ========= DISCORD ========= */
+function abrirDonaciones(){
+    playDonationClick();
+    abrirModal("donacionesBox");
+}
+
+function cerrarDonaciones(){
+    cerrarModal("donacionesBox");
+}
+
 function abrirDiscord(){
     playDiscordClick();
-    window.open("https://discord.gg/pMvkz2RzkJ", "_blank");
+    window.open("https://discord.gg/pMvkz2RzkJ", "_blank", "noopener");
 }
 
-/* ========= BUSCADOR ========= */
-function getCatalogoBase(){
-    return mostrandoHomebrew ? homebrewData : juegosData;
+function toggleAdminPanel(){
+    if(!adminPanel) return;
+
+    playAdminClick();
+
+    if(adminPanel.classList.contains("open")){
+        adminPanel.classList.remove("open");
+
+        // Se espera a que termine la transición de cierre antes de ocultarlo
+        setTimeout(() => {
+            if(!adminPanel.classList.contains("open")) adminPanel.style.display = "none";
+        }, 220);
+        return;
+    }
+
+    adminPanel.style.display = "block";
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => adminPanel.classList.add("open"));
+    });
 }
 
+/* ========= BÚSQUEDA Y CATÁLOGO ========= */
 function aplicarBusqueda(){
-    const texto = (buscador ? buscador.value : "").toLowerCase();
+    const texto = (buscador ? buscador.value : "").trim().toLowerCase();
+    const base = mostrandoHomebrew ? homebrewData : juegosData;
 
     paginaActual = 1;
 
-    let base = getCatalogoBase();
+    listaActual = texto
+        ? base.filter(j =>
+            (j.nombre || "").toLowerCase().includes(texto) ||
+            (j.desc || "").toLowerCase().includes(texto))
+        : base;
 
-    if(texto){
-        base = base.filter(j =>
-            j.nombre.toLowerCase().includes(texto) ||
-            (j.desc || "").toLowerCase().includes(texto)
-        );
-    }
-
-    listaActual = base;
     render(listaActual);
 }
 
 if(buscador){
-    let temporizadorBusqueda = null;
+    let temporizador = null;
 
     buscador.addEventListener("input", () => {
-        clearTimeout(temporizadorBusqueda);
-
-        temporizadorBusqueda = setTimeout(aplicarBusqueda, 200);
+        clearTimeout(temporizador);
+        temporizador = setTimeout(aplicarBusqueda, 200);
     });
 }
 
-/* ========= SWITCH JUEGOS / HOMEBREW ========= */
 if(homebrewToggle){
     homebrewToggle.addEventListener("change", () => {
         mostrandoHomebrew = homebrewToggle.checked;
@@ -584,621 +584,146 @@ if(homebrewToggle){
     });
 }
 
-/* ========= LINKS ========= */
-function abrirPreview(btn){
-    const img = btn.dataset.img || "";
-    const nombre = btn.dataset.nombre || "";
-    const link1 = btn.dataset.link1 || "";
-    const link2 = btn.dataset.link2 || "";
-    const screenshots = JSON.parse(btn.dataset.screenshots || "[]");
-    const trailer = btn.dataset.trailer || "";
-    const rating = btn.dataset.rating || "";
-    const genre = btn.dataset.genre || "";
-    const developer = btn.dataset.developer || "";
-    const desc = btn.dataset.desc || "";
-    const size = btn.dataset.size || "";
-    const format = btn.dataset.format || "";
-    const languages = btn.dataset.languages || "";
-    const update = btn.dataset.update || "";
-    const gameId = btn.dataset.gameid || "";
-    const firmware = btn.dataset.firmware || "";
-    const mode = btn.dataset.mode || "";
-    const year = btn.dataset.year || "";
-
-    const tienePreview = screenshots.length > 0 || trailer || desc || genre || developer || gameId;
-    if(!tienePreview){
-        abrirLink(link1, nombre);
-        return;
-    }
-
-    mostrarPreview(img, nombre, link1, link2, screenshots, trailer, rating, genre, developer, desc, size, format, languages, update, gameId, firmware, mode, year);
-}
-
-function mostrarPreview(img, nombre, link1, link2, screenshots, trailer, rating, genre, developer, desc, size, format, languages, update, gameId, firmware, mode, year){
-    const box = document.getElementById("previewBox");
-    const previewImg = document.getElementById("previewImg");
-    const previewNombre = document.getElementById("previewNombre");
-    const previewDesc = document.getElementById("previewDescModal");
-    const previewMeta = document.getElementById("previewMeta");
-    const previewLinks = document.getElementById("previewLinks");
-    const previewMain = document.getElementById("previewMain");
-    const previewThumbs = document.getElementById("previewThumbs");
-    const previewFileInfo = document.getElementById("previewFileInfo");
-
-    if(!box) return;
-
-    previewImg.src = img || "";
-    previewNombre.textContent = nombre || "";
-    previewDesc.textContent = desc || "";
-
-    let fileInfo = "";
-    if(gameId) fileInfo += `<div class="fi"><b>ID:</b> ${gameId}</div>`;
-    if(size) fileInfo += `<div class="fi"><b>Peso:</b> ${size}</div>`;
-    if(languages) fileInfo += `<div class="fi"><b>Idiomas:</b> ${languages}</div>`;
-    if(format) fileInfo += `<div class="fi"><b>Formato:</b> ${format}</div>`;
-    if(firmware) fileInfo += `<div class="fi"><b>Firmware:</b> ${firmware}</div>`;
-    if(update) fileInfo += `<div class="fi"><b>Actualizacion:</b> ${update}</div>`;
-    previewFileInfo.innerHTML = fileInfo;
-
-    let meta = "";
-    if(genre) meta += `<div class="fi-col"><span class="label">Género</span><span class="value">${genre}</span></div>`;
-    if(mode) meta += `<div class="fi-col"><span class="label">Jugadores</span><span class="value">${mode}</span></div>`;
-    if(developer) meta += `<div class="fi-col"><span class="label">Desarrolladora</span><span class="value">${developer}</span></div>`;
-    if(year) meta += `<div class="fi-col"><span class="label">Año</span><span class="value">${year}</span></div>`;
-    if(rating) meta += `<div class="fi-col"><span class="label">Valoración</span><span class="value gold">${rating}</span></div>`;
-    previewMeta.innerHTML = meta;
-
-    let botones = "";
-    if(link1) botones += `<button class="btn blue" onclick="playClick();cerrarPreview();abrirLink('${escapeComillas(link1)}', '${escapeComillas(nombre)}')">Obtener</button>`;
-    if(link2) botones += `<button class="btn green" onclick="playClick();cerrarPreview();abrirLink('${escapeComillas(link2)}', '${escapeComillas(nombre)} (Obtener)')">Obtener</button>`;
-    previewLinks.innerHTML = botones;
-
-    let thumbs = "";
-    let mainSrc = "";
-
-    if(screenshots && screenshots.length > 0){
-        mainSrc = screenshots[0];
-        thumbs = screenshots.map((s,i) => `<img class="thumb${i===0?' active':''}" src="${s}" loading="lazy" onclick="verEnMain('${s}',this)">`).join("");
-    }
-
-    let trailerSrc = "";
-    if(trailer){
-        const videoId = trailer.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
-        if(videoId){
-            trailerSrc = videoId[1];
-        } else if(/^[a-zA-Z0-9_-]{11,}$/.test(trailer)){
-            trailerSrc = trailer;
-        }
-        if(trailerSrc){
-            thumbs += `<div class="thumb thumb-video" onclick="verTrailerEnMain('${trailerSrc}',this)"><img src="https://img.youtube.com/vi/${trailerSrc}/mqdefault.jpg" loading="lazy"><div class="play-icon"></div></div>`;
-        }
-    }
-
-    if(mainSrc) previewMain.innerHTML = `<img src="${mainSrc}">`;
-    else if(trailerSrc) previewMain.innerHTML = `<iframe src="https://www.youtube.com/embed/${trailerSrc}" allowfullscreen></iframe>`;
-    else previewMain.innerHTML = "";
-
-    previewThumbs.innerHTML = thumbs;
-
-    previewMain.dataset.trailer = trailerSrc || "";
-
-    box.style.display = "flex";
-}
-
-function cerrarPreview(){
-    detenerTrailer();
-    const box = document.getElementById("previewBox");
-    if(box) box.style.display = "none";
-}
-
-function detenerTrailer(){
-    const main = document.getElementById("previewMain");
-    if(main) main.innerHTML = "";
-
-    if(window._musicaPausadaPorTrailer){
-        window._musicaPausadaPorTrailer = false;
-        reproducirMusica();
-    }
-}
-
-function verEnMain(src, el){
-    detenerTrailer();
-    const main = document.getElementById("previewMain");
-    if(!main) return;
-    main.innerHTML = `<img src="${src}">`;
-    document.querySelectorAll(".preview-thumbs .thumb").forEach(t => t.classList.remove("active"));
-    el.classList.add("active");
-}
-
-function verTrailerEnMain(videoId, el){
-    const main = document.getElementById("previewMain");
-    if(!main) return;
-
-    if(!bgMusic.paused){
-        pausarMusica();
-        window._musicaPausadaPorTrailer = true;
-    }
-
-    main.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allowfullscreen></iframe>`;
-    document.querySelectorAll(".preview-thumbs .thumb").forEach(t => t.classList.remove("active"));
-    el.classList.add("active");
-}
-
-function abrirLink(link, nombre){
-    if(!link || link.trim() === ""){
-        alert("No hay enlace disponible");
-        return;
-    }
-
-    // Enlaces de archivo de MediaFire: descarga directa sin abrir pestaña
-    if(/mediafire\.com\/file\//.test(link)){
-        descargarMediafire(link, null, nombre);
-        return;
-    }
-
-    // URL directa de descarga de MediaFire (download###.mediafire.com)
-    if(/download\d+\.mediafire\.com\//.test(link)){
-        descargarMediafire(link, link, nombre);
-        return;
-    }
-
-    window.open(link, "_blank");
-}
-
-let descargaController = null;
-let descargaIntervalo = null;
-let mutePrevioDescarga = null;
-let fallbackLink = null;
-let descargaTimerPestana = null;
-
-function silenciarMusicaDuranteDescarga(){
-    if(!bgMusic || mutePrevioDescarga) return;
-
-    mutePrevioDescarga = {
-        muted: bgMusic.muted,
-        sonidoMuteado: sonidoMuteado
-    };
-
-    bgMusic.muted = true;
-}
-
-function restaurarMusicaDespuesDescarga(){
-    if(!bgMusic || !mutePrevioDescarga) return;
-
-    bgMusic.muted = mutePrevioDescarga.muted;
-    sonidoMuteado = mutePrevioDescarga.sonidoMuteado;
-    mutePrevioDescarga = null;
-
-    actualizarVolumenUI();
-}
-
-function playLoadingSound(){
-    if(!loadingSound) return;
-    loadingSound.volume = 0.8;
-    loadingSound.currentTime = 0;
-    loadingSound.play().catch(() => {});
-}
-
-function stopLoadingSound(){
-    if(!loadingSound) return;
-    loadingSound.pause();
-    loadingSound.currentTime = 0;
-}
-
-function descargarMediafire(link, directaPrevia, nombre){
-    const box = document.getElementById("descargaBox");
-    const barra = document.getElementById("descargaProgress");
-    const estado = document.getElementById("descargaEstado");
-    const boton = document.getElementById("descargaFallback");
-    const nombreEl = document.getElementById("descargaNombre");
-
-    if(!box || !barra || !estado) return;
-
-    box.style.display = "flex";
-    barra.style.width = "0%";
-    estado.textContent = "Preparando el enlace...";
-    if(nombreEl) nombreEl.textContent = nombre || "";
-
-    // El botón "Abrir en pestaña" solo se muestra si la descarga automática falla
-    fallbackLink = null;
-    if(boton) boton.style.display = "none";
-
-    playLoadingSound();
-
-    silenciarMusicaDuranteDescarga();
-
-    // Limpiar cualquier descarga previa
-    if(descargaController) descargaController.abort();
-    descargaController = new AbortController();
-    if(descargaIntervalo) clearInterval(descargaIntervalo);
-    if(descargaTimerPestana) clearTimeout(descargaTimerPestana);
-
-    let progreso = 0;
-    let terminadoPorTiempo = false;
-
-    descargaIntervalo = setInterval(() => {
-        if(progreso < 90){
-            progreso += Math.random() * 12 + 3;
-            if(progreso > 90) progreso = 90;
-            barra.style.width = progreso + "%";
-        }
-    }, 120);
-
-    // Si la descarga automática tarda demasiado, se cancela el intento
-    // y se abre la pestaña (o se deja el botón si el navegador lo bloquea)
-    descargaTimerPestana = setTimeout(() => {
-        terminadoPorTiempo = true;
-        if(descargaController) descargaController.abort();
-        abrirPestanaOfallback(link, "La descarga automática tardó demasiado.");
-    }, 20000);
-
-    const exito = (mensaje) => {
-        if(descargaTimerPestana){ clearTimeout(descargaTimerPestana); descargaTimerPestana = null; }
-        stopLoadingSound();
-        restaurarMusicaDespuesDescarga();
-        clearInterval(descargaIntervalo);
-        descargaIntervalo = null;
-        descargaController = null;
-        barra.style.width = "100%";
-        estado.textContent = mensaje;
-        setTimeout(() => cerrarDescarga(), 2000);
-    };
-
-    const fallo = (mensaje) => {
-        if(descargaTimerPestana){ clearTimeout(descargaTimerPestana); descargaTimerPestana = null; }
-        stopLoadingSound();
-        restaurarMusicaDespuesDescarga();
-        clearInterval(descargaIntervalo);
-        descargaIntervalo = null;
-        descargaController = null;
-        barra.style.width = progreso + "%";
-        abrirPestanaOfallback(link, mensaje);
-    };
-
-    if(!directaPrevia){
-        const quickkey = (link.match(/mediafire\.com\/file\/([^\/]+)\//) || [])[1];
-
-        if(!quickkey){
-            fallo("No se pudo procesar el enlace automáticamente.");
-            return;
-        }
-    }
-
-    if(directaPrevia){
-        iniciarDescarga(directaPrevia);
-        exito("Descarga iniciada ✔");
-        return;
-    }
-
-    // Traer la página de MediaFire en segundo plano (vía proxies CORS)
-    // y extraer la URL directa del botón "Descargar".
-    obtenerUrlDirecta(link, descargaController.signal)
-        .then(directa => {
-            iniciarDescarga(directa);
-            exito("Descarga iniciada ✔");
-        })
-        .catch(error => {
-            if(terminadoPorTiempo) return;
-            if(error && error.name === "AbortError"){
-                cerrarDescarga();
-                return;
-            }
-            fallo("No se pudo iniciar la descarga automáticamente.");
-        });
-}
-
-function abrirPestanaOfallback(link, mensaje){
-    stopLoadingSound();
-    restaurarMusicaDespuesDescarga();
-
-    if(descargaIntervalo){ clearInterval(descargaIntervalo); descargaIntervalo = null; }
-
-    // Intenta abrir la pestaña automáticamente; si el navegador lo bloquea
-    // (por no ser un clic del usuario), se muestra el botón manual.
-    const ventana = window.open(link, "_blank");
-
-    if(ventana){
-        if(descargaController) descargaController.abort();
-        descargaController = null;
-        const box = document.getElementById("descargaBox");
-        if(box) box.style.display = "none";
-    }else{
-        mostrarFallback(link, mensaje);
-    }
-}
-
-function mostrarFallback(link, mensaje){
-    fallbackLink = link;
-
-    const boton = document.getElementById("descargaFallback");
-    const estado = document.getElementById("descargaEstado");
-
-    if(estado) estado.textContent = mensaje + " Toca el botón de abajo para abrirlo en una pestaña.";
-    if(boton) boton.style.display = "block";
-}
-
-function abrirEnlaceFallback(){
-    if(!fallbackLink) return;
-
-    const link = fallbackLink;
-    fallbackLink = null;
-
-    window.open(link, "_blank");
-    cerrarDescarga();
-}
-
-function extraerUrlDirecta(texto){
-    const match = (texto || "").match(/https:\/\/download\d+\.mediafire\.com\/[^"'\s<>\]\)]+/);
-    return match ? match[0].replace(/&amp;/g, "&") : null;
-}
-
-async function obtenerUrlDirecta(link, signal){
-    const quickkey = (link.match(/mediafire\.com\/file\/([^\/]+)\//) || [])[1];
-
-    if(!quickkey){
-        throw new Error("Sin quickkey");
-    }
-
-    // URL canónica: solo el quickkey, sin el nombre del archivo.
-    // Evita errores de encoding (apóstrofes, corchetes, %, +, espacios...).
-    let urlPagina = "https://www.mediafire.com/file/" + quickkey;
-
-    // La API oficial de MediaFire tiene CORS abierto (*) y es muy fiable.
-    // Valida que el archivo exista y está listo, y da su URL canónica.
-    try{
-        const r = await fetch("https://www.mediafire.com/api/1.4/file/get_info.php?quick_key=" + encodeURIComponent(quickkey) + "&response_format=json", { signal, cache: "no-store" });
-        if(r.ok){
-            const d = await r.json();
-            const fi = d && d.response && d.response.file_info;
-            if(fi && fi.ready === "no") throw new Error("Archivo no disponible");
-            if(fi && fi.links && fi.links.normal_download) urlPagina = fi.links.normal_download;
-        }
-    }catch(error){
-        if(signal && signal.aborted){
-            const err = new Error("Abortado");
-            err.name = "AbortError";
-            throw err;
-        }
-        // Si la API falla, se continúa con la URL canónica simple
-    }
-
-    const fuentes = [
-        {
-            obtener: async (s) => {
-                // Header `X-No-Cache` para que r.jina.ai no sirva una copia cacheada
-                // con una dkey caducada. NO usar `?_t=` en la URL: corrompe la URL
-                // objetivo de r.jina.ai (a veces pierde el quickkey y falla).
-                const r = await fetch("https://r.jina.ai/" + encodeURI(urlPagina), { signal: s, cache: "no-store", headers: { "X-No-Cache": "true" } });
-                if(!r.ok) throw new Error("HTTP " + r.status);
-                return r.text();
-            }
-        },
-        {
-            obtener: async (s) => {
-                const r = await fetch("https://r.jina.ai/" + encodeURI(link), { signal: s, cache: "no-store", headers: { "X-No-Cache": "true" } });
-                if(!r.ok) throw new Error("HTTP " + r.status);
-                return r.text();
-            }
-        },
-        {
-            obtener: async (s) => {
-                const r = await fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(urlPagina), { signal: s, cache: "no-store" });
-                if(!r.ok) throw new Error("HTTP " + r.status);
-                const d = await r.json();
-                return (d && d.contents) || "";
-            }
-        },
-        {
-            obtener: async (s) => {
-                const r = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent(urlPagina), { signal: s, cache: "no-store" });
-                if(!r.ok) throw new Error("HTTP " + r.status);
-                return r.text();
-            }
-        }
-    ];
-
-    let ultimoError = null;
-
-    for(const fuente of fuentes){
-        const control = new AbortController();
-        const temporizador = setTimeout(() => control.abort(), 12000);
-
-        const alCancelar = () => control.abort();
-
-        if(signal){
-            if(signal.aborted){
-                control.abort();
-            }else{
-                signal.addEventListener("abort", alCancelar, { once: true });
-            }
-        }
-
-        try{
-            const texto = await fuente.obtener(control.signal);
-
-            const directa = extraerUrlDirecta(texto);
-
-            if(!directa) throw new Error("Sin URL directa");
-
-            return directa;
-        }catch(error){
-            if(signal && signal.aborted){
-                const err = new Error("Abortado");
-                err.name = "AbortError";
-                throw err;
-            }
-            ultimoError = error;
-        }finally{
-            clearTimeout(temporizador);
-            if(signal) signal.removeEventListener("abort", alCancelar);
-        }
-    }
-
-    throw ultimoError || new Error("Sin método disponible");
-}
-
-function iniciarDescarga(directa){
-    const a = document.createElement("a");
-    a.href = directa;
-    a.download = "";
-    a.style.display = "none";
-    a.rel = "noopener";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-function cerrarDescarga(){
-    stopLoadingSound();
-    restaurarMusicaDespuesDescarga();
-
-    if(descargaController) descargaController.abort();
-    descargaController = null;
-    if(descargaIntervalo){ clearInterval(descargaIntervalo); descargaIntervalo = null; }
-    if(descargaTimerPestana){ clearTimeout(descargaTimerPestana); descargaTimerPestana = null; }
-
-    const box = document.getElementById("descargaBox");
-    if(box) box.style.display = "none";
-
-    const nombreEl = document.getElementById("descargaNombre");
-    if(nombreEl) nombreEl.textContent = "";
-}
-
-function escapeComillas(str){
-    return (str || "").replace(/\\/g, "\\\\").replace(/'/g, "\\'");
-}
-
-function getColumnas(){
+/* Tarjetas por página según el ancho de pantalla (columnas × filas) */
+function calcularPorPagina(){
     const w = window.innerWidth;
-    if(w <= 768) return 2;
-    if(w <= 900) return 3;
-    if(w <= 1080) return 4;
-    if(w <= 1280) return 5;
-    if(w <= 1600) return 7;
-    if(w <= 1920) return 8;
-    if(w <= 2560) return 10;
-    return 14;
+
+    let columnas;
+    if(w <= 768) columnas = 2;
+    else if(w <= 900) columnas = 3;
+    else if(w <= 1080) columnas = 4;
+    else if(w <= 1280) columnas = 5;
+    else if(w <= 1600) columnas = 7;
+    else if(w <= 1920) columnas = 8;
+    else if(w <= 2560) columnas = 10;
+    else columnas = 14;
+
+    let filas;
+    if(w <= 768) filas = 6;
+    else if(w <= 1600) filas = 2;
+    else if(w <= 2560) filas = 3;
+    else filas = 4;
+
+    return columnas * filas;
 }
 
-function ajustarPaginacion(){
-    const nuevo = getColumnas() * getFilas();
-    if(juegosPorPagina === nuevo) return;
+function tarjetaJuego(j, i){
+    const botonVer = obtenerBotones(j).length > 0
+        ? `<button class="btn blue" data-accion="preview" data-i="${i}">Ver enlace</button>`
+        : "";
 
-    juegosPorPagina = nuevo;
+    const botonCarrito = enlacePrincipal(j)
+        ? `<button class="btn blue cart-add-btn" data-accion="carrito" data-i="${i}"><i class="fa-solid fa-cart-arrow-down"></i> Agregar</button>`
+        : "";
 
-    if(listaActual.length > 0){
-        const totalPaginas = Math.max(1, Math.ceil(listaActual.length / juegosPorPagina));
-        if(paginaActual > totalPaginas) paginaActual = totalPaginas;
-        render(listaActual);
-    }
+    const botonEliminar = admin
+        ? `<div class="admin-actions">
+                <button data-accion="eliminar" data-i="${i}" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+           </div>`
+        : "";
+
+    return `
+        <div class="card">
+            <img src="${esc(j.img)}" loading="lazy" decoding="async" alt="${esc(j.nombre)}">
+
+            <div class="content">
+                <div class="info-overlay">
+                    <h3>${esc(j.nombre)}</h3>
+                    <p>${esc(j.desc)}</p>
+                </div>
+
+                <div class="btns">${botonVer}${botonCarrito}</div>
+                ${botonEliminar}
+            </div>
+        </div>`;
 }
 
 function render(lista){
     if(!store) return;
 
-    let html = "";
-
-    juegosPorPagina = getColumnas() * getFilas();
+    juegosPorPagina = calcularPorPagina();
 
     const inicio = (paginaActual - 1) * juegosPorPagina;
-    const fin = inicio + juegosPorPagina;
 
-    const juegosPagina = lista.slice(inicio, fin);
-
-    juegosPagina.forEach(j => {
-        let ss = Array.isArray(j.screenshots) ? j.screenshots : [];
-        html += `
-        <div class="card">
-            <img src="${j.img}" loading="lazy" decoding="async" alt="${j.nombre}">
-
-            <div class="content">
-                <div class="info-overlay">
-                    <h3>${j.nombre}</h3>
-                    <p>${j.desc}</p>
-                </div>
-
-                <div class="btns">
-                    ${(j.link1 || j.link2) ? `<button class="btn blue" onclick="playClick();abrirPreview(this)" data-img="${j.img}" data-nombre="${j.nombre}" data-link1="${j.link1||''}" data-link2="${j.link2||''}" data-screenshots='${JSON.stringify(ss)}' data-trailer="${j.trailer||''}" data-rating="${j.rating||''}" data-genre="${j.genre||''}" data-developer="${j.developer||''}" data-desc="${j.previewDesc||''}" data-size="${j.size||''}" data-format="${j.format||''}" data-languages="${j.languages||''}" data-update="${j.update||''}" data-gameid="${j.gameId||''}" data-firmware="${j.firmware||''}" data-mode="${j.mode||''}" data-year="${j.year||''}">Ver enlace</button>` : ''}
-                    ${j.link1 ? `<button class="btn blue cart-add-btn" onclick="playClick();agregarAlCarrito('${escapeComillas(j.nombre)}', '${escapeComillas(j.link1)}', '${escapeComillas(j.img)}')"><i class="fa-solid fa-cart-arrow-down"></i> Agregar</button>` : ''}
-                </div>
-
-                ${admin ? `
-                <div class="admin-actions">
-                    <button onclick="eliminar('${j.id}', '${mostrandoHomebrew ? "homebrew" : "juegos"}')" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
-                </div>` : ""}
-            </div>
-        </div>`;
-    });
-
-    store.innerHTML = html;
+    store.innerHTML = lista
+        .slice(inicio, inicio + juegosPorPagina)
+        .map((j, n) => tarjetaJuego(j, inicio + n))
+        .join("");
 
     renderPagination(lista.length);
 }
+
+if(store){
+    store.addEventListener("click", (e) => {
+        const boton = e.target.closest("[data-accion]");
+        if(!boton) return;
+
+        const juego = listaActual[Number(boton.dataset.i)];
+        if(!juego) return;
+
+        playClick();
+
+        switch(boton.dataset.accion){
+            case "preview":
+                abrirPreview(juego);
+                break;
+            case "carrito":
+                agregarAlCarrito(juego.nombre, enlacePrincipal(juego), juego.img);
+                break;
+            case "eliminar":
+                confirmarEliminar(juego.id, juego.nombre, mostrandoHomebrew ? "homebrew" : "juegos");
+                break;
+        }
+    });
+}
+
+// Cualquier botón con data-link abre/descarga ese enlace (emuladores,
+// recursos, vista previa y lista de descargas del carrito).
+document.addEventListener("click", (e) => {
+    const boton = e.target.closest("[data-link]");
+    if(!boton) return;
+
+    playClick();
+
+    if(boton.closest("#previewBox")) cerrarPreview();
+
+    abrirLink(boton.dataset.link, boton.dataset.nombre);
+});
 
 /* ========= PAGINACIÓN ========= */
 function renderPagination(totalJuegos){
     if(!pagination) return;
 
-    const totalPaginas = Math.ceil(totalJuegos / juegosPorPagina);
-
-    let botones = "";
-
-    botones += `
-        <button ${paginaActual === 1 ? "disabled" : ""} 
-        onclick="cambiarPagina(${paginaActual - 1})">
-            ⬅
-        </button>
-    `;
+    const totalPaginas = Math.max(1, Math.ceil(totalJuegos / juegosPorPagina));
 
     let inicio = Math.max(1, paginaActual - 2);
     let fin = Math.min(totalPaginas, paginaActual + 2);
 
-    if(paginaActual <= 3){
-        fin = Math.min(5, totalPaginas);
-    }
+    if(paginaActual <= 3) fin = Math.min(5, totalPaginas);
+    if(paginaActual >= totalPaginas - 2) inicio = Math.max(1, totalPaginas - 4);
 
-    if(paginaActual >= totalPaginas - 2){
-        inicio = Math.max(1, totalPaginas - 4);
-    }
+    const boton = (numero, etiqueta = numero) => `<button onclick="cambiarPagina(${numero})">${etiqueta}</button>`;
+    const puntos = `<button disabled>...</button>`;
+
+    let html = `<button ${paginaActual === 1 ? "disabled" : ""} onclick="cambiarPagina(${paginaActual - 1})">⬅</button>`;
 
     if(inicio > 1){
-        botones += `<button onclick="cambiarPagina(1)">1</button>`;
-
-        if(inicio > 2){
-            botones += `<button disabled>...</button>`;
-        }
+        html += boton(1);
+        if(inicio > 2) html += puntos;
     }
 
     for(let i = inicio; i <= fin; i++){
-        botones += `
-            <button 
-                class="${i === paginaActual ? "active" : ""}" 
-                onclick="cambiarPagina(${i})">
-                ${i}
-            </button>
-        `;
+        html += `<button class="${i === paginaActual ? "active" : ""}" onclick="cambiarPagina(${i})">${i}</button>`;
     }
 
     if(fin < totalPaginas){
-        if(fin < totalPaginas - 1){
-            botones += `<button disabled>...</button>`;
-        }
-
-        botones += `
-            <button onclick="cambiarPagina(${totalPaginas})">
-                ${totalPaginas}
-            </button>
-        `;
+        if(fin < totalPaginas - 1) html += puntos;
+        html += boton(totalPaginas);
     }
 
-    botones += `
-        <button ${paginaActual === totalPaginas ? "disabled" : ""} 
-        onclick="cambiarPagina(${paginaActual + 1})">
-            ➡
-        </button>
-    `;
+    html += `<button ${paginaActual === totalPaginas ? "disabled" : ""} onclick="cambiarPagina(${paginaActual + 1})">➡</button>`;
 
-    pagination.innerHTML = botones;
+    pagination.innerHTML = html;
 }
 
 function cambiarPagina(numero){
@@ -1206,60 +731,476 @@ function cambiarPagina(numero){
 
     playClick();
 
-    if(store){
-        store.classList.add("page-transition");
-    }
+    if(store) store.classList.add("page-transition");
 
     setTimeout(() => {
         paginaActual = numero;
         render(listaActual);
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
-        if(store){
-            store.classList.remove("page-transition");
-        }
+        if(store) store.classList.remove("page-transition");
     }, 250);
 }
 
-/* Reajusta la cantidad de tarjetas al cambiar la resolución */
+// Al cambiar la resolución se recalcula la cantidad de tarjetas por página
+let temporizadorResize = null;
+
 window.addEventListener("resize", () => {
-    ajustarPaginacion();
+    clearTimeout(temporizadorResize);
+
+    temporizadorResize = setTimeout(() => {
+        const nuevo = calcularPorPagina();
+        if(nuevo === juegosPorPagina || listaActual.length === 0) return;
+
+        paginaActual = Math.min(paginaActual, Math.max(1, Math.ceil(listaActual.length / nuevo)));
+        render(listaActual);
+    }, 150);
 });
 
-/* ========= ESTRELLAS ========= */
+/* ========= VISTA PREVIA ========= */
+function extraerIdYoutube(trailer){
+    if(!trailer) return "";
+
+    const enlace = trailer.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+    if(enlace) return enlace[1];
+
+    return /^[a-zA-Z0-9_-]{11,}$/.test(trailer) ? trailer : "";
+}
+
+function abrirPreview(juego){
+    const screenshots = Array.isArray(juego.screenshots) ? juego.screenshots : [];
+
+    const botones = obtenerBotones(juego);
+
+    const tieneDetalle = botones.length > 1 || screenshots.length > 0 || juego.trailer || juego.previewDesc ||
+        juego.genre || juego.developer || juego.gameId;
+
+    // Sin información adicional no hay nada que mostrar: se abre el enlace directamente
+    if(!tieneDetalle){
+        abrirLink(enlacePrincipal(juego), juego.nombre);
+        return;
+    }
+
+    mostrarPreview(juego, screenshots);
+}
+
+function mostrarPreview(j, screenshots){
+    const box = document.getElementById("previewBox");
+    if(!box) return;
+
+    const fila = (etiqueta, valor) => valor ? `<div class="fi"><b>${etiqueta}:</b> ${esc(valor)}</div>` : "";
+    const columna = (etiqueta, valor, extra = "") =>
+        valor ? `<div class="fi-col"><span class="label">${etiqueta}</span><span class="value${extra}">${esc(valor)}</span></div>` : "";
+
+    document.getElementById("previewImg").src = j.img || "";
+    document.getElementById("previewNombre").textContent = j.nombre || "";
+    document.getElementById("previewDescModal").textContent = j.previewDesc || "";
+
+    document.getElementById("previewFileInfo").innerHTML =
+        fila("ID", j.gameId) +
+        fila("Peso", j.size) +
+        fila("Idiomas", j.languages) +
+        fila("Formato", j.format) +
+        fila("Firmware", j.firmware) +
+        fila("Actualización", j.update);
+
+    document.getElementById("previewMeta").innerHTML =
+        columna("Género", j.genre) +
+        columna("Jugadores", j.mode) +
+        columna("Desarrolladora", j.developer) +
+        columna("Año", j.year) +
+        columna("Valoración", j.rating, " gold");
+
+    document.getElementById("previewLinks").innerHTML = obtenerBotones(j).map(b => {
+        const fondo = colorValido(b.color) ? b.color : (TIPOS_BOTON[b.tipo] || TIPOS_BOTON.Otro);
+
+        return `<button class="btn" style="background:${fondo};color:${colorTextoSobre(fondo)}" data-link="${esc(b.url)}" data-nombre="${esc(j.nombre)}"><i class="${iconoBoton(b.tipo)}"></i> ${esc(etiquetaBoton(b))}</button>`;
+    }).join("");
+
+    const idVideo = extraerIdYoutube(j.trailer);
+
+    let miniaturas = screenshots
+        .map((src, i) => `<img class="thumb${i === 0 ? " active" : ""}" src="${esc(src)}" data-src="${esc(src)}" loading="lazy" alt="">`)
+        .join("");
+
+    if(idVideo){
+        miniaturas += `<div class="thumb thumb-video" data-video="${esc(idVideo)}"><img src="https://img.youtube.com/vi/${esc(idVideo)}/mqdefault.jpg" loading="lazy" alt=""><div class="play-icon"></div></div>`;
+    }
+
+    const principal = document.getElementById("previewMain");
+
+    if(screenshots.length > 0) principal.innerHTML = `<img src="${esc(screenshots[0])}" alt="">`;
+    else if(idVideo) principal.innerHTML = `<iframe src="https://www.youtube.com/embed/${esc(idVideo)}" allowfullscreen></iframe>`;
+    else principal.innerHTML = "";
+
+    document.getElementById("previewThumbs").innerHTML = miniaturas;
+
+    box.style.display = "flex";
+}
+
+const previewThumbs = document.getElementById("previewThumbs");
+
+if(previewThumbs){
+    previewThumbs.addEventListener("click", (e) => {
+        const miniatura = e.target.closest(".thumb");
+        if(!miniatura) return;
+
+        if(miniatura.dataset.video) verTrailerEnMain(miniatura.dataset.video, miniatura);
+        else if(miniatura.dataset.src) verEnMain(miniatura.dataset.src, miniatura);
+    });
+}
+
+function seleccionarMiniatura(miniatura){
+    document.querySelectorAll(".preview-thumbs .thumb").forEach(t => t.classList.toggle("active", t === miniatura));
+}
+
+function verEnMain(src, miniatura){
+    const principal = document.getElementById("previewMain");
+    if(!principal) return;
+
+    detenerTrailer();
+
+    principal.innerHTML = `<img src="${esc(src)}" alt="">`;
+    seleccionarMiniatura(miniatura);
+}
+
+function verTrailerEnMain(idVideo, miniatura){
+    const principal = document.getElementById("previewMain");
+    if(!principal) return;
+
+    // La música se pausa mientras suena el tráiler y se reanuda al cerrarlo
+    if(bgMusic && !bgMusic.paused){
+        pausarMusica();
+        musicaPausadaPorTrailer = true;
+    }
+
+    principal.innerHTML = `<iframe src="https://www.youtube.com/embed/${esc(idVideo)}?autoplay=1" allowfullscreen></iframe>`;
+    seleccionarMiniatura(miniatura);
+}
+
+function detenerTrailer(){
+    const principal = document.getElementById("previewMain");
+    if(principal) principal.innerHTML = "";
+
+    if(musicaPausadaPorTrailer){
+        musicaPausadaPorTrailer = false;
+        reproducirMusica();
+    }
+}
+
+function cerrarPreview(){
+    detenerTrailer();
+    cerrarModal("previewBox");
+}
+
+/* ========= ENLACES Y DESCARGAS ========= */
+const RE_ARCHIVO_MEDIAFIRE = /mediafire\.com\/file\/([^/?#]+)/;
+const RE_DESCARGA_DIRECTA = /download\d+\.mediafire\.com\//;
+
+function abrirLink(link, nombre){
+    if(!link || !link.trim()){
+        mostrarToast("No hay un enlace disponible.", "aviso");
+        return;
+    }
+
+    if(RE_DESCARGA_DIRECTA.test(link)){
+        descargarMediafire(link, nombre, link);
+    }else if(RE_ARCHIVO_MEDIAFIRE.test(link)){
+        descargarMediafire(link, nombre);
+    }else{
+        window.open(link, "_blank", "noopener");
+    }
+}
+
+const descarga = {
+    controller: null,   // cancela la petición en curso
+    intervalo: null,    // avance simulado de la barra
+    limite: null,       // tiempo máximo del intento automático
+    cierre: null,       // cierre diferido del modal tras el éxito
+    enlace: null,       // enlace para abrir manualmente si falla
+    audioPrevio: null   // estado del audio antes de silenciarlo
+};
+
+function silenciarMusicaDuranteDescarga(){
+    if(!bgMusic || descarga.audioPrevio) return;
+
+    descarga.audioPrevio = { muted: bgMusic.muted, sonidoMuteado };
+    bgMusic.muted = true;
+}
+
+function restaurarMusicaDespuesDescarga(){
+    if(!bgMusic || !descarga.audioPrevio) return;
+
+    bgMusic.muted = descarga.audioPrevio.muted;
+    sonidoMuteado = descarga.audioPrevio.sonidoMuteado;
+    descarga.audioPrevio = null;
+
+    actualizarVolumenUI();
+}
+
+function detenerProgreso(){
+    clearInterval(descarga.intervalo);
+    clearTimeout(descarga.limite);
+    descarga.intervalo = null;
+    descarga.limite = null;
+
+    stopLoadingSound();
+    restaurarMusicaDespuesDescarga();
+}
+
+function descargarMediafire(link, nombre, directa = null){
+    const barra = document.getElementById("descargaProgress");
+    const estado = document.getElementById("descargaEstado");
+    const botonManual = document.getElementById("descargaFallback");
+    const nombreEl = document.getElementById("descargaNombre");
+
+    if(!barra || !estado){
+        window.open(link, "_blank", "noopener");
+        return;
+    }
+
+    // Cancela cualquier descarga anterior antes de iniciar una nueva
+    if(descarga.controller) descarga.controller.abort();
+    clearTimeout(descarga.cierre);
+    detenerProgreso();
+
+    const controller = new AbortController();
+    descarga.controller = controller;
+    descarga.enlace = null;
+
+    abrirModal("descargaBox");
+    barra.style.width = "0%";
+    estado.textContent = "Preparando el enlace...";
+    if(nombreEl) nombreEl.textContent = nombre || "";
+    if(botonManual) botonManual.style.display = "none";
+
+    playLoadingSound();
+    silenciarMusicaDuranteDescarga();
+
+    let progreso = 0;
+    let agotado = false;
+
+    descarga.intervalo = setInterval(() => {
+        progreso = Math.min(90, progreso + Math.random() * 12 + 3);
+        barra.style.width = progreso + "%";
+    }, 120);
+
+    // Si el intento automático tarda demasiado se cancela y se abre el enlace en pestaña
+    descarga.limite = setTimeout(() => {
+        agotado = true;
+        controller.abort();
+        abrirPestanaOFallback(link, "La descarga automática tardó demasiado.");
+    }, 20000);
+
+    const exito = () => {
+        detenerProgreso();
+        descarga.controller = null;
+        barra.style.width = "100%";
+        estado.textContent = "Descarga iniciada ✔";
+        descarga.cierre = setTimeout(cerrarDescarga, 2000);
+    };
+
+    const fallo = (mensaje) => {
+        detenerProgreso();
+        descarga.controller = null;
+        barra.style.width = progreso + "%";
+        abrirPestanaOFallback(link, mensaje);
+    };
+
+    if(directa){
+        iniciarDescarga(directa);
+        exito();
+        return;
+    }
+
+    obtenerUrlDirecta(link, controller.signal)
+        .then(url => {
+            iniciarDescarga(url);
+            exito();
+        })
+        .catch(error => {
+            // Ignorar respuestas de intentos ya reemplazados o cancelados
+            if(agotado || descarga.controller !== controller) return;
+
+            if(error && error.name === "AbortError"){
+                cerrarDescarga();
+                return;
+            }
+
+            fallo("No se pudo iniciar la descarga automática.");
+        });
+}
+
+function abrirPestanaOFallback(link, mensaje){
+    detenerProgreso();
+
+    // Intenta abrir la pestaña; si el navegador la bloquea (no hay gesto del
+    // usuario), se muestra un botón para abrirla manualmente. No se usa
+    // "noopener" porque haría que open() devuelva siempre null.
+    const ventana = window.open(link, "_blank");
+
+    if(ventana){
+        if(descarga.controller) descarga.controller.abort();
+        descarga.controller = null;
+        cerrarModal("descargaBox");
+        return;
+    }
+
+    descarga.enlace = link;
+
+    const estado = document.getElementById("descargaEstado");
+    const boton = document.getElementById("descargaFallback");
+
+    if(estado) estado.textContent = `${mensaje} Pulsa el botón para abrir el enlace en una pestaña nueva.`;
+    if(boton) boton.style.display = "block";
+}
+
+function abrirEnlaceFallback(){
+    if(!descarga.enlace) return;
+
+    window.open(descarga.enlace, "_blank", "noopener");
+    cerrarDescarga();
+}
+
+function cerrarDescarga(){
+    if(descarga.controller) descarga.controller.abort();
+    descarga.controller = null;
+    descarga.enlace = null;
+
+    clearTimeout(descarga.cierre);
+    detenerProgreso();
+
+    cerrarModal("descargaBox");
+
+    const nombreEl = document.getElementById("descargaNombre");
+    if(nombreEl) nombreEl.textContent = "";
+}
+
+function iniciarDescarga(url){
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "";
+    a.rel = "noopener";
+    a.style.display = "none";
+
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}
+
+function errorAbortado(){
+    const error = new Error("Operación cancelada");
+    error.name = "AbortError";
+    return error;
+}
+
+function extraerUrlDirecta(texto){
+    const coincidencia = (texto || "").match(/https:\/\/download\d+\.mediafire\.com\/[^"'\s<>\])]+/);
+
+    return coincidencia ? coincidencia[0].replace(/&amp;/g, "&") : null;
+}
+
+async function solicitar(url, signal, opciones = {}){
+    const respuesta = await fetch(url, { signal, cache: "no-store", ...opciones });
+
+    if(!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+
+    return respuesta;
+}
+
+// Obtiene la URL directa de descarga de un archivo de MediaFire. La página
+// se descarga a través de proxies CORS y se extrae el enlace del botón "Descargar".
+async function obtenerUrlDirecta(link, signal){
+    const quickkey = (link.match(RE_ARCHIVO_MEDIAFIRE) || [])[1];
+
+    if(!quickkey) throw new Error("Enlace de MediaFire no válido");
+
+    // URL canónica con solo el quickkey: evita problemas de codificación
+    // con el nombre del archivo (apóstrofes, corchetes, espacios...).
+    let urlPagina = "https://www.mediafire.com/file/" + quickkey;
+
+    // La API oficial valida que el archivo exista y devuelve su URL de descarga.
+    try{
+        const r = await solicitar(
+            `https://www.mediafire.com/api/1.4/file/get_info.php?quick_key=${encodeURIComponent(quickkey)}&response_format=json`,
+            signal
+        );
+        const info = (await r.json())?.response?.file_info;
+
+        if(info?.ready === "no") throw new Error("Archivo no disponible");
+        if(info?.links?.normal_download) urlPagina = info.links.normal_download;
+
+    }catch(error){
+        if(signal?.aborted) throw errorAbortado();
+        // Si la API falla se continúa con la URL canónica
+    }
+
+    // X-No-Cache evita que r.jina.ai devuelva una copia con enlace caducado.
+    // No se debe añadir "?_t=" a la URL: corrompe la URL objetivo del proxy.
+    const sinCache = { headers: { "X-No-Cache": "true" } };
+
+    const fuentes = [
+        async (s) => (await solicitar("https://r.jina.ai/" + encodeURI(urlPagina), s, sinCache)).text(),
+        async (s) => (await solicitar("https://r.jina.ai/" + encodeURI(link), s, sinCache)).text(),
+        async (s) => (await (await solicitar("https://api.allorigins.win/get?url=" + encodeURIComponent(urlPagina), s)).json())?.contents || "",
+        async (s) => (await solicitar("https://api.allorigins.win/raw?url=" + encodeURIComponent(urlPagina), s)).text()
+    ];
+
+    let ultimoError = null;
+
+    for(const obtener of fuentes){
+        // Cada fuente tiene su propio límite de 12 s, además de la cancelación externa
+        const control = new AbortController();
+        const temporizador = setTimeout(() => control.abort(), 12000);
+        const alCancelar = () => control.abort();
+
+        if(signal?.aborted) control.abort();
+        else signal?.addEventListener("abort", alCancelar, { once: true });
+
+        try{
+            const directa = extraerUrlDirecta(await obtener(control.signal));
+
+            if(!directa) throw new Error("La página no contiene un enlace de descarga");
+
+            return directa;
+
+        }catch(error){
+            if(signal?.aborted) throw errorAbortado();
+            ultimoError = error;
+
+        }finally{
+            clearTimeout(temporizador);
+            signal?.removeEventListener("abort", alCancelar);
+        }
+    }
+
+    throw ultimoError || new Error("Ninguna fuente respondió");
+}
+
+/* ========= FONDO ANIMADO ========= */
 const canvas = document.getElementById("stars");
 
 if(canvas){
     const ctx = canvas.getContext("2d");
+    const intervalo = 1000 / 30;
+    const cantidad = window.matchMedia("(max-width: 768px)").matches ? 30 : 80;
 
-    let stars = [];
+    let estrellas = [];
     let frameId = null;
     let ultimoTiempo = 0;
-    const fps = 30;
-    const intervalo = 1000 / fps;
-    const esMovil = window.matchMedia("(max-width: 768px)").matches;
-    const numStars = esMovil ? 30 : 80;
 
-    function resize(){
+    const estrellaNueva = () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2,
+        speed: Math.random() * 0.3 + 0.05
+    });
+
+    function ajustarCanvas(){
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-    }
-
-    function initStars(){
-        stars = [];
-
-        for(let i = 0; i < numStars; i++){
-            stars.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 1.2,
-                speed: Math.random() * 0.3 + 0.05
-            });
-        }
+        estrellas = Array.from({ length: cantidad }, estrellaNueva);
     }
 
     function dibujar(tiempo){
@@ -1271,7 +1212,7 @@ if(canvas){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "white";
 
-        for(let s of stars){
+        for(const s of estrellas){
             ctx.beginPath();
             ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
             ctx.fill();
@@ -1285,179 +1226,165 @@ if(canvas){
         }
     }
 
-    resize();
-    initStars();
+    ajustarCanvas();
     dibujar(0);
 
-    window.addEventListener("resize", () => {
-        resize();
-        initStars();
-    });
+    window.addEventListener("resize", ajustarCanvas);
 
+    // Se pausa la animación cuando la pestaña no está visible
     document.addEventListener("visibilitychange", () => {
-        if(document.hidden && frameId){
+        if(document.hidden){
             cancelAnimationFrame(frameId);
             frameId = null;
-        }else if(!document.hidden && !frameId){
+        }else if(!frameId){
             ultimoTiempo = 0;
             dibujar(performance.now());
         }
     });
 }
 
-// =========================
-// DONACIONES
-// =========================
-
-function abrirDonaciones() {
-    playDonationClick();
-
-    document.getElementById("donacionesBox").style.display = "flex";
-}
-
-function cerrarDonaciones() {
-    document.getElementById("donacionesBox").style.display = "none";
-}
-
-// =========================
-// CARRITO DE COMPRAS
-// =========================
-
+/* ========= CARRITO ========= */
 let carrito = [];
+let comprados = [];
 
-function agregarAlCarrito(nombre, link, img) {
-    const existe = carrito.find(item => item.link === link);
-    if (!existe) {
-        carrito.push({ nombre, link, img });
-        actualizarContadorCarrito();
-        mostrarToast(`<i class="fa-solid fa-cart-plus" style="color: #10b981;"></i> ${nombre} agregado al carrito`);
-    } else {
-        mostrarToast(`<i class="fa-solid fa-circle-exclamation" style="color: #f59e0b;"></i> ${nombre} ya está en el carrito`);
+function agregarAlCarrito(nombre, link, img){
+    if(carrito.some(item => item.link === link)){
+        mostrarToast(`${nombre} ya está en el carrito.`, "aviso");
+        return;
     }
+
+    carrito.push({ nombre, link, img });
+    actualizarContadorCarrito();
+    mostrarToast(`${nombre} se agregó al carrito.`);
 }
 
-function actualizarContadorCarrito() {
-    const countSpan = document.getElementById("cartCount");
-    if (countSpan) countSpan.textContent = carrito.length;
-    
-    const btnCheckout = document.getElementById("btnCheckout");
-    if (btnCheckout) {
-        btnCheckout.disabled = carrito.length === 0;
-    }
+function actualizarContadorCarrito(){
+    const contador = document.getElementById("cartCount");
+    if(contador) contador.textContent = carrito.length;
+
+    const checkout = document.getElementById("btnCheckout");
+    if(checkout) checkout.disabled = carrito.length === 0;
 }
 
-function abrirCarrito() {
+function renderCarrito(){
+    const contenedor = document.getElementById("cartItemsContainer");
+    if(!contenedor) return;
+
+    if(carrito.length === 0){
+        contenedor.innerHTML = `
+            <div style="text-align:center; color:#94a3b8; margin-top:20px;">
+                <i class="fa-solid fa-box-open" style="font-size:32px; margin-bottom:10px; display:block;"></i>
+                <p>El carrito está vacío</p>
+            </div>`;
+        return;
+    }
+
+    contenedor.innerHTML = carrito.map((item, index) => `
+        <div class="cart-item">
+            <img src="${esc(item.img)}" class="cart-item-img" alt="">
+            <span title="${esc(item.nombre)}">${esc(item.nombre)}</span>
+            <button onclick="eliminarDelCarrito(${index})" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
+        </div>`).join("");
+}
+
+function abrirCarrito(){
     playClick();
-    const cartBox = document.getElementById("cartBox");
-    const container = document.getElementById("cartItemsContainer");
-    
-    if (carrito.length === 0) {
-        container.innerHTML = "<div style='text-align: center; color: #94a3b8; margin-top: 20px;'><i class='fa-solid fa-box-open' style='font-size:32px; margin-bottom:10px; display:block;'></i><p>El carrito está vacío</p></div>";
-    } else {
-        container.innerHTML = carrito.map((item, index) => `
-            <div class="cart-item">
-                <img src="${item.img}" class="cart-item-img" alt="Miniatura">
-                <span title="${item.nombre}">${item.nombre}</span>
-                <button onclick="eliminarDelCarrito(${index})" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-        `).join("");
-    }
-    
-    cartBox.style.display = "flex";
+    renderCarrito();
+    abrirModal("cartBox");
 }
 
-function cerrarCarrito() {
+function cerrarCarrito(){
     playClick();
-    document.getElementById("cartBox").style.display = "none";
+    cerrarModal("cartBox");
 }
 
-window.eliminarDelCarrito = function(index) {
+function eliminarDelCarrito(index){
     carrito.splice(index, 1);
     actualizarContadorCarrito();
-    abrirCarrito();
+    renderCarrito();
 }
 
-function realizarCompra() {
-    if (carrito.length === 0) return;
-    playClick();
-    cerrarCarrito();
+function realizarCompra(){
+    if(carrito.length === 0) return;
 
-    const items = [...carrito];
+    playClick();
+    cerrarModal("cartBox");
+
+    comprados = carrito;
     carrito = [];
     actualizarContadorCarrito();
 
-    const container = document.getElementById("successDownloadsContainer");
-    if (container) {
-        container.innerHTML = items.map(item => `
-            <button class="download-link-btn" onclick="abrirLink('${escapeComillas(item.link)}', '${escapeComillas(item.nombre)}')">
-                <i class="fa-solid fa-download"></i> ${item.nombre}
-            </button>
-        `).join("");
+    const contenedor = document.getElementById("successDownloadsContainer");
+
+    if(contenedor){
+        contenedor.innerHTML = comprados.map(item => `
+            <button class="download-link-btn" data-link="${esc(item.link)}" data-nombre="${esc(item.nombre)}">
+                <i class="fa-solid fa-download"></i> ${esc(item.nombre)}
+            </button>`).join("");
     }
 
-    document.getElementById("purchaseSuccessBox").style.display = "flex";
-    window._compraItems = items;
+    abrirModal("purchaseSuccessBox");
 }
 
-async function descargarTodo() {
-    const items = window._compraItems;
-    if (!items || items.length === 0) return;
+const esperar = (ms) => new Promise(resolver => setTimeout(resolver, ms));
+
+async function descargarTodo(){
+    if(comprados.length === 0) return;
+
     playClick();
+    cerrarModal("purchaseSuccessBox");
 
-    document.getElementById("purchaseSuccessBox").style.display = "none";
+    const items = comprados;
+    comprados = [];
 
-    let descargados = 0;
-    let fallidos = 0;
+    let iniciadas = 0;
+    let enPestana = 0;
 
-    for (const item of items) {
-        const link = item.link;
-        if (!link || !link.trim()) { fallidos++; continue; }
+    for(const { link } of items){
+        if(!link || !link.trim()) continue;
 
-        if (/mediafire\.com\/file\//.test(link)) {
-            try {
-                const c = new AbortController();
-                const t = setTimeout(() => c.abort(), 10000);
-                const directa = await obtenerUrlDirecta(link, c.signal);
-                clearTimeout(t);
-                iniciarDescarga(directa);
-                descargados++;
-            } catch (e) {
-                window.open(link, "_blank");
-                fallidos++;
-            }
-        } else if (/download\d+\.mediafire\.com\//.test(link)) {
+        if(RE_DESCARGA_DIRECTA.test(link)){
             iniciarDescarga(link);
-            descargados++;
-        } else {
-            window.open(link, "_blank");
-            fallidos++;
+            iniciadas++;
+
+        }else if(RE_ARCHIVO_MEDIAFIRE.test(link)){
+            const control = new AbortController();
+            const temporizador = setTimeout(() => control.abort(), 10000);
+
+            try{
+                iniciarDescarga(await obtenerUrlDirecta(link, control.signal));
+                iniciadas++;
+            }catch(error){
+                window.open(link, "_blank", "noopener");
+                enPestana++;
+            }finally{
+                clearTimeout(temporizador);
+            }
+
+        }else{
+            window.open(link, "_blank", "noopener");
+            enPestana++;
         }
 
-        await new Promise(r => setTimeout(r, 2000));
+        // Pausa entre descargas para que el navegador no bloquee las siguientes
+        await esperar(2000);
     }
 
-    window._compraItems = null;
-    mostrarToast(`<i class="fa-solid fa-circle-check" style="color: #10b981;"></i> ${descargados} descargado(s), ${fallidos} abierto(s) en pestaña`);
+    mostrarToast(`Descargas iniciadas: ${iniciadas}. Abiertas en pestaña: ${enPestana}.`);
 }
 
-function cerrarSuccessModal() {
+function cerrarSuccessModal(){
     playClick();
-    document.getElementById("purchaseSuccessBox").style.display = "none";
+    cerrarModal("purchaseSuccessBox");
 }
 
-function mostrarToast(mensaje) {
-    const container = document.getElementById("toastContainer");
-    if (!container) return;
-    
-    const toast = document.createElement("div");
-    toast.className = "toast";
-    toast.innerHTML = mensaje;
-    
-    container.appendChild(toast);
-    
-    setTimeout(() => {
-        if(container.contains(toast)) {
-            container.removeChild(toast);
-        }
-    }, 3000);
-}
+/* ========= AVATAR ALEATORIO ========= */
+(function asignarAvatar(){
+    const total = 172; // assets/pfp/sprite_0.png ... sprite_171.png
+    const ruta = `assets/pfp/sprite_${Math.floor(Math.random() * total)}.png`;
+
+    for(const id of ["randomAdminPfp", "randomLoginPfp"]){
+        const img = document.getElementById(id);
+        if(img) img.src = ruta;
+    }
+})();

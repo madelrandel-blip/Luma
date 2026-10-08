@@ -33,10 +33,14 @@ Luma Switch es una biblioteca digital diseñada para que los usuarios encuentren
 
 ## 🚀 Tecnologías utilizadas
 
-* HTML5
-* CSS3
-* JavaScript
+* HTML5, CSS3 y JavaScript (sin frameworks)
+* Firebase (Firestore y Authentication) para el panel de administración
+* GitHub Actions para sincronizar Firestore con los JSON de `data/`
 * GitHub Pages
+
+### Flujo de datos
+
+Los visitantes leen los JSON estáticos de `data/`, por lo que no consumen lecturas de Firestore. Un workflow exporta Firestore a esos archivos cada 20 minutos. Cuando se editan los JSON en el repositorio, otro workflow los importa a Firestore. Los scripts están en `scripts/`.
 
 ## 🌐 Sitio web
 

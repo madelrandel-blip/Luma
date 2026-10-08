@@ -116,14 +116,6 @@ header {
     height: 0;
 }
 
-.header-divider{
-    width:1px;
-    height:24px;
-    background:rgba(255,255,255,.08);
-    flex-shrink:0;
-    margin:0 2px;
-}
-
 .header-actions{
     display:flex;
     align-items:center;
@@ -335,9 +327,6 @@ header {
     background: transparent;
     border: none;
     box-shadow: none;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .music-icon {
@@ -1402,11 +1391,6 @@ header {
     transform: translateY(18px);
 }
 
-.store.page-transition {
-    opacity: 0;
-    transform: translateY(18px);
-}
-
 .card {
     position: relative;
     background: transparent;
@@ -2209,11 +2193,13 @@ header {
 .preview-links{
     display:flex;
     flex-direction:row;
+    flex-wrap:wrap;
     gap:8px;
 }
 
 .preview-links .btn{
-    flex:1;
+    flex:1 1 calc(50% - 8px);
+    min-width:110px;
     padding:9px 12px;
     border-radius:8px;
     font-size:13px;
@@ -2229,13 +2215,6 @@ header {
     filter:brightness(1.15);
 }
 
-.preview-links .btn.blue{
-    background:#1565c0;
-}
-
-.preview-links .btn.green{
-    background:#2e7d32;
-}
 
 /* ==========================================================================
    10. CARRITO DE COMPRAS
@@ -2621,3 +2600,96 @@ header {
         font-size: 12px;
     }
 }
+/* ==========================================================================
+   Editor de botones de publicación (panel admin)
+   ========================================================================== */
+.boton-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.boton-fila {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--c, #1565c0);
+    background: rgba(0, 0, 0, 0.22);
+}
+.boton-fila select,
+.boton-fila input[type="text"],
+.boton-agregar select {
+    padding: 7px 9px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 12px;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+}
+.boton-fila select option,
+.boton-agregar select option { background: #0b1226; }
+.boton-fila select:focus,
+.boton-fila input[type="text"]:focus {
+    border-color: rgba(125, 211, 252, 0.45);
+}
+.boton-fila .bf-tipo { flex: 0 0 130px; }
+.boton-fila .bf-url { flex: 1 1 160px; min-width: 0; }
+.boton-fila .bf-texto { flex: 1 1 100%; display: none; }
+.boton-fila.es-otro .bf-texto { display: block; }
+.boton-fila .bf-color {
+    width: 34px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+}
+.boton-fila .bf-acciones {
+    display: flex;
+    gap: 4px;
+}
+.boton-fila .bf-acciones button {
+    width: 28px;
+    height: 30px;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 11px;
+    cursor: pointer;
+}
+.boton-fila .bf-acciones button:hover { background: rgba(125, 211, 252, 0.15); }
+.boton-fila .bf-acciones button[data-op="borrar"]:hover { background: rgba(239, 68, 68, 0.3); }
+.boton-agregar {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.boton-agregar select { flex: 0 0 150px; }
+.boton-agregar button {
+    flex: 1;
+    padding: 7px 10px;
+    border-radius: 6px;
+    border: 1px dashed rgba(125, 211, 252, 0.4);
+    background: rgba(125, 211, 252, 0.08);
+    color: #7dd3fc;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.boton-agregar button:hover { background: rgba(125, 211, 252, 0.16); }
+.boton-fila .bf-icono {
+    width: 18px;
+    text-align: center;
+    color: var(--c, #7dd3fc);
+    font-size: 14px;
+}
+.preview-links .btn i { margin-right: 4px; }

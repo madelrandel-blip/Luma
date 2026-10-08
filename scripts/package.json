@@ -1,8 +1,12 @@
 {
-    "name": "exportar-firestore",
+    "name": "luma-scripts",
     "private": true,
     "version": "1.0.0",
-    "description": "Exporta las colecciones de Firestore a archivos JSON estaticos para Luma Switch",
+    "description": "Sincronización entre Firestore y los JSON estáticos de Luma Switch",
+    "scripts": {
+        "exportar": "node exportar-firestore.js",
+        "importar": "node importar-firestore.js"
+    },
     "dependencies": {
         "firebase-admin": "^12.6.0"
     }

@@ -9,19 +9,18 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Luma Switch">
-<meta property="og:description" content="Explora tu biblioteca premium de juegos Nintendo Switch en Luma Switch.">
+<meta property="og:description" content="Catálogo de juegos de Nintendo Switch, emuladores y recursos.">
 <meta property="og:image" content="assets/images/Luma icon.webp">
 <meta property="og:url" content="https://madelrandel-blip.github.io/Luma/">
-<meta property="theme-color" content="#7dd3fc">
+<meta name="theme-color" content="#7dd3fc">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Luma Switch">
-<meta name="twitter:description" content="Explora tu biblioteca premium de juegos Nintendo Switch en Luma Switch.">
+<meta name="twitter:description" content="Catálogo de juegos de Nintendo Switch, emuladores y recursos.">
 <meta name="twitter:image" content="assets/images/Luma background embed.jpg?raw=true">
 
-<link rel="stylesheet" href="style.css?v=20260822-7">
+<link rel="stylesheet" href="style.css?v=20261007-4">
 <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -40,12 +39,12 @@
         <h2>Bienvenido a Luma Switch</h2>
 
         <p>
-            Explora tu biblioteca premium de juegos Nintendo Switch, emuladores,
-            recursos y contenido exclusivo en una experiencia moderna.
+            Explora el catálogo de juegos de Nintendo Switch, emuladores
+            y recursos en un solo lugar.
         </p>
 
         <div class="welcome-buttons">
-            <button class="accept-btn" onclick="aceptarBienvenida()">
+            <button class="accept-btn" onclick="playClick();aceptarBienvenida()">
                 Entrar a Luma Switch
             </button>
         </div>
@@ -79,7 +78,7 @@
         </button>
 
         <button onclick="logout()" id="logoutBtn" style="display:none;">
-            🚪 Salir
+            Salir
         </button>
 
         <!-- REPRODUCTOR DE MÚSICA -->
@@ -164,15 +163,15 @@
     </div>
 </header>
 
-<!-- LISTA DE CANCIONES (pestaña que carga debajo del reproductor) -->
+<!-- LISTA DE CANCIONES -->
 <div class="music-playlist" id="musicPlaylist"></div>
 
 <!-- PANEL ADMIN -->
 <div id="adminPanel">
     <div class="admin-header">
         <div class="admin-header-title">
-            <h3><i class="fa-solid fa-gauge-high"></i> Panel Administrador</h3>
-            <p class="admin-header-sub">Gestiona el catálogo de Juegos y Homebrew</p>
+            <h3><i class="fa-solid fa-gauge-high"></i> Panel de administración</h3>
+            <p class="admin-header-sub">Gestión del catálogo de Juegos y Homebrew</p>
         </div>
         <div class="admin-mode" id="adminMode">
             <span class="mode-dot"></span>
@@ -199,8 +198,8 @@
                         <input type="text" id="desc" placeholder="Peso, update, etc.">
                     </div>
                     <div class="admin-field full">
-                        <label>Descripción preview</label>
-                        <textarea id="previewDesc" placeholder="Descripción del juego para el modal preview" rows="2"></textarea>
+                        <label>Descripción de la vista previa</label>
+                        <textarea id="previewDesc" placeholder="Texto que se muestra en la vista previa del juego" rows="2"></textarea>
                     </div>
                     <div class="admin-field full">
                         <label class="admin-homebrew-label">
@@ -211,16 +210,11 @@
             </div>
 
             <div class="admin-section">
-                <h4><i class="fa-solid fa-link"></i> Enlaces de descarga</h4>
-                <div class="admin-grid">
-                    <div class="admin-field full">
-                        <label>Link 1</label>
-                        <input type="text" id="link1" placeholder="URL MediaFire principal">
-                    </div>
-                    <div class="admin-field full">
-                        <label>Link 2</label>
-                        <input type="text" id="link2" placeholder="URL tutorial o alternativa">
-                    </div>
+                <h4><i class="fa-solid fa-link"></i> Botones de la publicación</h4>
+                <div class="boton-lista" id="botonesLista"></div>
+                <div class="boton-agregar">
+                    <select id="botonTipoNuevo" title="Tipo de botón"></select>
+                    <button type="button" id="btnAgregarBoton"><i class="fa-solid fa-plus"></i> Agregar botón</button>
                 </div>
             </div>
 
@@ -265,7 +259,7 @@
             </div>
 
             <div class="admin-section">
-                <h4><i class="fa-solid fa-file-lines"></i> Info del archivo</h4>
+                <h4><i class="fa-solid fa-file-lines"></i> Datos del archivo</h4>
                 <div class="admin-grid cols-3">
                     <div class="admin-field">
                         <label>ID del juego</label>
@@ -328,8 +322,8 @@
         <!-- PERFIL ADMIN -->
         <div class="admin-profile">
             <img id="randomLoginPfp" src="" alt="Admin Profile">
-            <h3>Iniciar sesion</h3>
-            <p>Panel de Control Luma Switch</p>
+            <h3>Iniciar sesión</h3>
+            <p>Panel de administración de Luma Switch</p>
         </div>
 
         <input type="text" id="user" placeholder="Usuario / Email">
@@ -372,23 +366,23 @@
         <h3>Apoya Luma Switch ❤️</h3>
 
         <p style="text-align:center; margin-bottom:20px;">
-            Luma Switch es un proyecto gratuito desarrollado para la comunidad.
-            Si deseas apoyar su desarrollo y mantenimiento, puedes hacerlo
-    a través de donaciones. Tu contribución nos ayuda a seguir mejorando y ofreciendo contenido de calidad.
-       </p>
+            Luma Switch es un proyecto gratuito creado para la comunidad.
+            Si quieres apoyar su desarrollo y mantenimiento, puedes hacerlo
+            con una donación. Tu aporte ayuda a seguir mejorando el sitio.
+        </p>
 
-               <img src="assets/images/gift.png"
+        <img src="assets/images/gift.png" alt=""
              style="display:block; margin:0 auto; max-width:250px; border-radius:12px;">
 
-       <div class="donate-container">
-    <a href="https://www.paypal.com/ncp/payment/UJGPL3W7V28H4"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="donate-btn">
-        <span class="heart">❤️</span>
-        Donar
-    </a>
-</div>
+        <div class="donate-container">
+            <a href="https://www.paypal.com/ncp/payment/UJGPL3W7V28H4"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="donate-btn">
+                <span class="heart">❤️</span>
+                Donar
+            </a>
+        </div>
 
         <button onclick="cerrarDonaciones()">
             Cerrar
@@ -475,14 +469,13 @@
 <!-- MODAL CARRITO -->
 <div id="cartBox">
     <div class="login-content cart-content">
-        <h3><i class="fa-solid fa-basket-shopping"></i> Tu Carrito</h3>
-        <div id="cartItemsContainer" class="cart-items">
-        </div>
+        <h3><i class="fa-solid fa-basket-shopping"></i> Tu carrito</h3>
+        <div id="cartItemsContainer" class="cart-items"></div>
         <div class="cart-total">
             Total: <span>Gratis</span>
         </div>
         <button id="btnCheckout" class="checkout-btn" onclick="realizarCompra()" disabled>
-            <i class="fa-solid fa-credit-card"></i> Realizar Compra
+            <i class="fa-solid fa-credit-card"></i> Finalizar pedido
         </button>
         <button onclick="cerrarCarrito()" class="cart-close-btn">
             Cerrar
@@ -494,17 +487,16 @@
 <div id="purchaseSuccessBox">
     <div class="success-content">
         <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
-        <h2>¡Gracias por su compra!</h2>
-        <p>Aquí tienes los enlaces de descarga de tus juegos:</p>
-        
-        <div id="successDownloadsContainer" class="success-downloads">
-        </div>
+        <h2>Pedido completado</h2>
+        <p>Estos son los enlaces de descarga de tus juegos:</p>
+
+        <div id="successDownloadsContainer" class="success-downloads"></div>
 
         <button onclick="descargarTodo()" class="download-all-btn">
             <i class="fa-solid fa-cloud-arrow-down"></i> Descargar todo
         </button>
 
-        <button onclick="cerrarSuccessModal()" class="success-close-btn">Cerrar y Volver</button>
+        <button onclick="cerrarSuccessModal()" class="success-close-btn">Cerrar</button>
     </div>
 </div>
 
@@ -512,34 +504,10 @@
 <div id="toastContainer"></div>
 
 <!-- FIREBASE -->
-<script type="module" src="firebase.js?v=20260824-5"></script>
+<script type="module" src="firebase.js?v=20261007-4"></script>
 
 <!-- SCRIPT PRINCIPAL -->
-<script src="script.js?v=20260822-7"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const pfps = [];
-
-    // Carga automáticamente desde sprite_0 hasta sprite_171
-    for (let i = 0; i <= 171; i++) {
-        pfps.push(`assets/pfp/sprite_${i}.png`);
-    }
-
-    // Selecciona una imagen aleatoria
-    const randomPfp = pfps[Math.floor(Math.random() * pfps.length)];
-
-    // Header
-    const headerPfp = document.getElementById("randomAdminPfp");
-
-    // Login
-    const loginPfp = document.getElementById("randomLoginPfp");
-
-    // Aplicar imagen
-    if (headerPfp) headerPfp.src = randomPfp;
-    if (loginPfp) loginPfp.src = randomPfp;
-});
-</script>
+<script src="script.js?v=20261007-4"></script>
 
 </body>
 </html>

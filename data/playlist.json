@@ -58,5 +58,30 @@
     "nombre": "Redial HD - Bomberman Hero",
     "src": "assets/music/Redial HD - Bomberman Hero.mp3",
     "icono": "assets/album/bomberman-hero.jpg"
+  },
+  {
+    "nombre": "Resident Evil 4 - Serenity",
+    "src": "assets/music/Resident Evil 4 - Serenity.mp3",
+    "icono": "assets/album/resident-evil-4.jpg"
+  },
+    {
+    "nombre": "Resident Evil 4 - Save Room",
+    "src": "assets/music/Resident Evil 4 - Save Theme.mp3",
+    "icono": "assets/album/resident-evil-4.jpg"
+  },
+  {
+    "nombre": "Staff Roll - Super Mario 64",
+    "src": "assets/music/Staff Roll - Super Mario 64.mp3",
+    "icono": "assets/album/super-mario-64.jpg"
+  },
+  {
+    "nombre": "Nintendo Wii - Wii Shop",
+    "src": "assets/music/Nintendo Wii - Wii Shop.mp3",
+    "icono": "assets/album/nintendo-wii.png" 
+  },
+  {
+    "nombre": "Donkey Kong Country - Aquatic Ambiance",
+    "src": "assets/music/Donkey Kong Country - Aquatic Ambiance.mp3",
+    "icono": "assets/album/donkey-kong-country.gif"
   }
 ]
