@@ -2787,6 +2787,39 @@
     "id": "TqYPITeGe4Vi5XrEblAe"
   },
   {
+    "nombre": "LEGO Star Wars: The Skywalker Saga",
+    "img": "https://art.gametdb.com/switch/box/US/ATHJA.png?1651373526",
+    "previewDesc": "Juego de acción-aventura que recorre las nueve películas de la saga Skywalker reimaginadas con humor LEGO. Combate con sable de luz, batallas espaciales, tiros en tercera persona con sistema de cobertura, jefes y más de 20 planetas abiertos por explorar, con más de 300 personajes jugables y +100 vehículos.",
+    "trailer": "https://www.youtube.com/watch?v=3p1vilvb4Ck",
+    "genre": "Action / Adventure",
+    "developer": "TT Games",
+    "mode": "Single Player - Local 2",
+    "year": "2022",
+    "rating": "82",
+    "gameId": "010042D00D900000",
+    "size": "19.7GB",
+    "format": "XCI",
+    "languages": "JP/EN/FR/DE/IT/ES/KO/NL/PT/RU/ZH",
+    "firmware": "16.0.1",
+    "update": "v1.10.0 + 19 DLCs",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/bsov3fbeqv7yra1/LEGO+Star+Wars+The+Skywalker+Saga+[v1.10.0+++19+DLCs].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/bsov3fbeqv7yra1/LEGO+Star+Wars+The+Skywalker+Saga+[v1.10.0+++19+DLCs].xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/170923/1647025881_8708.webp",
+      "https://files.vgtimes.com/gallery/thumb/170923/1646680285_9243.webp",
+      "https://files.vgtimes.com/gallery/thumb/170923/1646680291_8507.webp"
+    ],
+    "desc": "Peso: 19.7GB Update 1.10.0 + 19 DLCs",
+    "id": "UBArK8qDmCWn4AHTcRen"
+  },
+  {
     "nombre": "LEGO Worlds",
     "img": "https://art.gametdb.com/switch/box/US/ACL4A.png?1516992637",
     "desc": "Peso: 2.92GB Update 1.3.2 + DLCs",
