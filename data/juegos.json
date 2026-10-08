@@ -205,15 +205,22 @@
     "genre": "2D Platformer",
     "developer": "HAL Laboratory",
     "previewDesc": "Hasta cuatro jugadores pueden unirse a Kirby y sus amigos para recorrer Dream Land y ayudar a Magolor a reparar su nave espacial. Incluye habilidades de copia, la nueva habilidad Meca y el modo Merry Magoland con múltiples minijuegos.",
-    "firmware": "",
     "screenshots": [
       "https://cdn.mobygames.com/promos/15574439-kirbys-return-to-dream-land-deluxe-screenshot.jpg",
       "https://cdn.mobygames.com/promos/15574429-kirbys-return-to-dream-land-deluxe-screenshot.jpg",
       "https://cdn.mobygames.com/promos/15574449-kirbys-return-to-dream-land-deluxe-screenshot.jpg"
     ],
     "gameId": "01006B601380E000",
-    "link1": "https://store3.gofile.io/download/direct/9cfe389c-1c8c-4958-9c2b-aeee9957b064/Kirbys%20Return%20to%20Dream%20Land%20Deluxe.nsp",
     "link2": "",
+    "link1": "https://gofile.io/d/poq5Ky5M",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://gofile.io/d/poq5Ky5M",
+        "color": "#f9a825"
+      }
+    ],
+    "firmware": "15.0.1",
     "id": "2CnMvc37U2TCriryr5Kt"
   },
   {
@@ -3842,6 +3849,39 @@
     "id": "dhaEgguX2gP5agPojWuY"
   },
   {
+    "nombre": "LEGO Party!",
+    "img": "https://art.gametdb.com/switch/box/US/BPRGA.png?1769200447",
+    "previewDesc": "Juego de fiesta para 1–4 jugadores con 60 minijuegos y \"Challenge Zones\" tematizadas con clásicos sets de LEGO (Pirates, Space, NINJAGO). Compites por Ladrillos Dorados con power-ups y trampas, en multijugador local o online crossplay, y personalizas tu minifigura con más de 1.000 millones de combinaciones.",
+    "trailer": "https://www.youtube.com/watch?v=miAcoFyj2TY",
+    "genre": "Party / Multiplayer",
+    "developer": "SMG Studio",
+    "mode": "Multiplayer 1-4",
+    "year": "2025",
+    "rating": "77",
+    "gameId": "0100A760232D2000",
+    "size": "6.83GB",
+    "format": "XCI",
+    "languages": "JP/EN/FR/DE/IT/ES/KO/NL/ZH",
+    "firmware": "22.5.0",
+    "update": "v1.6.62",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/ong5gu1puaz0h6c/LEGO+Party!+[v1.6.62].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/ong5gu1puaz0h6c/LEGO+Party!+[v1.6.62].xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/209112/1488777372_1790728298_9870.webp",
+      "https://files.vgtimes.com/gallery/thumb/209112/5623269262_1790728294_4219.webp",
+      "https://files.vgtimes.com/gallery/thumb/209112/6512160851_1790728292_8159.webp"
+    ],
+    "desc": "Peso: 6.83GB  Update 1.6.62",
+    "id": "dlHbSUKzsHOEYYnkgnda"
+  },
+  {
     "nombre": "New Super Mario Bros. U Deluxe",
     "img": "https://art.gametdb.com/switch/box/US/ADALA.png?1767741029",
     "desc": "Peso: 2.51GB Update 1.0.2",
@@ -5602,7 +5642,6 @@
     "nombre": "Luigi's Mansion 2 HD",
     "img": "https://art.gametdb.com/switch/box/CA/BANRA.png?1767731341",
     "desc": "Peso: 2.99GB",
-    "link2": "https://gofile.io/d/NbkwbQ",
     "gameId": "010048701995E000",
     "languages": "ES/EN/FR/DE/IT/NL/PT/RU",
     "format": "NSP",
@@ -5617,11 +5656,19 @@
     "genre": "Action-Adventure / Puzzle",
     "developer": "Next Level Games",
     "previewDesc": "El tímido y asustadizo Luigi regresa en esta versión remasterizada en alta definición de su aventura de 3DS. Viaja al Valle Eterno, explora mansiones encantadas y resuelve acertijos paranormales mientras atrapas fantasmas con el Poltergust 5000. Gráficos mejorados, multijugador online y todo el encanto del original de la mano de Nintendo.",
-    "firmware": "16.0.0",
-    "link1": "https://www.mediafire.com/file/ph5x2i7n6gecd68/LM2HD.rar/file",
     "year": "2024",
     "rating": "77",
     "update": "",
+    "link2": "",
+    "link1": "https://gofile.io/d/ewc3Xghm",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://gofile.io/d/ewc3Xghm",
+        "color": "#f9a825"
+      }
+    ],
+    "firmware": "17.0.1",
     "id": "uvvpYtkYf9x6yHfu7w9H"
   },
   {
