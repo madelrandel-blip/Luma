@@ -1700,16 +1700,11 @@
     "id": "HbyfMmaGjaG8ZCuSF4Zl"
   },
   {
-    "link1": "https://www.mediafire.com/folder/m8xgh7psl63s5/Luma_Storage",
-    "link2": "",
-    "desc": "Peso: 25.59GB Update 1.0.8 + 3 juegos por separado",
     "img": "https://art.gametdb.com/switch/box/US/A5RBA.png?1645277471",
     "nombre": "Grand Theft Auto: The Trilogy - The Definitive Edition",
     "mode": "Single Player",
     "trailer": "https://www.youtube.com/watch?v=D71cBUeAL58",
-    "year": 2021,
     "genre": "Action-adventure / Open world",
-    "rating": 46,
     "developer": "Rockstar Games / Grove Street Games",
     "previewDesc": "Recopilación remasterizada que incluye GTA III, Vice City y San Andreas con gráficos mejorados. Explora tres ciudades icónicas en un solo paquete, aunque la versión de Switch ha recibido críticas por problemas técnicos.",
     "screenshots": [
@@ -1717,6 +1712,37 @@
       "https://files.vgtimes.com/gallery/main/184028/1636133514_7.webp",
       "https://files.vgtimes.com/gallery/main/184028/1636133493_2.webp"
     ],
+    "gameId": "",
+    "languages": "",
+    "link1": "https://www.mediafire.com/file/x86bgi17e7ivish/Grand_Theft_Auto_III_The_Definitive_Edition_%255Bv1.0.8%255D.xci/file",
+    "size": "25.59GB",
+    "year": "2021",
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/x86bgi17e7ivish/Grand_Theft_Auto_III_The_Definitive_Edition_%255Bv1.0.8%255D.xci/file",
+        "color": "#2196f3",
+        "texto": "Grand Theft Auto III The Definitive Edition"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/gkfgl0926veil2i/Grand_Theft_Auto_Vice_City_The_Definitive_Edition_%255Bv1.0.8%255D.xci/file",
+        "color": "#2196f3",
+        "texto": "Grand Theft Auto Vice City The Definitive Edition"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/1alhc5yke3dptbl/Grand_Theft_Auto_San_Andreas_The_Definitive_Edition_%255Bv1.0.8%255D.xci/file",
+        "color": "#2196f3",
+        "texto": "Grand Theft Auto San Andreas The Definitive Edition"
+      }
+    ],
+    "format": "XCI",
+    "rating": "46",
+    "update": "v1.0.8",
+    "link2": "https://www.mediafire.com/file/gkfgl0926veil2i/Grand_Theft_Auto_Vice_City_The_Definitive_Edition_%255Bv1.0.8%255D.xci/file",
+    "firmware": "",
+    "desc": "Peso: 25.59GB Update 1.0.8",
     "id": "Hdcre3IP3zuBdaOhSF8e"
   },
   {
