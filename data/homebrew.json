@@ -4,7 +4,6 @@
     "img": "assets/covers/cover hl2.png",
     "desc": "Peso: 6.31GB + 2 DLCs",
     "link1": "https://www.mediafire.com/file/3qlxi3z54d4wnxr/Half+Life+2+Switch.zip/file",
-    "link2": "",
     "previewDesc": "Half-Life 2 es una continuación del legendario shooter de aventuras con vista en primera persona",
     "trailer": "https://youtu.be/3w6rUeb0tWE",
     "screenshots": [
@@ -23,6 +22,14 @@
     "languages": "EN/ES",
     "firmware": "",
     "update": "",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/3qlxi3z54d4wnxr/Half+Life+2+Switch.zip/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link2": "",
     "id": "00MSTnoZt3gCRxQUFp8c"
   },
   {
