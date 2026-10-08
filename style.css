@@ -913,133 +913,166 @@ header {
    5. PANEL DE CONTROL (ADMIN) & CONFIGURACIONES
    ========================================================================== */
 #adminPanel {
+    --ap-border: rgba(255, 255, 255, 0.08);
+    --ap-surface: rgba(255, 255, 255, 0.035);
+    --ap-field: rgba(2, 6, 18, 0.55);
+    --ap-accent: #7dd3fc;
+    --ap-accent2: #a78bfa;
+
     display: none;
-    background: linear-gradient(180deg, rgba(14, 20, 38, 0.97), rgba(9, 13, 26, 0.97));
-    border-bottom: 1px solid rgba(125, 211, 252, 0.10);
-    box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     position: relative;
     z-index: 1;
-    padding: 18px 22px 22px;
+    max-width: 1440px;
+    margin: 14px auto 6px;
+    width: calc(100% - 28px);
+    box-sizing: border-box;
+    padding: 22px 24px 26px;
+    border-radius: 20px;
+    border: 1px solid var(--ap-border);
+    background:
+        radial-gradient(900px 260px at 0% 0%, rgba(125, 211, 252, 0.08), transparent 70%),
+        radial-gradient(700px 260px at 100% 0%, rgba(167, 139, 250, 0.09), transparent 70%),
+        rgba(10, 15, 30, 0.88);
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.22s ease, transform 0.22s ease;
-}
-#adminPanel::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #7dd3fc, #6a5acd, #7dd3fc);
-    opacity: 0.8;
 }
 #adminPanel.open {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ----- Cabecera ----- */
 .admin-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 16px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--ap-border);
 }
 .admin-header-title {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 4px;
 }
 .admin-header h3 {
     margin: 0;
     display: flex;
     align-items: center;
-    gap: 9px;
-    font-size: 17px;
+    gap: 12px;
+    font-size: 19px;
     font-weight: 800;
     letter-spacing: 0.2px;
-    color: white;
+    color: #fff;
 }
 .admin-header h3 i {
-    color: #7dd3fc;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
     font-size: 15px;
+    color: #06101f;
+    background: linear-gradient(135deg, var(--ap-accent), var(--ap-accent2));
+    box-shadow: 0 6px 18px -4px rgba(125, 211, 252, 0.5);
 }
 .admin-header-sub {
-    margin: 0;
-    font-size: 11.5px;
+    margin: 0 0 0 48px;
+    font-size: 12px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.45);
 }
 .admin-mode {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    border-radius: 8px;
-    background: rgba(34, 197, 94, 0.12);
-    border: 1px solid rgba(34, 197, 94, 0.25);
-    font-size: 11px;
-    font-weight: 600;
-    color: #22c55e;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.10);
+    border: 1px solid rgba(34, 197, 94, 0.28);
+    font-size: 12px;
+    font-weight: 700;
+    color: #4ade80;
+    max-width: 50%;
+}
+.admin-mode #adminModeText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .admin-mode.editing {
-    background: rgba(245, 158, 11, 0.12);
-    border-color: rgba(245, 158, 11, 0.25);
-    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.10);
+    border-color: rgba(245, 158, 11, 0.32);
+    color: #fbbf24;
 }
 .mode-dot {
-    width: 6px;
-    height: 6px;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: currentColor;
+    box-shadow: 0 0 0 0 currentColor;
+    animation: pulso 2s ease-out infinite;
 }
+@keyframes pulso {
+    0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
+    70%  { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+/* ----- Cuerpo ----- */
 .admin-body {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 20px;
     align-items: start;
 }
 .admin-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 .admin-section {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    padding: 14px;
-    transition: border-color 0.2s, background 0.2s;
+    background: var(--ap-surface);
+    border: 1px solid var(--ap-border);
+    border-radius: 16px;
+    padding: 18px;
+    transition: border-color 0.2s;
 }
-.admin-section:hover {
-    border-color: rgba(125, 211, 252, 0.14);
-    background: rgba(255, 255, 255, 0.04);
+.admin-section:hover,
+.admin-section:focus-within {
+    border-color: rgba(125, 211, 252, 0.22);
 }
 .admin-section h4 {
     display: flex;
     align-items: center;
-    gap: 7px;
-    margin: 0 0 11px;
-    font-size: 11px;
+    gap: 10px;
+    margin: 0 0 14px;
+    font-size: 13px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    color: rgba(125, 211, 252, 0.85);
+    letter-spacing: 0.3px;
+    color: #fff;
 }
 .admin-section h4 i {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
     font-size: 11px;
-    color: #6a5acd;
-    width: 14px;
-    text-align: center;
+    color: var(--ap-accent);
+    background: rgba(125, 211, 252, 0.10);
+    border: 1px solid rgba(125, 211, 252, 0.18);
 }
 .admin-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 12px;
 }
 .admin-grid.cols-3 {
     grid-template-columns: 1fr 1fr 1fr;
@@ -1047,115 +1080,160 @@ header {
 .admin-field {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 5px;
+    min-width: 0;
 }
 .admin-field.full {
     grid-column: 1 / -1;
 }
 .admin-field label {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.45);
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
+    color: rgba(255, 255, 255, 0.55);
 }
+
+/* ----- Campos ----- */
+.admin-field input[type="text"],
+.admin-field textarea,
+#adminSearch,
+.boton-fila select,
+.boton-fila input[type="text"],
+.boton-agregar select {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--ap-border);
+    background: var(--ap-field);
+    color: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.admin-field input::placeholder,
+.admin-field textarea::placeholder,
+#adminSearch::placeholder,
+.boton-fila input::placeholder {
+    color: rgba(255, 255, 255, 0.28);
+}
+.admin-field input[type="text"]:hover,
+.admin-field textarea:hover,
+#adminSearch:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+}
+.admin-field input[type="text"]:focus,
+.admin-field textarea:focus,
+#adminSearch:focus,
+.boton-fila select:focus,
+.boton-fila input[type="text"]:focus,
+.boton-agregar select:focus {
+    border-color: rgba(125, 211, 252, 0.6);
+    background: rgba(2, 6, 18, 0.8);
+    box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.14);
+}
+.admin-field textarea {
+    resize: vertical;
+    min-height: 64px;
+    line-height: 1.4;
+}
+
+/* ----- Casilla Homebrew ----- */
 .admin-field .admin-homebrew-label {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: 12px;
+    background: rgba(167, 139, 250, 0.07);
+    font-size: 13px;
     font-weight: 600;
     color: #fff;
-    text-transform: none;
-    letter-spacing: 0;
     cursor: pointer;
-    padding: 9px 11px;
-    border: 1px solid rgba(106, 90, 205, 0.4);
-    border-radius: 6px;
-    background: rgba(106, 90, 205, 0.08);
+    transition: background 0.2s, border-color 0.2s;
+}
+.admin-field .admin-homebrew-label:hover {
+    background: rgba(167, 139, 250, 0.13);
+    border-color: rgba(167, 139, 250, 0.5);
+}
+.admin-field .admin-homebrew-label i {
+    color: var(--ap-accent2);
 }
 .admin-field .admin-homebrew-label small {
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.5);
-    text-transform: none;
 }
 .admin-field .admin-homebrew-label input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    accent-color: #6a5acd;
+    width: 17px;
+    height: 17px;
+    accent-color: #8b5cf6;
     cursor: pointer;
 }
 .hb-badge {
     display: inline-block;
     margin-left: 6px;
-    padding: 1px 6px;
+    padding: 1px 7px;
     font-size: 9px;
     font-style: normal;
     font-weight: 700;
     line-height: 14px;
-    color: #6a5acd;
-    background: rgba(106, 90, 205, 0.15);
-    border: 1px solid rgba(106, 90, 205, 0.45);
-    border-radius: 4px;
+    color: #c4b5fd;
+    background: rgba(139, 92, 246, 0.16);
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 999px;
     vertical-align: middle;
 }
-.admin-field input,
-.admin-field textarea {
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: 12px;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-    width: 100%;
-    box-sizing: border-box;
-}
-.admin-field input:hover,
-.admin-field textarea:hover {
-    border-color: rgba(255, 255, 255, 0.16);
-}
-.admin-field input:focus,
-.admin-field textarea:focus {
-    border-color: rgba(125, 211, 252, 0.45);
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.12);
-}
-.admin-field textarea {
-    resize: vertical;
-    min-height: 50px;
-}
+
+/* ----- Barra de acciones ----- */
 .admin-actions-bar {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     position: sticky;
-    bottom: -22px;
-    margin: 4px -22px -22px;
-    padding: 12px 22px;
-    background: linear-gradient(180deg, transparent, rgba(9, 13, 26, 0.92) 30%);
+    bottom: 0;
+    z-index: 2;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--ap-border);
+    background: rgba(8, 13, 28, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 -10px 30px -10px rgba(0, 0, 0, 0.6);
 }
 .admin-actions-bar button {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    padding: 9px 20px;
-    border-radius: 8px;
-    border: 1px solid rgba(125, 211, 252, 0.20);
-    background: rgba(125, 211, 252, 0.12);
-    color: white;
-    font-size: 12px;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 11px;
+    border: 1px solid transparent;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.2px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: transform 0.15s, filter 0.15s, box-shadow 0.15s;
+}
+#btnGuardar {
+    flex: 1;
+    color: #06101f;
+    background: linear-gradient(135deg, var(--ap-accent), var(--ap-accent2));
+    box-shadow: 0 8px 22px -8px rgba(125, 211, 252, 0.6);
+}
+#btnGuardar.editando {
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    box-shadow: 0 8px 22px -8px rgba(249, 115, 22, 0.6);
+}
+#btnCancelar {
+    color: #fca5a5;
+    background: rgba(239, 68, 68, 0.10);
+    border-color: rgba(239, 68, 68, 0.28);
 }
 .admin-actions-bar button:hover {
-    background: rgba(125, 211, 252, 0.22);
-    border-color: rgba(125, 211, 252, 0.35);
     transform: translateY(-1px);
+    filter: brightness(1.1);
 }
 .admin-actions-bar button:active {
     transform: translateY(0);
@@ -1164,28 +1242,20 @@ header {
     opacity: 0.55;
     cursor: not-allowed;
     transform: none;
+    filter: none;
 }
-#btnGuardar.editando {
-    background: rgba(245, 158, 11, 0.15);
-    border-color: rgba(245, 158, 11, 0.30);
-    color: #f59e0b;
-}
-#btnCancelar {
-    background: rgba(239, 68, 68, 0.10);
-    border-color: rgba(239, 68, 68, 0.25);
-    color: #ef4444;
-}
-#btnCancelar:hover {
-    background: rgba(239, 68, 68, 0.20);
-}
+
+/* ----- Lista de publicaciones ----- */
 .admin-list {
+    position: sticky;
+    top: 12px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 12px;
+    gap: 12px;
+    background: var(--ap-surface);
+    border: 1px solid var(--ap-border);
+    border-radius: 16px;
+    padding: 16px;
 }
 .admin-list-header {
     display: flex;
@@ -1195,29 +1265,27 @@ header {
 .admin-list h4 {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 10px;
     margin: 0;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    color: rgba(125, 211, 252, 0.85);
+    color: #fff;
 }
 .admin-list h4 i {
-    font-size: 11px;
-    color: #6a5acd;
+    color: var(--ap-accent);
+    font-size: 13px;
 }
 .admin-count {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
-    padding: 1px 7px;
+    min-width: 22px;
+    padding: 2px 9px;
     border-radius: 999px;
-    background: rgba(125, 211, 252, 0.14);
+    background: rgba(125, 211, 252, 0.12);
     border: 1px solid rgba(125, 211, 252, 0.25);
-    color: #7dd3fc;
-    font-size: 10px;
+    color: var(--ap-accent);
+    font-size: 11px;
     font-weight: 700;
 }
 .admin-search-wrap {
@@ -1227,63 +1295,52 @@ header {
 }
 .admin-search-wrap i {
     position: absolute;
-    left: 10px;
-    font-size: 11px;
+    left: 12px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.35);
     pointer-events: none;
 }
 #adminSearch {
-    padding: 8px 10px 8px 28px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: 12px;
-    outline: none;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-#adminSearch:focus {
-    border-color: rgba(125, 211, 252, 0.45);
-    box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.12);
+    padding-left: 34px;
 }
 .admin-empty {
-    margin: 10px 0;
+    margin: 14px 0;
     text-align: center;
-    font-size: 11px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.35);
 }
 .admin-game-list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    max-height: 400px;
+    gap: 6px;
+    max-height: 560px;
     overflow-y: auto;
+    padding-right: 4px;
 }
-.admin-game-list::-webkit-scrollbar { width: 4px; }
+.admin-game-list::-webkit-scrollbar { width: 5px; }
 .admin-game-list::-webkit-scrollbar-track { background: transparent; }
-.admin-game-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+.admin-game-list::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 4px; }
 .admin-game-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
-    border-radius: 6px;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.15s;
+    border: 1px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
 }
 .admin-game-item:hover {
-    background: rgba(125, 211, 252, 0.08);
-    border-color: rgba(125, 211, 252, 0.15);
+    background: rgba(125, 211, 252, 0.07);
+    border-color: rgba(125, 211, 252, 0.2);
 }
 .admin-game-item img {
-    width: 28px;
-    height: 40px;
+    width: 34px;
+    height: 46px;
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: 6px;
     flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 .admin-game-item-info {
     flex: 1;
@@ -1291,48 +1348,143 @@ header {
 }
 .admin-game-item-info span {
     display: block;
-    font-size: 11px;
+    font-size: 12.5px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.92);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .admin-game-item-info small {
-    font-size: 9px;
-    color: rgba(255, 255, 255, 0.35);
+    font-size: 10.5px;
+    color: rgba(255, 255, 255, 0.4);
 }
 .admin-game-item .btn-edit,
 .admin-game-item .btn-delete {
     flex-shrink: 0;
-    width: 24px;
-    height: 24px;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    border: 1px solid var(--ap-border);
     background: rgba(255, 255, 255, 0.04);
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 11px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 12px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 .admin-game-item .btn-edit:hover {
-    background: rgba(125, 211, 252, 0.15);
-    border-color: rgba(125, 211, 252, 0.30);
-    color: white;
+    background: rgba(125, 211, 252, 0.16);
+    border-color: rgba(125, 211, 252, 0.35);
+    color: #fff;
 }
 .admin-game-item .btn-delete:hover {
-    background: rgba(239, 68, 68, 0.15);
-    border-color: rgba(239, 68, 68, 0.30);
-    color: #ef4444;
+    background: rgba(239, 68, 68, 0.16);
+    border-color: rgba(239, 68, 68, 0.35);
+    color: #f87171;
 }
 .admin-actions {
     display: flex;
     gap: 5px;
     margin-top: 5px;
 }
+
+/* ----- Editor de botones de publicación ----- */
+.boton-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.boton-fila {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--ap-border);
+    border-left: 4px solid var(--c, #1565c0);
+    background: rgba(0, 0, 0, 0.2);
+}
+.boton-fila .bf-icono {
+    width: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--c, #7dd3fc);
+}
+.boton-fila .bf-tipo { flex: 0 0 140px; width: auto; }
+.boton-fila .bf-url { flex: 1 1 180px; min-width: 0; width: auto; }
+.boton-fila .bf-texto { flex: 1 1 100%; display: none; }
+.boton-fila.es-otro .bf-texto { display: block; }
+.boton-fila select option,
+.boton-agregar select option { background: #0b1226; }
+.boton-fila .bf-color {
+    width: 38px;
+    height: 38px;
+    padding: 2px;
+    border: 1px solid var(--ap-border);
+    border-radius: 10px;
+    background: var(--ap-field);
+    cursor: pointer;
+}
+.boton-fila .bf-acciones {
+    display: flex;
+    gap: 4px;
+}
+.boton-fila .bf-acciones button {
+    width: 32px;
+    height: 38px;
+    padding: 0;
+    border-radius: 9px;
+    border: 1px solid var(--ap-border);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.boton-fila .bf-acciones button:hover { background: rgba(125, 211, 252, 0.16); }
+.boton-fila .bf-acciones button[data-op="borrar"]:hover { background: rgba(239, 68, 68, 0.3); }
+.boton-fila .bf-paleta {
+    flex: 1 1 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding-top: 2px;
+}
+.boton-fila .bf-paleta button {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s;
+}
+.boton-fila .bf-paleta button:hover {
+    transform: scale(1.18);
+    border-color: #fff;
+}
+.boton-agregar {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+.boton-agregar select { flex: 0 0 160px; width: auto; }
+.boton-agregar button {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px dashed rgba(125, 211, 252, 0.45);
+    background: rgba(125, 211, 252, 0.07);
+    color: var(--ap-accent);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.boton-agregar button:hover { background: rgba(125, 211, 252, 0.15); }
 
 /* ==========================================================================
    6. GRID DE LA TIENDA & TARJETAS (CARDS)
@@ -1919,6 +2071,28 @@ header {
     }
     .admin-game-list {
         max-height: 250px;
+    }
+    #adminPanel {
+        width: calc(100% - 16px);
+        margin-top: 8px;
+        padding: 16px 14px 18px;
+        border-radius: 16px;
+    }
+    .admin-list {
+        position: static;
+    }
+    .admin-header-sub {
+        margin-left: 0;
+    }
+    .admin-mode {
+        max-width: 45%;
+    }
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+    .boton-fila .bf-tipo,
+    .boton-fila .bf-url {
+        flex: 1 1 100%;
     }
 }
 
@@ -2600,96 +2774,5 @@ header {
         font-size: 12px;
     }
 }
-/* ==========================================================================
-   Editor de botones de publicación (panel admin)
-   ========================================================================== */
-.boton-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.boton-fila {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-left: 4px solid var(--c, #1565c0);
-    background: rgba(0, 0, 0, 0.22);
-}
-.boton-fila select,
-.boton-fila input[type="text"],
-.boton-agregar select {
-    padding: 7px 9px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: 12px;
-    font-family: inherit;
-    outline: none;
-    box-sizing: border-box;
-}
-.boton-fila select option,
-.boton-agregar select option { background: #0b1226; }
-.boton-fila select:focus,
-.boton-fila input[type="text"]:focus {
-    border-color: rgba(125, 211, 252, 0.45);
-}
-.boton-fila .bf-tipo { flex: 0 0 130px; }
-.boton-fila .bf-url { flex: 1 1 160px; min-width: 0; }
-.boton-fila .bf-texto { flex: 1 1 100%; display: none; }
-.boton-fila.es-otro .bf-texto { display: block; }
-.boton-fila .bf-color {
-    width: 34px;
-    height: 30px;
-    padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 6px;
-    background: none;
-    cursor: pointer;
-}
-.boton-fila .bf-acciones {
-    display: flex;
-    gap: 4px;
-}
-.boton-fila .bf-acciones button {
-    width: 28px;
-    height: 30px;
-    padding: 0;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 11px;
-    cursor: pointer;
-}
-.boton-fila .bf-acciones button:hover { background: rgba(125, 211, 252, 0.15); }
-.boton-fila .bf-acciones button[data-op="borrar"]:hover { background: rgba(239, 68, 68, 0.3); }
-.boton-agregar {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-}
-.boton-agregar select { flex: 0 0 150px; }
-.boton-agregar button {
-    flex: 1;
-    padding: 7px 10px;
-    border-radius: 6px;
-    border: 1px dashed rgba(125, 211, 252, 0.4);
-    background: rgba(125, 211, 252, 0.08);
-    color: #7dd3fc;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-}
-.boton-agregar button:hover { background: rgba(125, 211, 252, 0.16); }
-.boton-fila .bf-icono {
-    width: 18px;
-    text-align: center;
-    color: var(--c, #7dd3fc);
-    font-size: 14px;
-}
+
 .preview-links .btn i { margin-right: 4px; }

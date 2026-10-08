@@ -56,6 +56,12 @@ const TIPOS_BOTON = {
     "Otro":           "#455a64"
 };
 
+// Colores sugeridos al elegir el color de un botón
+const PALETA_BOTON = [
+    "#1565c0", "#00838f", "#2e7d32", "#f9a825", "#ef6c00",
+    "#c62828", "#ad1457", "#7b1fa2", "#455a64", "#24292f"
+];
+
 // Icono Font Awesome de cada tipo
 const ICONOS_BOTON = {
     "Obtener":        "fa-solid fa-download",

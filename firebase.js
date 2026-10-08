@@ -85,6 +85,7 @@ function agregarFilaBoton({ tipo = "Obtener", texto = "", url = "", color = "" }
             <button type="button" data-op="bajar" title="Bajar"><i class="fa-solid fa-chevron-down"></i></button>
             <button type="button" data-op="borrar" title="Quitar"><i class="fa-solid fa-trash"></i></button>
         </div>
+        <div class="bf-paleta">${PALETA_BOTON.map(c => `<button type="button" data-color="${c}" title="${c}" style="background:${c}"></button>`).join("")}</div>
         <input type="text" class="bf-texto" placeholder="Texto del botón">`;
 
     const inputColor = fila.querySelector(".bf-color");
@@ -153,6 +154,17 @@ listaBotones.addEventListener("input", (e) => {
 });
 
 listaBotones.addEventListener("click", (e) => {
+    const muestra = e.target.closest("button[data-color]");
+
+    if(muestra){
+        const fila = muestra.closest(".boton-fila");
+
+        fila.querySelector(".bf-color").value = muestra.dataset.color;
+        fila.dataset.personalizado = "1";
+        fila.style.setProperty("--c", muestra.dataset.color);
+        return;
+    }
+
     const boton = e.target.closest("button[data-op]");
     if(!boton) return;
 
