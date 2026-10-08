@@ -336,7 +336,7 @@ function tarjetaSeccion(item){
 
     return `
         <div class="card">
-            <img src="${esc(item.img)}" loading="lazy" decoding="async" alt="${esc(item.nombre)}">
+            <img ${atributosImg(item.img, 360)} alt="${esc(item.nombre)}">
             <div class="content">
                 <div class="info-overlay">
                     <h3>${esc(item.nombre || "Sin nombre")}</h3>
@@ -559,7 +559,7 @@ window.renderAdminList = function(lista){
 
         return `
         <div class="admin-game-item${esHomebrew ? " is-homebrew" : ""}">
-            <img src="${esc(j.img)}" alt="" onerror="this.src='${ICONO_POR_DEFECTO}'">
+            <img ${atributosImg(j.img, 100)} alt="">
             <div class="admin-game-item-info">
                 <span>${esc(j.nombre)}${esHomebrew ? ' <em class="hb-badge">Homebrew</em>' : ""}</span>
                 <small>${esc(j.genre || "Sin género")}${j.year ? " · " + esc(j.year) : ""}</small>

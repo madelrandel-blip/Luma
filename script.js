@@ -112,6 +112,47 @@ function enlacePrincipal(j){
     return principal ? principal.url : "";
 }
 
+/* ========= IMÁGENES ========= */
+// Las portadas se sirven a través de wsrv.nl (CDN de imágenes): se redimensionan
+// y se convierten a WebP, lo que reduce su peso hasta 8 veces.
+const CDN_IMG = "https://wsrv.nl/";
+const SITIO = "https://madelrandel-blip.github.io/Luma/";
+
+function imgOptimizada(url, ancho){
+    if(!url) return "";
+
+    let origen = url;
+
+    if(!/^https?:/i.test(url)){
+        // Las imágenes locales solo son accesibles para el CDN una vez publicado el sitio
+        if(location.hostname !== new URL(SITIO).hostname) return url;
+        origen = new URL(url, SITIO).href;
+    }
+
+    if(/\.(gif|svg)(\?|$)/i.test(origen)) return url;
+
+    return `${CDN_IMG}?url=${encodeURIComponent(origen)}&w=${ancho}&we&output=webp&q=80`;
+}
+
+// Atributos de una <img>. Las primeras de la página se cargan con prioridad;
+// el resto, de forma diferida. Si el CDN falla se usa la imagen original.
+function atributosImg(url, ancho, prioritaria = false){
+    return `src="${esc(imgOptimizada(url, ancho))}" data-fallback="${esc(url)}" decoding="async" ` +
+        (prioritaria ? 'fetchpriority="high"' : 'loading="lazy"');
+}
+
+document.addEventListener("error", (e) => {
+    const img = e.target;
+    if(!(img instanceof HTMLImageElement)) return;
+
+    if(img.dataset.fallback && img.src !== new URL(img.dataset.fallback, location.href).href){
+        img.src = img.dataset.fallback;
+    }else if(!img.dataset.sinIcono){
+        img.dataset.sinIcono = "1";
+        img.src = ICONO_POR_DEFECTO;
+    }
+}, true);
+
 function abrirModal(id){
     const modal = document.getElementById(id);
 
@@ -631,7 +672,7 @@ function tarjetaJuego(j, i){
 
     return `
         <div class="card">
-            <img src="${esc(j.img)}" loading="lazy" decoding="async" alt="${esc(j.nombre)}">
+            <img ${atributosImg(j.img, 360, i % juegosPorPagina < 6)} alt="${esc(j.nombre)}">
 
             <div class="content">
                 <div class="info-overlay">
@@ -800,7 +841,7 @@ function mostrarPreview(j, screenshots){
     const columna = (etiqueta, valor, extra = "") =>
         valor ? `<div class="fi-col"><span class="label">${etiqueta}</span><span class="value${extra}">${esc(valor)}</span></div>` : "";
 
-    document.getElementById("previewImg").src = j.img || "";
+    document.getElementById("previewImg").src = imgOptimizada(j.img, 600);
     document.getElementById("previewNombre").textContent = j.nombre || "";
     document.getElementById("previewDescModal").textContent = j.previewDesc || "";
 
@@ -828,7 +869,7 @@ function mostrarPreview(j, screenshots){
     const idVideo = extraerIdYoutube(j.trailer);
 
     let miniaturas = screenshots
-        .map((src, i) => `<img class="thumb${i === 0 ? " active" : ""}" src="${esc(src)}" data-src="${esc(src)}" loading="lazy" alt="">`)
+        .map((src, i) => `<img class="thumb${i === 0 ? " active" : ""}" src="${esc(src.replace("t_720p", "t_screenshot_med"))}" data-src="${esc(src)}" loading="lazy" alt="">`)
         .join("");
 
     if(idVideo){
@@ -1288,7 +1329,7 @@ function renderCarrito(){
 
     contenedor.innerHTML = carrito.map((item, index) => `
         <div class="cart-item">
-            <img src="${esc(item.img)}" class="cart-item-img" alt="">
+            <img ${atributosImg(item.img, 120)} class="cart-item-img" alt="">
             <span title="${esc(item.nombre)}">${esc(item.nombre)}</span>
             <button onclick="eliminarDelCarrito(${index})" title="Eliminar"><i class="fa-solid fa-trash-can"></i></button>
         </div>`).join("");
