@@ -58,8 +58,9 @@ const TIPOS_BOTON = {
 
 // Colores sugeridos al elegir el color de un botón
 const PALETA_BOTON = [
-    "#1565c0", "#00838f", "#2e7d32", "#f9a825", "#ef6c00",
-    "#c62828", "#ad1457", "#7b1fa2", "#455a64", "#24292f"
+    "#1565c0", "#2196f3", "#00838f", "#00bcd4", "#2e7d32", "#4caf50", "#8bc34a", "#cddc39",
+    "#f9a825", "#ffc107", "#ef6c00", "#ff5722", "#c62828", "#f44336", "#ad1457", "#e91e63",
+    "#7b1fa2", "#9c27b0", "#512da8", "#3f51b5", "#455a64", "#607d8b", "#24292f", "#ffffff"
 ];
 
 // Icono Font Awesome de cada tipo
