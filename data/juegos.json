@@ -2635,12 +2635,9 @@
     "img": "https://art.gametdb.com/switch/box/US/AY9R1.png?1629976262",
     "desc": "Peso: 5.75GB Update 1.0.38233",
     "link2": "",
-    "link1": "https://www.mediafire.com/file/hzr1tscn5cq176p/Hades_%255Bv1.0.38233%255D.xci/file",
     "gameId": "0100535012974000",
     "languages": "ES/EN/FR/DE/IT/KO/ZH/PT/RU",
-    "year": 2020,
     "format": "XCI",
-    "rating": 93,
     "update": "v1.0.38233",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/169558/1601874623_9296.webp",
@@ -2654,6 +2651,16 @@
     "developer": "Supergiant Games",
     "previewDesc": "Un roguelike de acción donde Zagreus, hijo de Hades, intenta escapar del inframundo combatiendo a través de habitaciones llenas de peligros. Cada run ofrece habilidades y mejoras aleatorias, con una narrativa que se desarrolla gradualmente entre intentos.",
     "firmware": "10.0.4",
+    "link1": "https://www.mediafire.com/file/icicdp7sjm13j88/Hades+[v1.0.38233].xci/file",
+    "year": "2020",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/icicdp7sjm13j88/Hades+[v1.0.38233].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "rating": "93",
     "id": "RyJYdnpZQ66MNZKqzvC3"
   },
   {
@@ -5145,7 +5152,6 @@
   {
     "nombre": ".Grand Theft Auto V",
     "img": "assets/covers/cover gta5.png",
-    "desc": "Dispónible pronto",
     "previewDesc": "Continuación legendaria de la popular serie Grand Theft Auto. La acción se desarrolla en la ciudad de Los Santos, querida desde Grand Theft Auto: San Andreas. Por primera vez, el juego cuenta la historia de tres personajes: Michael, Trevor y Franklin, entre los que puedes cambiar en cualquier momento.",
     "trailer": "https://youtu.be/3DBrG2YjqQA",
     "screenshots": [
@@ -5159,6 +5165,21 @@
     "year": "2014",
     "rating": "92",
     "format": "NSP",
+    "gameId": "",
+    "languages": "",
+    "link1": "https://www.mediafire.com/folder/ambyka0v25knx/JTA+F1V3",
+    "size": "52GB",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/folder/ambyka0v25knx/JTA+F1V3",
+        "color": "#1565c0"
+      }
+    ],
+    "update": "",
+    "link2": "",
+    "firmware": "",
+    "desc": "Peso: 52GB",
     "id": "qnZeOLE0vPgDhAuv1Qwo"
   },
   {
