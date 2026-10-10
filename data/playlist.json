@@ -77,11 +77,16 @@
   {
     "nombre": "Nintendo Wii - Wii Shop",
     "src": "assets/music/Nintendo Wii - Wii Shop.mp3",
-    "icono": "assets/album/nintendo-wii.png" 
+    "icono": "assets/album/nintendo-wii.png"
   },
   {
     "nombre": "Donkey Kong Country - Aquatic Ambiance",
     "src": "assets/music/Donkey Kong Country - Aquatic Ambiance.mp3",
     "icono": "assets/album/donkey-kong-country.gif"
+  },
+  {
+    "nombre": "Super Mario Galaxy - Rosalinas Story",
+    "src": "assets/music/Super Mario Galaxy - Rosalinas Story.mp3",
+    "icono": "assets/album/mario-galaxy.webp"
   }
 ]
