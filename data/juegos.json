@@ -659,6 +659,52 @@
     "id": "7FRnDnvOa11kFDPUYAub"
   },
   {
+    "nombre": "Kingdom Hearts HD 1.5 + 2.5 ReMIX",
+    "img": "assets/covers/cover kh1.5+2.5r.png",
+    "desc": "Peso: 53GB",
+    "previewDesc": "Sigue las aventuras de Sora, junto a Donald y Goofy, mientras luchan contra la oscuridad a través de mundos inspirados en películas de Disney, combinando acción y rol en una historia entrelazada con personajes de Final Fantasy.",
+    "trailer": "https://youtu.be/9cctOpmRdDU",
+    "genre": "Adventure / Fantasy",
+    "developer": "Square Enix",
+    "mode": "Single Player",
+    "year": "2026",
+    "rating": "77",
+    "gameId": "010090C022978000",
+    "size": "53GB",
+    "format": "NSP",
+    "languages": "EN/ES/FR/DE/IT",
+    "firmware": "22.0.0",
+    "update": "",
+    "link1": "https://www.mediafire.com/file/0diakw17kk6yz6l/Kingdom+Hearts+HD+1.5+2.5+Remix.part1.rar/file",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/1191/11044060-sorapiglet.webp",
+      "https://files.vgtimes.com/gallery/thumb/1191/11043045-triomoogle.webp",
+      "https://files.vgtimes.com/gallery/thumb/140644/kh25_kh2_ss1.webp"
+    ],
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/0diakw17kk6yz6l/Kingdom+Hearts+HD+1.5+2.5+Remix.part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Parte 1"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/vknv9ncnwawx9mw/Kingdom+Hearts+HD+1.5+2.5+Remix.part2.rar/file",
+        "color": "#1565c0",
+        "texto": "Parte 2"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/a7ud029exs5xgtb/Kingdom+Hearts+HD+1.5+2.5+Remix.part3.rar/file",
+        "color": "#1565c0",
+        "texto": "Parte 3"
+      }
+    ],
+    "link2": "https://www.mediafire.com/file/vknv9ncnwawx9mw/Kingdom+Hearts+HD+1.5+2.5+Remix.part2.rar/file",
+    "id": "7Gm9F128ncklOxVo9ZzE"
+  },
+  {
     "nombre": "Batman The Telltale Series",
     "img": "assets/covers/cover btts.png",
     "desc": "Peso: 8.53GB Update 1.0.4 + DLC",
