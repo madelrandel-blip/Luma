@@ -270,6 +270,39 @@
     "id": "2i2CowkJKXAhsZbrkAZ4"
   },
   {
+    "nombre": "FIFA 18",
+    "img": "https://art.gametdb.com/switch/box/US/ADCEA.png?1556625955",
+    "desc": "Peso: 14.6GB Update 1.0.7",
+    "previewDesc": "FIFA 18 es un popular simulador de fútbol del estudio canadiense EA Sports. La siguiente parte de la franquicia deportiva te deleitará con “Ídolos” en FIFA Ultimate Team — las leyendas del fútbol mundial ahora estarán representadas en el juego. También seguirás preocupándote por la vida del futbolista profesional Alex Hunter, quien enfrentará nuevos desafíos e incluso comenzará a salir con una chica.",
+    "trailer": "https://youtu.be/8XTK4BS2BiE",
+    "genre": "Deportes",
+    "developer": "Electronic Arts",
+    "mode": "Single Player",
+    "year": "2017",
+    "rating": "68",
+    "gameId": "0100F7B002340000",
+    "size": "14.6GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/IT/NL/PT/AR/JA/RU",
+    "firmware": "3.0.1.0",
+    "update": "v1.0.7",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/patflfg7776kqfh/FIFA+18+[v1.0.7].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/patflfg7776kqfh/FIFA+18+[v1.0.7].xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/141969/1496677924_2515.webp",
+      "https://files.vgtimes.com/gallery/thumb/141969/1496677940_9318.webp",
+      "https://files.vgtimes.com/gallery/thumb/141969/1497179985_238.webp"
+    ],
+    "id": "2irOw97oYtvHiHDNrqnD"
+  },
+  {
     "desc": "Peso: 7.86GB Update 1.1.8 + 9 DLCs",
     "link1": "https://www.mediafire.com/file/j6ct2kwlz4n540f/Sonic+Superstars+[v1.1.8+++9+DLCs].xci/file",
     "img": "https://art.gametdb.com/switch/box/US/A7YPB.png?1707616130",
