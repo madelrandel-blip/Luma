@@ -2743,6 +2743,39 @@
     "id": "RyJYdnpZQ66MNZKqzvC3"
   },
   {
+    "nombre": "FIFA 19",
+    "img": "https://art.gametdb.com/switch/box/US/AMQ2A.png?1685768162",
+    "desc": "Peso: 15.1GB Update 1.0.6",
+    "previewDesc": "FIFA 19 es un popular simulador de fútbol del estudio canadiense EA Sports. La principal innovación del juego es el surgimiento de una disciplina de la Copa de la UEFA con licencia completa. Encontrarás clubes actuales, todos los jugadores sin excepción, así como todos los estadios y el mundial. La campaña de historias continuará la historia de Alex Hunter.",
+    "trailer": "https://youtu.be/zX0AV6yxyrQ",
+    "genre": "Desportes",
+    "developer": "Electronic Arts",
+    "mode": "Single Player",
+    "year": "2018",
+    "rating": "71",
+    "gameId": "0100FFA0093E8000",
+    "size": "15.1GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/IT/NL/PT/AR/JA/RU/PL",
+    "firmware": "5.1.0",
+    "update": "v1.0.6",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/6b9m0plzxjdgber/FIFA+19+[v1.0.6].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/6b9m0plzxjdgber/FIFA+19+[v1.0.6].xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/167542/1582943257_1086.webp",
+      "https://files.vgtimes.com/gallery/thumb/167542/1582943257_3800.webp",
+      "https://files.vgtimes.com/gallery/thumb/167542/1582943258_6781.webp"
+    ],
+    "id": "RyKN4h9i92qXgx2QY8fL"
+  },
+  {
     "nombre": "Super Mario 3D World + Bowser's Fury",
     "img": "https://art.gametdb.com/switch/box/US/AUZPA.png",
     "desc": "Peso: 2.96GB Update 1.2.2",
