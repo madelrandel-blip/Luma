@@ -4486,7 +4486,6 @@
     "nombre": "DRAGON BALL Z: KAKAROT DAIMA EDITION",
     "img": "https://art.gametdb.com/switch/boxB/US/A2APB.png?1765999180",
     "desc": "Peso: 27.1GB Update 1.70 + 20 DLCs",
-    "link1": "https://store-eu-par-6.gofile.io/download/direct/65d26111-1dce-46df-a6f5-55bf1fd1b994/DRAGON%20BALL%20Z%20KAKAROT%20%2B%20A%20NEW%20POWER%20AWAKENS%20SET%20%5Bv1.70%20%2B%2020%20DLCs%5D.xci",
     "link2": "",
     "gameId": "0100B5C00A1E8000",
     "languages": "ES/EN/FR/DE/IT/PT/RU",
@@ -4505,6 +4504,14 @@
       "https://files.vgtimes.com/gallery/thumb/170921/1621624339_1529.webp",
       "https://files.vgtimes.com/gallery/thumb/170921/1580322136_1617.webp",
       "https://files.vgtimes.com/gallery/thumb/170921/3263888545_1673990055_3552.webp"
+    ],
+    "link1": "https://cold-eu-par-1.gofile.io/download/direct/f025e923-3b6b-4fa0-b0ec-3c2b69e071cc/DRAGON%20BALL%20Z%20KAKAROT%20%2B%20A%20NEW%20POWER%20AWAKENS%20SET%20%5Bv1.70%20%2B%2020%20DLCs%5D.xci",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-eu-par-1.gofile.io/download/direct/f025e923-3b6b-4fa0-b0ec-3c2b69e071cc/DRAGON%20BALL%20Z%20KAKAROT%20%2B%20A%20NEW%20POWER%20AWAKENS%20SET%20%5Bv1.70%20%2B%2020%20DLCs%5D.xci",
+        "color": "#1565c0"
+      }
     ],
     "id": "jhdtiyJsAlczLhgi50ow"
   },
