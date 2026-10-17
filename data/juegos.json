@@ -5262,6 +5262,39 @@
     "id": "q5RwTHJOni91xp5gkX4Y"
   },
   {
+    "nombre": "FIFA 21 Legacy Edition",
+    "img": "https://art.gametdb.com/switch/box/US/AXSHA.png?1684373023",
+    "desc": "Peso: 16.2GB Update 1.0.7",
+    "previewDesc": "FIFA 21 es una nueva parte de una serie de simuladores de fútbol del estudio canadiense EA Sports. A continuación, encontrarás una temporada actualizada con estadísticas de jugadores reales, innovaciones en el juego y modos mejorados con una historia emocionante.",
+    "trailer": "https://youtu.be/o1igaMv46SY",
+    "genre": "Deportes",
+    "developer": "Electronic Arts",
+    "mode": "Single Player",
+    "year": "2020",
+    "rating": "33",
+    "gameId": "01000A001171A000",
+    "size": "16.2GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/IT/NL/PT/JA/KO/ZHCN/RU",
+    "firmware": "10.1.0",
+    "update": "v1.0.7",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/9j2xtycfw1rqe1s/FIFA_21_Legacy_Edition_%255Bv1.0.7%255D.xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/9j2xtycfw1rqe1s/FIFA_21_Legacy_Edition_%255Bv1.0.7%255D.xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/174101/1606763564_7329.webp",
+      "https://files.vgtimes.com/gallery/thumb/174101/1597173041_5416.webp",
+      "https://files.vgtimes.com/gallery/thumb/174101/1606763570_5169.webp"
+    ],
+    "id": "qN2Q5KR8RGhUFppOrqu4"
+  },
+  {
     "nombre": ".Grand Theft Auto V",
     "img": "assets/covers/cover gta5.png",
     "previewDesc": "Continuación legendaria de la popular serie Grand Theft Auto. La acción se desarrolla en la ciudad de Los Santos, querida desde Grand Theft Auto: San Andreas. Por primera vez, el juego cuenta la historia de tres personajes: Michael, Trevor y Franklin, entre los que puedes cambiar en cualquier momento.",
