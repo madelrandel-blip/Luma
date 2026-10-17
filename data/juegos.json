@@ -1602,6 +1602,39 @@
     "id": "FfcEgIcpu9XbOYt6FVYy"
   },
   {
+    "nombre": "FIFA 22 Legacy Edition",
+    "desc": "Peso: 12.1GB Update 1.0.5",
+    "previewDesc": "FIFA 22 es una nueva parte de una serie de simuladores de fútbol del estudio canadiense EA Sports. A continuación, encontrarás una temporada actualizada con estadísticas de jugadores reales, innovaciones en el juego y modos mejorados con una historia emocionante.",
+    "trailer": "https://youtu.be/o1igaMv46SY",
+    "genre": "Deportes",
+    "developer": "Electronic Arts",
+    "mode": "Single Player",
+    "year": "2021",
+    "rating": "20",
+    "gameId": "0100216014472000",
+    "size": "12.8GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/IT/NL/PT/AR/JA/KO/ZHCN/RU/PL",
+    "firmware": "12.1.0",
+    "update": "v1.0.5",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/spraf00j13gdnxt/FIFA+22+Legacy+Edition+[v1.0.5].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/spraf00j13gdnxt/FIFA+22+Legacy+Edition+[v1.0.5].xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/182285/1626117130_8258.webp",
+      "https://files.vgtimes.com/gallery/thumb/182285/1626117138_8000.webp",
+      "https://files.vgtimes.com/gallery/thumb/182285/1626117137_7795.webp"
+    ],
+    "img": "https://art.gametdb.com/switch/box/MX/A3LUA.png?1633154973",
+    "id": "FgpyvIgC3lINmSLnC5Ok"
+  },
+  {
     "nombre": "Hogwarts Legacy",
     "img": "https://art.gametdb.com/switch/box/EN/AR3XA.png?1700902468",
     "desc": "Peso: 19.7GB Update 1.0.5 + 5 DLCs + ES-LA",
@@ -4377,6 +4410,39 @@
     "previewDesc": "Samus Aran regresa en una nueva aventura de exploración y acción en el planeta ZDR, enfrentándose a peligrosos robots EMMI y enemigos en un mundo de estilo metroidvania. El juego combina exploración libre con combates intensos y habilidades que se desbloquean progresivamente.",
     "firmware": "12.1.0",
     "id": "iLBChuJzvOE5vGtdz5Uu"
+  },
+  {
+    "nombre": "FIFA 23 Legacy Edition",
+    "img": "https://art.gametdb.com/switch/box/US/A6WJA.png?1684366558",
+    "desc": "Peso: 13.8GB 1.0.3",
+    "previewDesc": "FIFA 23 es un simulador de fútbol arcade del estudio canadiense EA Sports, que ofrece a los jugadores la oportunidad de ganar la temporada 2022-2023 de fútbol europeo real (y no solo). El concepto de FIFA no ha sufrido cambios significativos respecto a juegos anteriores, ofreciendo sólo una serie de mejoras gráficas y de jugabilidad, así como modos de juego modificados.",
+    "trailer": "https://youtu.be/o3V-GvvzjE4",
+    "genre": "Deportes",
+    "developer": "Electronic Arts",
+    "mode": "Single Player",
+    "year": "2022",
+    "rating": "22",
+    "gameId": "01001C8016B4E000",
+    "size": "13.8GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/IT/PT/AR/JA/KO/ZHTW/ZHCN/RU/PL",
+    "firmware": "14.1.2",
+    "update": "v1.0.3",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/zb9daw5lvjaesnd/EA+SPORTS+FIFA+23+Legacy+Edition+[v1.0.3].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/zb9daw5lvjaesnd/EA+SPORTS+FIFA+23+Legacy+Edition+[v1.0.3].xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/185960/1668194087_2313.webp",
+      "https://files.vgtimes.com/gallery/thumb/185960/1668194085_4596.webp",
+      "https://files.vgtimes.com/gallery/thumb/185960/1660331472_2405.webp"
+    ],
+    "id": "iT232X4qLhazlPluu4Lj"
   },
   {
     "nombre": "LEGO DC Super Villains",
