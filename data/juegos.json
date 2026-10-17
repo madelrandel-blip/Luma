@@ -6053,6 +6053,39 @@
     "id": "yCnW1j8IQ2OztZ44EnFq"
   },
   {
+    "nombre": "FIFA 20",
+    "img": "https://art.gametdb.com/switch/box/US/ASUPA.png?1571347641",
+    "desc": "Peso: 15.3GB + 6 DLCs",
+    "previewDesc": "FIFA 20 es una nueva parte de una serie de simuladores de fútbol del estudio canadiense EA Sports. El juego revelará a los fanáticos la característica principal del nuevo juego — el modo Volta con fútbol callejero, equipos de 5 personas y personalización detallada de tu propio equipo. Los partidos callejeros se disputarán en varias ciudades famosas (Londres, Tokio, Países Bajos y otras), y las competiciones en equipos de 3, 4 y 5 personas serán sustituidas por partidos profesionales de fútbol sala.",
+    "trailer": "https://youtu.be/5dgd-FTChhQ",
+    "genre": "Deportes",
+    "developer": "Electronic Arts",
+    "mode": "Single Player",
+    "year": "2019",
+    "rating": "43",
+    "gameId": "01005DE00D05C000",
+    "size": "15.3GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/IT/NL/PT/AR/JA/KO/RU/PL",
+    "firmware": "6.0.0",
+    "update": "v1.0.3",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/9q6q4ni1ho9eglf/FIFA_20_Legacy_Edition_%255Bv1.0.3_%252B_6_DLCs%255D.xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/9q6q4ni1ho9eglf/FIFA_20_Legacy_Edition_%255Bv1.0.3_%252B_6_DLCs%255D.xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/170911/fifa-20-fut-squad-battles-0_0-fut-fut-1_3.webp",
+      "https://files.vgtimes.com/gallery/thumb/170911/1581290582_4872.webp",
+      "https://files.vgtimes.com/gallery/thumb/170911/fifa-20-fut-squad-battles-0_0-fut-fut-1_7.webp"
+    ],
+    "id": "yCoK6aVG83iLXpMcsRIC"
+  },
+  {
     "desc": "Peso: 345.53MB Update 1.0.5",
     "img": "assets/covers/cover kz.png",
     "nombre": "Katana Zero",
