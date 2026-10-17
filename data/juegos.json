@@ -4334,6 +4334,39 @@
     "id": "gn8k7knb8kOAzrL5T8dd"
   },
   {
+    "nombre": "Sifu",
+    "img": "https://art.gametdb.com/switch/box/US/A7XDA.png?1667940087",
+    "desc": "Peso: 10.2GB Update 0.1 + DLC",
+    "previewDesc": "Sifu narra la historia de un joven estudiante de kung-fu que emprende un camino de venganza en busca de los asesinos de su familia. Solo contra todos, sin aliados y con un sinfín de enemigos, deberá apoyarse en su dominio único del kung-fu y en un misterioso colgante para salir victorioso y preservar el legado de su familia.",
+    "trailer": "https://youtu.be/-7a4_uAr3dM",
+    "genre": "Action",
+    "developer": "Sloclap",
+    "mode": "Single Player",
+    "year": "2022",
+    "rating": "81",
+    "gameId": "01007B5017A12000",
+    "size": "10.2GB",
+    "format": "XCI",
+    "firmware": "14.1.2",
+    "update": "v0.1 + DLC",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/8j228rghu3ijg3u/Sifu+[v0.1+++DLC].xci/file",
+        "color": "#1565c0"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/8j228rghu3ijg3u/Sifu+[v0.1+++DLC].xci/file",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/179665/sifu-250261.webp",
+      "https://files.vgtimes.com/gallery/thumb/179665/sifu-250263.webp",
+      "https://files.vgtimes.com/gallery/thumb/179665/sifu-250262.webp"
+    ],
+    "languages": "EN/FR/DE/ES/IT/PT/TR/JA/KO/ZH/ZH/RU/CZ/PL",
+    "id": "gwRtU2X8WkCmghemm6AL"
+  },
+  {
     "nombre": "Poppy Playtime Triple Pack",
     "img": "https://art.gametdb.com/switch/box/US/BMVPA.png?1762801786",
     "link1": "https://www.mediafire.com/folder/rj0gxvxh8hqyj/Poppy_Playtime_Triple_Pack",
