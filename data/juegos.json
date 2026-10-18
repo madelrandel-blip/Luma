@@ -4435,19 +4435,19 @@
     "languages": "EN/FR/DE/ES/IT/NL/PT/SE/DK/NO/TR/AR/JA/ZH/RU/CZ/PL",
     "firmware": "16.0.3",
     "update": "v1.5a.9115",
-    "botones": [
-      {
-        "tipo": "Obtener",
-        "url": "https://vikingfile.com/f/5a83tLFrxt",
-        "color": "#ffc107"
-      }
-    ],
-    "link1": "https://vikingfile.com/f/5a83tLFrxt",
     "link2": "",
     "screenshots": [
       "https://files.vgtimes.com/gallery/thumb/194959/9525913109_1700853159_6041.webp",
       "https://files.vgtimes.com/gallery/thumb/194959/2795950995_1689570617_9185.webp",
       "https://files.vgtimes.com/gallery/thumb/194959/765358491_1689570619_1127.webp"
+    ],
+    "link1": "https://vikingfile.com/d/WV6SgktCPO/EA%20SPORTS%20FC%2024%20%5Bv1.5a.9115%5D.xci",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://vikingfile.com/d/WV6SgktCPO/EA%20SPORTS%20FC%2024%20%5Bv1.5a.9115%5D.xci",
+        "color": "#ffc107"
+      }
     ],
     "id": "husBa62JrmFuy9IoGgjn"
   },
