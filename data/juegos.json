@@ -2643,14 +2643,14 @@
     "firmware": "18.0.0",
     "link1": "https://cold-na-phx-1.gofile.io/download/direct/3886abc1-2cb2-4cc4-8061-a8f16c57d4ce/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
     "year": "2025",
+    "rating": "78",
     "botones": [
       {
         "tipo": "Obtener",
         "url": "https://cold-na-phx-1.gofile.io/download/direct/3886abc1-2cb2-4cc4-8061-a8f16c57d4ce/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
-        "color": "#1565c0"
+        "color": "#f9a825"
       }
     ],
-    "rating": "78",
     "id": "PktuvmCpoc2FoCgJcffM"
   },
   {
