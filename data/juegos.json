@@ -629,13 +629,10 @@
     "nombre": "Mortal Kombat 11",
     "img": "https://art.gametdb.com/switch/box/FR/ASADA.png?1600360999",
     "desc": "Peso: 35GB Update 1.0.26 + 30 DLCs",
-    "link1": "https://cold-na-phx-4.gofile.io/download/direct/12df09b5-57e0-4b19-b2ad-d4c7794caa87/Mortal%20Kombat%2011%20%5Bv1.0.26%20%2B%2030%20DLCs%5D.xci",
     "link2": "",
     "mode": "Single Player / Multiplayer",
     "trailer": "https://www.youtube.com/watch?v=7zwQPJmg-Kg",
-    "year": 2019,
     "genre": "Fighting",
-    "rating": 78,
     "developer": "NetherRealm Studios / Shiver Entertainment",
     "previewDesc": "Saga de luchas brutales con fatalities sangrientos. Nuevo sistema de personalización, modo historia con viajes en el tiempo y roster extenso con contenido DLC de Joker y Terminator.",
     "screenshots": [
@@ -643,6 +640,22 @@
       "https://files.vgtimes.com/gallery/main/162859/ejzxjfxvoaqwz4y.webp",
       "https://files.vgtimes.com/gallery/main/162859/ejzxj6vvgaa9alo.webp"
     ],
+    "gameId": "",
+    "languages": "",
+    "link1": "https://cold2.gofile.io/download/direct/cb619c61-0311-4ce3-b51b-b3a105fcaf3f/Mortal%20Kombat%2011%20%5Bv1.0.26%20%2B%2030%20DLCs%5D.xci",
+    "size": "",
+    "year": "2019",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold2.gofile.io/download/direct/cb619c61-0311-4ce3-b51b-b3a105fcaf3f/Mortal%20Kombat%2011%20%5Bv1.0.26%20%2B%2030%20DLCs%5D.xci",
+        "color": "#f9a825"
+      }
+    ],
+    "format": "",
+    "rating": "78",
+    "update": "",
+    "firmware": "",
     "id": "6KD5OLnCAPfhmqYcRrFU"
   },
   {
@@ -793,13 +806,10 @@
     "nombre": "Assassin's Creed: THE EZIO COLLECTION",
     "img": "https://art.gametdb.com/switch/box/US/A3L2A.png?1684363806",
     "desc": "Peso: 35.3GB Update 1.3 + 5 DLCs",
-    "link1": "https://cold4.gofile.io/download/direct/a52dfd73-af92-41a1-8fac-e6130aff52c4/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
     "link2": "",
     "gameId": "010053700E82E000",
     "languages": "ES/EN",
-    "year": 2022,
     "format": "XCI",
-    "rating": 75,
     "update": "v1.3",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/140297/1642014841_5242.webp",
@@ -813,6 +823,16 @@
     "developer": "Ubisoft",
     "previewDesc": "Tres clásicos de Assassin's Creed remasterizados: AC2, Brotherhood y Revelations. Vive la saga de Ezio Auditore en la Italia renacentista y Constantinopla.",
     "firmware": "8.0.0+",
+    "link1": "https://cold-na-phx-2.gofile.io/download/direct/2feb5a87-fa54-4279-90c6-fe9a6debfb77/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
+    "year": "2022",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-na-phx-2.gofile.io/download/direct/2feb5a87-fa54-4279-90c6-fe9a6debfb77/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
+        "color": "#f9a825"
+      }
+    ],
+    "rating": "75",
     "id": "8A1cgPGnA0sC8XNwWX2t"
   },
   {
@@ -1326,7 +1346,14 @@
     "update": "v1.0.2 + 2 DLCs",
     "previewDesc": "Borderlands 2 es un shooter en primera persona con elementos de RPG ambientado en Pandora. Juegas como uno de los nuevos Vault Hunters, enfrentándote al tiránico Jack el Guapo mientras exploras Pandora, completas misiones, derrotas enemigos y consigues miles de armas con estadísticas y características diferentes.",
     "nombre": "Borderlands 2: GAME OF THE YEAR EDITION",
-    "link1": "https://store8.gofile.io/download/direct/4f1c43fb-9356-4ee2-8a64-cc3c7ed1df2d/Borderlands%202%20Game%20of%20the%20Year%20Edition%20%5Bv1.0.2%20%2B%202%20DLCs%5D.xci",
+    "link1": "https://cold4.gofile.io/download/direct/55360b77-827a-435e-bd1e-3db798940353/Borderlands%202%20Game%20of%20the%20Year%20Edition%20%5Bv1.0.2%20%2B%202%20DLCs%5D.xci",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold4.gofile.io/download/direct/55360b77-827a-435e-bd1e-3db798940353/Borderlands%202%20Game%20of%20the%20Year%20Edition%20%5Bv1.0.2%20%2B%202%20DLCs%5D.xci",
+        "color": "#f9a825"
+      }
+    ],
     "id": "Cqb5NT2omeoMKeEiGNOH"
   },
   {
@@ -2226,7 +2253,6 @@
     "nombre": "DOOM",
     "img": "https://art.gametdb.com/switch/box/US/AF3BA.png?1517183969",
     "desc": "Peso: 22GB Update 1.4",
-    "link1": "https://store-na-phx-1.gofile.io/download/direct/8af745f3-4b83-4fe7-84b7-76bb175182ea/DOOM%20%5Bv1.4%5D.xci",
     "link2": "",
     "gameId": "0100B1F0050CA000",
     "languages": "ES/EN/FR/DE/IT/RU",
@@ -2245,6 +2271,14 @@
       "https://files.vgtimes.com/gallery/thumb/602/ohvrcw6.webp",
       "https://files.vgtimes.com/gallery/thumb/602/011.webp",
       "https://files.vgtimes.com/gallery/thumb/602/012.webp"
+    ],
+    "link1": "https://cold-na-phx-8.gofile.io/download/direct/a4b1dd7a-b273-44e5-a759-8e0c1558a6be/DOOM%20%5Bv1.4%5D.xci",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-na-phx-8.gofile.io/download/direct/a4b1dd7a-b273-44e5-a759-8e0c1558a6be/DOOM%20%5Bv1.4%5D.xci",
+        "color": "#f9a825"
+      }
     ],
     "id": "MRfVhKa0RN4qq5BtegQv"
   },
@@ -2590,13 +2624,10 @@
     "nombre": "Metroid Prime 4: Beyond",
     "img": "https://art.gametdb.com/switch/box/US/BGW5A.png?1764777614",
     "desc": "Peso: 26GB Update 1.1.0",
-    "link1": "https://cold-na-phx-1.gofile.io/download/direct/e13b8bb3-225c-49a3-83ce-ef079d2df494/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
     "link2": "",
     "gameId": "010019A01E2F2000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/PT/KO/ZH",
-    "year": 2025,
     "format": "XCI",
-    "rating": 78,
     "update": "v1.1.0",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/159891/935459133_switch_metroidprime4beyond-scrn-17.webp",
@@ -2610,6 +2641,16 @@
     "developer": "Retro Studios",
     "previewDesc": "Samus Aran explora el misterioso planeta Viewros con nuevas habilidades psíquicas, escaneando ruinas en busca de pistas para regresar a casa. Combate contra criaturas alienígenas, conduce el vehículo Vi-O-La y enfréntate a Sylux, un cazarrecompensas con cuentas pendientes. El regreso de la saga Prime.",
     "firmware": "18.0.0",
+    "link1": "https://cold-na-phx-1.gofile.io/download/direct/3886abc1-2cb2-4cc4-8061-a8f16c57d4ce/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
+    "year": "2025",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-na-phx-1.gofile.io/download/direct/3886abc1-2cb2-4cc4-8061-a8f16c57d4ce/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
+        "color": "#1565c0"
+      }
+    ],
+    "rating": "78",
     "id": "PktuvmCpoc2FoCgJcffM"
   },
   {
@@ -2720,7 +2761,6 @@
     "nombre": "DOOM Eternal",
     "img": "https://art.gametdb.com/switch/box/US/A6SVA.png?1708859305",
     "desc": "Peso: 35.4GB Update 1.14 + 5 DLCs",
-    "link1": "https://store-eu-par-8.gofile.io/download/direct/ce56a5c5-0525-4ef5-90a9-2ddeffa8a2c3/DOOM%20Eternal%20%5Bv1.14%20%2B%205%20DLCs%5D.xci",
     "link2": "",
     "gameId": "0100B1A00D8CE000",
     "languages": "ES/EN/FR/DE/IT/PT/RU/JP/ZH/KO",
@@ -2740,6 +2780,14 @@
     "developer": "Id Software",
     "previewDesc": "DOOM Eternal continúa la historia de DOOM (2016). Los ejércitos del Infierno han invadido la Tierra y el Doom Slayer debe abrirse camino a través de hordas de demonios para detener la destrucción de la humanidad.",
     "firmware": "",
+    "link1": "https://cold-na-phx-5.gofile.io/download/direct/267d8a1c-aa92-45b6-8159-95f026d53bce/DOOM%20Eternal%20%5Bv1.14%20%2B%205%20DLCs%5D.xci",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-na-phx-5.gofile.io/download/direct/267d8a1c-aa92-45b6-8159-95f026d53bce/DOOM%20Eternal%20%5Bv1.14%20%2B%205%20DLCs%5D.xci",
+        "color": "#f9a825"
+      }
+    ],
     "id": "RxEa6a8Nmj0jP5PcRNuG"
   },
   {
@@ -4950,13 +4998,10 @@
     "nombre": "Assassin's Creed III Remastered",
     "img": "https://art.gametdb.com/switch/box/US/AQAJA.png?1684369317",
     "desc": "Peso: 20.4GB Update 1.0.3 + 17 DLCs",
-    "link1": "https://cold-na-phx-6.gofile.io/download/direct/ff57c584-636e-4114-8b86-e49a2859724f/Assassin's%20Creed%20III%20Remastered%20%5Bv1.0.3%20%2B%2017%20DLCs%5D.xci",
     "link2": "",
     "gameId": "010018700E830000",
     "languages": "ES/EN",
-    "year": 2019,
     "format": "XCI",
-    "rating": 60,
     "update": "v1.0.3",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/169231/1550437732_3380.webp",
@@ -4970,6 +5015,16 @@
     "developer": "Ubisoft",
     "previewDesc": "La Revolución Americana a través de los ojos de Ratonhnhaké:ton (Connor). Abre la Guardia y el mundo abierto colonial con gráficos mejorados.",
     "firmware": "8.0.0+",
+    "link1": "https://cold-eu-par-1.gofile.io/download/direct/580a40fd-84d5-492a-b739-20ce107f971d/Assassin's%20Creed%20III%20Remastered%20%5Bv1.0.3%20%2B%2017%20DLCs%5D.xci",
+    "year": "2019",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-eu-par-1.gofile.io/download/direct/580a40fd-84d5-492a-b739-20ce107f971d/Assassin's%20Creed%20III%20Remastered%20%5Bv1.0.3%20%2B%2017%20DLCs%5D.xci",
+        "color": "#f9a825"
+      }
+    ],
+    "rating": "60",
     "id": "mIAfO0dvCxoJIXcILUds"
   },
   {
@@ -5080,13 +5135,10 @@
     "nombre": "Assassin's Creed: The Rebel Collection",
     "img": "https://art.gametdb.com/switch/box/US/ATXEA.png?1696856783",
     "desc": "Peso: 23GB Update 1.0.0 + 9 DLCs",
-    "link1": "https://store9.gofile.io/download/direct/aeb13d1b-2bc4-4ffc-8bd2-a7eeab4cbe25/Assassins%20Creed%20The%20Rebel%20Collection%20%5Bv1.0.0%20%2B%209%20DLCs%5D.xci",
     "link2": "",
     "gameId": "0100B2C00E834000",
     "languages": "ES/EN",
-    "year": 2022,
     "format": "XCI",
-    "rating": 85,
     "update": "v1.0.0",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/1284/1582455763_2067.webp",
@@ -5100,6 +5152,16 @@
     "developer": "Ubisoft",
     "previewDesc": "Black Flag y Rogue en un solo paquete: explora el Caribe pirata como Edward Kenway y persigue a los asesinos como Shay Cormac. Mundo abierto, combate naval y sigilo.",
     "firmware": "8.0.0+",
+    "link1": "https://cold-eu-par-2.gofile.io/download/direct/2c7ef80b-3961-4509-975c-0724ef0c8b13/Assassins%20Creed%20The%20Rebel%20Collection%20%5Bv1.0.0%20%2B%209%20DLCs%5D.xci",
+    "year": "2022",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-eu-par-2.gofile.io/download/direct/2c7ef80b-3961-4509-975c-0724ef0c8b13/Assassins%20Creed%20The%20Rebel%20Collection%20%5Bv1.0.0%20%2B%209%20DLCs%5D.xci",
+        "color": "#f9a825"
+      }
+    ],
+    "rating": "85",
     "id": "nDI2Afg0fXPeBji1TDub"
   },
   {
@@ -5152,6 +5214,13 @@
     "gameId": "0100C6F01C4F8000",
     "previewDesc": "Rescata dos clásicos por primera vez en plataformas modernas: MGS4: Guns of the Patriots, la aventura final de Solid Snake, y MGS: Peace Walker (HD), la historia de cómo Snake se convirtió en Big Boss. Incluye además el spin-off Metal Gear: Ghost Babel, Screenplay/Master Books y Banda Sonora Digital Vol. 2.",
     "link1": "https://gofile.io/d/iTjdUwJb",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://gofile.io/d/iTjdUwJb",
+        "color": "#f9a825"
+      }
+    ],
     "id": "nVLbvOy5XIo5XgBBKGDF"
   },
   {
@@ -5184,13 +5253,10 @@
     "nombre": "BioShock Infinite The Complete Edition",
     "img": "assets/covers/cover bi.png",
     "desc": "Peso: 20.7GB Update 1.0.2",
-    "link1": "https://store3.gofile.io/download/direct/21d00094-2888-4a45-82f5-fc7755a1050c/BioShock%20Infinite%20The%20Complete%20Edition%20%5Bv1.0.2%5D.xci",
     "link2": "",
     "gameId": "0100D560102C8000",
     "languages": "ES/EN/FR/DE/IT/JA/KO/ZH",
-    "year": 2020,
     "format": "XCI",
-    "rating": 75,
     "update": "v1.0.2",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/286/1582572123_2163.webp",
@@ -5204,6 +5270,16 @@
     "developer": "Irrational Games / Virtuos",
     "previewDesc": "BioShock Infinite: The Complete Edition nos lleva a Columbia, una ciudad flotante en 1912, junto al detective Booker DeWitt, quien debe rescatar a Elizabeth para saldar sus deudas. La edición completa incluye todo el DLC, incluyendo Burial at Sea y Clash in the Clouds. Un shooter de acción en primera persona con una narrativa profunda y un impresionante estilo artístico.",
     "firmware": "9.0.0",
+    "link1": "https://cold-na-phx-2.gofile.io/download/direct/22ae8a5e-9935-4e5d-945d-3c60c9062f45/BioShock%20Infinite%20The%20Complete%20Edition%20%5Bv1.0.2%5D.xci",
+    "year": "2020",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-na-phx-2.gofile.io/download/direct/22ae8a5e-9935-4e5d-945d-3c60c9062f45/BioShock%20Infinite%20The%20Complete%20Edition%20%5Bv1.0.2%5D.xci",
+        "color": "#f9a825"
+      }
+    ],
+    "rating": "75",
     "id": "oOGF3UPbsXBwEGEtVsBb"
   },
   {
@@ -5313,13 +5389,10 @@
     "nombre": "Resident Evil: Revelations 2",
     "img": "assets/covers/cover res2.png",
     "desc": "Peso: 23.65GB Update 1.0.2",
-    "link1": "https://store9.gofile.io/download/direct/4ce3670a-ad31-48ad-b297-901f184365f9/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci?inline=true",
     "link2": "",
     "gameId": "0100D1A003B26000",
     "languages": "ES/EN/JP",
-    "year": 2019,
     "format": "XCI",
-    "rating": 73,
     "update": "v1.0.2",
     "screenshots": [
       "https://files.vgtimes.com/gallery/thumb/136693/1425407329-11.webp",
@@ -5333,6 +5406,16 @@
     "developer": "Capcom",
     "previewDesc": "Claire y Moira son secuestradas en una isla misteriosa. Explora en modo episódico con sistema de dos personajes, uno de combate y otro de apoyo.",
     "firmware": "4.1.0+",
+    "link1": "https://cold-na-phx-2.gofile.io/download/direct/0bc521f0-2bb7-48d9-b276-eea96b367923/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci",
+    "year": "2019",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://cold-na-phx-2.gofile.io/download/direct/0bc521f0-2bb7-48d9-b276-eea96b367923/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci",
+        "color": "#f9a825"
+      }
+    ],
+    "rating": "73",
     "id": "oqqbfIEFBrsmWoBmwRrO"
   },
   {
