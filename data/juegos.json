@@ -4419,6 +4419,39 @@
     "id": "gx4M2foRtfNaLLuIlmTE"
   },
   {
+    "nombre": "EA SPORTS FC 24",
+    "img": "https://art.gametdb.com/switch/box/US/BBAFA.png?1716463632",
+    "desc": "Peso: 33.5GB Update 1.5a.9115",
+    "previewDesc": "Simulador de fútbol y continuación directa de la serie de juegos FIFA de Electronic Arts. El juego cuenta con 19.000+ jugadores con licencia completa, 700+ equipos y 30+ ligas. La nueva tecnología HyperMotionV es responsable de transmitir con precisión el movimiento real de los jugadores en el campo durante el juego. Los datos de Opta permitieron recrear características que realzan el realismo y resaltan la individualidad de cada jugador.",
+    "trailer": "https://youtu.be/ove7rc4dFRs",
+    "genre": "Deportes",
+    "developer": "Electronic Arts",
+    "mode": "Single Player",
+    "year": "2023",
+    "rating": "67",
+    "gameId": "0100BDB01A0E6000",
+    "size": "33.5GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/IT/NL/PT/SE/DK/NO/TR/AR/JA/ZH/RU/CZ/PL",
+    "firmware": "16.0.3",
+    "update": "v1.5a.9115",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://vikingfile.com/f/5a83tLFrxt",
+        "color": "#ffc107"
+      }
+    ],
+    "link1": "https://vikingfile.com/f/5a83tLFrxt",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/194959/9525913109_1700853159_6041.webp",
+      "https://files.vgtimes.com/gallery/thumb/194959/2795950995_1689570617_9185.webp",
+      "https://files.vgtimes.com/gallery/thumb/194959/765358491_1689570619_1127.webp"
+    ],
+    "id": "husBa62JrmFuy9IoGgjn"
+  },
+  {
     "nombre": "Metroid Dread",
     "img": "https://art.gametdb.com/switch/box/US/AYL8A.png",
     "desc": "Peso: 4.26GB Update 2.1.0",
