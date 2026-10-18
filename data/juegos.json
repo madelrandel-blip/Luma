@@ -4435,20 +4435,33 @@
     "languages": "EN/FR/DE/ES/IT/NL/PT/SE/DK/NO/TR/AR/JA/ZH/RU/CZ/PL",
     "firmware": "16.0.3",
     "update": "v1.5a.9115",
-    "link2": "",
     "screenshots": [
       "https://files.vgtimes.com/gallery/thumb/194959/9525913109_1700853159_6041.webp",
       "https://files.vgtimes.com/gallery/thumb/194959/2795950995_1689570617_9185.webp",
       "https://files.vgtimes.com/gallery/thumb/194959/765358491_1689570619_1127.webp"
     ],
-    "link1": "https://vikingfile.com/d/WV6SgktCPO/EA%20SPORTS%20FC%2024%20%5Bv1.5a.9115%5D.xci",
+    "link1": "https://vik1ngfile.site/f/5a83tLFrxt",
     "botones": [
       {
-        "tipo": "Obtener",
-        "url": "https://vikingfile.com/d/WV6SgktCPO/EA%20SPORTS%20FC%2024%20%5Bv1.5a.9115%5D.xci",
-        "color": "#ffc107"
+        "tipo": "Otro",
+        "url": "https://vik1ngfile.site/f/5a83tLFrxt",
+        "color": "#ffc107",
+        "texto": "Completo"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/sqll61x4lr6nnqs/EA_SPORTS_FC_24_%255Bv1.5a.9115%255D.part1.rar/file",
+        "color": "#1565c0",
+        "texto": "(Link de respaldo) Parte 1"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/wo4kx4ztg853dbp/EA+SPORTS+FC+24+[v1.5a.9115].part2.rar/file",
+        "color": "#1565c0",
+        "texto": "(Link de respaldo) Parte 2"
       }
     ],
+    "link2": "https://www.mediafire.com/file/sqll61x4lr6nnqs/EA_SPORTS_FC_24_%255Bv1.5a.9115%255D.part1.rar/file",
     "id": "husBa62JrmFuy9IoGgjn"
   },
   {
