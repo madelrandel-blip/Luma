@@ -4226,6 +4226,40 @@
     "id": "e7OYgiBtxXqeI4NnYpFB"
   },
   {
+    "nombre": "EA SPORTS FC 25",
+    "img": "https://art.gametdb.com/switch/box/US/BFY6A.png?1789326080",
+    "previewDesc": "Simulador de fútbol y continuación directa de la serie de juegos FIFA de Electronic Arts. El juego cuenta con 19.000+ jugadores con licencia completa, 700+ equipos y 30+ ligas. La nueva tecnología HyperMotionV es responsable de transmitir con precisión el movimiento real de los jugadores en el campo durante el juego. Los datos de Opta permitieron recrear características que realzan el realismo y resaltan la individualidad de cada jugador.",
+    "trailer": "https://youtu.be/id5nUf_86HE",
+    "genre": "Deportes",
+    "developer": "Electronic Arts",
+    "mode": "Single Player",
+    "year": "2024",
+    "rating": "76",
+    "gameId": "010054E01D878000",
+    "size": "33.5GB",
+    "format": "XCI",
+    "languages": "EN/FR/DE/ES/IT/NL/PT/SE/DK/NO/TR/AR/JA/KO/ZH/ZH//RU/CZ/PL",
+    "firmware": "18.1.0",
+    "update": "v1.79.b056",
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://vikingfile.com/f/0ksY9kcDjP",
+        "color": "#f9a825",
+        "texto": "Completo"
+      }
+    ],
+    "link1": "https://vikingfile.com/f/0ksY9kcDjP",
+    "link2": "",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/202270/89698676_1721675439_9687.webp",
+      "https://files.vgtimes.com/gallery/thumb/202270/4572578866_1721675443_1139.webp",
+      "https://files.vgtimes.com/gallery/thumb/202270/6475053199_1721243566_2567.webp"
+    ],
+    "desc": "Peso: 33.5G Update 1.79.b056",
+    "id": "e7fHFt6Pq2aJB3tFzp8B"
+  },
+  {
     "nombre": "Cadence of Hyrule: The Legend of Zelda",
     "img": "https://art.gametdb.com/switch/box/US/ASWBB.png?1741535511",
     "desc": "Peso: 1.66GB Update 1.5.0 + 4 DLCs",
@@ -5443,6 +5477,46 @@
     "firmware": "12.0.2",
     "update": "2.0.3",
     "id": "pLy3PVuPUVx9o7u2uY67"
+  },
+  {
+    "nombre": "Portal Companion Collection",
+    "img": "assets/covers/cover pcc.png",
+    "desc": "Peso: 10GB 1.0.3",
+    "previewDesc": "Portal: Companion Collection — una reedición de los populares rompecabezas espaciales en primera persona Portal y Portal 2 para Nintendo Switch. Ambos juegos están disponibles en la colección titulada Companion Collection. Además, la segunda parte presenta la cooperación local y en línea. Estos juegos marcarán los primeros proyectos de Valve en Switch.",
+    "trailer": "https://youtu.be/wMQASUA_1Do",
+    "genre": "Action",
+    "developer": "Valve Corporation",
+    "mode": "Single Player / Local 2",
+    "year": "2022",
+    "rating": "95",
+    "gameId": "01007BB017812000",
+    "size": "10GB",
+    "format": "XCI",
+    "languages": "EN/ES/FR/DE/IT/NL/PT/RU/JA/KO/ZH",
+    "firmware": "14.1.1",
+    "update": "v1.0.3",
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/xabll8q8dfakqzj/Portal+[v1.0.3].xci/file",
+        "color": "#2196f3",
+        "texto": "Portal"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/gtn0ayrj1i7jgkt/Portal+2+[v1.0.3].xci/file",
+        "color": "#2196f3",
+        "texto": "Portal 2"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/xabll8q8dfakqzj/Portal+[v1.0.3].xci/file",
+    "link2": "https://www.mediafire.com/file/gtn0ayrj1i7jgkt/Portal+2+[v1.0.3].xci/file",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/185844/screenshot04.webp",
+      "https://files.vgtimes.com/gallery/thumb/185844/screenshot06.webp",
+      "https://files.vgtimes.com/gallery/thumb/185844/screenshot02.webp"
+    ],
+    "id": "pjhFbrqpT8tsPKlvdi9b"
   },
   {
     "nombre": "LEGO Marvel Super Heroes 2",
