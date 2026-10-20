@@ -4241,22 +4241,34 @@
     "languages": "EN/FR/DE/ES/IT/NL/PT/SE/DK/NO/TR/AR/JA/KO/ZH/ZH//RU/CZ/PL",
     "firmware": "18.1.0",
     "update": "v1.79.b056",
-    "botones": [
-      {
-        "tipo": "Otro",
-        "url": "https://vikingfile.com/f/0ksY9kcDjP",
-        "color": "#f9a825",
-        "texto": "Completo"
-      }
-    ],
     "link1": "https://vikingfile.com/f/0ksY9kcDjP",
-    "link2": "",
     "screenshots": [
       "https://files.vgtimes.com/gallery/thumb/202270/89698676_1721675439_9687.webp",
       "https://files.vgtimes.com/gallery/thumb/202270/4572578866_1721675443_1139.webp",
       "https://files.vgtimes.com/gallery/thumb/202270/6475053199_1721243566_2567.webp"
     ],
     "desc": "Peso: 33.5G Update 1.79.b056",
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://vikingfile.com/f/0ksY9kcDjP",
+        "color": "#f9a825",
+        "texto": "Completo"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/gd27sm46od2wiyb/EA+SPORTS+FC+25+[v1.79.b056]+[Espanol+Latino].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Enlace de respaldo (Parte 1)"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/0mlgjcldwjbh8ia/EA+SPORTS+FC+25+[v1.79.b056]+[Espanol+Latino].part2.rar/file",
+        "color": "#2196f3",
+        "texto": "Enlace de respaldo (Parte 2)"
+      }
+    ],
+    "link2": "https://www.mediafire.com/file/gd27sm46od2wiyb/EA+SPORTS+FC+25+[v1.79.b056]+[Espanol+Latino].part1.rar/file",
     "id": "e7fHFt6Pq2aJB3tFzp8B"
   },
   {
