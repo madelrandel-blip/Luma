@@ -6381,6 +6381,52 @@
     "id": "xyGvzWnQ6gKiqTW0TqtS"
   },
   {
+    "nombre": "Devil May Cry - Triple Pack",
+    "img": "https://art.gametdb.com/switch/box/JA/AS8PA.png?1630098261",
+    "desc": "Peso:  16.4GB Update 1.0.1",
+    "previewDesc": "Devil May Cry HD Collection es una reedición de las tres primeras partes de la legendaria serie Devil May Cry. Los juegos están totalmente adaptados a las necesidades modernas, tienen gráficos mejorados, efectos visuales rediseñados y unos perfectos 60 fotogramas por segundo.",
+    "trailer": "https://youtu.be/wTjiijJx3Gg",
+    "genre": "Action",
+    "developer": "Capcom",
+    "mode": "Single Player",
+    "year": "2020",
+    "rating": "78",
+    "gameId": "01007B600D5BC000",
+    "size": "16.4GB",
+    "format": "XCI",
+    "languages": "EN/ES/FR/DE/IT/JP/ZH/ZH",
+    "firmware": "9.0.1",
+    "update": "v1.0.1",
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/jzyd3fz0xxjvhq9/Devil+May+Cry+[BASE].nsp/file",
+        "color": "#2196f3",
+        "texto": "Devil May Cry"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/q6kgfmaljr3ggqv/Devil+May+Cry+2+[BASE].nsp/file",
+        "color": "#2196f3",
+        "texto": "Devil May Cry 2"
+      },
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/q5r8655b94xgkvj/Devil+May+Cry+3+Special+Edition+[v1.0.1].xci/file",
+        "color": "#2196f3",
+        "texto": "Devil May Cry 3 Special Edition"
+      }
+    ],
+    "link1": "https://www.mediafire.com/file/jzyd3fz0xxjvhq9/Devil+May+Cry+[BASE].nsp/file",
+    "link2": "https://www.mediafire.com/file/q6kgfmaljr3ggqv/Devil+May+Cry+2+[BASE].nsp/file",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/137800/1561450226_1085.webp",
+      "https://files.vgtimes.com/gallery/thumb/13293/1567758239_7852.webp",
+      "https://files.vgtimes.com/gallery/main/13294/188050-dmc3.webp"
+    ],
+    "id": "y2Avl7N0t8R9jxWAE3X0"
+  },
+  {
     "nombre": "Pokémon Legends Z-A",
     "img": "https://art.gametdb.com/switch/box/US/ALZLA.png?1760718085",
     "desc": "Peso: 6GB Update 2.0.2 + DLCs",
