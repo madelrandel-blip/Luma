@@ -600,6 +600,54 @@
     "id": "5ayYt2zPOw4WRi33V5AL"
   },
   {
+    "nombre": "Batman: Arkham Knight",
+    "img": "assets/covers/cover bak.png",
+    "desc": "Peso: 26.8GB Update 1.0.5",
+    "previewDesc": "Batman: Arkham Knight es un juego de acción y aventuras sigiloso con vista en tercera persona. Han pasado nueve meses desde los acontecimientos en Arkham City. El Joker está muerto y la tasa de criminalidad está empezando a disminuir. Pero ahora aparecen en escena nuevos oponentes peligrosos. Scarecrow y el misterioso Arkham Knight tienen la intención de sumergir a Gotham en el caos. Pero nuestro héroe Batman no permitirá que esto suceda.",
+    "trailer": "https://youtu.be/lVMNvvaXJ2s",
+    "genre": "Action",
+    "developer": "Warner Bros. Games",
+    "mode": "Single Player",
+    "year": "2023",
+    "rating": "60",
+    "gameId": "0100ACD0163D0000",
+    "size": "26.8GB",
+    "format": "XCI",
+    "languages": "JA/EN/ES/PT/FR/DE/IT/RU/KO",
+    "firmware": "16.0.3",
+    "update": "v1.0.5",
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://vik1ngfile.site/f/LONXWSItST",
+        "color": "#f9a825",
+        "texto": "Completo"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/5hxcy2aclf3asf2/Batman+Arkham+Knight+[v1.0.5].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/5hxcy2aclf3asf2/Batman+Arkham+Knight+[v1.0.5].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/d6pv0s4jyx5ake0/Batman+Arkham+Knight+[v1.0.5].part2.rar/file"
+          }
+        ]
+      }
+    ],
+    "link1": "https://vik1ngfile.site/f/LONXWSItST",
+    "link2": "https://www.mediafire.com/file/5hxcy2aclf3asf2/Batman+Arkham+Knight+[v1.0.5].part1.rar/file",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/135923/1395908155-batman-arkham-knight-1.webp",
+      "https://files.vgtimes.com/gallery/thumb/135923/1395908143-batman-arkham-knight-4.webp",
+      "https://files.vgtimes.com/gallery/thumb/135923/1395908142-batman-arkham-knight-5.webp"
+    ],
+    "id": "5vKVxZoaBzWWcEHct538"
+  },
+  {
     "nombre": "Xenoblade Chronicles 2",
     "img": "https://art.gametdb.com/switch/box/US/ADENB.png?1557424585",
     "desc": "Peso: 17.78GB Update 2.1.0 + 7 DLCs",
