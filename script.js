@@ -53,8 +53,13 @@ const TIPOS_BOTON = {
     "Update":         "#ef6c00",
     "Pack de audios": "#7b1fa2",
     "Github":         "#24292f",
+    "Partes":         "#00838f",
+    "Todas las partes": "#2e7d32",
     "Otro":           "#455a64"
 };
+
+// Tipos de botón que guardan una lista de partes en lugar de un solo enlace
+const TIPOS_CON_PARTES = ["Partes", "Todas las partes"];
 
 // Colores sugeridos al elegir el color de un botón
 const PALETA_BOTON = [
@@ -70,6 +75,8 @@ const ICONOS_BOTON = {
     "Update":         "fa-solid fa-arrows-rotate",
     "Pack de audios": "fa-solid fa-music",
     "Github":         "fa-brands fa-github",
+    "Partes":         "fa-solid fa-layer-group",
+    "Todas las partes": "fa-solid fa-cloud-arrow-down",
     "Otro":           "fa-solid fa-link"
 };
 
@@ -78,7 +85,16 @@ const iconoBoton = (tipo) => ICONOS_BOTON[tipo] || ICONOS_BOTON.Otro;
 const colorValido = (color) => /^#[0-9a-f]{6}$/i.test(color || "");
 
 function etiquetaBoton(boton){
+    if(boton.tipo === "Partes") return boton.texto || "Descargar por partes";
+    if(boton.tipo === "Todas las partes") return boton.texto || "Descargar todas las partes";
     return boton.tipo === "Otro" ? (boton.texto || "Enlace") : boton.tipo;
+}
+
+// Partes válidas de un botón "Partes" (cada una con su propio enlace)
+function partesBoton(boton){
+    return Array.isArray(boton.partes)
+        ? boton.partes.filter(p => p && p.url && p.url.trim())
+        : [];
 }
 
 // Color de texto legible (claro u oscuro) según la luminosidad del fondo
@@ -93,7 +109,7 @@ function colorTextoSobre(fondo){
 // tienen link1/link2, que se interpretan como "Obtener" y "Tutorial".
 function obtenerBotones(j){
     if(Array.isArray(j.botones) && j.botones.length > 0){
-        return j.botones.filter(b => b && b.url && b.url.trim());
+        return j.botones.filter(b => b && (TIPOS_CON_PARTES.includes(b.tipo) ? partesBoton(b).length > 0 : b.url && b.url.trim()));
     }
 
     const botones = [];
@@ -725,6 +741,34 @@ if(store){
     });
 }
 
+// Botones "Partes" de la vista previa: abren y cierran su lista de enlaces
+document.addEventListener("click", (e) => {
+    const toggle = e.target.closest(".btn-partes-toggle");
+    if(!toggle) return;
+
+    const lista = toggle.nextElementSibling;
+    const abrir = lista.hidden;
+
+    playClick();
+    lista.hidden = !abrir;
+    toggle.setAttribute("aria-expanded", String(abrir));
+    toggle.parentElement.classList.toggle("abierto", abrir);
+});
+
+// Botones "Todas las partes": descargan la lista completa de enlaces
+document.addEventListener("click", (e) => {
+    const boton = e.target.closest("[data-partes]");
+    if(!boton) return;
+
+    let urls = [];
+    try{ urls = JSON.parse(boton.dataset.partes); }catch(error){}
+
+    playClick();
+    if(boton.closest("#previewBox")) cerrarPreview();
+
+    descargarTodasLasPartes(urls, boton.dataset.nombre);
+});
+
 // Cualquier botón con data-link abre/descarga ese enlace (emuladores,
 // recursos, vista previa y lista de descargas del carrito).
 document.addEventListener("click", (e) => {
@@ -735,7 +779,7 @@ document.addEventListener("click", (e) => {
 
     if(boton.closest("#previewBox")) cerrarPreview();
 
-    abrirLink(boton.dataset.link, boton.dataset.nombre, boton);
+    abrirLink(boton.dataset.link, boton.dataset.nombre);
 });
 
 /* ========= PAGINACIÓN ========= */
@@ -821,7 +865,8 @@ function abrirPreview(juego){
 
     const botones = obtenerBotones(juego);
 
-    const tieneDetalle = botones.length > 1 || screenshots.length > 0 || juego.trailer || juego.previewDesc ||
+    // Un botón con partes necesita la vista previa para elegir cuál descargar
+    const tieneDetalle = botones.length > 1 || botones.some(b => TIPOS_CON_PARTES.includes(b.tipo)) || screenshots.length > 0 || juego.trailer || juego.previewDesc ||
         juego.genre || juego.developer || juego.gameId;
 
     // Sin información adicional no hay nada que mostrar: se abre el enlace directamente
@@ -862,6 +907,22 @@ function mostrarPreview(j, screenshots){
 
     document.getElementById("previewLinks").innerHTML = obtenerBotones(j).map(b => {
         const fondo = colorValido(b.color) ? b.color : (TIPOS_BOTON[b.tipo] || TIPOS_BOTON.Otro);
+        const estilo = `background:${fondo};color:${colorTextoSobre(fondo)}`;
+
+        // Descarga todas las partes seguidas con un solo clic
+        if(b.tipo === "Todas las partes"){
+            const urls = partesBoton(b).map(p => p.url.trim());
+            return `<button class="btn" style="${estilo}" data-partes="${esc(JSON.stringify(urls))}" data-nombre="${esc(j.nombre)}"><i class="${iconoBoton(b.tipo)}"></i> ${esc(etiquetaBoton(b))} (${urls.length})</button>`;
+        }
+
+        // Botón desplegable: muestra un enlace por cada parte
+        if(b.tipo === "Partes"){
+            const partes = partesBoton(b).map((p, i) =>
+                `<button class="btn-parte" style="${estilo}" data-link="${esc(p.url)}" data-nombre="${esc(j.nombre)}"><i class="fa-solid fa-download"></i> ${esc(p.texto || `Parte ${i + 1}`)}</button>`
+            ).join("");
+
+            return `<div class="btn btn-partes"><button type="button" class="btn-partes-toggle" style="${estilo}" aria-expanded="false"><i class="${iconoBoton(b.tipo)}"></i> ${esc(etiquetaBoton(b))} <i class="fa-solid fa-chevron-down btn-partes-flecha"></i></button><div class="btn-partes-lista" hidden>${partes}</div></div>`;
+        }
 
         return `<button class="btn" style="background:${fondo};color:${colorTextoSobre(fondo)}" data-link="${esc(b.url)}" data-nombre="${esc(j.nombre)}"><i class="${iconoBoton(b.tipo)}"></i> ${esc(etiquetaBoton(b))}</button>`;
     }).join("");
@@ -992,13 +1053,7 @@ function cerrarCaptcha(){
     cerrarModal("captchaBox");
 }
 
-function esVikingFile(link){
-    return window.VikingFile
-        ? VikingFile.isVikingFile(link)
-        : RE_VIKINGFILE.test(link);
-}
-
-function abrirLink(link, nombre, boton){
+function abrirLink(link, nombre){
     if(!link || !link.trim()){
         mostrarToast("No hay un enlace disponible.", "aviso");
         return;
@@ -1008,8 +1063,8 @@ function abrirLink(link, nombre, boton){
         descargarMediafire(link, nombre, link);
     }else if(RE_ARCHIVO_MEDIAFIRE.test(link)){
         descargarMediafire(link, nombre);
-    }else if(esVikingFile(link)){
-        descargarVikingFile(link, nombre, boton);
+    }else if(RE_VIKINGFILE.test(link)){
+        descargarVikingFile(link, nombre);
     }else{
         window.open(link, "_blank", "noopener");
     }
@@ -1022,7 +1077,8 @@ const descarga = {
     cierre: null,       // cierre diferido del modal tras el éxito
     enlace: null,       // enlace para abrir manualmente si falla
     audioPrevio: null,  // estado del audio antes de silenciarlo
-    vikingfile: null    // datos del último intento de VikingFile (para reintentar)
+    vikingfile: null,   // descarga de VikingFile en curso
+    vikingEspera: null  // temporizador del iframe recortado de VikingFile
 };
 
 function silenciarMusicaDuranteDescarga(){
@@ -1052,13 +1108,129 @@ function detenerProgreso(){
     restaurarMusicaDespuesDescarga();
 }
 
+/* Detiene y oculta el iframe recortado de VikingFile, dejándolo en blanco para
+   que no siga cargando anuncios ni audio en segundo plano. */
+function cerrarVikingIncrustado(){
+    clearTimeout(descarga.vikingEspera);
+    clearTimeout(descarga.vikingRevelar);
+    window.removeEventListener("blur", descarga.vikingFoco);
+    descarga.vikingEspera = null;
+
+    const caja = document.getElementById("descargaViking");
+    const marco = document.getElementById("descargaVikingFrame");
+
+    if(caja){
+        caja.hidden = true;
+        caja.classList.remove("cargando", "casilla");
+    }
+
+    if(marco){
+        marco.onload = null;
+        if(marco.src !== "about:blank") marco.src = "about:blank";
+    }
+}
+
+/* Carga la página real de VikingFile dentro del primer modal. El iframe se
+   recorta por CSS para mostrar solo la franja del botón "Download": el resto
+   de la interfaz (cabecera, anuncios, navegación) queda oculto. El captcha se
+   resuelve dentro del propio iframe, así que el botón es el oficial. */
+function abrirVikingIncrustado(link){
+    const caja = document.getElementById("descargaViking");
+    const marco = document.getElementById("descargaVikingFrame");
+    const estado = document.getElementById("descargaEstado");
+    const barra = document.getElementById("descargaProgress");
+    const botonManual = document.getElementById("descargaFallback");
+
+    if(!caja || !marco){
+        abrirMiniVentana(link);
+        return;
+    }
+
+    descarga.enlace = link;
+    if(botonManual) botonManual.style.display = "block";
+
+    caja.hidden = false;
+    const texto = document.getElementById("descargaVikingTexto");
+
+    caja.classList.remove("casilla");
+    caja.classList.add("cargando");
+    if(texto) texto.textContent = "Cargando...";
+
+    // Un clic dentro del iframe quita el foco a la ventana: es la única señal
+    // de que se pulsó. Cada clic alterna lo que queda bajo el botón: tras
+    // pulsar "Download", si no ha descargado, el siguiente clic cae en la
+    // casilla para verificarse, y el siguiente vuelve a "Download".
+    window.removeEventListener("blur", descarga.vikingFoco);
+    descarga.vikingFoco = () => {
+        if(document.activeElement !== marco) return;
+
+        clearTimeout(descarga.vikingRevelar);
+        descarga.vikingRevelar = setTimeout(() => {
+            const aCasilla = !caja.classList.contains("casilla");
+            caja.classList.toggle("casilla", aCasilla);
+            if(estado){
+                estado.textContent = aCasilla
+                    ? "¿No empezó la descarga? Pulsa otra vez para verificarte"
+                    : "Pulsa Descargar de nuevo";
+            }
+            if(texto) texto.textContent = aCasilla ? "Verificar" : "Descargar";
+            // Se recupera el foco para poder detectar el siguiente clic
+            marco.blur();
+            window.focus();
+        }, 1500);
+    };
+    window.addEventListener("blur", descarga.vikingFoco);
+    if(estado) estado.textContent = "Verificando...";
+    if(barra) barra.style.width = "0%";
+
+    playLoadingSound();
+    silenciarMusicaDuranteDescarga();
+
+    const destino = /^https?:\/\//.test(link) ? link : "https://" + link;
+
+    if(marco.src !== destino){
+        marco.onload = () => {
+            if(descarga.vikingfile && estado) estado.textContent = "Generando enlace...";
+            // Turnstile tarda un poco más que la página en mostrar la casilla
+            clearTimeout(descarga.vikingRevelar);
+            descarga.vikingRevelar = setTimeout(() => {
+                caja.classList.remove("cargando");
+                if(texto) texto.textContent = "Descargar";
+                if(estado) estado.textContent = "Pulsa Descargar";
+            }, 5500);
+        };
+        marco.src = destino;
+    }
+
+    clearInterval(descarga.intervalo);
+
+    let progreso = 0;
+    descarga.intervalo = setInterval(() => {
+        progreso = Math.min(90, progreso + Math.random() * 6 + 2);
+        if(barra) barra.style.width = progreso + "%";
+    }, 180);
+
+    // Cuando el captcha termina, el botón "Download" de VikingFile ya está
+    // dentro de la franja. Se deja de simular la barra y se avisa al usuario.
+    clearTimeout(descarga.vikingEspera);
+    descarga.vikingEspera = setTimeout(() => {
+        if(!descarga.vikingfile) return;
+
+        caja.classList.remove("cargando");
+        if(!caja.classList.contains("casilla")){
+            if(texto) texto.textContent = "Descargar";
+            if(estado) estado.textContent = "Pulsa Descargar";
+        }
+        if(barra) barra.style.width = "100%";
+        detenerProgreso();
+    }, 9000);
+}
+
 function descargarMediafire(link, nombre, directa = null){
     const barra = document.getElementById("descargaProgress");
     const estado = document.getElementById("descargaEstado");
     const botonManual = document.getElementById("descargaFallback");
-    const botonReintentar = document.getElementById("descargaReintentar");
     const nombreEl = document.getElementById("descargaNombre");
-    const captcha = document.getElementById("descargaCaptcha");
 
     if(!barra || !estado){
         window.open(link, "_blank", "noopener");
@@ -1070,14 +1242,10 @@ function descargarMediafire(link, nombre, directa = null){
     clearTimeout(descarga.cierre);
     detenerProgreso();
 
-    // Se limpia el captcha si venía de un intento de VikingFile
+    // Se limpia el iframe recortado si venía de VikingFile
     descarga.vikingfile = null;
-    if(captcha){
-        captcha.hidden = true;
-        captcha.innerHTML = "";
-    }
-    if(botonReintentar) botonReintentar.style.display = "none";
-    if(window.VikingFile) VikingFile.reset();
+    descarga.pendientes = null;
+    cerrarVikingIncrustado();
 
     const controller = new AbortController();
     descarga.controller = controller;
@@ -1146,18 +1314,111 @@ function descargarMediafire(link, nombre, directa = null){
         });
 }
 
-/* VikingFile: mismo patrón que MediaFire (modal de descarga + estados), pero
-   el enlace directo se obtiene con un captcha Turnstile y el backend propio.
-   Si la verificación no es posible se cae al modal incrustado de siempre. */
-function descargarVikingFile(link, nombre, boton){
+/* Descarga varias partes con un solo clic. Los enlaces de MediaFire se
+   resuelven a la vez y las descargas se lanzan en orden (parte 1, 2...) con
+   una pequeña pausa; el navegador puede pedir permiso una vez para permitir
+   descargas múltiples. Los enlaces de otros hosts no se pueden descargar
+   automáticamente y se ofrecen para abrir en pestaña. */
+async function descargarTodasLasPartes(urls, nombre){
     const barra = document.getElementById("descargaProgress");
     const estado = document.getElementById("descargaEstado");
     const botonManual = document.getElementById("descargaFallback");
-    const botonReintentar = document.getElementById("descargaReintentar");
     const nombreEl = document.getElementById("descargaNombre");
-    const captcha = document.getElementById("descargaCaptcha");
 
-    if(!window.VikingFile || !barra || !estado || !captcha){
+    urls = (urls || []).filter(Boolean);
+    if(urls.length === 0){
+        mostrarToast("No hay partes para descargar.", "aviso");
+        return;
+    }
+
+    if(!barra || !estado){
+        urls.forEach(url => window.open(url, "_blank", "noopener"));
+        return;
+    }
+
+    // Cancela cualquier descarga anterior antes de iniciar una nueva
+    if(descarga.controller) descarga.controller.abort();
+    clearTimeout(descarga.cierre);
+    detenerProgreso();
+    descarga.vikingfile = null;
+    descarga.pendientes = null;
+    cerrarVikingIncrustado();
+
+    const controller = new AbortController();
+    descarga.controller = controller;
+    descarga.enlace = null;
+
+    abrirModal("descargaBox");
+    barra.style.width = "0%";
+    estado.textContent = `Preparando ${urls.length} partes...`;
+    if(nombreEl) nombreEl.textContent = nombre || "";
+    if(botonManual) botonManual.style.display = "none";
+
+    playLoadingSound();
+    silenciarMusicaDuranteDescarga();
+
+    // Se piden todos los enlaces directos a la vez para no esperar parte a parte
+    const directas = urls.map(url => {
+        if(RE_DESCARGA_DIRECTA.test(url)) return Promise.resolve(url);
+        if(RE_ARCHIVO_MEDIAFIRE.test(url)) return obtenerUrlDirecta(url, controller.signal);
+        return Promise.reject(new Error("Host sin descarga automática"));
+    });
+    directas.forEach(p => p.catch(() => {}));
+
+    const fallidas = [];
+    const pausa = (ms) => new Promise(resolver => setTimeout(resolver, ms));
+
+    for(let i = 0; i < urls.length; i++){
+        if(controller.signal.aborted) return;
+
+        estado.textContent = `Preparando parte ${i + 1} de ${urls.length}...`;
+
+        try{
+            const directa = await directas[i];
+            if(controller.signal.aborted) return;
+
+            iniciarDescarga(directa);
+            estado.textContent = `Parte ${i + 1} de ${urls.length} iniciada ✔`;
+
+        }catch(error){
+            if(controller.signal.aborted) return;
+            fallidas.push(i);
+        }
+
+        barra.style.width = ((i + 1) / urls.length * 100) + "%";
+
+        // Pausa entre descargas para que el navegador no descarte ninguna
+        if(i < urls.length - 1) await pausa(1200);
+    }
+
+    detenerProgreso();
+    descarga.controller = null;
+
+    if(fallidas.length === 0){
+        estado.textContent = `${urls.length} partes iniciadas ✔`;
+        descarga.cierre = setTimeout(cerrarDescarga, 2500);
+        return;
+    }
+
+    // Las partes que no se pudieron descargar se abren a mano, una por clic
+    const pendientes = fallidas.map(i => urls[i]);
+    const numeros = fallidas.map(i => i + 1).join(", ");
+
+    estado.textContent = `No se pudo descargar automáticamente: parte ${numeros}. Pulsa el botón para abrirla.`;
+    descarga.enlace = pendientes[0];
+    descarga.pendientes = pendientes.slice(1);
+    if(botonManual) botonManual.style.display = "block";
+}
+
+/* VikingFile: mismo patrón que MediaFire (modal de descarga + estados), con
+   la página real cargada en el iframe recortado del propio modal. */
+function descargarVikingFile(link, nombre){
+    const barra = document.getElementById("descargaProgress");
+    const estado = document.getElementById("descargaEstado");
+    const botonManual = document.getElementById("descargaFallback");
+    const nombreEl = document.getElementById("descargaNombre");
+
+    if(!barra || !estado){
         if(descarga.controller) descarga.controller.abort();
         descarga.controller = null;
         detenerProgreso();
@@ -1170,90 +1431,19 @@ function descargarVikingFile(link, nombre, boton){
     descarga.controller = null;
     clearTimeout(descarga.cierre);
     detenerProgreso();
-
-    // Turnstile ya rechazó este dominio en esta sesión (110200): no se hace
-    // esperar al usuario otra vez, se abre la página incrustada directamente.
-    if(VikingFile.dominioBloqueado()){
-        descarga.vikingfile = null;
-        abrirMiniVentana(link);
-        return;
-    }
-
-    VikingFile.reset();
+    cerrarVikingIncrustado();
 
     descarga.enlace = null;
-    descarga.vikingfile = { link, nombre, boton };
+    descarga.vikingfile = { link, nombre };
+    descarga.pendientes = null;
 
     abrirModal("descargaBox");
     barra.style.width = "0%";
     estado.textContent = "Verificando...";
     if(nombreEl) nombreEl.textContent = nombre || "";
     if(botonManual) botonManual.style.display = "none";
-    if(botonReintentar) botonReintentar.style.display = "none";
-    captcha.innerHTML = "";
-    captcha.hidden = false;
 
-    playLoadingSound();
-    silenciarMusicaDuranteDescarga();
-
-    let progreso = 0;
-
-    descarga.intervalo = setInterval(() => {
-        progreso = Math.min(90, progreso + Math.random() * 8 + 2);
-        barra.style.width = progreso + "%";
-    }, 150);
-
-    VikingFile.handle(link, boton, (mensaje) => {
-        estado.textContent = mensaje;
-    }, {
-        container: captcha,
-        filename: (boton && boton.dataset.filename) || nombre || "",
-        backend: (boton && boton.dataset.backend) || undefined,
-
-        onDone: () => {
-            detenerProgreso();
-            barra.style.width = "100%";
-            estado.textContent = "Descarga iniciada ✔"; // mismo texto que MediaFire
-            captcha.hidden = true;
-            descarga.cierre = setTimeout(cerrarDescarga, 2000);
-        },
-
-        onError: (error) => {
-            detenerProgreso();
-
-            const codigo = error && error.code;
-
-            // La sitekey de VikingFile está atada a su dominio (Turnstile 110200)
-            // o no hay backend: se usa la ventana incrustada que ya existía.
-            if(codigo === "VF_DOMAIN" || codigo === "VF_BACKEND" || codigo === "VF_SERVER" || codigo === "VF_TIMEOUT"){
-                descarga.vikingfile = null;
-                VikingFile.reset();
-                captcha.hidden = true;
-                captcha.innerHTML = "";
-
-                // En el caso normal (sitekey atada al dominio de VikingFile) no
-                // hace falta aviso: la ventana ya muestra el botón de descarga.
-                if(codigo !== "VF_DOMAIN"){
-                    mostrarToast("No se pudo verificar automáticamente. Descarga desde la ventana.", "aviso");
-                }
-
-                cerrarModal("descargaBox");
-                abrirMiniVentana(link);
-                return;
-            }
-
-            // Captcha caducado o fallido: se puede reintentar sin salir del modal
-            captcha.hidden = false;
-            if(botonReintentar) botonReintentar.style.display = "block";
-        }
-    });
-}
-
-function reintentarDescarga(){
-    const pendiente = descarga.vikingfile;
-    if(!pendiente) return;
-
-    descargarVikingFile(pendiente.link, pendiente.nombre, pendiente.boton);
+    abrirVikingIncrustado(link);
 }
 
 function abrirPestanaOFallback(link, mensaje){
@@ -1284,25 +1474,25 @@ function abrirEnlaceFallback(){
     if(!descarga.enlace) return;
 
     window.open(descarga.enlace, "_blank", "noopener");
+
+    // Si quedan más partes por abrir (descarga de todas las partes), se
+    // ofrece la siguiente en lugar de cerrar el modal.
+    if(descarga.pendientes && descarga.pendientes.length){
+        descarga.enlace = descarga.pendientes.shift();
+        return;
+    }
+
     cerrarDescarga();
 }
 
 function cerrarDescarga(){
     if(descarga.controller) descarga.controller.abort();
     descarga.controller = null;
+    descarga.pendientes = null;
     descarga.enlace = null;
     descarga.vikingfile = null;
 
-    if(window.VikingFile) VikingFile.reset();
-
-    const captcha = document.getElementById("descargaCaptcha");
-    if(captcha){
-        captcha.hidden = true;
-        captcha.innerHTML = "";
-    }
-
-    const botonReintentar = document.getElementById("descargaReintentar");
-    if(botonReintentar) botonReintentar.style.display = "none";
+    cerrarVikingIncrustado();
 
     clearTimeout(descarga.cierre);
     detenerProgreso();
@@ -1390,7 +1580,10 @@ async function obtenerUrlDirecta(link, signal){
 
     // X-No-Cache evita que r.jina.ai devuelva una copia con enlace caducado.
     // No se debe añadir "?_t=" a la URL: corrompe la URL objetivo del proxy.
-    const sinCache = { headers: { "X-No-Cache": "true" } };
+    // X-With-Links-Summary añade la lista de enlaces de la página: en algunos
+    // archivos (p. ej. los .partN.rar grandes) el botón "Download" no aparece
+    // en el Markdown y solo está en esa lista.
+    const sinCache = { headers: { "X-No-Cache": "true", "X-With-Links-Summary": "true" } };
 
     const fuentes = [
         async (s) => (await solicitar("https://r.jina.ai/" + encodeURI(urlPagina), s, sinCache)).text(),

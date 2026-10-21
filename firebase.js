@@ -69,7 +69,31 @@ const opcionesTipo = (seleccionado) => Object.keys(TIPOS_BOTON)
 
 selectTipoNuevo.innerHTML = opcionesTipo("Obtener");
 
-function agregarFilaBoton({ tipo = "Obtener", texto = "", url = "", color = "" } = {}){
+// Las partes se editan como texto: una por línea, "URL" o "Nombre | URL"
+const partesATexto = (partes) => (Array.isArray(partes) ? partes : [])
+    .map(p => p.texto ? `${p.texto} | ${p.url}` : p.url)
+    .join("\n");
+
+function textoAPartes(texto){
+    return texto.split("\n")
+        .map(linea => linea.trim())
+        .filter(Boolean)
+        .map(linea => {
+            const corte = linea.lastIndexOf(" | ");
+            return corte === -1
+                ? { url: linea }
+                : { texto: linea.slice(0, corte).trim(), url: linea.slice(corte + 3).trim() };
+        })
+        .filter(p => p.url);
+}
+
+function marcarTipoFila(fila, tipo){
+    fila.classList.toggle("es-otro", tipo === "Otro" || TIPOS_CON_PARTES.includes(tipo));
+    fila.classList.toggle("es-partes", TIPOS_CON_PARTES.includes(tipo));
+    fila.querySelector(".bf-texto").placeholder = TIPOS_CON_PARTES.includes(tipo) ? `Texto del botón (por defecto: ${etiquetaBoton({ tipo })})` : "Texto del botón";
+}
+
+function agregarFilaBoton({ tipo = "Obtener", texto = "", url = "", color = "", partes = [] } = {}){
     if(!TIPOS_BOTON[tipo]) tipo = "Otro";
 
     const fila = document.createElement("div");
@@ -86,12 +110,14 @@ function agregarFilaBoton({ tipo = "Obtener", texto = "", url = "", color = "" }
             <button type="button" data-op="borrar" title="Quitar"><i class="fa-solid fa-trash"></i></button>
         </div>
         <div class="bf-paleta">${PALETA_BOTON.map(c => `<button type="button" data-color="${c}" title="${c}" style="background:${c}"></button>`).join("")}</div>
-        <input type="text" class="bf-texto" placeholder="Texto del botón">`;
+        <input type="text" class="bf-texto" placeholder="Texto del botón">
+        <textarea class="bf-partes" rows="3" placeholder="Una parte por línea: URL  o  Parte 1 | URL"></textarea>`;
 
     const inputColor = fila.querySelector(".bf-color");
 
     fila.querySelector(".bf-url").value = url;
     fila.querySelector(".bf-texto").value = texto;
+    fila.querySelector(".bf-partes").value = partesATexto(partes);
 
     // Si el color guardado es el predeterminado del tipo, seguirá al cambiar de tipo
     const personalizado = colorValido(color) && color.toLowerCase() !== TIPOS_BOTON[tipo].toLowerCase();
@@ -99,7 +125,7 @@ function agregarFilaBoton({ tipo = "Obtener", texto = "", url = "", color = "" }
 
     inputColor.value = colorValido(color) ? color : TIPOS_BOTON[tipo];
     fila.style.setProperty("--c", inputColor.value);
-    fila.classList.toggle("es-otro", tipo === "Otro");
+    marcarTipoFila(fila, tipo);
 
     listaBotones.appendChild(fila);
 }
@@ -118,7 +144,13 @@ function leerBotones(){
                 color: fila.querySelector(".bf-color").value
             };
 
-            if(tipo === "Otro") boton.texto = fila.querySelector(".bf-texto").value.trim();
+            if(tipo === "Otro" || TIPOS_CON_PARTES.includes(tipo)) boton.texto = fila.querySelector(".bf-texto").value.trim();
+
+            // El "url" de un botón con partes es el de la primera (carrito y link1)
+            if(TIPOS_CON_PARTES.includes(tipo)){
+                boton.partes = textoAPartes(fila.querySelector(".bf-partes").value);
+                boton.url = boton.partes.length ? boton.partes[0].url : "";
+            }
 
             return boton;
         })
@@ -134,7 +166,7 @@ listaBotones.addEventListener("change", (e) => {
     if(!fila) return;
 
     if(e.target.classList.contains("bf-tipo")){
-        fila.classList.toggle("es-otro", e.target.value === "Otro");
+        marcarTipoFila(fila, e.target.value);
         fila.querySelector(".bf-icono").className = "bf-icono " + iconoBoton(e.target.value);
 
         if(!fila.dataset.personalizado){

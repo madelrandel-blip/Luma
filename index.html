@@ -19,11 +19,8 @@
 <meta name="twitter:description" content="Catálogo de juegos de Nintendo Switch, emuladores y recursos.">
 <meta name="twitter:image" content="assets/images/Luma background embed.jpg?raw=true">
 
-<!-- Backend de VikingFile (/api/vf-link). Tras desplegar worker/, pega aquí la
-     URL del Worker, p. ej. https://luma-vf-link.tu-subdominio.workers.dev/api/vf-link -->
-<meta name="vf-backend" content="">
 
-<link rel="stylesheet" href="style.css?v=20261020-3">
+<link rel="stylesheet" href="style.css?v=20261020-28">
 <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://wsrv.nl" crossorigin>
 <link rel="preconnect" href="https://art.gametdb.com" crossorigin>
@@ -407,23 +404,32 @@
             Preparando el enlace...
         </p>
 
-        <div id="descargaCaptcha" class="descarga-captcha" hidden></div>
+        <div id="descargaViking" class="descarga-viking" hidden>
+            <iframe id="descargaVikingFrame" title="Descarga de VikingFile"
+                referrerpolicy="no-referrer"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-downloads"></iframe>
+            <div class="descarga-viking-tinte"></div>
+            <div class="descarga-viking-capa" aria-hidden="true">
+                <div class="descarga-viking-boton">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>
+                    <span id="descargaVikingTexto">Descargar</span>
+                </div>
+            </div>
+        </div>
 
         <div class="progress-bar">
             <div class="progress-fill" id="descargaProgress"></div>
         </div>
 
-        <button id="descargaReintentar" onclick="reintentarDescarga()" style="margin-top:18px; display:none; width:100%;">
-            Reintentar
-        </button>
+        <div class="descarga-acciones">
+            <button id="descargaFallback" class="descarga-accion" onclick="abrirEnlaceFallback()" style="display:none;">
+                Abrir en pestaña
+            </button>
 
-        <button id="descargaFallback" onclick="abrirEnlaceFallback()" style="margin-top:18px; display:none; width:100%;">
-            Abrir en pestaña
-        </button>
-
-        <button onclick="cerrarDescarga()" style="margin-top:18px;">
-            Cancelar
-        </button>
+            <button class="descarga-accion descarga-cancelar" onclick="cerrarDescarga()">
+                Cancelar
+            </button>
+        </div>
     </div>
 </div>
 
@@ -537,13 +543,11 @@
 <div id="toastContainer"></div>
 
 <!-- FIREBASE -->
-<script type="module" src="firebase.js?v=20261007-8"></script>
+<script type="module" src="firebase.js?v=20261020-2"></script>
 
-<!-- DESCARGA AUTOMÁTICA VIKINGFILE -->
-<script src="vikingfile.js?v=20261020-3"></script>
 
 <!-- SCRIPT PRINCIPAL -->
-<script src="script.js?v=20261020-3"></script>
+<script src="script.js?v=20261020-23"></script>
 
 </body>
 </html>

@@ -824,18 +824,143 @@ header {
     transition: width 0.25s ease;
 }
 
-/* Captcha Turnstile dentro del modal de descarga (VikingFile) */
-.descarga-captcha {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Ventana recortada de VikingFile: la página carga detrás, tapada por completo
+   con un botón de Luma. El clic atraviesa el botón y cae en lo que haya justo
+   debajo de su centro: primero el "Download" real y, si hace falta
+   verificarse, la casilla de Turnstile (ver .casilla). */
+.descarga-viking {
+    position: relative;
     width: 100%;
-    min-height: 65px;
+    height: 130px;
     margin: 0 0 14px;
+    overflow: hidden;
+    background: transparent;
 }
 
-.descarga-captcha[hidden] {
+.descarga-viking[hidden] {
     display: none;
+}
+
+#descargaVikingFrame {
+    position: absolute;
+    top: -180px;
+    left: 0;
+    width: 100%;
+    height: 800px;
+    border: 0;
+    background: #0d1424;
+    filter: invert(0.92) hue-rotate(180deg) contrast(1.05);
+}
+
+/* Desplaza la página para que la casilla de Turnstile (a la izquierda, ~7.5%
+   del ancho) quede bajo el centro del botón. */
+.descarga-viking.casilla #descargaVikingFrame {
+    transform: translate(calc(42.5% - 2px), -3px);
+}
+
+.descarga-viking-tinte {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: #1e3a8a;
+    opacity: 0.18;
+}
+
+.descarga-viking-capa {
+    position: absolute;
+    /* Sobresale 2px para que no asome el borde del iframe por los lados */
+    inset: -2px;
+    z-index: 2;
+    pointer-events: none;
+    /* Mismo tono que el fondo del modal para que la capa no se note */
+    background: #0d1424;
+}
+
+.descarga-viking-boton {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 52%;
+    height: 65px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+    pointer-events: none;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    background: linear-gradient(180deg, rgba(110, 231, 255, 0.28) 0%, rgba(167, 139, 250, 0.26) 100%);
+    border: 1px solid rgba(125, 211, 252, 0.28);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 8px 20px rgba(0, 0, 0, 0.28);
+    transition: opacity 0.35s ease;
+}
+
+/* Mientras la página carga, el botón se atenúa y captura los clics para que
+   no se pulse nada antes de tiempo. */
+.descarga-viking.cargando .descarga-viking-boton {
+    opacity: 0.5;
+    pointer-events: auto;
+    cursor: inherit;
+}
+
+
+#descargaBox h3 {
+    margin-bottom: 6px;
+    font-size: 20px;
+    letter-spacing: 0.3px;
+}
+
+#descargaEstado {
+    font-size: 13px;
+    color: rgba(226, 232, 240, 0.72);
+}
+
+#descargaBox .progress-bar {
+    height: 6px;
+    border: none;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+#descargaBox .progress-fill {
+    background: linear-gradient(90deg, #38bdf8, #6366f1, #a855f7);
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.55);
+}
+
+.descarga-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+#descargaBox .descarga-accion {
+    flex: 1;
+    width: auto;
+    margin: 0;
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+#descargaBox .descarga-cancelar {
+    background: transparent;
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: #fca5a5;
+    box-shadow: none;
+}
+
+#descargaBox .descarga-cancelar:hover {
+    background: rgba(248, 113, 113, 0.1);
+    border-color: rgba(248, 113, 113, 0.5);
+}
+
+#descargaBox .login-content {
+    max-height: 92vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #emuladoresBox .login-content,
@@ -1244,6 +1369,7 @@ header {
 #adminSearch,
 .boton-fila select,
 .boton-fila input[type="text"],
+.boton-fila textarea,
 .boton-agregar select {
     padding: 10px 12px;
     border-radius: 10px;
@@ -1260,7 +1386,8 @@ header {
 .admin-field input::placeholder,
 .admin-field textarea::placeholder,
 #adminSearch::placeholder,
-.boton-fila input::placeholder {
+.boton-fila input::placeholder,
+.boton-fila textarea::placeholder {
     color: rgba(255, 255, 255, 0.28);
 }
 .admin-field input[type="text"]:hover,
@@ -1273,6 +1400,7 @@ header {
 #adminSearch:focus,
 .boton-fila select:focus,
 .boton-fila input[type="text"]:focus,
+.boton-fila textarea:focus,
 .boton-agregar select:focus {
     border-color: rgba(125, 211, 252, 0.6);
     background: rgba(2, 6, 18, 0.8);
@@ -1562,6 +1690,10 @@ header {
 .boton-fila .bf-url { flex: 1 1 180px; min-width: 0; width: auto; }
 .boton-fila .bf-texto { flex: 1 1 100%; display: none; }
 .boton-fila.es-otro .bf-texto { display: block; }
+/* Tipo "Partes": la URL única se sustituye por la lista de partes */
+.boton-fila .bf-partes { flex: 1 1 100%; display: none; resize: vertical; font-family: inherit; }
+.boton-fila.es-partes .bf-partes { display: block; }
+.boton-fila.es-partes .bf-url { visibility: hidden; }
 .boton-fila select option,
 .boton-agregar select option { background: #0b1226; }
 .boton-fila .bf-color {
@@ -2308,9 +2440,11 @@ header {
     background:linear-gradient(145deg,#0f172a,#1a1a3e);
     border:1px solid rgba(125,211,252,.2);
     border-radius:16px;
-    max-width:950px;
+    /* 15% más ancha que la original (950px); en alto se usa todo el espacio
+       disponible, ya que 90vh + 15% no cabe en la pantalla */
+    max-width:1093px;
     width:100%;
-    height:90vh;
+    height:calc(100vh - 40px);
     position:relative;
     overflow-y:auto;
 }
@@ -2340,6 +2474,10 @@ header {
     gap:24px;
     padding:24px;
     align-items:start;
+    /* El contenido mantiene su tamaño original aunque la ventana sea más grande */
+    max-width:950px;
+    box-sizing:border-box;
+    margin:0 auto;
 }
 
 .preview-cover{
@@ -2532,6 +2670,75 @@ header {
 
 .preview-links .btn:hover{
     filter:brightness(1.15);
+}
+
+/* Botón "Partes": el contenedor ocupa el hueco de un botón normal y al
+   abrirse pasa a ancho completo con la lista de partes debajo. */
+.preview-links .btn-partes{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    padding:0;
+    background:none;
+    cursor:default;
+}
+
+.preview-links .btn-partes:hover{
+    filter:none;
+}
+
+.preview-links .btn-partes.abierto{
+    flex-basis:100%;
+}
+
+.btn-partes-toggle,
+.btn-parte{
+    width:100%;
+    padding:9px 12px;
+    border:none;
+    border-radius:8px;
+    font:inherit;
+    font-weight:700;
+    text-align:center;
+    transition:filter .2s;
+}
+
+.btn-partes-toggle:hover,
+.btn-parte:hover{
+    filter:brightness(1.15);
+}
+
+.btn-partes-flecha{
+    margin:0 0 0 6px !important;
+    font-size:11px;
+    transition:transform .2s;
+}
+
+.btn-partes.abierto .btn-partes-flecha{
+    transform:rotate(180deg);
+}
+
+.btn-partes-lista{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));
+    gap:6px;
+    animation:fadeIn .2s ease;
+}
+
+.btn-partes-lista[hidden]{
+    display:none;
+}
+
+.btn-parte{
+    opacity:.9;
+    font-size:12px;
+}
+
+.btn-parte i{ margin-right:4px; }
+
+/* Con 3 botones, uno por fila en vez de 2 arriba y 1 abajo */
+.preview-links:has(> .btn:nth-child(3):last-child) .btn{
+    flex-basis:100%;
 }
 
 
