@@ -4725,7 +4725,6 @@
     "nombre": "DRAGON BALL Z: KAKAROT DAIMA EDITION",
     "img": "https://art.gametdb.com/switch/boxB/US/A2APB.png?1765999180",
     "desc": "Peso: 27.1GB Update 1.70 + 20 DLCs",
-    "link2": "",
     "gameId": "0100B5C00A1E8000",
     "languages": "ES/EN/FR/DE/IT/PT/RU",
     "year": "2021",
@@ -4750,8 +4749,23 @@
         "tipo": "Obtener",
         "url": "https://vik1ngfile.site/f/gfqD6I3yVO",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/d07qtvykoj6y13z/DRAGON+BALL+Z+KAKAROT+++A+NEW+POWER+AWAKENS+SET+[v1.70+++20+DLCs].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/d07qtvykoj6y13z/DRAGON+BALL+Z+KAKAROT+++A+NEW+POWER+AWAKENS+SET+[v1.70+++20+DLCs].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/tsxdk94t4brik0q/DRAGON+BALL+Z+KAKAROT+++A+NEW+POWER+AWAKENS+SET+[v1.70+++20+DLCs].part2.rar/file"
+          }
+        ]
       }
     ],
+    "link2": "https://www.mediafire.com/file/d07qtvykoj6y13z/DRAGON+BALL+Z+KAKAROT+++A+NEW+POWER+AWAKENS+SET+[v1.70+++20+DLCs].part1.rar/file",
     "id": "jhdtiyJsAlczLhgi50ow"
   },
   {
