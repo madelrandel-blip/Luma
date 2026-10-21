@@ -1139,7 +1139,6 @@ function abrirVikingIncrustado(link){
     const marco = document.getElementById("descargaVikingFrame");
     const estado = document.getElementById("descargaEstado");
     const barra = document.getElementById("descargaProgress");
-    const botonManual = document.getElementById("descargaFallback");
 
     if(!caja || !marco){
         abrirMiniVentana(link);
@@ -1147,7 +1146,6 @@ function abrirVikingIncrustado(link){
     }
 
     descarga.enlace = link;
-    if(botonManual) botonManual.style.display = "block";
 
     caja.hidden = false;
     const texto = document.getElementById("descargaVikingTexto");
