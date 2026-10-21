@@ -19,7 +19,11 @@
 <meta name="twitter:description" content="Catálogo de juegos de Nintendo Switch, emuladores y recursos.">
 <meta name="twitter:image" content="assets/images/Luma background embed.jpg?raw=true">
 
-<link rel="stylesheet" href="style.css?v=20261007-6">
+<!-- Backend de VikingFile (/api/vf-link). Tras desplegar worker/, pega aquí la
+     URL del Worker, p. ej. https://luma-vf-link.tu-subdominio.workers.dev/api/vf-link -->
+<meta name="vf-backend" content="">
+
+<link rel="stylesheet" href="style.css?v=20261020-3">
 <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://wsrv.nl" crossorigin>
 <link rel="preconnect" href="https://art.gametdb.com" crossorigin>
@@ -403,9 +407,15 @@
             Preparando el enlace...
         </p>
 
+        <div id="descargaCaptcha" class="descarga-captcha" hidden></div>
+
         <div class="progress-bar">
             <div class="progress-fill" id="descargaProgress"></div>
         </div>
+
+        <button id="descargaReintentar" onclick="reintentarDescarga()" style="margin-top:18px; display:none; width:100%;">
+            Reintentar
+        </button>
 
         <button id="descargaFallback" onclick="abrirEnlaceFallback()" style="margin-top:18px; display:none; width:100%;">
             Abrir en pestaña
@@ -413,6 +423,27 @@
 
         <button onclick="cerrarDescarga()" style="margin-top:18px;">
             Cancelar
+        </button>
+    </div>
+</div>
+
+<!-- MODAL CAPTCHA (VikingFile) -->
+<div id="captchaBox">
+    <div class="captcha-content">
+        <div class="captcha-header">
+            <span>Completa el captcha para descargar</span>
+            <button class="captcha-close" onclick="cerrarCaptcha()">✕</button>
+        </div>
+        <div class="captcha-marco">
+            <iframe id="captchaFrame" title="Descarga" referrerpolicy="no-referrer"
+                allow="fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-downloads"></iframe>
+            <div class="captcha-cargando" id="captchaCargando">Cargando página de descarga...</div>
+            <div class="captcha-tinte"></div>
+            <div class="captcha-tapa"></div>
+        </div>
+        <p class="captcha-hosting">Hosting: VikingFile</p>
+        <button id="captchaPestana" class="captcha-tab">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ir a la página original
         </button>
     </div>
 </div>
@@ -508,8 +539,11 @@
 <!-- FIREBASE -->
 <script type="module" src="firebase.js?v=20261007-8"></script>
 
+<!-- DESCARGA AUTOMÁTICA VIKINGFILE -->
+<script src="vikingfile.js?v=20261020-3"></script>
+
 <!-- SCRIPT PRINCIPAL -->
-<script src="script.js?v=20261007-8"></script>
+<script src="script.js?v=20261020-3"></script>
 
 </body>
 </html>

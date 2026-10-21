@@ -735,7 +735,7 @@ document.addEventListener("click", (e) => {
 
     if(boton.closest("#previewBox")) cerrarPreview();
 
-    abrirLink(boton.dataset.link, boton.dataset.nombre);
+    abrirLink(boton.dataset.link, boton.dataset.nombre, boton);
 });
 
 /* ========= PAGINACIÓN ========= */
@@ -945,8 +945,60 @@ function cerrarPreview(){
 /* ========= ENLACES Y DESCARGAS ========= */
 const RE_ARCHIVO_MEDIAFIRE = /mediafire\.com\/file\/([^/?#]+)/;
 const RE_DESCARGA_DIRECTA = /download\d+\.mediafire\.com\//;
+const RE_VIKINGFILE = /vik[i1]ngfile\.(?:site|com)\/f\//;
 
-function abrirLink(link, nombre){
+function abrirMiniVentana(link){
+    const marco = document.getElementById("captchaFrame");
+    const botonPestana = document.getElementById("captchaPestana");
+    const cargando = document.getElementById("captchaCargando");
+
+    if(!marco){
+        window.open(link, "_blank", "noopener");
+        return;
+    }
+
+    const destino = /^https?:\/\//.test(link) ? link : "https://" + link;
+
+    // La página de VikingFile tarda varios segundos en pintar; se muestra un
+    // aviso hasta que termina de cargar (o al instante si ya estaba cargada).
+    if(marco.src === destino){
+        if(cargando) cargando.hidden = true;
+    }else{
+        if(cargando) cargando.hidden = false;
+
+        marco.onload = () => {
+            if(cargando) cargando.hidden = true;
+        };
+
+        marco.src = destino;
+    }
+
+    if(botonPestana){
+        botonPestana.onclick = () => {
+            window.open(marco.src, "_blank", "noopener");
+            cerrarCaptcha();
+        };
+    }
+
+    abrirModal("captchaBox");
+}
+
+function cerrarCaptcha(){
+    const marco = document.getElementById("captchaFrame");
+
+    
+    if(marco) marco.src = "about:blank";
+
+    cerrarModal("captchaBox");
+}
+
+function esVikingFile(link){
+    return window.VikingFile
+        ? VikingFile.isVikingFile(link)
+        : RE_VIKINGFILE.test(link);
+}
+
+function abrirLink(link, nombre, boton){
     if(!link || !link.trim()){
         mostrarToast("No hay un enlace disponible.", "aviso");
         return;
@@ -956,6 +1008,8 @@ function abrirLink(link, nombre){
         descargarMediafire(link, nombre, link);
     }else if(RE_ARCHIVO_MEDIAFIRE.test(link)){
         descargarMediafire(link, nombre);
+    }else if(esVikingFile(link)){
+        descargarVikingFile(link, nombre, boton);
     }else{
         window.open(link, "_blank", "noopener");
     }
@@ -967,7 +1021,8 @@ const descarga = {
     limite: null,       // tiempo máximo del intento automático
     cierre: null,       // cierre diferido del modal tras el éxito
     enlace: null,       // enlace para abrir manualmente si falla
-    audioPrevio: null   // estado del audio antes de silenciarlo
+    audioPrevio: null,  // estado del audio antes de silenciarlo
+    vikingfile: null    // datos del último intento de VikingFile (para reintentar)
 };
 
 function silenciarMusicaDuranteDescarga(){
@@ -1001,7 +1056,9 @@ function descargarMediafire(link, nombre, directa = null){
     const barra = document.getElementById("descargaProgress");
     const estado = document.getElementById("descargaEstado");
     const botonManual = document.getElementById("descargaFallback");
+    const botonReintentar = document.getElementById("descargaReintentar");
     const nombreEl = document.getElementById("descargaNombre");
+    const captcha = document.getElementById("descargaCaptcha");
 
     if(!barra || !estado){
         window.open(link, "_blank", "noopener");
@@ -1012,6 +1069,15 @@ function descargarMediafire(link, nombre, directa = null){
     if(descarga.controller) descarga.controller.abort();
     clearTimeout(descarga.cierre);
     detenerProgreso();
+
+    // Se limpia el captcha si venía de un intento de VikingFile
+    descarga.vikingfile = null;
+    if(captcha){
+        captcha.hidden = true;
+        captcha.innerHTML = "";
+    }
+    if(botonReintentar) botonReintentar.style.display = "none";
+    if(window.VikingFile) VikingFile.reset();
 
     const controller = new AbortController();
     descarga.controller = controller;
@@ -1080,6 +1146,116 @@ function descargarMediafire(link, nombre, directa = null){
         });
 }
 
+/* VikingFile: mismo patrón que MediaFire (modal de descarga + estados), pero
+   el enlace directo se obtiene con un captcha Turnstile y el backend propio.
+   Si la verificación no es posible se cae al modal incrustado de siempre. */
+function descargarVikingFile(link, nombre, boton){
+    const barra = document.getElementById("descargaProgress");
+    const estado = document.getElementById("descargaEstado");
+    const botonManual = document.getElementById("descargaFallback");
+    const botonReintentar = document.getElementById("descargaReintentar");
+    const nombreEl = document.getElementById("descargaNombre");
+    const captcha = document.getElementById("descargaCaptcha");
+
+    if(!window.VikingFile || !barra || !estado || !captcha){
+        if(descarga.controller) descarga.controller.abort();
+        descarga.controller = null;
+        detenerProgreso();
+        abrirMiniVentana(link);
+        return;
+    }
+
+    // Cancela cualquier descarga anterior antes de iniciar una nueva
+    if(descarga.controller) descarga.controller.abort();
+    descarga.controller = null;
+    clearTimeout(descarga.cierre);
+    detenerProgreso();
+
+    // Turnstile ya rechazó este dominio en esta sesión (110200): no se hace
+    // esperar al usuario otra vez, se abre la página incrustada directamente.
+    if(VikingFile.dominioBloqueado()){
+        descarga.vikingfile = null;
+        abrirMiniVentana(link);
+        return;
+    }
+
+    VikingFile.reset();
+
+    descarga.enlace = null;
+    descarga.vikingfile = { link, nombre, boton };
+
+    abrirModal("descargaBox");
+    barra.style.width = "0%";
+    estado.textContent = "Verificando...";
+    if(nombreEl) nombreEl.textContent = nombre || "";
+    if(botonManual) botonManual.style.display = "none";
+    if(botonReintentar) botonReintentar.style.display = "none";
+    captcha.innerHTML = "";
+    captcha.hidden = false;
+
+    playLoadingSound();
+    silenciarMusicaDuranteDescarga();
+
+    let progreso = 0;
+
+    descarga.intervalo = setInterval(() => {
+        progreso = Math.min(90, progreso + Math.random() * 8 + 2);
+        barra.style.width = progreso + "%";
+    }, 150);
+
+    VikingFile.handle(link, boton, (mensaje) => {
+        estado.textContent = mensaje;
+    }, {
+        container: captcha,
+        filename: (boton && boton.dataset.filename) || nombre || "",
+        backend: (boton && boton.dataset.backend) || undefined,
+
+        onDone: () => {
+            detenerProgreso();
+            barra.style.width = "100%";
+            estado.textContent = "Descarga iniciada ✔"; // mismo texto que MediaFire
+            captcha.hidden = true;
+            descarga.cierre = setTimeout(cerrarDescarga, 2000);
+        },
+
+        onError: (error) => {
+            detenerProgreso();
+
+            const codigo = error && error.code;
+
+            // La sitekey de VikingFile está atada a su dominio (Turnstile 110200)
+            // o no hay backend: se usa la ventana incrustada que ya existía.
+            if(codigo === "VF_DOMAIN" || codigo === "VF_BACKEND" || codigo === "VF_SERVER" || codigo === "VF_TIMEOUT"){
+                descarga.vikingfile = null;
+                VikingFile.reset();
+                captcha.hidden = true;
+                captcha.innerHTML = "";
+
+                // En el caso normal (sitekey atada al dominio de VikingFile) no
+                // hace falta aviso: la ventana ya muestra el botón de descarga.
+                if(codigo !== "VF_DOMAIN"){
+                    mostrarToast("No se pudo verificar automáticamente. Descarga desde la ventana.", "aviso");
+                }
+
+                cerrarModal("descargaBox");
+                abrirMiniVentana(link);
+                return;
+            }
+
+            // Captcha caducado o fallido: se puede reintentar sin salir del modal
+            captcha.hidden = false;
+            if(botonReintentar) botonReintentar.style.display = "block";
+        }
+    });
+}
+
+function reintentarDescarga(){
+    const pendiente = descarga.vikingfile;
+    if(!pendiente) return;
+
+    descargarVikingFile(pendiente.link, pendiente.nombre, pendiente.boton);
+}
+
 function abrirPestanaOFallback(link, mensaje){
     detenerProgreso();
 
@@ -1115,6 +1291,18 @@ function cerrarDescarga(){
     if(descarga.controller) descarga.controller.abort();
     descarga.controller = null;
     descarga.enlace = null;
+    descarga.vikingfile = null;
+
+    if(window.VikingFile) VikingFile.reset();
+
+    const captcha = document.getElementById("descargaCaptcha");
+    if(captcha){
+        captcha.hidden = true;
+        captcha.innerHTML = "";
+    }
+
+    const botonReintentar = document.getElementById("descargaReintentar");
+    if(botonReintentar) botonReintentar.style.display = "none";
 
     clearTimeout(descarga.cierre);
     detenerProgreso();
@@ -1144,9 +1332,24 @@ function errorAbortado(){
 }
 
 function extraerUrlDirecta(texto){
-    const coincidencia = (texto || "").match(/https:\/\/download\d+\.mediafire\.com\/[^"'\s<>\])]+/);
+    // Se permiten "[", "]", "(" y ")" porque forman parte de muchos nombres de
+    // archivo (p. ej. "[v1.79.b056]"); solo se recortan los cierres sobrantes
+    // que vienen de la sintaxis Markdown/HTML que rodea al enlace.
+    const coincidencia = (texto || "").match(/https:\/\/download\d+\.mediafire\.com\/[^"'\s<>]+/);
 
-    return coincidencia ? coincidencia[0].replace(/&amp;/g, "&") : null;
+    if(!coincidencia) return null;
+
+    let url = coincidencia[0];
+    const cuenta = (c) => url.split(c).length - 1;
+
+    while(
+        (url.endsWith(")") && cuenta(")") > cuenta("(")) ||
+        (url.endsWith("]") && cuenta("]") > cuenta("["))
+    ){
+        url = url.slice(0, -1);
+    }
+
+    return url.replace(/&amp;/g, "&");
 }
 
 async function solicitar(url, signal, opciones = {}){
@@ -1166,9 +1369,11 @@ async function obtenerUrlDirecta(link, signal){
 
     // URL canónica con solo el quickkey: evita problemas de codificación
     // con el nombre del archivo (apóstrofes, corchetes, espacios...).
-    let urlPagina = "https://www.mediafire.com/file/" + quickkey;
+    const urlPagina = "https://www.mediafire.com/file/" + quickkey;
 
-    // La API oficial valida que el archivo exista y devuelve su URL de descarga.
+    // La API oficial solo se usa para validar que el archivo exista. Su
+    // "normal_download" viene doblemente codificado ("%255B") cuando el nombre
+    // tiene corchetes y el proxy no encuentra el enlace en esa página.
     try{
         const r = await solicitar(
             `https://www.mediafire.com/api/1.4/file/get_info.php?quick_key=${encodeURIComponent(quickkey)}&response_format=json`,
@@ -1177,7 +1382,6 @@ async function obtenerUrlDirecta(link, signal){
         const info = (await r.json())?.response?.file_info;
 
         if(info?.ready === "no") throw new Error("Archivo no disponible");
-        if(info?.links?.normal_download) urlPagina = info.links.normal_download;
 
     }catch(error){
         if(signal?.aborted) throw errorAbortado();
@@ -1190,7 +1394,6 @@ async function obtenerUrlDirecta(link, signal){
 
     const fuentes = [
         async (s) => (await solicitar("https://r.jina.ai/" + encodeURI(urlPagina), s, sinCache)).text(),
-        async (s) => (await solicitar("https://r.jina.ai/" + encodeURI(link), s, sinCache)).text(),
         async (s) => (await (await solicitar("https://api.allorigins.win/get?url=" + encodeURIComponent(urlPagina), s)).json())?.contents || "",
         async (s) => (await solicitar("https://api.allorigins.win/raw?url=" + encodeURIComponent(urlPagina), s)).text()
     ];

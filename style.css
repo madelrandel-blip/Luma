@@ -674,6 +674,137 @@ header {
     z-index: 10002;
 }
 
+/* Modal con la página de descarga (captcha) incrustada */
+#captchaBox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 10002;
+}
+
+.captcha-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: min(560px, calc(100vw - 32px));
+    height: min(760px, calc(100vh - 32px));
+    padding: 14px;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background: #0d1424;
+    border: 1px solid rgba(125, 211, 252, 0.18);
+}
+
+.captcha-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+}
+
+.captcha-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.captcha-marco {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #0d1424;
+}
+
+/* No se puede cambiar el estilo de la página incrustada (otro dominio), así
+   que se invierte a tonos oscuros y se tiñe de azul con capas que no
+   bloquean los clics. */
+#captchaFrame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: invert(0.92) hue-rotate(180deg) contrast(1.05);
+}
+
+/* Tinte azul suave. No se usa mix-blend-mode: combinado con el filter del
+   iframe, Chrome deja de pintar la página incrustada (se ve en blanco). */
+/* Aviso mientras la página incrustada termina de cargar (tarda varios
+   segundos y hasta entonces el marco se ve vacío). */
+.captcha-cargando {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #7dd3fc;
+    font-size: 14px;
+    font-weight: 600;
+    background: #0d1424;
+    pointer-events: none;
+}
+
+.captcha-cargando[hidden] {
+    display: none;
+}
+
+.captcha-tinte {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: #1e3a8a;
+    opacity: 0.18;
+}
+
+/* Tapa la franja superior con el logotipo */
+.captcha-tapa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    pointer-events: none;
+    background: #0d1424;
+}
+
+.captcha-tab {
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 14px;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    transition: all 0.25s ease;
+    background: linear-gradient(180deg, rgba(110, 231, 255, 0.18) 0%, rgba(167, 139, 250, 0.16) 100%);
+    border: 1px solid rgba(125, 211, 252, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+.captcha-hosting {
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    color: #7dd3fc;
+}
+
+.captcha-tab:hover {
+    background: linear-gradient(180deg, rgba(125, 211, 252, 0.28) 0%, rgba(167, 139, 250, 0.24) 100%);
+    border: 1px solid rgba(125, 211, 252, 0.26);
+    transform: translateY(-2px);
+}
+
 /* Barra de progreso del modal de descarga */
 .progress-bar {
     width: 100%;
@@ -691,6 +822,20 @@ header {
     border-radius: 6px;
     background: linear-gradient(90deg, rgba(125, 211, 252, 0.55), rgba(167, 139, 250, 0.55));
     transition: width 0.25s ease;
+}
+
+/* Captcha Turnstile dentro del modal de descarga (VikingFile) */
+.descarga-captcha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 65px;
+    margin: 0 0 14px;
+}
+
+.descarga-captcha[hidden] {
+    display: none;
 }
 
 #emuladoresBox .login-content,

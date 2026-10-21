@@ -1,0 +1,8 @@
+name = "luma-vf-link"
+main = "vf-link.js"
+compatibility_date = "2026-01-01"
+
+# Orígenes autorizados para llamar al endpoint (CORS).
+# Separa por comas si necesitas más de uno. Vacío = cualquiera.
+[vars]
+ALLOWED_ORIGINS = "https://madelrandel-blip.github.io"
