@@ -24,9 +24,7 @@ const buscador = document.getElementById("buscador");
 const store = document.getElementById("store");
 const pagination = document.getElementById("pagination");
 
-const homebrewToggle = document.getElementById("homebrewToggle");
-const homebrewLabel = document.getElementById("homebrewLabel");
-const homebrewSwitch = document.getElementById("homebrewSwitch");
+const temaSelect = document.getElementById("temaSelect");
 
 const bgMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
@@ -299,8 +297,9 @@ function actualizarVolumenUI(){
 
     const pct = sonidoMuteado ? 0 : volumeSlider.value;
 
-    volumeSlider.style.background =
-        `linear-gradient(90deg, rgba(125, 211, 252, 0.55) ${pct}%, rgba(255, 255, 255, 0.10) ${pct}%)`;
+    volumeSlider.style.background = temaWiiActivo()
+        ? `linear-gradient(90deg, #34beed ${pct}%, #dfe4e9 ${pct}%)`
+        : `linear-gradient(90deg, rgba(125, 211, 252, 0.55) ${pct}%, rgba(255, 255, 255, 0.10) ${pct}%)`;
 
     if(volumeIcon){
         volumeIcon.classList.toggle("muted", sonidoMuteado || Number(volumeSlider.value) === 0);
@@ -635,17 +634,159 @@ if(buscador){
         clearTimeout(temporizador);
         temporizador = setTimeout(aplicarBusqueda, 200);
     });
+
+    // Esc borra la búsqueda y sale del buscador
+    buscador.addEventListener("keydown", (e) => {
+        if(e.key !== "Escape") return;
+
+        buscador.value = "";
+        aplicarBusqueda();
+        buscador.blur();
+    });
+
+    // "/" lleva al buscador desde cualquier parte (salvo si ya se escribe en otro campo)
+    document.addEventListener("keydown", (e) => {
+        if(e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey) return;
+
+        const activo = document.activeElement;
+        if(activo && (activo.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(activo.tagName))) return;
+
+        e.preventDefault();
+        buscador.focus();
+        buscador.select();
+    });
 }
 
-if(homebrewToggle){
-    homebrewToggle.addEventListener("change", () => {
-        mostrandoHomebrew = homebrewToggle.checked;
+/* ========= TEMAS =========
+   Cada tema es una hoja link[data-tema] que se activa sobre style.css; el
+   clásico es style.css sola. La elección se recuerda en este navegador e
+   index.html la aplica antes de pintar la página para que no parpadee. */
+function temaActual(){
+    const hoja = [...document.querySelectorAll("link[data-tema]")].find(h => !h.disabled);
+    return hoja ? hoja.dataset.tema : "clasico";
+}
 
-        if(homebrewSwitch) homebrewSwitch.classList.toggle("active", mostrandoHomebrew);
-        if(homebrewLabel) homebrewLabel.textContent = mostrandoHomebrew ? "Homebrew" : "Juegos";
+function temaWiiActivo(){
+    return temaActual() === "wii";
+}
 
-        aplicarBusqueda();
+function aplicarTema(tema){
+    document.querySelectorAll("link[data-tema]").forEach(hoja => {
+        hoja.disabled = hoja.dataset.tema !== tema;
     });
+
+    try{ localStorage.setItem("tema", tema); }catch(error){}
+
+    if(temaSelect) temaSelect.value = tema;
+    actualizarMenuTemas();
+
+    // El fondo de estrellas solo se anima en los temas que lo muestran
+    if(window.revisarEstrellas) window.revisarEstrellas();
+
+    actualizarVolumenUI();
+}
+
+/* Menú de temas propio: sustituye a la lista nativa del <select> (que no se
+   puede personalizar) por un botón y una lista con una muestra de colores de
+   cada tema. Se construye a partir de las <option> del select, que se queda
+   oculto como respaldo. */
+const menuTemas = { boton: null, lista: null };
+
+function muestraColores(opcion){
+    const colores = (opcion.dataset.colores || "").split(",").filter(Boolean);
+    return `<span class="tema-muestra">${colores.map(c => `<i style="background:${esc(c)}"></i>`).join("")}</span>`;
+}
+
+function actualizarMenuTemas(){
+    if(!menuTemas.boton || !temaSelect) return;
+
+    const opcion = temaSelect.selectedOptions[0];
+    menuTemas.boton.querySelector(".tema-nombre").textContent = opcion ? opcion.textContent : "";
+
+    menuTemas.lista.querySelectorAll("[role=option]").forEach(item => {
+        item.setAttribute("aria-selected", String(item.dataset.tema === temaSelect.value));
+    });
+}
+
+function abrirMenuTemas(abrir){
+    if(!menuTemas.lista) return;
+
+    menuTemas.lista.hidden = !abrir;
+    menuTemas.boton.setAttribute("aria-expanded", String(abrir));
+
+    if(abrir){
+        const actual = menuTemas.lista.querySelector("[aria-selected=true]") || menuTemas.lista.querySelector("[role=option]");
+        if(actual) actual.focus();
+    }
+}
+
+function crearMenuTemas(){
+    const contenedor = temaSelect.closest(".tema-selector");
+    if(!contenedor) return;
+
+    contenedor.classList.add("con-menu");
+
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.className = "tema-boton";
+    boton.setAttribute("aria-haspopup", "listbox");
+    boton.setAttribute("aria-expanded", "false");
+    boton.innerHTML = `<span class="tema-nombre"></span><i class="fa-solid fa-chevron-down tema-flecha"></i>`;
+
+    const lista = document.createElement("div");
+    lista.className = "tema-menu";
+    lista.setAttribute("role", "listbox");
+    lista.hidden = true;
+    lista.innerHTML = [...temaSelect.options].map(o =>
+        `<button type="button" role="option" data-tema="${esc(o.value)}" aria-selected="false">${muestraColores(o)}<span>${esc(o.textContent)}</span><i class="fa-solid fa-check tema-check"></i></button>`
+    ).join("");
+
+    contenedor.append(boton, lista);
+    menuTemas.boton = boton;
+    menuTemas.lista = lista;
+
+    boton.addEventListener("click", (e) => {
+        e.preventDefault();
+        playClick();
+        abrirMenuTemas(lista.hidden);
+    });
+
+    lista.addEventListener("click", (e) => {
+        const item = e.target.closest("[role=option]");
+        if(!item) return;
+
+        e.preventDefault();
+        playClick();
+        aplicarTema(item.dataset.tema);
+        abrirMenuTemas(false);
+        boton.focus();
+    });
+
+    // Flechas para moverse por la lista y Esc para cerrarla
+    lista.addEventListener("keydown", (e) => {
+        const items = [...lista.querySelectorAll("[role=option]")];
+        const i = items.indexOf(document.activeElement);
+
+        if(e.key === "ArrowDown" || e.key === "ArrowUp"){
+            e.preventDefault();
+            const siguiente = items[(i + (e.key === "ArrowDown" ? 1 : -1) + items.length) % items.length];
+            siguiente.focus();
+        }else if(e.key === "Escape"){
+            abrirMenuTemas(false);
+            boton.focus();
+        }
+    });
+
+    // Se cierra al hacer clic fuera
+    document.addEventListener("click", (e) => {
+        if(!lista.hidden && !contenedor.contains(e.target)) abrirMenuTemas(false);
+    });
+}
+
+if(temaSelect){
+    crearMenuTemas();
+    aplicarTema(temaActual());
+    temaSelect.addEventListener("change", () => aplicarTema(temaSelect.value));
 }
 
 /* Tarjetas por página según el ancho de pantalla (columnas × filas) */
@@ -740,6 +881,13 @@ if(store){
         }
     });
 }
+
+// Botones de cerrar ventanas (marcados con data-cerrar en index.html): suenan
+// igual que al navegar. Va aquí y no en las funciones cerrarX() porque
+// algunas también se llaman solas (p. ej. al terminar una descarga).
+document.addEventListener("click", (e) => {
+    if(e.target.closest("[data-cerrar]")) playClick();
+});
 
 // Botones "Partes" de la vista previa: abren y cierran su lista de enlaces
 document.addEventListener("click", (e) => {
@@ -907,7 +1055,9 @@ function mostrarPreview(j, screenshots){
 
     document.getElementById("previewLinks").innerHTML = obtenerBotones(j).map(b => {
         const fondo = colorValido(b.color) ? b.color : (TIPOS_BOTON[b.tipo] || TIPOS_BOTON.Otro);
-        const estilo = `background:${fondo};color:${colorTextoSobre(fondo)}`;
+        // El color del tipo se pasa como variable: el tema decide si lo usa de
+        // fondo o solo en el borde (tema Wii)
+        const estilo = `--c:${fondo};background:${fondo};color:${colorTextoSobre(fondo)}`;
 
         // Descarga todas las partes seguidas con un solo clic
         if(b.tipo === "Todas las partes"){
@@ -924,7 +1074,7 @@ function mostrarPreview(j, screenshots){
             return `<div class="btn btn-partes"><button type="button" class="btn-partes-toggle" style="${estilo}" aria-expanded="false"><i class="${iconoBoton(b.tipo)}"></i> ${esc(etiquetaBoton(b))} <i class="fa-solid fa-chevron-down btn-partes-flecha"></i></button><div class="btn-partes-lista" hidden>${partes}</div></div>`;
         }
 
-        return `<button class="btn" style="background:${fondo};color:${colorTextoSobre(fondo)}" data-link="${esc(b.url)}" data-nombre="${esc(j.nombre)}"><i class="${iconoBoton(b.tipo)}"></i> ${esc(etiquetaBoton(b))}</button>`;
+        return `<button class="btn" style="${estilo}" data-link="${esc(b.url)}" data-nombre="${esc(j.nombre)}"><i class="${iconoBoton(b.tipo)}"></i> ${esc(etiquetaBoton(b))}</button>`;
     }).join("");
 
     const idVideo = extraerIdYoutube(j.trailer);
@@ -1001,6 +1151,10 @@ function detenerTrailer(){
 function cerrarPreview(){
     detenerTrailer();
     cerrarModal("previewBox");
+
+    // Se vacían las miniaturas para que sus imágenes no sigan en memoria
+    const miniaturas = document.getElementById("previewThumbs");
+    if(miniaturas) miniaturas.innerHTML = "";
 }
 
 /* ========= ENLACES Y DESCARGAS ========= */
@@ -1639,11 +1793,41 @@ if(canvas){
         speed: Math.random() * 0.3 + 0.05
     });
 
+    // Los temas que no usan estrellas ocultan el canvas (display: none)
+    const canvasVisible = () => !document.hidden && getComputedStyle(canvas).display !== "none";
+
     function ajustarCanvas(){
+        if(!canvasVisible()) return;
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         estrellas = Array.from({ length: cantidad }, estrellaNueva);
     }
+
+    function detener(){
+        cancelAnimationFrame(frameId);
+        frameId = null;
+    }
+
+    // Arranca o para la animación según si el canvas se ve. Oculto, además se
+    // reduce a 0×0 para liberar su memoria (un lienzo del tamaño de la
+    // pantalla son varios MB).
+    function revisarEstrellas(){
+        if(canvasVisible()){
+            if(canvas.width === 0) ajustarCanvas();
+
+            if(!frameId){
+                ultimoTiempo = 0;
+                dibujar(performance.now());
+            }
+        }else{
+            detener();
+            canvas.width = 0;
+            canvas.height = 0;
+        }
+    }
+
+    window.revisarEstrellas = revisarEstrellas;
 
     function dibujar(tiempo){
         frameId = requestAnimationFrame(dibujar);
@@ -1668,20 +1852,14 @@ if(canvas){
         }
     }
 
-    ajustarCanvas();
-    dibujar(0);
+    revisarEstrellas();
 
     window.addEventListener("resize", ajustarCanvas);
 
     // Se pausa la animación cuando la pestaña no está visible
     document.addEventListener("visibilitychange", () => {
-        if(document.hidden){
-            cancelAnimationFrame(frameId);
-            frameId = null;
-        }else if(!frameId){
-            ultimoTiempo = 0;
-            dibujar(performance.now());
-        }
+        if(document.hidden) detener();
+        else revisarEstrellas();
     });
 }
 
@@ -1702,7 +1880,17 @@ function agregarAlCarrito(nombre, link, img){
 
 function actualizarContadorCarrito(){
     const contador = document.getElementById("cartCount");
-    if(contador) contador.textContent = carrito.length;
+    if(contador){
+        const cambio = contador.textContent !== String(carrito.length);
+        contador.textContent = carrito.length;
+
+        // Pequeño latido cuando cambia el número (animación en style.css)
+        if(cambio){
+            contador.classList.remove("latido");
+            void contador.offsetWidth;
+            contador.classList.add("latido");
+        }
+    }
 
     const checkout = document.getElementById("btnCheckout");
     if(checkout) checkout.disabled = carrito.length === 0;

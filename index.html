@@ -20,7 +20,32 @@
 <meta name="twitter:image" content="assets/images/Luma background embed.jpg?raw=true">
 
 
-<link rel="stylesheet" href="style.css?v=20261020-28">
+<link rel="stylesheet" href="style.css?v=20261022-6">
+<!-- Temas: hojas con data-tema, se eligen con el selector del encabezado -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="wii.css?v=20261022-1" data-tema="wii">
+<link rel="stylesheet" href="wii-black.css?v=20261022-4" data-tema="wii-black">
+<link rel="stylesheet" href="cafe.css?v=20261022-7" data-tema="cafe">
+<link rel="stylesheet" href="pikmin.css?v=20261022-18" data-tema="pikmin">
+<script>
+    // Aplica el tema guardado antes de pintar la página (evita un parpadeo).
+    // Wii es el tema por defecto: se usa si no hay uno guardado o si el
+    // guardado ya no existe (p. ej. un tema renombrado).
+    (function(){
+        var tema = "wii";
+        var hojas = document.querySelectorAll("link[data-tema]");
+        try{
+            var guardado = localStorage.getItem("tema");
+            var existe = guardado === "clasico" || Array.prototype.some.call(hojas, function(h){ return h.dataset.tema === guardado; });
+            if(existe) tema = guardado;
+        }catch(e){}
+        hojas.forEach(function(hoja){
+            hoja.disabled = hoja.dataset.tema !== tema;
+        });
+    })();
+</script>
 <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://wsrv.nl" crossorigin>
 <link rel="preconnect" href="https://art.gametdb.com" crossorigin>
@@ -65,15 +90,26 @@
         </div>
 
         <input
-            type="text"
+            type="search"
             id="buscador"
-            placeholder="🔍 Buscar juegos"
+            placeholder="Buscar juegos"
+            aria-label="Buscar juegos"
+            autocomplete="off"
+            title="Buscar (atajo: /)"
         >
 
-        <label class="homebrew-switch" id="homebrewSwitch" title="Alternar entre catálogo de Juegos y Homebrew">
-            <input type="checkbox" id="homebrewToggle" class="hbs-input">
-            <span class="hbs-track"><span class="hbs-knob"></span></span>
-            <span class="hbs-label" id="homebrewLabel">Juegos</span>
+        <!-- Selector de tema: cada opción corresponde a una hoja link[data-tema]
+             (el clásico es style.css sola). Para añadir un tema nuevo basta con
+             una hoja más y una <option> con el mismo valor. -->
+        <label class="tema-selector" title="Cambiar el tema de la página">
+            <i class="fa-solid fa-palette"></i>
+            <select id="temaSelect" aria-label="Tema de la página">
+                <option value="wii" data-colores="#eceff2,#ffffff,#34beed">Wii</option>
+                <option value="wii-black" data-colores="#16181b,#2e3236,#2a8cc4">Wii Black</option>
+                <option value="cafe" data-colores="#f3efdf,#fffdf3,#6dbf45">Cafe</option>
+                <option value="pikmin" data-colores="#0b1838,#6b7078,#2f6bff">Pikmin</option>
+                <option value="clasico" data-colores="#05070d,#0f172a,#7dd3fc">Clásico</option>
+            </select>
         </label>
 
         <button id="panelToggleBtn" class="panel-toggle-btn" onclick="toggleAdminPanel()" style="display:none;">
@@ -333,7 +369,7 @@
         <input type="password" id="pass" placeholder="Contraseña">
 
         <button onclick="login()">Entrar</button>
-        <button onclick="cerrarLogin()">Cerrar</button>
+        <button onclick="cerrarLogin()" data-cerrar>Cerrar</button>
     </div>
 </div>
 
@@ -344,7 +380,7 @@
 
         <div class="store" id="emuladoresStore"></div>
 
-        <button onclick="cerrarEmuladores()">
+        <button onclick="cerrarEmuladores()" data-cerrar>
             Cerrar
         </button>
     </div>
@@ -357,7 +393,7 @@
 
         <div class="store" id="recursosStore"></div>
 
-        <button onclick="cerrarRecursos()">
+        <button onclick="cerrarRecursos()" data-cerrar>
             Cerrar
         </button>
     </div>
@@ -387,7 +423,7 @@
             </a>
         </div>
 
-        <button onclick="cerrarDonaciones()">
+        <button onclick="cerrarDonaciones()" data-cerrar>
             Cerrar
         </button>
     </div>
@@ -426,7 +462,7 @@
                 Abrir en pestaña
             </button>
 
-            <button class="descarga-accion descarga-cancelar" onclick="cerrarDescarga()">
+            <button class="descarga-accion descarga-cancelar" onclick="cerrarDescarga()" data-cerrar>
                 Cancelar
             </button>
         </div>
@@ -438,7 +474,7 @@
     <div class="captcha-content">
         <div class="captcha-header">
             <span>Completa el captcha para descargar</span>
-            <button class="captcha-close" onclick="cerrarCaptcha()">✕</button>
+            <button class="captcha-close" onclick="cerrarCaptcha()" data-cerrar>✕</button>
         </div>
         <div class="captcha-marco">
             <iframe id="captchaFrame" title="Descarga" referrerpolicy="no-referrer"
@@ -457,7 +493,7 @@
 <!-- MODAL PREVIEW JUEGO -->
 <div id="previewBox">
     <div class="preview-content">
-        <button class="preview-close" onclick="cerrarPreview()">✕</button>
+        <button class="preview-close" onclick="cerrarPreview()" data-cerrar>✕</button>
         <div class="preview-grid">
             <div class="preview-cover">
                 <img id="previewImg" src="" alt="">
@@ -477,7 +513,7 @@
 
 <!-- AUDIO PRINCIPAL -->
 <audio id="bgMusic" preload="metadata">
-    <source src="assets/music/The Forest of Hope.mp3" type="audio/mpeg">
+    <source src="assets/music/Pikmin - The Forest of Hope.mp3" type="audio/mpeg">
 </audio>
 
 <!-- SONIDO BOTONES -->
@@ -547,7 +583,7 @@
 
 
 <!-- SCRIPT PRINCIPAL -->
-<script src="script.js?v=20261020-24"></script>
+<script src="script.js?v=20261022-5"></script>
 
 </body>
 </html>

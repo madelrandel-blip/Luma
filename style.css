@@ -468,7 +468,6 @@ header {
 .music-title-inner {
     display: inline-block;
     white-space: nowrap;
-    will-change: transform;
 }
 
 /* Cuando el nombre no cabe, se desliza (marquee) solo mientras el disco gira */
@@ -3128,3 +3127,444 @@ header {
 }
 
 .preview-links .btn i { margin-right: 4px; }
+
+/* Selector de tema del encabezado (sustituye al interruptor Juegos/Homebrew) */
+.tema-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding: 0 4px 0 10px;
+    height: 28px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease;
+}
+
+.tema-selector:hover,
+.tema-selector:focus-within {
+    border-color: rgba(125, 211, 252, 0.30);
+}
+
+.tema-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    padding: 0 18px 0 0;
+    cursor: url("assets/cursors/Wii Cursors - Link Select.cur"), pointer;
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position: right 7px center, right 3px center;
+    background-size: 4px 4px;
+    background-repeat: no-repeat;
+}
+
+.tema-selector select option {
+    background: #0b1226;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .tema-selector {
+        order: 10;
+        margin: 8px 0 0 8px;
+        height: 38px;
+    }
+}
+
+/* ==========================================================================
+   ANIMACIONES GENERALES
+   Sirven para todos los temas. Las animaciones de entrada usan
+   "animation-fill-mode: backwards" para no fijar el transform final y no
+   pisar los efectos de hover de las tarjetas. Si el sistema pide reducir el
+   movimiento, se desactivan (ver el final de la sección).
+   ========================================================================== */
+@keyframes lumaAparecerArriba {
+    from { opacity: 0; transform: translateY(14px) scale(0.97); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes lumaFundido {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes lumaVentana {
+    0%   { opacity: 0; transform: translateY(18px) scale(0.94); }
+    60%  { opacity: 1; transform: translateY(-3px) scale(1.01); }
+    100% { opacity: 1; transform: none; }
+}
+
+@keyframes lumaBajar {
+    from { opacity: 0; transform: translateY(-100%); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes lumaLatido {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+/* Encabezado: baja al cargar la página */
+.header-btn {
+    animation: lumaBajar 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+/* Tarjetas: entran una detrás de otra al cargar y al cambiar de página */
+.store > .card {
+    animation: lumaAparecerArriba 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+.store > .card:nth-child(1)  { animation-delay: 0.02s; }
+.store > .card:nth-child(2)  { animation-delay: 0.05s; }
+.store > .card:nth-child(3)  { animation-delay: 0.08s; }
+.store > .card:nth-child(4)  { animation-delay: 0.11s; }
+.store > .card:nth-child(5)  { animation-delay: 0.14s; }
+.store > .card:nth-child(6)  { animation-delay: 0.17s; }
+.store > .card:nth-child(7)  { animation-delay: 0.20s; }
+.store > .card:nth-child(8)  { animation-delay: 0.23s; }
+.store > .card:nth-child(9)  { animation-delay: 0.26s; }
+.store > .card:nth-child(10) { animation-delay: 0.29s; }
+.store > .card:nth-child(11) { animation-delay: 0.32s; }
+.store > .card:nth-child(12) { animation-delay: 0.35s; }
+.store > .card:nth-child(n+13) { animation-delay: 0.38s; }
+
+/* Portadas: leve zoom al pasar el ratón */
+.card img {
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#store .card:hover img {
+    transform: scale(1.03);
+}
+
+/* Fondos oscurecidos de las ventanas: aparecen con un fundido */
+#loginBox,
+#emuladoresBox,
+#recursosBox,
+#donacionesBox,
+#descargaBox,
+#captchaBox,
+#cartBox,
+#purchaseSuccessBox,
+#previewBox {
+    animation: lumaFundido 0.25s ease backwards;
+}
+
+/* Ventanas: entran con un pequeño rebote */
+.login-content,
+.preview-content,
+.captcha-content,
+.cart-content,
+.success-content {
+    animation: lumaVentana 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+/* Contenido de la ficha: aparece en cascada */
+.preview-cover,
+.preview-title,
+.preview-desc,
+.preview-main,
+.preview-thumbs,
+.preview-meta {
+    animation: lumaAparecerArriba 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+.preview-cover  { animation-delay: 0.08s; }
+.preview-title  { animation-delay: 0.12s; }
+.preview-desc   { animation-delay: 0.16s; }
+.preview-main   { animation-delay: 0.20s; }
+.preview-thumbs { animation-delay: 0.24s; }
+.preview-meta   { animation-delay: 0.28s; }
+
+/* Botones: se hunden un poco al pulsarlos */
+button,
+.btn {
+    transition-property: background, border-color, box-shadow, color, filter, transform, opacity;
+    transition-duration: 0.18s;
+}
+
+button:active,
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* Miniaturas de la ficha */
+.preview-thumbs .thumb {
+    transition: transform 0.2s ease, border-color 0.2s, opacity 0.2s, box-shadow 0.2s;
+}
+
+.preview-thumbs .thumb:hover {
+    transform: translateY(-2px);
+}
+
+/* Contador del carrito: late cuando cambia (script.js añade .latido) */
+.cart-badge.latido {
+    animation: lumaLatido 0.4s ease;
+}
+
+/* Menú desplegable de "Partes" */
+.btn-partes-lista:not([hidden]) {
+    animation: lumaAparecerArriba 0.25s ease backwards;
+}
+
+/* Quien pide menos movimiento en su sistema no ve animaciones */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================================================
+   BUSCADOR Y LOGO
+   Lupa dibujada (en lugar del emoji, que cambia según el sistema) y logo
+   mejor alineado. La lupa va en propiedades sueltas con !important porque
+   los temas cambian el fondo del buscador con "background", que la borraría.
+   ========================================================================== */
+#buscador {
+    padding-left: 34px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a96a3' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5 20 20'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 12px center !important;
+    background-size: 15px 15px !important;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s, max-width 0.25s ease;
+}
+
+/* Al escribir, el buscador gana algo de ancho en escritorio */
+@media (min-width: 1201px) {
+    #buscador:focus {
+        max-width: 320px;
+    }
+}
+
+/* Botón nativo de borrar (aparece al escribir) más discreto */
+#buscador::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a96a3' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6 6 18'/%3E%3C/svg%3E") center / 12px no-repeat;
+    opacity: 0.8;
+}
+
+#buscador::-webkit-search-cancel-button:hover {
+    opacity: 1;
+}
+
+/* Logo: icono y texto alineados y con un poco más de presencia */
+.logo h1 {
+    gap: 8px;
+    letter-spacing: 0.2px;
+    line-height: 1;
+}
+
+.logo img {
+    height: 26px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.18));
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.logo:hover img {
+    transform: rotate(-12deg) scale(1.08);
+}
+
+/* ==========================================================================
+   MENÚ DE TEMAS
+   Botón y lista propios (los crea script.js a partir del <select>, que se
+   oculta). Los colores salen de variables con valores oscuros por defecto;
+   los temas claros los redefinen (--menu-*).
+   ========================================================================== */
+.tema-selector.con-menu {
+    position: relative;
+    padding: 0 0 0 10px;
+}
+
+.tema-selector.con-menu select {
+    display: none;
+}
+
+.tema-boton {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    padding: 0 10px 0 2px;
+    font: inherit;
+    font-weight: 600;
+    color: inherit;
+    cursor: url("assets/cursors/Wii Cursors - Link Select.cur"), pointer;
+}
+
+.tema-flecha {
+    font-size: 9px;
+    opacity: 0.7;
+    transition: transform 0.2s ease;
+}
+
+.tema-boton[aria-expanded="true"] .tema-flecha {
+    transform: rotate(180deg);
+}
+
+.tema-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 3500;
+    min-width: 190px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px;
+    border-radius: 14px;
+    background: var(--menu-fondo, rgba(14, 20, 34, 0.98));
+    border: 1px solid var(--menu-borde, rgba(125, 211, 252, 0.22));
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+    animation: lumaAparecerArriba 0.18s ease backwards;
+}
+
+.tema-menu[hidden] {
+    display: none;
+}
+
+.tema-menu [role="option"] {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--menu-texto, #e6f3ff);
+    cursor: url("assets/cursors/Wii Cursors - Link Select.cur"), pointer;
+    transition: background 0.15s ease;
+}
+
+.tema-menu [role="option"]:hover,
+.tema-menu [role="option"]:focus-visible {
+    background: var(--menu-hover, rgba(125, 211, 252, 0.14));
+}
+
+.tema-menu [role="option"][aria-selected="true"] {
+    background: var(--menu-activo, rgba(125, 211, 252, 0.2));
+}
+
+.tema-menu [role="option"] > span:not(.tema-muestra) {
+    flex: 1;
+}
+
+/* Muestra del tema: tres franjas de sus colores en una píldora */
+.tema-muestra {
+    display: flex;
+    width: 34px;
+    height: 16px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 999px;
+    box-shadow: 0 0 0 1px var(--menu-borde, rgba(125, 211, 252, 0.3));
+}
+
+.tema-muestra i {
+    flex: 1;
+}
+
+.tema-check {
+    font-size: 11px;
+    color: var(--menu-acento, #7dd3fc);
+    opacity: 0;
+}
+
+.tema-menu [aria-selected="true"] .tema-check {
+    opacity: 1;
+}
+
+/* Los temas dan estilo a todos los botones del encabezado; el botón y las
+   opciones del menú de temas no deben heredarlo */
+.header-btn .tema-selector .tema-boton,
+.header-btn .tema-selector .tema-boton:hover,
+.header-btn .tema-selector .tema-menu [role="option"],
+.header-btn .tema-selector .tema-menu [role="option"]:hover {
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+    filter: none !important;
+    font-size: 13px !important;
+    justify-content: flex-start !important;
+}
+
+.header-btn .tema-selector .tema-boton,
+.header-btn .tema-selector .tema-boton:hover {
+    background: none !important;
+    color: inherit !important;
+    padding: 0 10px 0 2px !important;
+    font-size: 11px !important;
+    height: 100% !important;
+}
+
+.header-btn .tema-selector .tema-menu [role="option"] {
+    background: transparent !important;
+    color: var(--menu-texto, #e6f3ff) !important;
+    padding: 8px 10px !important;
+}
+
+.header-btn .tema-selector .tema-menu [role="option"]:hover,
+.header-btn .tema-selector .tema-menu [role="option"]:focus-visible {
+    background: var(--menu-hover, rgba(125, 211, 252, 0.14)) !important;
+}
+
+.header-btn .tema-selector .tema-menu [role="option"][aria-selected="true"] {
+    background: var(--menu-activo, rgba(125, 211, 252, 0.2)) !important;
+}
+
+/* Mientras el menú de temas está abierto, el encabezado se pone por encima
+   de la tienda (ambos tenían el mismo nivel y la tienda, al ir después,
+   tapaba el menú) */
+header:has(.tema-menu:not([hidden])),
+.header-btn:has(.tema-menu:not([hidden])) {
+    z-index: 3000 !important;
+}
+
+/* ==========================================================================
+   RENDIMIENTO
+   ========================================================================== */
+/* Listas largas: el navegador no pinta (ni guarda en memoria) los elementos
+   que quedan fuera de la vista hasta que se desplaza hasta ellos */
+.admin-game-item {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 64px;
+}
+
+.music-playlist .playlist-item,
+.success-downloads > *,
+.cart-item {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 44px;
+}
+
+/* El nombre de la canción solo reserva capa propia mientras se desliza */
+.music-icon.playing ~ .music-title.scrolling .music-title-inner {
+    will-change: transform;
+}

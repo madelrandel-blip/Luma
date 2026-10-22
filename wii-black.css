@@ -1,0 +1,1195 @@
+/* ==========================================================================
+   TEMA WII BLACK (oscuro)
+   Versión oscura del tema Wii, inspirada en la Wii negra: fondo gris carbón
+   con las rayas finas del Menú Wii, canales gris oscuro con bordes
+   redondeados, botones píldora oscuros con borde azul cielo y el azul de la
+   consola como color de selección. Parte de wii.css; las variables --wb-*
+   son las --wii-* de ese archivo con la paleta oscura.
+   ========================================================================== */
+
+:root {
+    --wb-bg: #16181b;
+    --wb-panel: #23262a;
+    --wb-panel-2: #1c1f22;
+    --wb-campo: #1a1c1f;
+    --wb-line: #3a3e43;
+    --wb-line-soft: #2e3236;
+    --wb-text: #d6dade;
+    --wb-text-strong: #f2f4f6;
+    --wb-muted: #9aa2aa;
+    /* Azul de la consola, más oscuro que en el tema Wii claro */
+    --wb-blue: #2a8cc4;
+    --wb-blue-dark: #6ec6ef;
+    --wb-blue-soft: rgba(40, 130, 190, 0.22);
+    --wb-red: #ff5c61;
+    --wb-green: #4cc760;
+    --wb-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    --wb-shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
+    --wb-font: "FOT-Rodin Pro", "FOT-RodinNTLG Pro", "Rodin NTLG", "M PLUS 1p", Arial, sans-serif;
+    --wb-font-texto: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+    /* Botón: píldora gris oscura con brillo arriba y borde azul cielo */
+    --wb-btn-fondo: linear-gradient(180deg, #3d4247 0%, #2f3337 45%, #24272b 100%);
+    --wb-btn-borde: #1f6890;
+    --wb-btn-sombra: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 0 0 2px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.45);
+
+    /* Rayas del Menú Wii en las ventanas, en oscuro. Fijas a la pantalla para
+       que la capa de VikingFile y el panel coincidan raya con raya. */
+    --wb-rayas-panel:
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 5px),
+        linear-gradient(180deg, #26292d 0%, #1e2124 100%);
+
+    --bg: var(--wb-bg);
+    --card: var(--wb-panel);
+    --text: var(--wb-text);
+    --accent: var(--wb-blue);
+    --accent2: var(--wb-blue-dark);
+    --border: var(--wb-line);
+}
+
+/* ----- Base ----- */
+body {
+    /* El texto corrido usa la fuente del sistema: en Windows las fuentes web
+       japonesas (M PLUS) no traen hinting y se ven borrosas a tamaño pequeño.
+       Títulos y botones mantienen la fuente estilo Wii. */
+    font-family: var(--wb-font-texto);
+    color: var(--wb-text);
+    background:
+        /* Rayas horizontales del Menú Wii: franjas grises finas cada 5px */
+        repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0 2px, rgba(255, 255, 255, 0.035) 2px 3px, transparent 3px 5px),
+        linear-gradient(180deg, #202326 0%, #17191c 60%, #111315 100%);
+    background-attachment: fixed;
+}
+button,
+h1, h2, h3, h4,
+.preview-title,
+.preview-meta .value,
+.music-title {
+    font-family: var(--wb-font);
+}
+
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* El fondo de estrellas no tiene sentido sobre un fondo claro */
+#stars {
+    display: none;
+}
+
+/* ----- Scrollbar ----- */
+* {
+    scrollbar-color: #c2c9d1 transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-left: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4a5057;
+    border: 3px solid var(--wb-bg);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--wb-blue);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* ----- Mezclas reutilizables (botones) ----- */
+/* Botón secundario Wii (como "Wii Menu" / "Start"): píldora blanca con un
+   degradado suave hacia gris azulado y borde azul cielo claro */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.login-content button,
+.captcha-tab,
+.success-close-btn,
+.cart-close-btn,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    background: var(--wb-btn-fondo) !important;
+    border: 3px solid var(--wb-btn-borde) !important;
+    border-radius: 999px !important;
+    color: var(--wb-text-strong) !important;
+    font-weight: 500 !important;
+    box-shadow: var(--wb-btn-sombra) !important;
+    text-shadow: none !important;
+}
+
+/* En los botones pequeños (encabezado, paginación, iconos) el borde de 3px
+   pesa demasiado */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    border-width: 2px !important;
+}
+
+.header-btn button:not(.admin-profile-btn):hover,
+.pagination button:hover,
+.login-content button:hover,
+.captcha-tab:hover,
+.success-close-btn:hover,
+.cart-close-btn:hover,
+.boton-fila .bf-acciones button:hover,
+.admin-game-item .btn-edit:hover {
+    border-color: var(--wb-blue) !important;
+    color: var(--wb-blue-dark) !important;
+    box-shadow: 0 0 0 3px var(--wb-blue-soft), 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Botón principal Wii: azul cielo con brillo */
+.btn:not([style]),
+.accept-btn,
+#btnGuardar,
+.checkout-btn,
+.download-link-btn,
+.descarga-viking-boton,
+.btn.blue.cart-add-btn {
+    background: linear-gradient(180deg, #3d9fd0 0%, #1d78ad 48%, #15628f 52%, #1a6fa0 100%) !important;
+    border: 2px solid #0f4f78 !important;
+    color: #fff !important;
+    text-shadow: 0 1px 1px rgba(0, 60, 100, 0.35) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 8px rgba(10, 80, 130, 0.25) !important;
+}
+
+.btn:not([style]):hover,
+.accept-btn:hover,
+#btnGuardar:hover,
+.checkout-btn:hover,
+.download-link-btn:hover,
+.btn.blue.cart-add-btn:hover {
+    filter: brightness(1.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 0 3px var(--wb-blue-soft), 0 5px 12px rgba(10, 80, 130, 0.3) !important;
+}
+
+/* Variante verde (tutorial, carrito añadido, pago) */
+.btn.green,
+.btn.green.cart-add-btn,
+.checkout-btn {
+    background: linear-gradient(180deg, #8ee59a 0%, #4cc760 48%, #36b44b 52%, #3fbd54 100%) !important;
+    border-color: #2fa043 !important;
+    text-shadow: 0 1px 1px rgba(0, 70, 20, 0.35) !important;
+}
+
+.download-all-btn {
+    background: linear-gradient(180deg, #ffd46b 0%, #ffbb1c 48%, #f5a800 52%, #ffb30f 100%) !important;
+    border: 2px solid #e09a00 !important;
+    color: #5a3c00 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 3px 8px rgba(224, 154, 0, 0.25) !important;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.header-btn {
+    background: linear-gradient(180deg, #2a2d31 0%, #1f2225 100%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 2px solid var(--wb-line);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+    padding: 6px 20px;
+}
+
+.logo h1 {
+    color: var(--wb-text-strong);
+    font-weight: 800;
+    font-size: 17px;
+}
+
+#buscador {
+    color: var(--wb-text);
+    background: var(--wb-campo);
+    border: 2px solid var(--wb-line);
+    border-radius: 999px;
+    padding: 7px 14px;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.7);
+}
+
+#buscador::placeholder {
+    color: var(--wb-muted);
+}
+
+#buscador:focus {
+    border-color: var(--wb-blue);
+    background: var(--wb-campo);
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5), 0 0 0 3px var(--wb-blue-soft);
+}
+
+.header-btn button:not(.admin-profile-btn) {
+    border-radius: 999px;
+    height: 28px;
+    padding: 5px 12px;
+    font-weight: 700;
+}
+
+/* Switch Juegos / Homebrew */
+.homebrew-switch {
+    background: var(--wb-campo);
+    border: 2px solid var(--wb-line);
+}
+
+.homebrew-switch:hover,
+.homebrew-switch.active {
+    border-color: var(--wb-blue);
+    background: var(--wb-campo);
+}
+
+.homebrew-switch .hbs-track {
+    background: #3a3e43;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.homebrew-switch .hbs-knob {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.homebrew-switch .hbs-input:checked + .hbs-track {
+    background: var(--wb-blue);
+}
+
+.homebrew-switch .hbs-label {
+    color: var(--wb-text);
+    font-weight: 700;
+}
+
+/* Carrito del header */
+.cart-btn-header {
+    background: linear-gradient(180deg, #26332a 0%, #1d2e21 100%) !important;
+    border: 2px solid #2f6a3b !important;
+    color: #2b9a40 !important;
+}
+
+.cart-badge {
+    background: var(--wb-green);
+}
+
+/* Perfil */
+.admin-profile-btn img,
+.music-icon {
+    border: 2px solid #3a3e43;
+    box-shadow: 0 0 0 2px var(--wb-line), 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.admin-profile-btn:hover {
+    background: transparent;
+}
+
+.admin-profile-btn:hover img {
+    box-shadow: 0 0 0 2px var(--wb-blue), 0 0 0 5px var(--wb-blue-soft);
+}
+
+/* ----- Reproductor ----- */
+.music-title {
+    color: var(--wb-text-strong);
+}
+
+.music-control .music-btn,
+.music-control .skip-btn {
+    width: 26px;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: var(--wb-text);
+    background: linear-gradient(180deg, #34383d 0%, #26292d 100%);
+    border: 2px solid var(--wb-line);
+}
+
+.music-control .music-btn:hover,
+.music-control .skip-btn:hover {
+    color: var(--wb-blue-dark);
+    border-color: var(--wb-blue);
+    background: var(--wb-campo);
+}
+
+.volume-icon {
+    color: var(--wb-muted);
+}
+
+.volume-icon:hover {
+    color: var(--wb-blue);
+}
+
+.volume-icon.muted {
+    color: #5a6068;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    background: var(--wb-campo);
+    border: 2px solid var(--wb-blue);
+}
+
+#volumeSlider::-moz-range-thumb {
+    background: var(--wb-campo);
+    border: 2px solid var(--wb-blue);
+}
+
+.music-playlist {
+    background: var(--wb-campo);
+    border: 2px solid var(--wb-line);
+    border-radius: 16px;
+    box-shadow: var(--wb-shadow);
+}
+
+.music-playlist .playlist-item {
+    color: var(--wb-text);
+    border-radius: 10px;
+}
+
+.music-playlist .playlist-item img {
+    border: 1px solid var(--wb-line);
+}
+
+.music-playlist .playlist-item:hover,
+.music-playlist .playlist-item.active {
+    background: var(--wb-blue-soft);
+    border-color: var(--wb-blue);
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   TIENDA: CANALES
+   ========================================================================== */
+.store {
+    gap: 8px;
+    padding: 14px 20px 4px;
+}
+
+/* Cada juego es un "canal": marco blanco redondeado con borde gris */
+.card {
+    background: var(--wb-panel);
+    border: 2px solid var(--wb-line);
+    border-radius: 18px;
+    /* Solo relleno vertical: la portada es algo más estrecha que el canal para
+       que la tarjeta mida lo mismo que antes y quepan las mismas filas */
+    padding: 4px 0;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.35), 0 3px 10px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: var(--wb-blue);
+    box-shadow: 0 0 0 4px var(--wb-blue-soft), 0 10px 22px rgba(10, 80, 130, 0.18);
+}
+
+.card img {
+    width: 86%;
+    border-radius: 13px;
+}
+
+.card .content {
+    inset: 4px;
+    border-radius: 13px;
+    background: linear-gradient(to top, rgba(20, 22, 25, 0.96) 0%, rgba(20, 22, 25, 0.8) 38%, rgba(20, 22, 25, 0) 72%);
+}
+
+.info-overlay h3 {
+    color: var(--wb-text-strong);
+    font-weight: 800;
+}
+
+.info-overlay p {
+    color: var(--wb-muted);
+}
+
+.btn {
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.admin-actions button {
+    background: var(--wb-campo);
+    border: 2px solid #7a3a3d;
+    color: var(--wb-red);
+    border-radius: 999px;
+}
+
+/* Emuladores y recursos */
+#emuladoresStore .card,
+#recursosStore .card {
+    background: var(--wb-panel);
+    border: 2px solid var(--wb-line);
+    border-radius: 20px;
+}
+
+#emuladoresStore .card:hover,
+#recursosStore .card:hover {
+    border-color: var(--wb-blue);
+    box-shadow: 0 0 0 4px var(--wb-blue-soft), 0 10px 22px rgba(10, 80, 130, 0.18);
+}
+
+#emuladoresStore .card img,
+#recursosStore .card img {
+    border-radius: 14px;
+}
+
+#emuladoresStore .content,
+#recursosStore .content {
+    inset: auto;
+    background: none;
+}
+
+#emuladoresStore .info-overlay p,
+#recursosStore .info-overlay p {
+    color: var(--wb-muted);
+}
+
+/* ----- Paginación ----- */
+.pagination button {
+    border-radius: 999px;
+    min-width: 36px;
+    font-weight: 700;
+}
+
+.pagination button.active {
+    background: linear-gradient(180deg, #3d9fd0 0%, #1d78ad 100%) !important;
+    border-color: #0f4f78 !important;
+    color: #fff !important;
+    text-shadow: 0 1px 1px rgba(0, 60, 100, 0.35) !important;
+}
+
+/* ==========================================================================
+   MODALES
+   ========================================================================== */
+#loginBox,
+#emuladoresBox,
+#recursosBox,
+#donacionesBox,
+#descargaBox,
+#captchaBox,
+#cartBox,
+#purchaseSuccessBox,
+#previewBox {
+    background: rgba(8, 9, 11, 0.8);
+}
+
+.login-content,
+.success-content,
+.captcha-content,
+.preview-content {
+    background: var(--wb-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--wb-line-soft);
+    border-radius: 28px;
+    color: var(--wb-text);
+    box-shadow: var(--wb-shadow-lg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.login-content h3,
+.admin-profile h3,
+.success-content h2 {
+    color: var(--wb-text-strong);
+    font-weight: 800;
+}
+
+.login-content input {
+    background: var(--wb-panel-2);
+    color: var(--wb-text);
+    border: 2px solid var(--wb-line);
+    border-radius: 999px;
+    padding: 12px 18px;
+}
+
+.login-content input:focus {
+    border-color: var(--wb-blue);
+    box-shadow: 0 0 0 3px var(--wb-blue-soft);
+}
+
+.login-content button {
+    border-radius: 999px;
+}
+
+.admin-profile img {
+    border: 4px solid #3a3e43;
+    box-shadow: 0 0 0 3px var(--wb-line), var(--wb-shadow);
+}
+
+.admin-profile p {
+    color: var(--wb-muted);
+}
+
+/* ----- Descarga ----- */
+#descargaNombre {
+    color: var(--wb-blue-dark) !important;
+}
+
+#descargaEstado {
+    color: var(--wb-muted);
+}
+
+.progress-bar,
+#descargaBox .progress-bar {
+    height: 10px;
+    background: #1c1f22;
+    border: none;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.progress-fill,
+#descargaBox .progress-fill {
+    border-radius: 999px;
+    background: linear-gradient(180deg, #3d9fd0 0%, #1d78ad 50%, #15628f 100%);
+    box-shadow: none;
+}
+
+#descargaBox .descarga-cancelar {
+    background: var(--wb-campo) !important;
+    border: 2px solid #7a3a3d !important;
+    color: var(--wb-red) !important;
+    box-shadow: none !important;
+}
+
+#descargaBox .descarga-cancelar:hover {
+    background: #3a2224 !important;
+    border-color: var(--wb-red) !important;
+    color: var(--wb-red) !important;
+}
+
+/* VikingFile incrustado: la página ya es clara, así que no se invierte; la
+   capa que la tapa usa el blanco del panel para no notarse. */
+#descargaVikingFrame,
+#captchaFrame {
+    filter: none;
+    background: var(--wb-campo);
+}
+
+.descarga-viking-tinte,
+.captcha-tinte {
+    display: none;
+}
+
+.descarga-viking-capa,
+.captcha-tapa,
+.captcha-cargando,
+.captcha-marco {
+    background: var(--wb-rayas-panel);
+    background-attachment: fixed;
+}
+
+.descarga-viking-boton {
+    border-radius: 999px;
+}
+
+.captcha-header,
+.captcha-close {
+    color: var(--wb-text-strong);
+}
+
+.captcha-cargando,
+.captcha-hosting {
+    color: var(--wb-blue-dark);
+}
+
+/* ----- Bienvenida ----- */
+#welcomeScreen {
+    background: linear-gradient(rgba(10, 11, 13, 0.6), rgba(10, 11, 13, 0.8)),
+                url('assets/images/Background.jpg') center/cover no-repeat;
+}
+
+.welcome-overlay {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.welcome-box {
+    background: var(--wb-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--wb-line-soft);
+    border-radius: 32px;
+    box-shadow: var(--wb-shadow-lg);
+}
+
+.welcome-box h2 {
+    color: var(--wb-text-strong);
+    text-shadow: none;
+}
+
+.welcome-box p {
+    color: var(--wb-text);
+}
+
+.welcome-box img {
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+}
+
+.accept-btn {
+    border-radius: 999px;
+}
+
+/* ----- Donaciones ----- */
+.donate-btn {
+    background: linear-gradient(180deg, #34383d 0%, #26292d 100%);
+    color: var(--wb-text);
+    border: 2px solid var(--wb-line);
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.donate-btn:hover {
+    border-color: var(--wb-blue);
+    box-shadow: 0 0 0 3px var(--wb-blue-soft), 0 5px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   FICHA DEL JUEGO
+   ========================================================================== */
+.preview-close {
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #34383d 0%, #26292d 100%);
+    border: 2px solid var(--wb-line);
+    color: var(--wb-text);
+    font-size: 15px;
+    opacity: 1;
+}
+
+.preview-close:hover {
+    border-color: var(--wb-red);
+    color: var(--wb-red);
+}
+
+.preview-cover img {
+    border: 3px solid #3a3e43;
+    box-shadow: 0 0 0 2px var(--wb-line), var(--wb-shadow);
+    background: var(--wb-panel-2);
+}
+
+.preview-title {
+    color: var(--wb-text-strong);
+    font-weight: 800;
+}
+
+/* Texto largo sobre las rayas: más oscuro y con más peso para que se lea */
+.preview-desc {
+    color: var(--wb-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.preview-file-info {
+    color: var(--wb-text);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Etiquetas azules: un azul más oscuro (el azul cielo sobre blanco tiene poco
+   contraste y se ve borroso) y la fuente del sistema, que es nítida. */
+.preview-file-info .fi b,
+.preview-meta .label {
+    color: #6ec6ef;
+    font-family: var(--wb-font-texto);
+    font-weight: 700;
+}
+
+.preview-meta .label {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.preview-meta {
+    background: var(--wb-panel-2);
+    border: 2px solid var(--wb-line-soft);
+    border-radius: 16px;
+}
+
+.preview-meta .value {
+    color: var(--wb-text-strong);
+}
+
+.preview-meta .value.gold {
+    color: #e09a00;
+}
+
+.preview-main {
+    border: 2px solid var(--wb-line);
+    border-radius: 16px;
+    background: #0d0e10;
+}
+
+.preview-thumbs .thumb {
+    border: 2px solid var(--wb-line);
+    border-radius: 10px;
+    opacity: 0.6;
+}
+
+.preview-thumbs .thumb.active {
+    border-color: var(--wb-blue);
+    box-shadow: 0 0 0 3px var(--wb-blue-soft);
+}
+
+/* Botones de descarga al estilo Wii: píldora blanca y el color de su tipo
+   (variable --c, la pone script.js) solo en el borde y el icono. */
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte {
+    background: var(--wb-btn-fondo) !important;
+    color: var(--wb-text-strong) !important;
+    font-weight: 500 !important;
+    border-radius: 999px !important;
+    border: 3px solid var(--c, var(--wb-btn-borde)) !important;
+    text-shadow: none !important;
+    box-shadow: var(--wb-btn-sombra) !important;
+    transition: box-shadow 0.2s, background 0.2s !important;
+}
+
+.preview-links .btn i,
+.btn-partes-toggle i,
+.btn-parte i {
+    color: var(--c, var(--wb-blue));
+}
+
+.preview-links .btn:hover,
+.btn-partes-toggle:hover,
+.btn-parte:hover {
+    filter: none !important;
+    background: color-mix(in srgb, var(--c, var(--wb-blue)) 10%, #26292d) !important;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--c, var(--wb-blue)) 22%, transparent), 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.preview-links .btn-partes,
+.preview-links .btn-partes:hover {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    text-shadow: none !important;
+}
+
+/* ==========================================================================
+   CARRITO, ÉXITO Y AVISOS
+   ========================================================================== */
+.cart-item {
+    background: var(--wb-panel-2);
+    border: 2px solid var(--wb-line-soft);
+    border-radius: 14px;
+    box-shadow: none;
+}
+
+.cart-item-img {
+    border: 1px solid var(--wb-line);
+    border-radius: 10px;
+}
+
+.cart-item span {
+    color: var(--wb-text-strong);
+}
+
+.cart-total {
+    color: var(--wb-text-strong);
+}
+
+.cart-total span,
+.success-icon,
+.success-content h2 {
+    color: var(--wb-green);
+}
+
+.success-content p {
+    color: var(--wb-muted);
+}
+
+.checkout-btn:disabled {
+    background: #3a3e43 !important;
+    border-color: #5a6068 !important;
+}
+
+.toast {
+    background: var(--wb-campo);
+    border: 2px solid var(--wb-line);
+    color: var(--wb-text-strong);
+    border-radius: 999px;
+    box-shadow: var(--wb-shadow);
+}
+
+/* ==========================================================================
+   PANEL DE ADMINISTRACIÓN
+   ========================================================================== */
+#adminPanel {
+    --ap-border: var(--wb-line);
+    --ap-surface: var(--wb-panel-2);
+    --ap-field: #1c1f22;
+    --ap-accent: var(--wb-blue);
+    --ap-accent2: var(--wb-blue-dark);
+
+    background: var(--wb-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--wb-line-soft);
+    border-radius: 26px;
+    box-shadow: var(--wb-shadow-lg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.admin-header h3,
+.admin-section h4,
+.admin-list h4,
+.admin-field .admin-homebrew-label,
+.admin-game-item-info span {
+    color: var(--wb-text-strong);
+}
+
+.admin-header h3 i {
+    color: #fff;
+    border-radius: 50%;
+}
+
+.admin-header-sub,
+.admin-field label,
+.admin-field .admin-homebrew-label small,
+.admin-game-item-info small,
+.admin-empty,
+.admin-search-wrap i {
+    color: var(--wb-muted);
+}
+
+.admin-section {
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.admin-section:hover,
+.admin-section:focus-within {
+    border-color: var(--wb-blue);
+}
+
+.admin-section h4 i {
+    border-radius: 50%;
+    background: var(--wb-blue-soft);
+    border-color: transparent;
+}
+
+.admin-field input[type="text"],
+.admin-field textarea,
+#adminSearch,
+.boton-fila select,
+.boton-fila input[type="text"],
+.boton-fila textarea,
+.boton-agregar select {
+    color: var(--wb-text);
+    border-width: 2px;
+    border-radius: 12px;
+}
+
+.admin-field input::placeholder,
+.admin-field textarea::placeholder,
+#adminSearch::placeholder,
+.boton-fila input::placeholder,
+.boton-fila textarea::placeholder {
+    color: #7d858d;
+}
+
+.admin-field input[type="text"]:hover,
+.admin-field textarea:hover,
+#adminSearch:hover {
+    border-color: #5a6068;
+}
+
+.admin-field input[type="text"]:focus,
+.admin-field textarea:focus,
+#adminSearch:focus,
+.boton-fila select:focus,
+.boton-fila input[type="text"]:focus,
+.boton-fila textarea:focus,
+.boton-agregar select:focus {
+    border-color: var(--wb-blue);
+    background: var(--wb-campo);
+    box-shadow: 0 0 0 3px var(--wb-blue-soft);
+}
+
+.boton-fila select option,
+.boton-agregar select option {
+    background: var(--wb-campo);
+    color: var(--wb-text);
+}
+
+.admin-field .admin-homebrew-label {
+    background: var(--wb-panel-2);
+    border: 2px solid var(--wb-line);
+}
+
+.admin-mode {
+    background: #1d2e21;
+    border: 2px solid #2f6a3b;
+    color: #2b9a40;
+}
+
+.admin-mode.editing {
+    background: #352b17;
+    border-color: #6e5320;
+    color: #b97800;
+}
+
+.admin-actions-bar {
+    background: rgba(30, 33, 37, 0.95);
+    border: 2px solid var(--wb-line-soft);
+    border-radius: 20px;
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.8);
+}
+
+.admin-actions-bar button {
+    border-radius: 999px;
+}
+
+#btnCancelar {
+    background: var(--wb-campo);
+    border: 2px solid #7a3a3d;
+    color: var(--wb-red);
+}
+
+.admin-list {
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.admin-count {
+    background: var(--wb-blue-soft);
+    border-color: transparent;
+    color: var(--wb-blue-dark);
+}
+
+.admin-game-item {
+    background: var(--wb-campo);
+    border: 2px solid var(--wb-line-soft);
+}
+
+.admin-game-item:hover {
+    background: var(--wb-campo);
+    border-color: var(--wb-blue);
+}
+
+.admin-game-item img {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    border-radius: 50%;
+}
+
+.admin-game-item .btn-delete:hover {
+    border-color: var(--wb-red) !important;
+    color: var(--wb-red) !important;
+    box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.12) !important;
+}
+
+.hb-badge {
+    color: #7c4dcc;
+    background: #2a2238;
+    border-color: #4c3b70;
+}
+
+.boton-fila {
+    background: var(--wb-campo);
+    border-width: 2px;
+    border-left-width: 6px;
+    border-radius: 16px;
+}
+
+.boton-fila .bf-acciones button {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+}
+
+.boton-fila .bf-acciones button[data-op="borrar"]:hover {
+    border-color: var(--wb-red) !important;
+    color: var(--wb-red) !important;
+}
+
+.boton-fila .bf-paleta button {
+    border: 2px solid #3a3e43;
+    box-shadow: 0 0 0 1px var(--wb-line);
+}
+
+.boton-fila .bf-paleta button:hover {
+    border-color: #3a3e43;
+    box-shadow: 0 0 0 2px var(--wb-blue);
+}
+
+.boton-agregar button {
+    border: 2px dashed var(--wb-blue);
+    border-radius: 999px;
+    background: var(--wb-blue-soft);
+    color: var(--wb-blue-dark);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   RESPONSIVE: sustituye los fondos oscuros que style.css fuerza con !important
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .header-btn {
+        background: linear-gradient(180deg, #2a2d31 0%, #1f2225 100%) !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .music-control {
+        background: rgba(30, 33, 37, 0.95) !important;
+        border: 2px solid var(--wb-line) !important;
+        border-radius: 999px !important;
+        box-shadow: var(--wb-shadow) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-btn {
+        background: linear-gradient(180deg, #2a2d31 0%, #1f2225 100%) !important;
+        border: 2px solid var(--wb-line) !important;
+        border-radius: 22px !important;
+        box-shadow: var(--wb-shadow) !important;
+    }
+
+    .header-actions .admin-profile-btn {
+        background: var(--wb-campo) !important;
+        border: 2px solid var(--wb-line) !important;
+        border-radius: 20px !important;
+        box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.35) !important;
+    }
+
+    .header-actions .admin-profile-btn img {
+        border: 3px solid #3a3e43 !important;
+        box-shadow: 0 0 0 2px var(--wb-line) !important;
+    }
+
+    .header-actions .admin-profile-btn span {
+        color: var(--wb-text-strong) !important;
+        text-shadow: none !important;
+    }
+
+    .store {
+        gap: 10px !important;
+    }
+}
+
+/* ==========================================================================
+   BOTONES DE LAS TARJETAS (Ver enlace / Agregar)
+   Mismo botón blanco del Menú Wii, en tamaño compacto
+   ========================================================================== */
+.card .btns {
+    gap: 5px;
+}
+
+.card .btns .btn,
+.card .btns .btn.blue.cart-add-btn,
+.card .btns .btn.green.cart-add-btn {
+    background: var(--wb-btn-fondo) !important;
+    border: 2px solid var(--wb-btn-borde) !important;
+    border-radius: 999px !important;
+    color: var(--wb-text-strong) !important;
+    text-shadow: none !important;
+    box-shadow: var(--wb-btn-sombra) !important;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.card .btns .btn i {
+    color: var(--wb-blue-dark);
+}
+
+/* Ya en el carrito: borde e icono verdes */
+.card .btns .btn.green.cart-add-btn {
+    border-color: #2f6a3b !important;
+}
+
+.card .btns .btn.green.cart-add-btn i {
+    color: var(--wb-green);
+}
+
+.card .btns .btn:hover {
+    filter: none;
+    border-color: var(--wb-blue) !important;
+    box-shadow: 0 0 0 3px var(--wb-blue-soft), var(--wb-btn-sombra) !important;
+}
+
+/* Botón "Cerrar" de las ventanas anchas (emuladores, recursos, donaciones):
+   tamaño de botón normal y centrado, en vez de ocupar todo el ancho */
+#emuladoresBox .login-content > button,
+#recursosBox .login-content > button,
+#donacionesBox .login-content > button {
+    width: 220px;
+    max-width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+/* Selector de tema */
+.tema-selector {
+    background: var(--wb-btn-fondo);
+    border: 2px solid var(--wb-btn-borde);
+    box-shadow: var(--wb-btn-sombra);
+    color: var(--wb-text-strong);
+}
+
+.tema-selector i {
+    color: var(--wb-blue-dark);
+}
+
+.tema-selector:hover,
+.tema-selector:focus-within {
+    border-color: var(--wb-blue);
+}
+
+.tema-selector select {
+    font-weight: 500;
+}
+
+.tema-selector select option {
+    background: var(--wb-campo);
+    color: var(--wb-text);
+}
+
+/* Las páginas incrustadas (VikingFile y el captcha) se invierten a tonos
+   oscuros como en el tema clásico, para que no deslumbren */
+#descargaVikingFrame,
+#captchaFrame {
+    filter: invert(0.92) hue-rotate(180deg) contrast(1.05);
+    background: var(--wb-campo);
+}
+
+/* Textos de los botones claros del tema Wii que aquí van sobre fondo oscuro */
+.music-control .music-btn,
+.music-control .skip-btn,
+.homebrew-switch .hbs-label,
+.tema-selector,
+.tema-selector select {
+    color: var(--wb-text-strong);
+}
+
+.tema-selector select option {
+    background: var(--wb-panel);
+    color: var(--wb-text);
+}
+
+/* Logo en blanco suave */
+.logo h1 {
+    color: var(--wb-text-strong);
+}
+
+/* Menú de temas */
+:root {
+    --menu-fondo: #23262a;
+    --menu-borde: var(--wb-line);
+    --menu-texto: var(--wb-text-strong);
+    --menu-hover: rgba(42, 140, 196, 0.2);
+    --menu-activo: rgba(42, 140, 196, 0.3);
+    --menu-acento: #6ec6ef;
+}

@@ -1,0 +1,1170 @@
+/* ==========================================================================
+   TEMA WII (claro)
+   Capa de tema que se carga después de style.css y redefine el aspecto de
+   toda la web al estilo del Menú Wii: fondo perla con rayas finas, canales
+   blancos con bordes grises redondeados, botones píldora con brillo y el azul
+   cielo de la consola como color de selección. Para volver al tema anterior
+   basta con quitar el <link> de este archivo en index.html.
+   ========================================================================== */
+
+:root {
+    --wii-bg: #eceff2;
+    --wii-panel: #ffffff;
+    --wii-panel-2: #f5f7f9;
+    --wii-line: #d5dae0;
+    --wii-line-soft: #e4e8ec;
+    --wii-text: #4a4f55;
+    --wii-text-strong: #33373c;
+    --wii-muted: #6b727a;
+    --wii-blue: #34beed;
+    --wii-blue-dark: #0e9ad6;
+    --wii-blue-soft: rgba(52, 190, 237, 0.14);
+    --wii-red: #e5484d;
+    --wii-green: #3fb950;
+    --wii-shadow: 0 10px 30px rgba(40, 70, 100, 0.12);
+    --wii-shadow-lg: 0 24px 60px rgba(40, 70, 100, 0.18);
+    /* La Wii usaba FOT-Rodin (Fontworks), que es de pago: si está instalada en
+       el equipo se usa; si no, M PLUS 1p, la alternativa libre más parecida. */
+    --wii-font: "FOT-Rodin Pro", "FOT-RodinNTLG Pro", "Rodin NTLG", "M PLUS 1p", Arial, sans-serif;
+    --wii-font-texto: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+    /* Botón del Menú Wii */
+    --wii-btn-fondo: linear-gradient(180deg, #ffffff 0%, #fdfeff 42%, #e6edf2 100%);
+    --wii-btn-borde: #8fd6f0;
+    --wii-btn-sombra: inset 0 0 0 2px rgba(255, 255, 255, 0.95), inset 0 -8px 12px rgba(140, 175, 200, 0.16), 0 2px 6px rgba(40, 70, 100, 0.12);
+
+    /* Rayas del Menú Wii para el fondo de las ventanas (más suaves que las
+       de la página). Se fijan a la pantalla (background-attachment: fixed)
+       para que la capa de VikingFile y el panel coincidan raya con raya. */
+    --wii-rayas-panel:
+        repeating-linear-gradient(180deg, rgba(120, 128, 138, 0.035) 0 1px, transparent 1px 5px),
+        linear-gradient(180deg, #ffffff 0%, #f6f7f8 100%);
+
+    /* Variables del tema original que siguen usando algunos estilos */
+    --bg: var(--wii-bg);
+    --card: var(--wii-panel);
+    --text: var(--wii-text);
+    --accent: var(--wii-blue);
+    --accent2: var(--wii-blue-dark);
+    --border: var(--wii-line);
+}
+
+/* ----- Base ----- */
+body {
+    /* El texto corrido usa la fuente del sistema: en Windows las fuentes web
+       japonesas (M PLUS) no traen hinting y se ven borrosas a tamaño pequeño.
+       Títulos y botones mantienen la fuente estilo Wii. */
+    font-family: var(--wii-font-texto);
+    color: var(--wii-text);
+    background:
+        /* Rayas horizontales del Menú Wii: franjas grises finas cada 5px */
+        repeating-linear-gradient(180deg, rgba(120, 128, 138, 0.10) 0 2px, rgba(255, 255, 255, 0.35) 2px 3px, transparent 3px 5px),
+        linear-gradient(180deg, #f3f4f5 0%, #e9eaec 60%, #e1e3e6 100%);
+    background-attachment: fixed;
+}
+button,
+h1, h2, h3, h4,
+.preview-title,
+.preview-meta .value,
+.music-title {
+    font-family: var(--wii-font);
+}
+
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* El fondo de estrellas no tiene sentido sobre un fondo claro */
+#stars {
+    display: none;
+}
+
+/* ----- Scrollbar ----- */
+* {
+    scrollbar-color: #c2c9d1 transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-left: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7cdd4;
+    border: 3px solid var(--wii-bg);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--wii-blue);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* ----- Mezclas reutilizables (botones) ----- */
+/* Botón secundario Wii (como "Wii Menu" / "Start"): píldora blanca con un
+   degradado suave hacia gris azulado y borde azul cielo claro */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.login-content button,
+.captcha-tab,
+.success-close-btn,
+.cart-close-btn,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    background: var(--wii-btn-fondo) !important;
+    border: 3px solid var(--wii-btn-borde) !important;
+    border-radius: 999px !important;
+    color: var(--wii-text-strong) !important;
+    font-weight: 500 !important;
+    box-shadow: var(--wii-btn-sombra) !important;
+    text-shadow: none !important;
+}
+
+/* En los botones pequeños (encabezado, paginación, iconos) el borde de 3px
+   pesa demasiado */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    border-width: 2px !important;
+}
+
+.header-btn button:not(.admin-profile-btn):hover,
+.pagination button:hover,
+.login-content button:hover,
+.captcha-tab:hover,
+.success-close-btn:hover,
+.cart-close-btn:hover,
+.boton-fila .bf-acciones button:hover,
+.admin-game-item .btn-edit:hover {
+    border-color: var(--wii-blue) !important;
+    color: var(--wii-blue-dark) !important;
+    box-shadow: 0 0 0 3px var(--wii-blue-soft), 0 3px 8px rgba(40, 70, 100, 0.1) !important;
+}
+
+/* Botón principal Wii: azul cielo con brillo */
+.btn:not([style]),
+.accept-btn,
+#btnGuardar,
+.checkout-btn,
+.download-link-btn,
+.descarga-viking-boton,
+.btn.blue.cart-add-btn {
+    background: linear-gradient(180deg, #7fdcfc 0%, #34beed 48%, #1aa9e2 52%, #22b3ea 100%) !important;
+    border: 2px solid #1597cf !important;
+    color: #fff !important;
+    text-shadow: 0 1px 1px rgba(0, 60, 100, 0.35) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 3px 8px rgba(14, 154, 214, 0.25) !important;
+}
+
+.btn:not([style]):hover,
+.accept-btn:hover,
+#btnGuardar:hover,
+.checkout-btn:hover,
+.download-link-btn:hover,
+.btn.blue.cart-add-btn:hover {
+    filter: brightness(1.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 0 0 3px var(--wii-blue-soft), 0 5px 12px rgba(14, 154, 214, 0.3) !important;
+}
+
+/* Variante verde (tutorial, carrito añadido, pago) */
+.btn.green,
+.btn.green.cart-add-btn,
+.checkout-btn {
+    background: linear-gradient(180deg, #8ee59a 0%, #4cc760 48%, #36b44b 52%, #3fbd54 100%) !important;
+    border-color: #2fa043 !important;
+    text-shadow: 0 1px 1px rgba(0, 70, 20, 0.35) !important;
+}
+
+.download-all-btn {
+    background: linear-gradient(180deg, #ffd46b 0%, #ffbb1c 48%, #f5a800 52%, #ffb30f 100%) !important;
+    border: 2px solid #e09a00 !important;
+    color: #5a3c00 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 3px 8px rgba(224, 154, 0, 0.25) !important;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.header-btn {
+    background: linear-gradient(180deg, #ffffff 0%, #f2f4f6 100%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 2px solid var(--wii-line);
+    box-shadow: 0 4px 16px rgba(40, 70, 100, 0.08);
+    padding: 6px 20px;
+}
+
+.logo h1 {
+    color: var(--wii-text-strong);
+    font-weight: 800;
+    font-size: 17px;
+}
+
+#buscador {
+    color: var(--wii-text);
+    background: #fff;
+    border: 2px solid var(--wii-line);
+    border-radius: 999px;
+    padding: 7px 14px;
+    box-shadow: inset 0 2px 3px rgba(40, 70, 100, 0.07);
+}
+
+#buscador::placeholder {
+    color: var(--wii-muted);
+}
+
+#buscador:focus {
+    border-color: var(--wii-blue);
+    background: #fff;
+    box-shadow: inset 0 2px 3px rgba(40, 70, 100, 0.05), 0 0 0 3px var(--wii-blue-soft);
+}
+
+.header-btn button:not(.admin-profile-btn) {
+    border-radius: 999px;
+    height: 28px;
+    padding: 5px 12px;
+    font-weight: 700;
+}
+
+/* Switch Juegos / Homebrew */
+.homebrew-switch {
+    background: #fff;
+    border: 2px solid var(--wii-line);
+}
+
+.homebrew-switch:hover,
+.homebrew-switch.active {
+    border-color: var(--wii-blue);
+    background: #fff;
+}
+
+.homebrew-switch .hbs-track {
+    background: #dfe4e9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.homebrew-switch .hbs-knob {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.homebrew-switch .hbs-input:checked + .hbs-track {
+    background: var(--wii-blue);
+}
+
+.homebrew-switch .hbs-label {
+    color: var(--wii-text);
+    font-weight: 700;
+}
+
+/* Carrito del header */
+.cart-btn-header {
+    background: linear-gradient(180deg, #ffffff 0%, #eaf8ee 100%) !important;
+    border: 2px solid #a6dfb2 !important;
+    color: #2b9a40 !important;
+}
+
+.cart-badge {
+    background: var(--wii-green);
+}
+
+/* Perfil */
+.admin-profile-btn img,
+.music-icon {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--wii-line), 0 3px 8px rgba(40, 70, 100, 0.15);
+}
+
+.admin-profile-btn:hover {
+    background: transparent;
+}
+
+.admin-profile-btn:hover img {
+    box-shadow: 0 0 0 2px var(--wii-blue), 0 0 0 5px var(--wii-blue-soft);
+}
+
+/* ----- Reproductor ----- */
+.music-title {
+    color: var(--wii-text-strong);
+}
+
+.music-control .music-btn,
+.music-control .skip-btn {
+    width: 26px;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: var(--wii-text);
+    background: linear-gradient(180deg, #ffffff 0%, #eceff2 100%);
+    border: 2px solid var(--wii-line);
+}
+
+.music-control .music-btn:hover,
+.music-control .skip-btn:hover {
+    color: var(--wii-blue-dark);
+    border-color: var(--wii-blue);
+    background: #fff;
+}
+
+.volume-icon {
+    color: var(--wii-muted);
+}
+
+.volume-icon:hover {
+    color: var(--wii-blue);
+}
+
+.volume-icon.muted {
+    color: #bcc3ca;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    background: #fff;
+    border: 2px solid var(--wii-blue);
+}
+
+#volumeSlider::-moz-range-thumb {
+    background: #fff;
+    border: 2px solid var(--wii-blue);
+}
+
+.music-playlist {
+    background: #fff;
+    border: 2px solid var(--wii-line);
+    border-radius: 16px;
+    box-shadow: var(--wii-shadow);
+}
+
+.music-playlist .playlist-item {
+    color: var(--wii-text);
+    border-radius: 10px;
+}
+
+.music-playlist .playlist-item img {
+    border: 1px solid var(--wii-line);
+}
+
+.music-playlist .playlist-item:hover,
+.music-playlist .playlist-item.active {
+    background: var(--wii-blue-soft);
+    border-color: var(--wii-blue);
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   TIENDA: CANALES
+   ========================================================================== */
+.store {
+    gap: 8px;
+    padding: 14px 20px 4px;
+}
+
+/* Cada juego es un "canal": marco blanco redondeado con borde gris */
+.card {
+    background: var(--wii-panel);
+    border: 2px solid var(--wii-line);
+    border-radius: 18px;
+    /* Solo relleno vertical: la portada es algo más estrecha que el canal para
+       que la tarjeta mida lo mismo que antes y quepan las mismas filas */
+    padding: 4px 0;
+    box-shadow: inset 0 -3px 0 #eef1f4, 0 3px 10px rgba(40, 70, 100, 0.08);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: var(--wii-blue);
+    box-shadow: 0 0 0 4px var(--wii-blue-soft), 0 10px 22px rgba(14, 154, 214, 0.18);
+}
+
+.card img {
+    width: 86%;
+    border-radius: 13px;
+}
+
+.card .content {
+    inset: 4px;
+    border-radius: 13px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.85) 38%, rgba(255, 255, 255, 0) 72%);
+}
+
+.info-overlay h3 {
+    color: var(--wii-text-strong);
+    font-weight: 800;
+}
+
+.info-overlay p {
+    color: var(--wii-muted);
+}
+
+.btn {
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.admin-actions button {
+    background: #fff;
+    border: 2px solid #f3b4b6;
+    color: var(--wii-red);
+    border-radius: 999px;
+}
+
+/* Emuladores y recursos */
+#emuladoresStore .card,
+#recursosStore .card {
+    background: var(--wii-panel);
+    border: 2px solid var(--wii-line);
+    border-radius: 20px;
+}
+
+#emuladoresStore .card:hover,
+#recursosStore .card:hover {
+    border-color: var(--wii-blue);
+    box-shadow: 0 0 0 4px var(--wii-blue-soft), 0 10px 22px rgba(14, 154, 214, 0.18);
+}
+
+#emuladoresStore .card img,
+#recursosStore .card img {
+    border-radius: 14px;
+}
+
+#emuladoresStore .content,
+#recursosStore .content {
+    inset: auto;
+    background: none;
+}
+
+#emuladoresStore .info-overlay p,
+#recursosStore .info-overlay p {
+    color: var(--wii-muted);
+}
+
+/* ----- Paginación ----- */
+.pagination button {
+    border-radius: 999px;
+    min-width: 36px;
+    font-weight: 700;
+}
+
+.pagination button.active {
+    background: linear-gradient(180deg, #7fdcfc 0%, #34beed 100%) !important;
+    border-color: #1597cf !important;
+    color: #fff !important;
+    text-shadow: 0 1px 1px rgba(0, 60, 100, 0.35) !important;
+}
+
+/* ==========================================================================
+   MODALES
+   ========================================================================== */
+#loginBox,
+#emuladoresBox,
+#recursosBox,
+#donacionesBox,
+#descargaBox,
+#captchaBox,
+#cartBox,
+#purchaseSuccessBox,
+#previewBox {
+    background: rgba(226, 232, 238, 0.88);
+}
+
+.login-content,
+.success-content,
+.captcha-content,
+.preview-content {
+    background: var(--wii-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--wii-line-soft);
+    border-radius: 28px;
+    color: var(--wii-text);
+    box-shadow: var(--wii-shadow-lg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.login-content h3,
+.admin-profile h3,
+.success-content h2 {
+    color: var(--wii-text-strong);
+    font-weight: 800;
+}
+
+.login-content input {
+    background: var(--wii-panel-2);
+    color: var(--wii-text);
+    border: 2px solid var(--wii-line);
+    border-radius: 999px;
+    padding: 12px 18px;
+}
+
+.login-content input:focus {
+    border-color: var(--wii-blue);
+    box-shadow: 0 0 0 3px var(--wii-blue-soft);
+}
+
+.login-content button {
+    border-radius: 999px;
+}
+
+.admin-profile img {
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 3px var(--wii-line), var(--wii-shadow);
+}
+
+.admin-profile p {
+    color: var(--wii-muted);
+}
+
+/* ----- Descarga ----- */
+#descargaNombre {
+    color: var(--wii-blue-dark) !important;
+}
+
+#descargaEstado {
+    color: var(--wii-muted);
+}
+
+.progress-bar,
+#descargaBox .progress-bar {
+    height: 10px;
+    background: #e4e8ec;
+    border: none;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.progress-fill,
+#descargaBox .progress-fill {
+    border-radius: 999px;
+    background: linear-gradient(180deg, #7fdcfc 0%, #34beed 50%, #1aa9e2 100%);
+    box-shadow: none;
+}
+
+#descargaBox .descarga-cancelar {
+    background: #fff !important;
+    border: 2px solid #f3b4b6 !important;
+    color: var(--wii-red) !important;
+    box-shadow: none !important;
+}
+
+#descargaBox .descarga-cancelar:hover {
+    background: #fff5f5 !important;
+    border-color: var(--wii-red) !important;
+    color: var(--wii-red) !important;
+}
+
+/* VikingFile incrustado: la página ya es clara, así que no se invierte; la
+   capa que la tapa usa el blanco del panel para no notarse. */
+#descargaVikingFrame,
+#captchaFrame {
+    filter: none;
+    background: #fff;
+}
+
+.descarga-viking-tinte,
+.captcha-tinte {
+    display: none;
+}
+
+.descarga-viking-capa,
+.captcha-tapa,
+.captcha-cargando,
+.captcha-marco {
+    background: var(--wii-rayas-panel);
+    background-attachment: fixed;
+}
+
+.descarga-viking-boton {
+    border-radius: 999px;
+}
+
+.captcha-header,
+.captcha-close {
+    color: var(--wii-text-strong);
+}
+
+.captcha-cargando,
+.captcha-hosting {
+    color: var(--wii-blue-dark);
+}
+
+/* ----- Bienvenida ----- */
+#welcomeScreen {
+    background: linear-gradient(rgba(240, 244, 248, 0.55), rgba(232, 237, 242, 0.75)),
+                url('assets/images/Background.jpg') center/cover no-repeat;
+}
+
+.welcome-overlay {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.welcome-box {
+    background: var(--wii-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--wii-line-soft);
+    border-radius: 32px;
+    box-shadow: var(--wii-shadow-lg);
+}
+
+.welcome-box h2 {
+    color: var(--wii-text-strong);
+    text-shadow: none;
+}
+
+.welcome-box p {
+    color: var(--wii-text);
+}
+
+.welcome-box img {
+    filter: drop-shadow(0 6px 14px rgba(40, 70, 100, 0.18));
+}
+
+.accept-btn {
+    border-radius: 999px;
+}
+
+/* ----- Donaciones ----- */
+.donate-btn {
+    background: linear-gradient(180deg, #ffffff 0%, #eef1f4 100%);
+    color: var(--wii-text);
+    border: 2px solid var(--wii-line);
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 #fff, 0 3px 8px rgba(40, 70, 100, 0.1);
+}
+
+.donate-btn:hover {
+    border-color: var(--wii-blue);
+    box-shadow: 0 0 0 3px var(--wii-blue-soft), 0 5px 12px rgba(40, 70, 100, 0.12);
+}
+
+/* ==========================================================================
+   FICHA DEL JUEGO
+   ========================================================================== */
+.preview-close {
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #ffffff 0%, #eef1f4 100%);
+    border: 2px solid var(--wii-line);
+    color: var(--wii-text);
+    font-size: 15px;
+    opacity: 1;
+}
+
+.preview-close:hover {
+    border-color: var(--wii-red);
+    color: var(--wii-red);
+}
+
+.preview-cover img {
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--wii-line), var(--wii-shadow);
+    background: var(--wii-panel-2);
+}
+
+.preview-title {
+    color: var(--wii-text-strong);
+    font-weight: 800;
+}
+
+/* Texto largo sobre las rayas: más oscuro y con más peso para que se lea */
+.preview-desc {
+    color: var(--wii-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.preview-file-info {
+    color: var(--wii-text);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Etiquetas azules: un azul más oscuro (el azul cielo sobre blanco tiene poco
+   contraste y se ve borroso) y la fuente del sistema, que es nítida. */
+.preview-file-info .fi b,
+.preview-meta .label {
+    color: #0a6fa3;
+    font-family: var(--wii-font-texto);
+    font-weight: 700;
+}
+
+.preview-meta .label {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.preview-meta {
+    background: var(--wii-panel-2);
+    border: 2px solid var(--wii-line-soft);
+    border-radius: 16px;
+}
+
+.preview-meta .value {
+    color: var(--wii-text-strong);
+}
+
+.preview-meta .value.gold {
+    color: #e09a00;
+}
+
+.preview-main {
+    border: 2px solid var(--wii-line);
+    border-radius: 16px;
+    background: #1b1d20;
+}
+
+.preview-thumbs .thumb {
+    border: 2px solid var(--wii-line);
+    border-radius: 10px;
+    opacity: 0.6;
+}
+
+.preview-thumbs .thumb.active {
+    border-color: var(--wii-blue);
+    box-shadow: 0 0 0 3px var(--wii-blue-soft);
+}
+
+/* Botones de descarga al estilo Wii: píldora blanca y el color de su tipo
+   (variable --c, la pone script.js) solo en el borde y el icono. */
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte {
+    background: var(--wii-btn-fondo) !important;
+    color: var(--wii-text-strong) !important;
+    font-weight: 500 !important;
+    border-radius: 999px !important;
+    border: 3px solid var(--c, var(--wii-btn-borde)) !important;
+    text-shadow: none !important;
+    box-shadow: var(--wii-btn-sombra) !important;
+    transition: box-shadow 0.2s, background 0.2s !important;
+}
+
+.preview-links .btn i,
+.btn-partes-toggle i,
+.btn-parte i {
+    color: var(--c, var(--wii-blue));
+}
+
+.preview-links .btn:hover,
+.btn-partes-toggle:hover,
+.btn-parte:hover {
+    filter: none !important;
+    background: color-mix(in srgb, var(--c, var(--wii-blue)) 10%, #ffffff) !important;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--c, var(--wii-blue)) 22%, transparent), 0 3px 8px rgba(40, 70, 100, 0.12) !important;
+}
+
+.preview-links .btn-partes,
+.preview-links .btn-partes:hover {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    text-shadow: none !important;
+}
+
+/* ==========================================================================
+   CARRITO, ÉXITO Y AVISOS
+   ========================================================================== */
+.cart-item {
+    background: var(--wii-panel-2);
+    border: 2px solid var(--wii-line-soft);
+    border-radius: 14px;
+    box-shadow: none;
+}
+
+.cart-item-img {
+    border: 1px solid var(--wii-line);
+    border-radius: 10px;
+}
+
+.cart-item span {
+    color: var(--wii-text-strong);
+}
+
+.cart-total {
+    color: var(--wii-text-strong);
+}
+
+.cart-total span,
+.success-icon,
+.success-content h2 {
+    color: var(--wii-green);
+}
+
+.success-content p {
+    color: var(--wii-muted);
+}
+
+.checkout-btn:disabled {
+    background: #cfd5db !important;
+    border-color: #bcc3ca !important;
+}
+
+.toast {
+    background: #fff;
+    border: 2px solid var(--wii-line);
+    color: var(--wii-text-strong);
+    border-radius: 999px;
+    box-shadow: var(--wii-shadow);
+}
+
+/* ==========================================================================
+   PANEL DE ADMINISTRACIÓN
+   ========================================================================== */
+#adminPanel {
+    --ap-border: var(--wii-line);
+    --ap-surface: var(--wii-panel-2);
+    --ap-field: #fff;
+    --ap-accent: var(--wii-blue);
+    --ap-accent2: var(--wii-blue-dark);
+
+    background: var(--wii-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--wii-line-soft);
+    border-radius: 26px;
+    box-shadow: var(--wii-shadow-lg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.admin-header h3,
+.admin-section h4,
+.admin-list h4,
+.admin-field .admin-homebrew-label,
+.admin-game-item-info span {
+    color: var(--wii-text-strong);
+}
+
+.admin-header h3 i {
+    color: #fff;
+    border-radius: 50%;
+}
+
+.admin-header-sub,
+.admin-field label,
+.admin-field .admin-homebrew-label small,
+.admin-game-item-info small,
+.admin-empty,
+.admin-search-wrap i {
+    color: var(--wii-muted);
+}
+
+.admin-section {
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.admin-section:hover,
+.admin-section:focus-within {
+    border-color: var(--wii-blue);
+}
+
+.admin-section h4 i {
+    border-radius: 50%;
+    background: var(--wii-blue-soft);
+    border-color: transparent;
+}
+
+.admin-field input[type="text"],
+.admin-field textarea,
+#adminSearch,
+.boton-fila select,
+.boton-fila input[type="text"],
+.boton-fila textarea,
+.boton-agregar select {
+    color: var(--wii-text);
+    border-width: 2px;
+    border-radius: 12px;
+}
+
+.admin-field input::placeholder,
+.admin-field textarea::placeholder,
+#adminSearch::placeholder,
+.boton-fila input::placeholder,
+.boton-fila textarea::placeholder {
+    color: #aab1b9;
+}
+
+.admin-field input[type="text"]:hover,
+.admin-field textarea:hover,
+#adminSearch:hover {
+    border-color: #bfc6ce;
+}
+
+.admin-field input[type="text"]:focus,
+.admin-field textarea:focus,
+#adminSearch:focus,
+.boton-fila select:focus,
+.boton-fila input[type="text"]:focus,
+.boton-fila textarea:focus,
+.boton-agregar select:focus {
+    border-color: var(--wii-blue);
+    background: #fff;
+    box-shadow: 0 0 0 3px var(--wii-blue-soft);
+}
+
+.boton-fila select option,
+.boton-agregar select option {
+    background: #fff;
+    color: var(--wii-text);
+}
+
+.admin-field .admin-homebrew-label {
+    background: var(--wii-panel-2);
+    border: 2px solid var(--wii-line);
+}
+
+.admin-mode {
+    background: #eefaf0;
+    border: 2px solid #a6dfb2;
+    color: #2b9a40;
+}
+
+.admin-mode.editing {
+    background: #fff7e6;
+    border-color: #f5cf7a;
+    color: #b97800;
+}
+
+.admin-actions-bar {
+    background: rgba(255, 255, 255, 0.94);
+    border: 2px solid var(--wii-line-soft);
+    border-radius: 20px;
+    box-shadow: 0 -6px 20px rgba(40, 70, 100, 0.08);
+}
+
+.admin-actions-bar button {
+    border-radius: 999px;
+}
+
+#btnCancelar {
+    background: #fff;
+    border: 2px solid #f3b4b6;
+    color: var(--wii-red);
+}
+
+.admin-list {
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.admin-count {
+    background: var(--wii-blue-soft);
+    border-color: transparent;
+    color: var(--wii-blue-dark);
+}
+
+.admin-game-item {
+    background: #fff;
+    border: 2px solid var(--wii-line-soft);
+}
+
+.admin-game-item:hover {
+    background: #fff;
+    border-color: var(--wii-blue);
+}
+
+.admin-game-item img {
+    box-shadow: 0 2px 6px rgba(40, 70, 100, 0.15);
+}
+
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    border-radius: 50%;
+}
+
+.admin-game-item .btn-delete:hover {
+    border-color: var(--wii-red) !important;
+    color: var(--wii-red) !important;
+    box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.12) !important;
+}
+
+.hb-badge {
+    color: #7c4dcc;
+    background: #f2ecfd;
+    border-color: #d5c4f7;
+}
+
+.boton-fila {
+    background: #fff;
+    border-width: 2px;
+    border-left-width: 6px;
+    border-radius: 16px;
+}
+
+.boton-fila .bf-acciones button {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+}
+
+.boton-fila .bf-acciones button[data-op="borrar"]:hover {
+    border-color: var(--wii-red) !important;
+    color: var(--wii-red) !important;
+}
+
+.boton-fila .bf-paleta button {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px var(--wii-line);
+}
+
+.boton-fila .bf-paleta button:hover {
+    border-color: #fff;
+    box-shadow: 0 0 0 2px var(--wii-blue);
+}
+
+.boton-agregar button {
+    border: 2px dashed var(--wii-blue);
+    border-radius: 999px;
+    background: var(--wii-blue-soft);
+    color: var(--wii-blue-dark);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   RESPONSIVE: sustituye los fondos oscuros que style.css fuerza con !important
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .header-btn {
+        background: linear-gradient(180deg, #ffffff 0%, #f2f4f6 100%) !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .music-control {
+        background: rgba(255, 255, 255, 0.96) !important;
+        border: 2px solid var(--wii-line) !important;
+        border-radius: 999px !important;
+        box-shadow: var(--wii-shadow) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-btn {
+        background: linear-gradient(180deg, #ffffff 0%, #f2f4f6 100%) !important;
+        border: 2px solid var(--wii-line) !important;
+        border-radius: 22px !important;
+        box-shadow: var(--wii-shadow) !important;
+    }
+
+    .header-actions .admin-profile-btn {
+        background: #fff !important;
+        border: 2px solid var(--wii-line) !important;
+        border-radius: 20px !important;
+        box-shadow: inset 0 -3px 0 #eef1f4 !important;
+    }
+
+    .header-actions .admin-profile-btn img {
+        border: 3px solid #fff !important;
+        box-shadow: 0 0 0 2px var(--wii-line) !important;
+    }
+
+    .header-actions .admin-profile-btn span {
+        color: var(--wii-text-strong) !important;
+        text-shadow: none !important;
+    }
+
+    .store {
+        gap: 10px !important;
+    }
+}
+
+/* ==========================================================================
+   BOTONES DE LAS TARJETAS (Ver enlace / Agregar)
+   Mismo botón blanco del Menú Wii, en tamaño compacto
+   ========================================================================== */
+.card .btns {
+    gap: 5px;
+}
+
+.card .btns .btn,
+.card .btns .btn.blue.cart-add-btn,
+.card .btns .btn.green.cart-add-btn {
+    background: var(--wii-btn-fondo) !important;
+    border: 2px solid var(--wii-btn-borde) !important;
+    border-radius: 999px !important;
+    color: var(--wii-text-strong) !important;
+    text-shadow: none !important;
+    box-shadow: var(--wii-btn-sombra) !important;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.card .btns .btn i {
+    color: var(--wii-blue-dark);
+}
+
+/* Ya en el carrito: borde e icono verdes */
+.card .btns .btn.green.cart-add-btn {
+    border-color: #8fdc9c !important;
+}
+
+.card .btns .btn.green.cart-add-btn i {
+    color: var(--wii-green);
+}
+
+.card .btns .btn:hover {
+    filter: none;
+    border-color: var(--wii-blue) !important;
+    box-shadow: 0 0 0 3px var(--wii-blue-soft), var(--wii-btn-sombra) !important;
+}
+
+/* Botón "Cerrar" de las ventanas anchas (emuladores, recursos, donaciones):
+   tamaño de botón normal y centrado, en vez de ocupar todo el ancho */
+#emuladoresBox .login-content > button,
+#recursosBox .login-content > button,
+#donacionesBox .login-content > button {
+    width: 220px;
+    max-width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+/* Selector de tema */
+.tema-selector {
+    background: var(--wii-btn-fondo);
+    border: 2px solid var(--wii-btn-borde);
+    box-shadow: var(--wii-btn-sombra);
+    color: var(--wii-text-strong);
+}
+
+.tema-selector i {
+    color: var(--wii-blue-dark);
+}
+
+.tema-selector:hover,
+.tema-selector:focus-within {
+    border-color: var(--wii-blue);
+}
+
+.tema-selector select {
+    font-weight: 500;
+}
+
+.tema-selector select option {
+    background: #fff;
+    color: var(--wii-text);
+}
+
+/* Menú de temas en claro */
+:root {
+    --menu-fondo: #ffffff;
+    --menu-borde: var(--wii-line);
+    --menu-texto: var(--wii-text-strong);
+    --menu-hover: var(--wii-blue-soft);
+    --menu-activo: rgba(52, 190, 237, 0.2);
+    --menu-acento: var(--wii-blue-dark);
+}

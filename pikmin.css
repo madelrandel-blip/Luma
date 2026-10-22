@@ -1,0 +1,2050 @@
+/* ==========================================================================
+   TEMA PIKMIN (Frutiger Aero)
+   Capa de tema sobre style.css que mezcla el Frutiger Aero (cielo azul,
+   hierba verde, burbujas y cristal brillante) con los menús de Pikmin 3:
+   ventanas de cristal con reflejo, botones de gel con el punto de brillo
+   arriba a la derecha y selección en azul con halo. Comparte la estructura
+   del tema Wii; las variables --pk-blue* son el azul cielo del tema.
+   ========================================================================== */
+
+:root {
+    --pk-bg: #bfe6fb;
+    --pk-panel: #ffffff;
+    --pk-panel-2: rgba(240, 249, 255, 0.85);
+    --pk-line: #a9d3ee;
+    --pk-line-soft: rgba(255, 255, 255, 0.85);
+    --pk-text: #2f4554;
+    --pk-text-strong: #1d3140;
+    --pk-muted: #4f6676;
+    --pk-blue: #2a9df4;
+    --pk-blue-dark: #1273c9;
+    --pk-blue-soft: rgba(42, 157, 244, 0.18);
+    --pk-red: #e5484d;
+    --pk-green: #4cb52a;
+    --pk-shadow: 0 10px 30px rgba(20, 80, 140, 0.18);
+    --pk-shadow-lg: 0 24px 60px rgba(20, 80, 140, 0.25);
+    --pk-font: "FOT-Rodin Pro", "FOT-RodinNTLG Pro", "Rodin NTLG", "M PLUS 1p", Arial, sans-serif;
+    --pk-font-texto: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+    /* Punto de brillo de los botones de Pikmin 3 */
+    --pk-punto: radial-gradient(circle at calc(100% - 14px) 8px, rgba(255, 255, 255, 1) 0 2px, transparent 3px);
+
+    /* Gel claro (botón normal) */
+    --pk-btn-fondo: var(--pk-punto), linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.15) 49%, rgba(255, 255, 255, 0) 50%), linear-gradient(180deg, rgba(108, 202, 247, 0.55) 0%, rgba(47, 159, 230, 0.55) 50%, rgba(26, 134, 214, 0.62) 51%, rgba(58, 176, 240, 0.55) 100%);
+    --pk-btn-borde: #1667b0;
+    --pk-btn-sombra: inset 0 1px 0 #fff, inset 0 -2px 6px rgba(120, 190, 240, 0.35), 0 2px 8px rgba(20, 80, 140, 0.2);
+
+    /* Gel azul (seleccionado / al pasar el ratón) */
+    --pk-sel-fondo: var(--pk-punto), linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.25) 49%, rgba(255, 255, 255, 0) 50%), linear-gradient(180deg, rgba(143, 224, 255, 0.7) 0%, rgba(77, 189, 247, 0.7) 50%, rgba(42, 157, 244, 0.78) 51%, rgba(92, 200, 255, 0.7) 100%);
+    --pk-sel-sombra: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 0 3px rgba(130, 215, 255, 0.55), 0 4px 14px rgba(18, 115, 201, 0.35);
+
+    /* Gel verde (acciones principales) */
+    --pk-prim-fondo: var(--pk-punto), linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.15) 49%, rgba(255, 255, 255, 0) 50%), linear-gradient(180deg, rgba(155, 228, 111, 0.6) 0%, rgba(92, 194, 58, 0.6) 50%, rgba(68, 168, 35, 0.68) 51%, rgba(98, 201, 62, 0.6) 100%);
+
+    /* Cristal de las ventanas: casi opaco (sin desenfoque, que emborrona el
+       texto) con el reflejo brillante del Aero en la mitad superior. Fijo a
+       la pantalla para que la capa de VikingFile coincida con el panel. */
+    --pk-rayas-panel:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 45%),
+        linear-gradient(180deg, #ffffff 0%, #eef8ff 50%, #e2f3ff 100%);
+
+    --bg: var(--pk-bg);
+    --card: var(--pk-panel);
+    --text: var(--pk-text);
+    --accent: var(--pk-blue);
+    --accent2: var(--pk-blue-dark);
+    --border: var(--pk-line);
+}
+
+/* ----- Base ----- */
+body {
+    /* Texto corrido con la fuente del sistema (nítida en Windows); títulos y
+       botones usan la fuente estilo Rodin */
+    font-family: var(--pk-font-texto);
+    color: var(--pk-text);
+    /* Espacio de Pikmin: fondo de fans (Reddit, "4K Pikmin space wallpaper")
+       con todos los tipos de Pikmin en silueta sobre una colina mirando un
+       espacio azul oscuro. Se ancla abajo para que la colina y los Pikmin
+       siempre se vean; el degradado de debajo es el color de reserva. */
+    background:
+        url("assets/images/pikmin-espacio.jpg") center bottom / cover no-repeat,
+        linear-gradient(180deg, #050816 0%, #0b1838 70%, #12301a 100%);
+    background-attachment: fixed;
+}
+
+button,
+h1, h2, h3, h4,
+.preview-title,
+.preview-meta .value,
+.music-title {
+    font-family: var(--pk-font);
+}
+
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* El fondo de estrellas no tiene sentido sobre un fondo claro */
+#stars {
+    display: none;
+}
+
+/* ----- Scrollbar ----- */
+* {
+    scrollbar-color: #c2c9d1 transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-left: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7cdd4;
+    border: 3px solid var(--pk-bg);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--pk-blue);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* ----- Mezclas reutilizables (botones) ----- */
+/* Botón secundario Wii (como "Wii Menu" / "Start"): píldora blanca con un
+   degradado suave hacia gris azulado y borde azul cielo claro */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.login-content button,
+.captcha-tab,
+.success-close-btn,
+.cart-close-btn,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    background: var(--pk-btn-fondo) !important;
+    border: 3px solid var(--pk-btn-borde) !important;
+    border-radius: 999px !important;
+    color: var(--pk-text-strong) !important;
+    font-weight: 500 !important;
+    box-shadow: var(--pk-btn-sombra) !important;
+    text-shadow: none !important;
+}
+
+/* En los botones pequeños (encabezado, paginación, iconos) el borde de 3px
+   pesa demasiado */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    border-width: 2px !important;
+}
+
+.header-btn button:not(.admin-profile-btn):hover,
+.pagination button:hover,
+.login-content button:hover,
+.captcha-tab:hover,
+.success-close-btn:hover,
+.cart-close-btn:hover,
+.boton-fila .bf-acciones button:hover,
+.admin-game-item .btn-edit:hover {
+    border-color: var(--pk-blue) !important;
+    color: var(--pk-blue-dark) !important;
+    box-shadow: 0 0 0 3px var(--pk-blue-soft), 0 3px 8px rgba(40, 70, 100, 0.1) !important;
+}
+
+/* Botón principal Wii: azul cielo con brillo */
+.btn:not([style]),
+.accept-btn,
+#btnGuardar,
+.checkout-btn,
+.download-link-btn,
+.descarga-viking-boton,
+.btn.blue.cart-add-btn {
+    background: linear-gradient(180deg, #9fdcff 0%, #2a9df4 48%, #1d8ef0 52%, #46b0ff 100%) !important;
+    border: 2px solid #1273c9 !important;
+    color: #fff !important;
+    text-shadow: 0 1px 1px rgba(0, 60, 100, 0.35) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 3px 8px rgba(18, 115, 201, 0.25) !important;
+}
+
+.btn:not([style]):hover,
+.accept-btn:hover,
+#btnGuardar:hover,
+.checkout-btn:hover,
+.download-link-btn:hover,
+.btn.blue.cart-add-btn:hover {
+    filter: brightness(1.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 0 0 3px var(--pk-blue-soft), 0 5px 12px rgba(18, 115, 201, 0.3) !important;
+}
+
+/* Variante verde (tutorial, carrito añadido, pago) */
+.btn.green,
+.btn.green.cart-add-btn,
+.checkout-btn {
+    background: linear-gradient(180deg, #8ee59a 0%, #4cc760 48%, #36b44b 52%, #3fbd54 100%) !important;
+    border-color: #2fa043 !important;
+    text-shadow: 0 1px 1px rgba(0, 70, 20, 0.35) !important;
+}
+
+.download-all-btn {
+    background: linear-gradient(180deg, #ffd46b 0%, #ffbb1c 48%, #f5a800 52%, #ffb30f 100%) !important;
+    border: 2px solid #e09a00 !important;
+    color: #5a3c00 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 3px 8px rgba(224, 154, 0, 0.25) !important;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.header-btn {
+    background: linear-gradient(180deg, #ffffff 0%, #f2f4f6 100%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 2px solid var(--pk-line);
+    box-shadow: 0 4px 16px rgba(40, 70, 100, 0.08);
+    padding: 6px 20px;
+}
+
+.logo h1 {
+    color: var(--pk-text-strong);
+    font-weight: 800;
+    font-size: 17px;
+}
+
+#buscador {
+    color: var(--pk-text);
+    background: #fff;
+    border: 2px solid var(--pk-line);
+    border-radius: 999px;
+    padding: 7px 14px;
+    box-shadow: inset 0 2px 3px rgba(40, 70, 100, 0.07);
+}
+
+#buscador::placeholder {
+    color: var(--pk-muted);
+}
+
+#buscador:focus {
+    border-color: var(--pk-blue);
+    background: #fff;
+    box-shadow: inset 0 2px 3px rgba(40, 70, 100, 0.05), 0 0 0 3px var(--pk-blue-soft);
+}
+
+.header-btn button:not(.admin-profile-btn) {
+    border-radius: 999px;
+    height: 28px;
+    padding: 5px 12px;
+    font-weight: 700;
+}
+
+/* Switch Juegos / Homebrew */
+.homebrew-switch {
+    background: #fff;
+    border: 2px solid var(--pk-line);
+}
+
+.homebrew-switch:hover,
+.homebrew-switch.active {
+    border-color: var(--pk-blue);
+    background: #fff;
+}
+
+.homebrew-switch .hbs-track {
+    background: #dfe4e9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.homebrew-switch .hbs-knob {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.homebrew-switch .hbs-input:checked + .hbs-track {
+    background: var(--pk-blue);
+}
+
+.homebrew-switch .hbs-label {
+    color: var(--pk-text);
+    font-weight: 700;
+}
+
+/* Carrito del header */
+.cart-btn-header {
+    background: linear-gradient(180deg, #ffffff 0%, #eaf8ee 100%) !important;
+    border: 2px solid #a6dfb2 !important;
+    color: #2b9a40 !important;
+}
+
+.cart-badge {
+    background: var(--pk-green);
+}
+
+/* Perfil */
+.admin-profile-btn img,
+.music-icon {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--pk-line), 0 3px 8px rgba(40, 70, 100, 0.15);
+}
+
+.admin-profile-btn:hover {
+    background: transparent;
+}
+
+.admin-profile-btn:hover img {
+    box-shadow: 0 0 0 2px var(--pk-blue), 0 0 0 5px var(--pk-blue-soft);
+}
+
+/* ----- Reproductor ----- */
+.music-title {
+    color: var(--pk-text-strong);
+}
+
+.music-control .music-btn,
+.music-control .skip-btn {
+    width: 26px;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: var(--pk-text);
+    background: linear-gradient(180deg, #ffffff 0%, #eceff2 100%);
+    border: 2px solid var(--pk-line);
+}
+
+.music-control .music-btn:hover,
+.music-control .skip-btn:hover {
+    color: var(--pk-blue-dark);
+    border-color: var(--pk-blue);
+    background: #fff;
+}
+
+.volume-icon {
+    color: var(--pk-muted);
+}
+
+.volume-icon:hover {
+    color: var(--pk-blue);
+}
+
+.volume-icon.muted {
+    color: #bcc3ca;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    background: #fff;
+    border: 2px solid var(--pk-blue);
+}
+
+#volumeSlider::-moz-range-thumb {
+    background: #fff;
+    border: 2px solid var(--pk-blue);
+}
+
+.music-playlist {
+    background: #fff;
+    border: 2px solid var(--pk-line);
+    border-radius: 16px;
+    box-shadow: var(--pk-shadow);
+}
+
+.music-playlist .playlist-item {
+    color: var(--pk-text);
+    border-radius: 10px;
+}
+
+.music-playlist .playlist-item img {
+    border: 1px solid var(--pk-line);
+}
+
+.music-playlist .playlist-item:hover,
+.music-playlist .playlist-item.active {
+    background: var(--pk-blue-soft);
+    border-color: var(--pk-blue);
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   TIENDA: CANALES
+   ========================================================================== */
+.store {
+    gap: 8px;
+    padding: 14px 20px 4px;
+}
+
+/* Cada juego es un "canal": marco blanco redondeado con borde gris */
+.card {
+    background: var(--pk-panel);
+    border: 2px solid var(--pk-line);
+    border-radius: 18px;
+    /* Solo relleno vertical: la portada es algo más estrecha que el canal para
+       que la tarjeta mida lo mismo que antes y quepan las mismas filas */
+    padding: 4px 0;
+    box-shadow: inset 0 -3px 0 #eef1f4, 0 3px 10px rgba(40, 70, 100, 0.08);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: var(--pk-blue);
+    box-shadow: 0 0 0 4px var(--pk-blue-soft), 0 10px 22px rgba(18, 115, 201, 0.18);
+}
+
+.card img {
+    width: 86%;
+    border-radius: 13px;
+}
+
+.card .content {
+    inset: 4px;
+    border-radius: 13px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.85) 38%, rgba(255, 255, 255, 0) 72%);
+}
+
+.info-overlay h3 {
+    color: var(--pk-text-strong);
+    font-weight: 800;
+}
+
+.info-overlay p {
+    color: var(--pk-muted);
+}
+
+.btn {
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.admin-actions button {
+    background: #fff;
+    border: 2px solid #f3b4b6;
+    color: var(--pk-red);
+    border-radius: 999px;
+}
+
+/* Emuladores y recursos */
+#emuladoresStore .card,
+#recursosStore .card {
+    background: var(--pk-panel);
+    border: 2px solid var(--pk-line);
+    border-radius: 20px;
+}
+
+#emuladoresStore .card:hover,
+#recursosStore .card:hover {
+    border-color: var(--pk-blue);
+    box-shadow: 0 0 0 4px var(--pk-blue-soft), 0 10px 22px rgba(18, 115, 201, 0.18);
+}
+
+#emuladoresStore .card img,
+#recursosStore .card img {
+    border-radius: 14px;
+}
+
+#emuladoresStore .content,
+#recursosStore .content {
+    inset: auto;
+    background: none;
+}
+
+#emuladoresStore .info-overlay p,
+#recursosStore .info-overlay p {
+    color: var(--pk-muted);
+}
+
+/* ----- Paginación ----- */
+.pagination button {
+    border-radius: 999px;
+    min-width: 36px;
+    font-weight: 700;
+}
+
+.pagination button.active {
+    background: linear-gradient(180deg, #9fdcff 0%, #2a9df4 100%) !important;
+    border-color: #1273c9 !important;
+    color: #fff !important;
+    text-shadow: 0 1px 1px rgba(0, 60, 100, 0.35) !important;
+}
+
+/* ==========================================================================
+   MODALES
+   ========================================================================== */
+#loginBox,
+#emuladoresBox,
+#recursosBox,
+#donacionesBox,
+#descargaBox,
+#captchaBox,
+#cartBox,
+#purchaseSuccessBox,
+#previewBox {
+    background: rgba(226, 232, 238, 0.88);
+}
+
+.login-content,
+.success-content,
+.captcha-content,
+.preview-content {
+    background: var(--pk-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--pk-line-soft);
+    border-radius: 28px;
+    color: var(--pk-text);
+    box-shadow: var(--pk-shadow-lg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.login-content h3,
+.admin-profile h3,
+.success-content h2 {
+    color: var(--pk-text-strong);
+    font-weight: 800;
+}
+
+.login-content input {
+    background: var(--pk-panel-2);
+    color: var(--pk-text);
+    border: 2px solid var(--pk-line);
+    border-radius: 999px;
+    padding: 12px 18px;
+}
+
+.login-content input:focus {
+    border-color: var(--pk-blue);
+    box-shadow: 0 0 0 3px var(--pk-blue-soft);
+}
+
+.login-content button {
+    border-radius: 999px;
+}
+
+.admin-profile img {
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 3px var(--pk-line), var(--pk-shadow);
+}
+
+.admin-profile p {
+    color: var(--pk-muted);
+}
+
+/* ----- Descarga ----- */
+#descargaNombre {
+    color: var(--pk-blue-dark) !important;
+}
+
+#descargaEstado {
+    color: var(--pk-muted);
+}
+
+.progress-bar,
+#descargaBox .progress-bar {
+    height: 10px;
+    background: #e4e8ec;
+    border: none;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.progress-fill,
+#descargaBox .progress-fill {
+    border-radius: 999px;
+    background: linear-gradient(180deg, #9fdcff 0%, #2a9df4 50%, #1d8ef0 100%);
+    box-shadow: none;
+}
+
+#descargaBox .descarga-cancelar {
+    background: #fff !important;
+    border: 2px solid #f3b4b6 !important;
+    color: var(--pk-red) !important;
+    box-shadow: none !important;
+}
+
+#descargaBox .descarga-cancelar:hover {
+    background: #fff5f5 !important;
+    border-color: var(--pk-red) !important;
+    color: var(--pk-red) !important;
+}
+
+/* VikingFile incrustado: la página ya es clara, así que no se invierte; la
+   capa que la tapa usa el blanco del panel para no notarse. */
+#descargaVikingFrame,
+#captchaFrame {
+    filter: none;
+    background: #fff;
+}
+
+.descarga-viking-tinte,
+.captcha-tinte {
+    display: none;
+}
+
+.descarga-viking-capa,
+.captcha-tapa,
+.captcha-cargando,
+.captcha-marco {
+    background: var(--pk-rayas-panel);
+    background-attachment: fixed;
+}
+
+.descarga-viking-boton {
+    border-radius: 999px;
+}
+
+.captcha-header,
+.captcha-close {
+    color: var(--pk-text-strong);
+}
+
+.captcha-cargando,
+.captcha-hosting {
+    color: var(--pk-blue-dark);
+}
+
+/* ----- Bienvenida ----- */
+#welcomeScreen {
+    background: linear-gradient(rgba(240, 244, 248, 0.55), rgba(232, 237, 242, 0.75)),
+                url('assets/images/Background.jpg') center/cover no-repeat;
+}
+
+.welcome-overlay {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.welcome-box {
+    background: var(--pk-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--pk-line-soft);
+    border-radius: 32px;
+    box-shadow: var(--pk-shadow-lg);
+}
+
+.welcome-box h2 {
+    color: var(--pk-text-strong);
+    text-shadow: none;
+}
+
+.welcome-box p {
+    color: var(--pk-text);
+}
+
+.welcome-box img {
+    filter: drop-shadow(0 6px 14px rgba(40, 70, 100, 0.18));
+}
+
+.accept-btn {
+    border-radius: 999px;
+}
+
+/* ----- Donaciones ----- */
+.donate-btn {
+    background: linear-gradient(180deg, #ffffff 0%, #eef1f4 100%);
+    color: var(--pk-text);
+    border: 2px solid var(--pk-line);
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 #fff, 0 3px 8px rgba(40, 70, 100, 0.1);
+}
+
+.donate-btn:hover {
+    border-color: var(--pk-blue);
+    box-shadow: 0 0 0 3px var(--pk-blue-soft), 0 5px 12px rgba(40, 70, 100, 0.12);
+}
+
+/* ==========================================================================
+   FICHA DEL JUEGO
+   ========================================================================== */
+.preview-close {
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #ffffff 0%, #eef1f4 100%);
+    border: 2px solid var(--pk-line);
+    color: var(--pk-text);
+    font-size: 15px;
+    opacity: 1;
+}
+
+.preview-close:hover {
+    border-color: var(--pk-red);
+    color: var(--pk-red);
+}
+
+.preview-cover img {
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--pk-line), var(--pk-shadow);
+    background: var(--pk-panel-2);
+}
+
+.preview-title {
+    color: var(--pk-text-strong);
+    font-weight: 800;
+}
+
+/* Texto largo sobre las rayas: más oscuro y con más peso para que se lea */
+.preview-desc {
+    color: var(--pk-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.preview-file-info {
+    color: var(--pk-text);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Etiquetas azules: un azul más oscuro (el azul cielo sobre blanco tiene poco
+   contraste y se ve borroso) y la fuente del sistema, que es nítida. */
+.preview-file-info .fi b,
+.preview-meta .label {
+    color: #0f5fa8;
+    font-family: var(--pk-font-texto);
+    font-weight: 700;
+}
+
+.preview-meta .label {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.preview-meta {
+    background: var(--pk-panel-2);
+    border: 2px solid var(--pk-line-soft);
+    border-radius: 16px;
+}
+
+.preview-meta .value {
+    color: var(--pk-text-strong);
+}
+
+.preview-meta .value.gold {
+    color: #e09a00;
+}
+
+.preview-main {
+    border: 2px solid var(--pk-line);
+    border-radius: 16px;
+    background: #1b1d20;
+}
+
+.preview-thumbs .thumb {
+    border: 2px solid var(--pk-line);
+    border-radius: 10px;
+    opacity: 0.6;
+}
+
+.preview-thumbs .thumb.active {
+    border-color: var(--pk-blue);
+    box-shadow: 0 0 0 3px var(--pk-blue-soft);
+}
+
+/* Botones de descarga al estilo Wii: píldora blanca y el color de su tipo
+   (variable --c, la pone script.js) solo en el borde y el icono. */
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte {
+    background: var(--pk-btn-fondo) !important;
+    color: var(--pk-text-strong) !important;
+    font-weight: 500 !important;
+    border-radius: 999px !important;
+    border: 3px solid var(--c, var(--pk-btn-borde)) !important;
+    text-shadow: none !important;
+    box-shadow: var(--pk-btn-sombra) !important;
+    transition: box-shadow 0.2s, background 0.2s !important;
+}
+
+.preview-links .btn i,
+.btn-partes-toggle i,
+.btn-parte i {
+    color: var(--c, var(--pk-blue));
+}
+
+.preview-links .btn:hover,
+.btn-partes-toggle:hover,
+.btn-parte:hover {
+    filter: none !important;
+    background: color-mix(in srgb, var(--c, var(--pk-blue)) 10%, #ffffff) !important;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--c, var(--pk-blue)) 22%, transparent), 0 3px 8px rgba(40, 70, 100, 0.12) !important;
+}
+
+.preview-links .btn-partes,
+.preview-links .btn-partes:hover {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    text-shadow: none !important;
+}
+
+/* ==========================================================================
+   CARRITO, ÉXITO Y AVISOS
+   ========================================================================== */
+.cart-item {
+    background: var(--pk-panel-2);
+    border: 2px solid var(--pk-line-soft);
+    border-radius: 14px;
+    box-shadow: none;
+}
+
+.cart-item-img {
+    border: 1px solid var(--pk-line);
+    border-radius: 10px;
+}
+
+.cart-item span {
+    color: var(--pk-text-strong);
+}
+
+.cart-total {
+    color: var(--pk-text-strong);
+}
+
+.cart-total span,
+.success-icon,
+.success-content h2 {
+    color: var(--pk-green);
+}
+
+.success-content p {
+    color: var(--pk-muted);
+}
+
+.checkout-btn:disabled {
+    background: #cfd5db !important;
+    border-color: #bcc3ca !important;
+}
+
+.toast {
+    background: #fff;
+    border: 2px solid var(--pk-line);
+    color: var(--pk-text-strong);
+    border-radius: 999px;
+    box-shadow: var(--pk-shadow);
+}
+
+/* ==========================================================================
+   PANEL DE ADMINISTRACIÓN
+   ========================================================================== */
+#adminPanel {
+    --ap-border: var(--pk-line);
+    --ap-surface: var(--pk-panel-2);
+    --ap-field: #fff;
+    --ap-accent: var(--pk-blue);
+    --ap-accent2: var(--pk-blue-dark);
+
+    background: var(--pk-rayas-panel);
+    background-attachment: fixed;
+    border: 3px solid var(--pk-line-soft);
+    border-radius: 26px;
+    box-shadow: var(--pk-shadow-lg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.admin-header h3,
+.admin-section h4,
+.admin-list h4,
+.admin-field .admin-homebrew-label,
+.admin-game-item-info span {
+    color: var(--pk-text-strong);
+}
+
+.admin-header h3 i {
+    color: #fff;
+    border-radius: 50%;
+}
+
+.admin-header-sub,
+.admin-field label,
+.admin-field .admin-homebrew-label small,
+.admin-game-item-info small,
+.admin-empty,
+.admin-search-wrap i {
+    color: var(--pk-muted);
+}
+
+.admin-section {
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.admin-section:hover,
+.admin-section:focus-within {
+    border-color: var(--pk-blue);
+}
+
+.admin-section h4 i {
+    border-radius: 50%;
+    background: var(--pk-blue-soft);
+    border-color: transparent;
+}
+
+.admin-field input[type="text"],
+.admin-field textarea,
+#adminSearch,
+.boton-fila select,
+.boton-fila input[type="text"],
+.boton-fila textarea,
+.boton-agregar select {
+    color: var(--pk-text);
+    border-width: 2px;
+    border-radius: 12px;
+}
+
+.admin-field input::placeholder,
+.admin-field textarea::placeholder,
+#adminSearch::placeholder,
+.boton-fila input::placeholder,
+.boton-fila textarea::placeholder {
+    color: #aab1b9;
+}
+
+.admin-field input[type="text"]:hover,
+.admin-field textarea:hover,
+#adminSearch:hover {
+    border-color: #bfc6ce;
+}
+
+.admin-field input[type="text"]:focus,
+.admin-field textarea:focus,
+#adminSearch:focus,
+.boton-fila select:focus,
+.boton-fila input[type="text"]:focus,
+.boton-fila textarea:focus,
+.boton-agregar select:focus {
+    border-color: var(--pk-blue);
+    background: #fff;
+    box-shadow: 0 0 0 3px var(--pk-blue-soft);
+}
+
+.boton-fila select option,
+.boton-agregar select option {
+    background: #fff;
+    color: var(--pk-text);
+}
+
+.admin-field .admin-homebrew-label {
+    background: var(--pk-panel-2);
+    border: 2px solid var(--pk-line);
+}
+
+.admin-mode {
+    background: #eefaf0;
+    border: 2px solid #a6dfb2;
+    color: #2b9a40;
+}
+
+.admin-mode.editing {
+    background: #fff7e6;
+    border-color: #f5cf7a;
+    color: #b97800;
+}
+
+.admin-actions-bar {
+    background: rgba(255, 255, 255, 0.94);
+    border: 2px solid var(--pk-line-soft);
+    border-radius: 20px;
+    box-shadow: 0 -6px 20px rgba(40, 70, 100, 0.08);
+}
+
+.admin-actions-bar button {
+    border-radius: 999px;
+}
+
+#btnCancelar {
+    background: #fff;
+    border: 2px solid #f3b4b6;
+    color: var(--pk-red);
+}
+
+.admin-list {
+    border-width: 2px;
+    border-radius: 20px;
+}
+
+.admin-count {
+    background: var(--pk-blue-soft);
+    border-color: transparent;
+    color: var(--pk-blue-dark);
+}
+
+.admin-game-item {
+    background: #fff;
+    border: 2px solid var(--pk-line-soft);
+}
+
+.admin-game-item:hover {
+    background: #fff;
+    border-color: var(--pk-blue);
+}
+
+.admin-game-item img {
+    box-shadow: 0 2px 6px rgba(40, 70, 100, 0.15);
+}
+
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete {
+    border-radius: 50%;
+}
+
+.admin-game-item .btn-delete:hover {
+    border-color: var(--pk-red) !important;
+    color: var(--pk-red) !important;
+    box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.12) !important;
+}
+
+.hb-badge {
+    color: #7c4dcc;
+    background: #f2ecfd;
+    border-color: #d5c4f7;
+}
+
+.boton-fila {
+    background: #fff;
+    border-width: 2px;
+    border-left-width: 6px;
+    border-radius: 16px;
+}
+
+.boton-fila .bf-acciones button {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+}
+
+.boton-fila .bf-acciones button[data-op="borrar"]:hover {
+    border-color: var(--pk-red) !important;
+    color: var(--pk-red) !important;
+}
+
+.boton-fila .bf-paleta button {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px var(--pk-line);
+}
+
+.boton-fila .bf-paleta button:hover {
+    border-color: #fff;
+    box-shadow: 0 0 0 2px var(--pk-blue);
+}
+
+.boton-agregar button {
+    border: 2px dashed var(--pk-blue);
+    border-radius: 999px;
+    background: var(--pk-blue-soft);
+    color: var(--pk-blue-dark);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   RESPONSIVE: sustituye los fondos oscuros que style.css fuerza con !important
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .header-btn {
+        background: linear-gradient(180deg, #ffffff 0%, #f2f4f6 100%) !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .music-control {
+        background: rgba(255, 255, 255, 0.96) !important;
+        border: 2px solid var(--pk-line) !important;
+        border-radius: 999px !important;
+        box-shadow: var(--pk-shadow) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-btn {
+        background: linear-gradient(180deg, #ffffff 0%, #f2f4f6 100%) !important;
+        border: 2px solid var(--pk-line) !important;
+        border-radius: 22px !important;
+        box-shadow: var(--pk-shadow) !important;
+    }
+
+    .header-actions .admin-profile-btn {
+        background: #fff !important;
+        border: 2px solid var(--pk-line) !important;
+        border-radius: 20px !important;
+        box-shadow: inset 0 -3px 0 #eef1f4 !important;
+    }
+
+    .header-actions .admin-profile-btn img {
+        border: 3px solid #fff !important;
+        box-shadow: 0 0 0 2px var(--pk-line) !important;
+    }
+
+    .header-actions .admin-profile-btn span {
+        color: var(--pk-text-strong) !important;
+        text-shadow: none !important;
+    }
+
+    .store {
+        gap: 10px !important;
+    }
+}
+
+/* ==========================================================================
+   BOTONES DE LAS TARJETAS (Ver enlace / Agregar)
+   Mismo botón blanco del Menú Wii, en tamaño compacto
+   ========================================================================== */
+.card .btns {
+    gap: 5px;
+}
+
+.card .btns .btn,
+.card .btns .btn.blue.cart-add-btn,
+.card .btns .btn.green.cart-add-btn {
+    background: var(--pk-btn-fondo) !important;
+    border: 2px solid var(--pk-btn-borde) !important;
+    border-radius: 999px !important;
+    color: var(--pk-text-strong) !important;
+    text-shadow: none !important;
+    box-shadow: var(--pk-btn-sombra) !important;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.card .btns .btn i {
+    color: var(--pk-blue-dark);
+}
+
+/* Ya en el carrito: borde e icono verdes */
+.card .btns .btn.green.cart-add-btn {
+    border-color: #8fdc9c !important;
+}
+
+.card .btns .btn.green.cart-add-btn i {
+    color: var(--pk-green);
+}
+
+.card .btns .btn:hover {
+    filter: none;
+    border-color: var(--pk-blue) !important;
+    box-shadow: 0 0 0 3px var(--pk-blue-soft), var(--pk-btn-sombra) !important;
+}
+
+/* Botón "Cerrar" de las ventanas anchas (emuladores, recursos, donaciones):
+   tamaño de botón normal y centrado, en vez de ocupar todo el ancho */
+#emuladoresBox .login-content > button,
+#recursosBox .login-content > button,
+#donacionesBox .login-content > button {
+    width: 220px;
+    max-width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+/* Selector de tema */
+.tema-selector {
+    background: var(--pk-btn-fondo);
+    border: 2px solid var(--pk-btn-borde);
+    box-shadow: var(--pk-btn-sombra);
+    color: var(--pk-text-strong);
+}
+
+.tema-selector i {
+    color: var(--pk-blue-dark);
+}
+
+.tema-selector:hover,
+.tema-selector:focus-within {
+    border-color: var(--pk-blue);
+}
+
+.tema-selector select {
+    font-weight: 500;
+}
+
+.tema-selector select option {
+    background: #fff;
+    color: var(--pk-text);
+}
+
+/* ==========================================================================
+   AERO + PIKMIN: botones de gel, cristal y reflejos
+   ========================================================================== */
+
+/* Botones normales: gel claro con borde fino */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.login-content button,
+.captcha-tab,
+.success-close-btn,
+.cart-close-btn,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete,
+.card .btns .btn,
+.card .btns .btn.blue.cart-add-btn,
+.card .btns .btn.green.cart-add-btn {
+    border-width: 1.5px !important;
+    font-weight: 700 !important;
+}
+
+/* Acciones principales: gel verde hierba */
+.btn:not([style]):not(.card .btns .btn),
+.accept-btn,
+#btnGuardar,
+.checkout-btn,
+.download-link-btn,
+.descarga-viking-boton {
+    background: var(--pk-prim-fondo) !important;
+    border: 1.5px solid #3a9a1f !important;
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(20, 80, 10, 0.45) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 3px 10px rgba(60, 140, 30, 0.3) !important;
+}
+
+/* Seleccionado / al pasar el ratón: gel azul con halo */
+.header-btn button:not(.admin-profile-btn):hover,
+.pagination button:hover,
+.pagination button.active,
+.login-content button:hover,
+.captcha-tab:hover,
+.success-close-btn:hover,
+.cart-close-btn:hover,
+.boton-fila .bf-acciones button:hover,
+.admin-game-item .btn-edit:hover,
+.card .btns .btn:hover,
+.btn:not([style]):hover,
+.accept-btn:hover,
+#btnGuardar:hover,
+.checkout-btn:hover,
+.download-link-btn:hover {
+    background: var(--pk-sel-fondo) !important;
+    border-color: #1273c9 !important;
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(10, 60, 120, 0.45) !important;
+    box-shadow: var(--pk-sel-sombra) !important;
+    filter: none !important;
+}
+
+.card .btns .btn i,
+.card .btns .btn:hover i {
+    color: inherit;
+}
+
+/* Botones de descarga de la ficha: gel claro con el color de su tipo (--c)
+   en el borde y el icono; al pasar el ratón, gel azul */
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte {
+    border-width: 2.5px !important;
+    font-weight: 700 !important;
+}
+
+.preview-links .btn:hover,
+.btn-partes-toggle:hover,
+.btn-parte:hover {
+    background: var(--pk-sel-fondo) !important;
+    color: #fff !important;
+    box-shadow: var(--pk-sel-sombra) !important;
+}
+
+.preview-links .btn:hover i,
+.btn-partes-toggle:hover i,
+.btn-parte:hover i {
+    color: #fff;
+}
+
+/* ----- Barra superior de cristal ----- */
+.header-btn {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 51%),
+        linear-gradient(180deg, rgba(225, 245, 255, 0.95) 0%, rgba(175, 222, 250, 0.95) 100%);
+    border-bottom: 1.5px solid rgba(60, 140, 200, 0.45);
+    box-shadow: inset 0 1px 0 #fff, 0 4px 16px rgba(20, 80, 140, 0.18);
+}
+
+.logo h1 {
+    color: #0f5fa8;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+#buscador,
+.tema-selector {
+    border: 1.5px solid rgba(60, 140, 200, 0.45);
+    box-shadow: inset 0 2px 4px rgba(20, 80, 140, 0.12);
+}
+
+/* ----- Canales de cristal con reflejo ----- */
+.card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 40%),
+        rgba(235, 248, 255, 0.85);
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 0 1px rgba(60, 140, 200, 0.35), 0 6px 16px rgba(20, 80, 140, 0.18);
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 0 2px var(--pk-blue), 0 0 0 6px rgba(130, 215, 255, 0.45), 0 10px 24px rgba(18, 115, 201, 0.3);
+}
+
+#emuladoresStore .card,
+#recursosStore .card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 40%),
+        rgba(235, 248, 255, 0.92);
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ----- Ventanas: cristal brillante ----- */
+.login-content,
+.success-content,
+.captcha-content,
+.preview-content,
+.welcome-box,
+#adminPanel {
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 0 1px rgba(60, 140, 200, 0.35), inset 0 1px 0 #fff, var(--pk-shadow-lg);
+}
+
+#loginBox,
+#emuladoresBox,
+#recursosBox,
+#donacionesBox,
+#descargaBox,
+#captchaBox,
+#cartBox,
+#purchaseSuccessBox,
+#previewBox {
+    background: rgba(120, 190, 235, 0.45);
+}
+
+/* Títulos de ventana como las placas de Pikmin 3, en cristal */
+.login-content > h3,
+.welcome-box h2,
+.success-content h2 {
+    display: inline-block;
+    padding: 6px 22px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(60, 140, 200, 0.45);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 51%),
+        linear-gradient(180deg, #d9f1ff 0%, #a9dcfb 100%);
+    color: #0f5fa8;
+    text-shadow: 0 1px 0 #fff;
+    box-shadow: inset 0 1px 0 #fff, 0 2px 6px rgba(20, 80, 140, 0.15);
+}
+
+.preview-meta,
+.cart-item,
+.admin-section,
+.admin-list {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 50%),
+        rgba(230, 245, 255, 0.8);
+    border-color: rgba(60, 140, 200, 0.3);
+}
+
+.progress-fill,
+#descargaBox .progress-fill {
+    background: linear-gradient(180deg, #c6f5a4 0%, #7fd85a 48%, #4cb52a 52%, #66c940 100%);
+}
+
+/* Responsive: barra superior de cristal también en pantallas pequeñas */
+@media (max-width: 1200px) {
+    .header-btn {
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 51%),
+            linear-gradient(180deg, rgba(225, 245, 255, 0.95) 0%, rgba(175, 222, 250, 0.95) 100%) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-btn {
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 51%),
+            linear-gradient(180deg, rgba(225, 245, 255, 0.95) 0%, rgba(175, 222, 250, 0.95) 100%) !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.5) !important;
+    }
+}
+
+/* ==========================================================================
+   GEL AERO EN TODOS LOS BOTONES
+   Botón de gel azul saturado (no blanco, para no parecerse a la Wii): reflejo
+   brillante en la mitad superior cortado en seco, texto blanco con sombra y
+   el punto de brillo de Pikmin 3. Al pasar el ratón el gel se aclara y
+   aparece un halo; al pulsar se oscurece.
+   ========================================================================== */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.login-content button,
+.captcha-tab,
+.success-close-btn,
+.cart-close-btn,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete,
+.card .btns .btn,
+.card .btns .btn.blue.cart-add-btn,
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte {
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(5, 50, 100, 0.55) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -3px 6px rgba(5, 60, 120, 0.25), 0 3px 8px rgba(20, 80, 140, 0.3) !important;
+}
+
+.card .btns .btn.green.cart-add-btn {
+    background: var(--pk-prim-fondo) !important;
+    border-color: #3a9a1f !important;
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(20, 80, 10, 0.45) !important;
+}
+
+.header-btn button:not(.admin-profile-btn):active,
+.pagination button:active,
+.login-content button:active,
+.btn:active,
+.preview-links .btn:active {
+    filter: brightness(0.9) !important;
+    transform: translateY(1px) !important;
+}
+
+.preview-links .btn i,
+.btn-partes-toggle i,
+.btn-parte i,
+.card .btns .btn i {
+    color: #fff !important;
+}
+
+/* Botones de descarga de la ficha: el color de su tipo como anillo */
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte {
+    border: 2px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 0 0 3px var(--c, #1667b0), inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 4px 10px rgba(20, 80, 140, 0.3) !important;
+}
+
+/* Peligro: gel rojo al pasar el ratón */
+#descargaBox .descarga-cancelar,
+#btnCancelar {
+    background: var(--pk-punto), linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.15) 49%, rgba(255, 255, 255, 0) 50%), linear-gradient(180deg, #ff8a8d 0%, #ef4f54 50%, #d93a3f 51%, #f2605f 100%) !important;
+    border: 1.5px solid #a92f33 !important;
+    color: #fff !important;
+}
+
+.preview-links .btn-partes,
+.preview-links .btn-partes:hover {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+/* ==========================================================================
+   TRANSPARENCIA REAL
+   Botones, barra superior, tarjetas y ventanas dejan ver lo que hay detrás
+   desenfocado (backdrop-filter), como el cristal del Aero. La ventana de
+   descarga se queda opaca: tapa la página de VikingFile y una capa
+   transparente la dejaría ver.
+   ========================================================================== */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.login-content button,
+.captcha-tab,
+.success-close-btn,
+.cart-close-btn,
+.card .btns .btn,
+.btn:not([style]),
+.accept-btn,
+#btnGuardar,
+.checkout-btn,
+.download-link-btn,
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte,
+.tema-selector {
+    -webkit-backdrop-filter: blur(6px) saturate(170%);
+    backdrop-filter: blur(6px) saturate(170%);
+}
+
+.header-btn,
+.card,
+#emuladoresStore .card,
+#recursosStore .card {
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    backdrop-filter: blur(14px) saturate(160%);
+}
+
+.header-btn {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 51%),
+        rgba(150, 200, 240, 0.12) !important;
+}
+
+.card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 40%),
+        rgba(225, 244, 255, 0.35);
+}
+
+#emuladoresStore .card,
+#recursosStore .card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 40%),
+        rgba(225, 244, 255, 0.45);
+}
+
+/* Ventanas de cristal (menos la de descarga) */
+#loginBox .login-content,
+#emuladoresBox .login-content,
+#recursosBox .login-content,
+#donacionesBox .login-content,
+#cartBox .login-content,
+.success-content,
+.preview-content,
+.welcome-box,
+#adminPanel {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 45%),
+        rgba(235, 247, 255, 0.62);
+    -webkit-backdrop-filter: blur(22px) saturate(160%);
+    backdrop-filter: blur(22px) saturate(160%);
+}
+
+/* Detrás de las ventanas se ve la página, solo teñida */
+#loginBox,
+#emuladoresBox,
+#recursosBox,
+#donacionesBox,
+#cartBox,
+#purchaseSuccessBox,
+#previewBox {
+    background: rgba(90, 160, 210, 0.25);
+}
+
+/* ==========================================================================
+   CRISTAL DEL HUD DE PIKMIN
+   Como los contadores y burbujas del HUD de Pikmin: cristal casi incoloro
+   que deja ver el fondo nítido (sin desenfoque), borde blanco translúcido,
+   sombreado suave en el canto inferior, reflejo blanco arriba a la
+   izquierda y texto blanco con contorno oscuro. Sustituye al gel de color.
+   ========================================================================== */
+:root {
+    /* Reflejo: punto brillante arriba a la izquierda con un pequeño halo */
+    --pk-reflejo: radial-gradient(circle at 12px 9px, rgba(255, 255, 255, 1) 0 2.5px, rgba(255, 255, 255, 0.5) 3.5px, transparent 7px);
+    --pk-cristal-hud:
+        var(--pk-reflejo),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.08) 38%, rgba(255, 255, 255, 0.02) 62%, rgba(255, 255, 255, 0.2) 100%);
+    --pk-cristal-sombra:
+        inset 0 0 0 1px rgba(40, 60, 80, 0.18),
+        inset 0 -7px 10px -4px rgba(40, 60, 80, 0.22),
+        inset 0 6px 8px -4px rgba(255, 255, 255, 0.3),
+        0 2px 6px rgba(20, 40, 60, 0.18);
+    /* Texto blanco con contorno oscuro, como los números del HUD */
+    --pk-texto-hud: 0 0 1px #2a3440, 1px 1px 0 rgba(30, 40, 50, 0.75), -1px -1px 0 rgba(30, 40, 50, 0.45), 0 2px 3px rgba(0, 0, 0, 0.35);
+}
+
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.login-content button,
+.captcha-tab,
+.success-close-btn,
+.cart-close-btn,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete,
+.card .btns .btn,
+.card .btns .btn.blue.cart-add-btn,
+.card .btns .btn.green.cart-add-btn,
+.btn:not([style]),
+.accept-btn,
+#btnGuardar,
+.checkout-btn,
+.download-link-btn,
+.download-all-btn,
+.donate-btn,
+.descarga-viking-boton,
+#descargaBox .descarga-cancelar,
+#btnCancelar,
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte,
+.tema-selector {
+    background: var(--pk-cristal-hud) !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 14px !important;
+    color: #fff !important;
+    text-shadow: var(--pk-texto-hud) !important;
+    box-shadow: var(--pk-cristal-sombra) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+}
+
+.card .btns .btn i,
+.preview-links .btn i,
+.btn-partes-toggle i,
+.btn-parte i,
+.tema-selector i {
+    color: #fff !important;
+    filter: drop-shadow(0 1px 1px rgba(30, 40, 50, 0.7));
+}
+
+.tema-selector select {
+    color: #fff;
+    text-shadow: var(--pk-texto-hud);
+}
+
+.tema-selector select option {
+    color: var(--pk-text);
+    text-shadow: none;
+}
+
+/* Botones de descarga de la ficha: el color de su tipo, tenue, dentro del
+   cristal y en el borde */
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte {
+    background:
+        var(--pk-cristal-hud),
+        color-mix(in srgb, var(--c, #ffffff) 22%, transparent) !important;
+    border-color: color-mix(in srgb, var(--c, #ffffff) 60%, rgba(255, 255, 255, 0.35)) !important;
+}
+
+/* Al pasar el ratón el cristal se ilumina por dentro */
+.header-btn button:not(.admin-profile-btn):hover,
+.pagination button:hover,
+.pagination button.active,
+.login-content button:hover,
+.captcha-tab:hover,
+.success-close-btn:hover,
+.cart-close-btn:hover,
+.boton-fila .bf-acciones button:hover,
+.admin-game-item .btn-edit:hover,
+.admin-game-item .btn-delete:hover,
+.card .btns .btn:hover,
+.btn:not([style]):hover,
+.accept-btn:hover,
+#btnGuardar:hover,
+.checkout-btn:hover,
+.download-link-btn:hover,
+.download-all-btn:hover,
+.donate-btn:hover,
+#descargaBox .descarga-cancelar:hover,
+.preview-links .btn:hover,
+.btn-partes-toggle:hover,
+.btn-parte:hover,
+.tema-selector:hover {
+    background:
+        var(--pk-cristal-hud),
+        radial-gradient(120% 90% at 50% 100%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.1) 70%) !important;
+    border-color: rgba(255, 255, 255, 0.75) !important;
+    box-shadow: var(--pk-cristal-sombra), 0 0 0 3px rgba(255, 255, 255, 0.35), 0 0 14px rgba(255, 255, 255, 0.55) !important;
+    filter: none !important;
+}
+
+.preview-links .btn-partes,
+.preview-links .btn-partes:hover {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    text-shadow: none !important;
+}
+
+/* Cancelar / eliminar: borde rojizo */
+#descargaBox .descarga-cancelar,
+#btnCancelar,
+.admin-game-item .btn-delete {
+    border-color: rgba(255, 170, 170, 0.9) !important;
+}
+
+/* La barra superior y las tarjetas, también de cristal claro sin desenfoque */
+.header-btn,
+.card,
+#emuladoresStore .card,
+#recursosStore .card {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.card,
+#emuladoresStore .card,
+#recursosStore .card {
+    background: var(--pk-cristal-hud);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: var(--pk-cristal-sombra);
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: var(--pk-cristal-sombra), 0 0 0 3px rgba(255, 255, 255, 0.4), 0 0 18px rgba(255, 255, 255, 0.6);
+}
+
+/* Encabezado translúcido: casi transparente con un leve desenfoque para que
+   se lea encima del fondo; el texto pasa a blanco con contorno */
+.header-btn {
+    border-bottom-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 16px rgba(0, 10, 30, 0.25) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    backdrop-filter: blur(8px) saturate(140%);
+}
+
+.logo h1,
+.music-title {
+    color: #fff;
+    text-shadow: var(--pk-texto-hud);
+}
+
+#buscador {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+#buscador::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.volume-icon {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* En pantallas de 1100px o menos el reproductor flota fijo y un desenfoque
+   en el encabezado lo dejaría anclado a él: ahí va sin desenfoque y algo
+   más opaco para que se siga leyendo */
+@media (max-width: 1100px) {
+    .header-btn {
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        background: rgba(10, 25, 50, 0.45) !important;
+    }
+}
+
+/* Al pasar el ratón por un juego, la capa con el nombre y los botones es
+   oscura (no blanca) y el texto blanco */
+.card .content {
+    background: linear-gradient(to top, rgba(4, 10, 25, 0.92) 0%, rgba(4, 10, 25, 0.6) 40%, rgba(4, 10, 25, 0) 75%);
+}
+
+.card .info-overlay h3 {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.card .info-overlay p {
+    color: rgba(225, 235, 245, 0.85);
+}
+
+.card:hover {
+    box-shadow: var(--pk-cristal-sombra), 0 0 0 3px rgba(20, 40, 80, 0.45), 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   MENÚS DE PIKMIN 3 (pantalla "Badges")
+   Ventanas de cristal gris ahumado con un punto de brillo en la esquina
+   superior derecha, recuadros interiores más oscuros, botones píldora de
+   cristal gris con su punto, selección en píldora azul con halo cian,
+   títulos en placa verde azulado con texto cian y todo el texto en blanco.
+   ========================================================================== */
+:root {
+    --pk3-punto-esquina: radial-gradient(circle at calc(100% - 14px) 14px, rgba(255, 255, 255, 0.95) 0 3px, transparent 4.5px);
+    --pk3-punto: radial-gradient(circle at calc(100% - 13px) 7px, rgba(255, 255, 255, 0.95) 0 2px, transparent 3px);
+    --pk3-panel:
+        var(--pk3-punto-esquina),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 30%),
+        linear-gradient(180deg, rgba(115, 120, 126, 0.72) 0%, rgba(78, 83, 88, 0.72) 100%);
+    --pk3-pill:
+        var(--pk3-punto),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.05) 45%, rgba(0, 0, 0, 0.05) 55%, rgba(255, 255, 255, 0.1) 100%),
+        linear-gradient(180deg, rgba(150, 156, 162, 0.75) 0%, rgba(92, 98, 104, 0.75) 100%);
+    --pk3-sel:
+        var(--pk3-punto),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0) 52%),
+        linear-gradient(180deg, #4d7dff 0%, #2f5df5 50%, #2f8ff0 100%);
+    --pk3-sel-sombra: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 0 2px #2f6bff, 0 0 0 5px rgba(70, 200, 255, 0.55), 0 0 18px rgba(70, 200, 255, 0.6);
+}
+
+/* ----- Ventanas de cristal ahumado ----- */
+#loginBox .login-content,
+#emuladoresBox .login-content,
+#recursosBox .login-content,
+#donacionesBox .login-content,
+#cartBox .login-content,
+#descargaBox .login-content,
+.success-content,
+.captcha-content,
+.preview-content,
+.welcome-box,
+#adminPanel {
+    /* Los textos de dentro pasan a claros redefiniendo las variables */
+    --pk-text: #eef2f5;
+    --pk-text-strong: #ffffff;
+    --pk-muted: #c9d0d6;
+    --pk-blue-dark: #6fd6e4;
+    color: #fff;
+    background: var(--pk3-panel) !important;
+    background-attachment: scroll !important;
+    border: 2px solid rgba(220, 225, 230, 0.45) !important;
+    border-top-color: rgba(240, 244, 247, 0.7) !important;
+    border-radius: 20px !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 20px 50px rgba(0, 0, 0, 0.55) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+/* La de descarga tapa la página de VikingFile: misma apariencia pero opaca */
+#descargaBox .login-content {
+    background:
+        var(--pk3-punto-esquina),
+        linear-gradient(180deg, #73787e 0%, #4e5358 100%) !important;
+}
+
+.descarga-viking-capa,
+.captcha-tapa,
+.captcha-cargando,
+.captcha-marco {
+    background: linear-gradient(180deg, #6a6f75 0%, #565b60 100%) !important;
+    background-attachment: scroll !important;
+}
+
+#loginBox,
+#emuladoresBox,
+#recursosBox,
+#donacionesBox,
+#descargaBox,
+#captchaBox,
+#cartBox,
+#purchaseSuccessBox,
+#previewBox {
+    background: rgba(0, 5, 15, 0.55) !important;
+}
+
+/* Títulos en placa verde azulado con texto cian */
+.login-content > h3,
+.welcome-box h2,
+.success-content h2 {
+    display: inline-block;
+    padding: 6px 22px;
+    border-radius: 10px;
+    border: 2px solid rgba(120, 190, 200, 0.7);
+    background: linear-gradient(180deg, #1f4650 0%, #133038 100%);
+    color: #6fd6e4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.preview-title,
+.admin-header h3,
+.admin-profile h3 {
+    color: #fff;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Recuadros interiores más oscuros (como "Beginner" o "9 more until next rank") */
+.preview-meta,
+.cart-item,
+.admin-section,
+.admin-list,
+.admin-game-item,
+.boton-fila,
+.admin-actions-bar {
+    background: linear-gradient(180deg, rgba(40, 46, 52, 0.55) 0%, rgba(30, 35, 40, 0.55) 100%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+
+.preview-meta .label,
+.preview-file-info .fi b {
+    color: #6fd6e4;
+}
+
+.preview-desc,
+.preview-file-info,
+.preview-meta .value,
+.admin-profile p,
+.welcome-box p,
+.success-content p {
+    color: #eef2f5;
+}
+
+.preview-main,
+.preview-cover img {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.login-content input,
+.admin-field input[type="text"],
+.admin-field textarea,
+#adminSearch,
+.boton-fila select,
+.boton-fila input[type="text"],
+.boton-fila textarea,
+.boton-agregar select {
+    background: rgba(25, 30, 35, 0.6) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+    color: #fff !important;
+}
+
+.login-content input::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ----- Botones píldora de cristal gris ----- */
+.header-btn button:not(.admin-profile-btn),
+.pagination button,
+.login-content button,
+.captcha-tab,
+.success-close-btn,
+.cart-close-btn,
+.boton-fila .bf-acciones button,
+.admin-game-item .btn-edit,
+.admin-game-item .btn-delete,
+.card .btns .btn,
+.card .btns .btn.blue.cart-add-btn,
+.card .btns .btn.green.cart-add-btn,
+.btn:not([style]),
+.accept-btn,
+#btnGuardar,
+.checkout-btn,
+.download-link-btn,
+.download-all-btn,
+.donate-btn,
+.descarga-viking-boton,
+#descargaBox .descarga-cancelar,
+#btnCancelar,
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte,
+.tema-selector {
+    background: var(--pk3-pill) !important;
+    border: 1.5px solid rgba(225, 230, 235, 0.55) !important;
+    border-top-color: rgba(245, 248, 250, 0.8) !important;
+    border-radius: 999px !important;
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.25), 0 3px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Botones de descarga de la ficha: un toque del color de su tipo */
+.preview-links .btn,
+.btn-partes-toggle,
+.btn-parte {
+    border-color: color-mix(in srgb, var(--c, #ffffff) 70%, rgba(255, 255, 255, 0.4)) !important;
+}
+
+/* Seleccionado / al pasar el ratón: píldora azul con halo cian */
+.header-btn button:not(.admin-profile-btn):hover,
+.pagination button:hover,
+.pagination button.active,
+.login-content button:hover,
+.captcha-tab:hover,
+.success-close-btn:hover,
+.cart-close-btn:hover,
+.boton-fila .bf-acciones button:hover,
+.admin-game-item .btn-edit:hover,
+.admin-game-item .btn-delete:hover,
+.card .btns .btn:hover,
+.btn:not([style]):hover,
+.accept-btn:hover,
+#btnGuardar:hover,
+.checkout-btn:hover,
+.download-link-btn:hover,
+.download-all-btn:hover,
+.donate-btn:hover,
+#descargaBox .descarga-cancelar:hover,
+.preview-links .btn:hover,
+.btn-partes-toggle:hover,
+.btn-parte:hover,
+.tema-selector:hover {
+    background: var(--pk3-sel) !important;
+    border-color: #9fc6ff !important;
+    box-shadow: var(--pk3-sel-sombra) !important;
+    filter: none !important;
+}
+
+.preview-links .btn-partes,
+.preview-links .btn-partes:hover {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+/* Tarjetas de juego: marco de cristal gris ahumado */
+.card,
+#emuladoresStore .card,
+#recursosStore .card {
+    background: var(--pk3-panel) !important;
+    border: 1.5px solid rgba(220, 225, 230, 0.4) !important;
+    border-top-color: rgba(240, 244, 247, 0.65) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 16px rgba(0, 0, 0, 0.45) !important;
+}
+
+.card:hover,
+#emuladoresStore .card:hover,
+#recursosStore .card:hover {
+    border-color: #9fc6ff !important;
+    box-shadow: 0 0 0 2px #2f6bff, 0 0 0 5px rgba(70, 200, 255, 0.5), 0 0 22px rgba(70, 200, 255, 0.55) !important;
+}
+
+#emuladoresStore .info-overlay h3,
+#recursosStore .info-overlay h3 {
+    color: #fff;
+}
+
+#emuladoresStore .info-overlay p,
+#recursosStore .info-overlay p {
+    color: #d5dbe0;
+}
+
+/* Barra de progreso de cristal con relleno cian */
+.progress-bar,
+#descargaBox .progress-bar {
+    background: rgba(25, 30, 35, 0.7) !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.progress-fill,
+#descargaBox .progress-fill {
+    background: linear-gradient(180deg, #9ff0ff 0%, #45d0ec 50%, #22b5d6 100%) !important;
+}
+
+/* Botón X de las ventanas: círculo de cristal gris (rojo al pasar el ratón) */
+.preview-close,
+.captcha-close {
+    background: var(--pk3-pill) !important;
+    border: 1.5px solid rgba(225, 230, 235, 0.55) !important;
+    border-top-color: rgba(245, 248, 250, 0.8) !important;
+    border-radius: 50% !important;
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.25), 0 3px 8px rgba(0, 0, 0, 0.35) !important;
+    opacity: 1;
+}
+
+.captcha-close {
+    width: 32px;
+    height: 32px;
+}
+
+.preview-close:hover,
+.captcha-close:hover {
+    background: var(--pk3-punto), linear-gradient(180deg, #ff7a7e 0%, #e23a40 100%) !important;
+    border-color: #ffb0b3 !important;
+    box-shadow: 0 0 0 3px rgba(255, 90, 95, 0.4), 0 0 14px rgba(255, 90, 95, 0.5) !important;
+}
+
+/* Menú de temas: cristal gris ahumado como los menús de Pikmin 3 */
+:root {
+    --menu-fondo: rgba(70, 75, 80, 0.97);
+    --menu-borde: rgba(220, 225, 230, 0.45);
+    --menu-texto: #ffffff;
+    --menu-hover: rgba(47, 107, 255, 0.45);
+    --menu-activo: rgba(47, 107, 255, 0.6);
+    --menu-acento: #6fd6e4;
+}
+
+.tema-boton {
+    color: #fff;
+}
