@@ -5497,7 +5497,6 @@
     "nombre": "Resident Evil: Revelations 2",
     "img": "assets/covers/cover res2.png",
     "desc": "Peso: 23.65GB Update 1.0.2",
-    "link2": "",
     "gameId": "0100D1A003B26000",
     "languages": "ES/EN/JP",
     "format": "XCI",
@@ -5514,16 +5513,31 @@
     "developer": "Capcom",
     "previewDesc": "Claire y Moira son secuestradas en una isla misteriosa. Explora en modo episódico con sistema de dos personajes, uno de combate y otro de apoyo.",
     "firmware": "4.1.0+",
-    "link1": "https://cold-na-phx-2.gofile.io/download/direct/0bc521f0-2bb7-48d9-b276-eea96b367923/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci",
     "year": "2019",
+    "rating": "73",
+    "link1": "https://vikingfile.com/f/dwHnfHngle",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-na-phx-2.gofile.io/download/direct/0bc521f0-2bb7-48d9-b276-eea96b367923/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci",
+        "url": "https://vikingfile.com/f/dwHnfHngle",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/f8te3fj5fpyisz9/Resident+Evil+Revelations+2+[v1.0.2].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/f8te3fj5fpyisz9/Resident+Evil+Revelations+2+[v1.0.2].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/glhe2vnbcwjfhky/Resident+Evil+Revelations+2+[v1.0.2].part2.rar/file"
+          }
+        ]
       }
     ],
-    "rating": "73",
+    "link2": "https://www.mediafire.com/file/f8te3fj5fpyisz9/Resident+Evil+Revelations+2+[v1.0.2].part1.rar/file",
     "id": "oqqbfIEFBrsmWoBmwRrO"
   },
   {
