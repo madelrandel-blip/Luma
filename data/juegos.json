@@ -600,6 +600,54 @@
     "id": "5ayYt2zPOw4WRi33V5AL"
   },
   {
+    "nombre": "Batman: Arkham Knight",
+    "img": "assets/covers/cover bak.png",
+    "desc": "Peso: 26.8GB Update 1.0.5",
+    "previewDesc": "Batman: Arkham Knight es un juego de acción y aventuras sigiloso con vista en tercera persona. Han pasado nueve meses desde los acontecimientos en Arkham City. El Joker está muerto y la tasa de criminalidad está empezando a disminuir. Pero ahora aparecen en escena nuevos oponentes peligrosos. Scarecrow y el misterioso Arkham Knight tienen la intención de sumergir a Gotham en el caos. Pero nuestro héroe Batman no permitirá que esto suceda.",
+    "trailer": "https://youtu.be/lVMNvvaXJ2s",
+    "genre": "Action",
+    "developer": "Warner Bros. Games",
+    "mode": "Single Player",
+    "year": "2023",
+    "rating": "60",
+    "gameId": "0100ACD0163D0000",
+    "size": "26.8GB",
+    "format": "XCI",
+    "languages": "JA/EN/ES/PT/FR/DE/IT/RU/KO",
+    "firmware": "16.0.3",
+    "update": "v1.0.5",
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://vik1ngfile.site/f/LONXWSItST",
+        "color": "#f9a825",
+        "texto": "Completo"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/5hxcy2aclf3asf2/Batman+Arkham+Knight+[v1.0.5].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/5hxcy2aclf3asf2/Batman+Arkham+Knight+[v1.0.5].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/d6pv0s4jyx5ake0/Batman+Arkham+Knight+[v1.0.5].part2.rar/file"
+          }
+        ]
+      }
+    ],
+    "link1": "https://vik1ngfile.site/f/LONXWSItST",
+    "link2": "https://www.mediafire.com/file/5hxcy2aclf3asf2/Batman+Arkham+Knight+[v1.0.5].part1.rar/file",
+    "screenshots": [
+      "https://files.vgtimes.com/gallery/thumb/135923/1395908155-batman-arkham-knight-1.webp",
+      "https://files.vgtimes.com/gallery/thumb/135923/1395908143-batman-arkham-knight-4.webp",
+      "https://files.vgtimes.com/gallery/thumb/135923/1395908142-batman-arkham-knight-5.webp"
+    ],
+    "id": "5vKVxZoaBzWWcEHct538"
+  },
+  {
     "nombre": "Xenoblade Chronicles 2",
     "img": "https://art.gametdb.com/switch/box/US/ADENB.png?1557424585",
     "desc": "Peso: 17.78GB Update 2.1.0 + 7 DLCs",
@@ -2624,7 +2672,6 @@
     "nombre": "Metroid Prime 4: Beyond",
     "img": "https://art.gametdb.com/switch/box/US/BGW5A.png?1764777614",
     "desc": "Peso: 26GB Update 1.1.0",
-    "link2": "",
     "gameId": "010019A01E2F2000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/PT/KO/ZH",
     "format": "XCI",
@@ -2641,14 +2688,29 @@
     "developer": "Retro Studios",
     "previewDesc": "Samus Aran explora el misterioso planeta Viewros con nuevas habilidades psíquicas, escaneando ruinas en busca de pistas para regresar a casa. Combate contra criaturas alienígenas, conduce el vehículo Vi-O-La y enfréntate a Sylux, un cazarrecompensas con cuentas pendientes. El regreso de la saga Prime.",
     "firmware": "18.0.0",
-    "link1": "https://cold-na-phx-1.gofile.io/download/direct/3886abc1-2cb2-4cc4-8061-a8f16c57d4ce/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
     "year": "2025",
     "rating": "78",
+    "link1": "https://vikingfile.com/f/DAPuq5kwC8",
+    "link2": "https://www.mediafire.com/file/r5k36jg89pllqgm/Metroid+Prime+4+Beyond+[v1.1.0].part1.rar/file",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-na-phx-1.gofile.io/download/direct/3886abc1-2cb2-4cc4-8061-a8f16c57d4ce/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
+        "url": "https://vikingfile.com/f/DAPuq5kwC8",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/r5k36jg89pllqgm/Metroid+Prime+4+Beyond+[v1.1.0].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/r5k36jg89pllqgm/Metroid+Prime+4+Beyond+[v1.1.0].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/5b28e3zfafj2frx/Metroid+Prime+4+Beyond+[v1.1.0].part2.rar/file"
+          }
+        ]
       }
     ],
     "id": "PktuvmCpoc2FoCgJcffM"
@@ -4725,7 +4787,6 @@
     "nombre": "DRAGON BALL Z: KAKAROT DAIMA EDITION",
     "img": "https://art.gametdb.com/switch/boxB/US/A2APB.png?1765999180",
     "desc": "Peso: 27.1GB Update 1.70 + 20 DLCs",
-    "link2": "",
     "gameId": "0100B5C00A1E8000",
     "languages": "ES/EN/FR/DE/IT/PT/RU",
     "year": "2021",
@@ -4744,14 +4805,29 @@
       "https://files.vgtimes.com/gallery/thumb/170921/1580322136_1617.webp",
       "https://files.vgtimes.com/gallery/thumb/170921/3263888545_1673990055_3552.webp"
     ],
-    "link1": "https://cold-eu-par-1.gofile.io/download/direct/f025e923-3b6b-4fa0-b0ec-3c2b69e071cc/DRAGON%20BALL%20Z%20KAKAROT%20%2B%20A%20NEW%20POWER%20AWAKENS%20SET%20%5Bv1.70%20%2B%2020%20DLCs%5D.xci",
+    "link1": "https://vik1ngfile.site/f/gfqD6I3yVO",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-eu-par-1.gofile.io/download/direct/f025e923-3b6b-4fa0-b0ec-3c2b69e071cc/DRAGON%20BALL%20Z%20KAKAROT%20%2B%20A%20NEW%20POWER%20AWAKENS%20SET%20%5Bv1.70%20%2B%2020%20DLCs%5D.xci",
-        "color": "#1565c0"
+        "url": "https://vik1ngfile.site/f/gfqD6I3yVO",
+        "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/d07qtvykoj6y13z/DRAGON+BALL+Z+KAKAROT+++A+NEW+POWER+AWAKENS+SET+[v1.70+++20+DLCs].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/d07qtvykoj6y13z/DRAGON+BALL+Z+KAKAROT+++A+NEW+POWER+AWAKENS+SET+[v1.70+++20+DLCs].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/tsxdk94t4brik0q/DRAGON+BALL+Z+KAKAROT+++A+NEW+POWER+AWAKENS+SET+[v1.70+++20+DLCs].part2.rar/file"
+          }
+        ]
       }
     ],
+    "link2": "https://www.mediafire.com/file/d07qtvykoj6y13z/DRAGON+BALL+Z+KAKAROT+++A+NEW+POWER+AWAKENS+SET+[v1.70+++20+DLCs].part1.rar/file",
     "id": "jhdtiyJsAlczLhgi50ow"
   },
   {
@@ -5435,7 +5511,6 @@
     "nombre": "Resident Evil: Revelations 2",
     "img": "assets/covers/cover res2.png",
     "desc": "Peso: 23.65GB Update 1.0.2",
-    "link2": "",
     "gameId": "0100D1A003B26000",
     "languages": "ES/EN/JP",
     "format": "XCI",
@@ -5452,16 +5527,31 @@
     "developer": "Capcom",
     "previewDesc": "Claire y Moira son secuestradas en una isla misteriosa. Explora en modo episódico con sistema de dos personajes, uno de combate y otro de apoyo.",
     "firmware": "4.1.0+",
-    "link1": "https://cold-na-phx-2.gofile.io/download/direct/0bc521f0-2bb7-48d9-b276-eea96b367923/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci",
     "year": "2019",
+    "rating": "73",
+    "link1": "https://vikingfile.com/f/dwHnfHngle",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-na-phx-2.gofile.io/download/direct/0bc521f0-2bb7-48d9-b276-eea96b367923/Resident%20Evil%20Revelations%202%20%5Bv1.0.2%5D.xci",
+        "url": "https://vikingfile.com/f/dwHnfHngle",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/f8te3fj5fpyisz9/Resident+Evil+Revelations+2+[v1.0.2].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/f8te3fj5fpyisz9/Resident+Evil+Revelations+2+[v1.0.2].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/glhe2vnbcwjfhky/Resident+Evil+Revelations+2+[v1.0.2].part2.rar/file"
+          }
+        ]
       }
     ],
-    "rating": "73",
+    "link2": "https://www.mediafire.com/file/f8te3fj5fpyisz9/Resident+Evil+Revelations+2+[v1.0.2].part1.rar/file",
     "id": "oqqbfIEFBrsmWoBmwRrO"
   },
   {
