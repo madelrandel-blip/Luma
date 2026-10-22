@@ -2672,7 +2672,6 @@
     "nombre": "Metroid Prime 4: Beyond",
     "img": "https://art.gametdb.com/switch/box/US/BGW5A.png?1764777614",
     "desc": "Peso: 26GB Update 1.1.0",
-    "link2": "",
     "gameId": "010019A01E2F2000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/PT/KO/ZH",
     "format": "XCI",
@@ -2689,14 +2688,29 @@
     "developer": "Retro Studios",
     "previewDesc": "Samus Aran explora el misterioso planeta Viewros con nuevas habilidades psíquicas, escaneando ruinas en busca de pistas para regresar a casa. Combate contra criaturas alienígenas, conduce el vehículo Vi-O-La y enfréntate a Sylux, un cazarrecompensas con cuentas pendientes. El regreso de la saga Prime.",
     "firmware": "18.0.0",
-    "link1": "https://cold-na-phx-1.gofile.io/download/direct/3886abc1-2cb2-4cc4-8061-a8f16c57d4ce/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
     "year": "2025",
     "rating": "78",
+    "link1": "https://vikingfile.com/f/DAPuq5kwC8",
+    "link2": "https://www.mediafire.com/file/r5k36jg89pllqgm/Metroid+Prime+4+Beyond+[v1.1.0].part1.rar/file",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-na-phx-1.gofile.io/download/direct/3886abc1-2cb2-4cc4-8061-a8f16c57d4ce/Metroid%20Prime%204%20Beyond%20%5Bv1.1.0%5D.xci",
+        "url": "https://vikingfile.com/f/DAPuq5kwC8",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/r5k36jg89pllqgm/Metroid+Prime+4+Beyond+[v1.1.0].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/r5k36jg89pllqgm/Metroid+Prime+4+Beyond+[v1.1.0].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/5b28e3zfafj2frx/Metroid+Prime+4+Beyond+[v1.1.0].part2.rar/file"
+          }
+        ]
       }
     ],
     "id": "PktuvmCpoc2FoCgJcffM"
