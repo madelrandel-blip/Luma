@@ -1374,7 +1374,6 @@
   {
     "img": "assets/covers/cover b2gotye.png",
     "desc": "Peso: 26.6GB Update 1.0.2 + 2 DLCs",
-    "link2": "",
     "trailer": "https://youtu.be/tVmsF0FoM1E",
     "screenshots": [
       "https://files.vgtimes.com/gallery/thumb/556/49520_screenshots_2013-01-10_00001.webp",
@@ -1394,12 +1393,27 @@
     "update": "v1.0.2 + 2 DLCs",
     "previewDesc": "Borderlands 2 es un shooter en primera persona con elementos de RPG ambientado en Pandora. Juegas como uno de los nuevos Vault Hunters, enfrentándote al tiránico Jack el Guapo mientras exploras Pandora, completas misiones, derrotas enemigos y consigues miles de armas con estadísticas y características diferentes.",
     "nombre": "Borderlands 2: GAME OF THE YEAR EDITION",
-    "link1": "https://cold4.gofile.io/download/direct/55360b77-827a-435e-bd1e-3db798940353/Borderlands%202%20Game%20of%20the%20Year%20Edition%20%5Bv1.0.2%20%2B%202%20DLCs%5D.xci",
+    "link1": "https://vikingfile.com/f/dHavJsGvBI",
+    "link2": "https://www.mediafire.com/file/6qr3i8g6laafguf/Borderlands+2+Game+of+the+Year+Edition+[v1.0.2+++2+DLCs].part1.rar/file",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold4.gofile.io/download/direct/55360b77-827a-435e-bd1e-3db798940353/Borderlands%202%20Game%20of%20the%20Year%20Edition%20%5Bv1.0.2%20%2B%202%20DLCs%5D.xci",
+        "url": "https://vikingfile.com/f/dHavJsGvBI",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/6qr3i8g6laafguf/Borderlands+2+Game+of+the+Year+Edition+[v1.0.2+++2+DLCs].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de rspaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/6qr3i8g6laafguf/Borderlands+2+Game+of+the+Year+Edition+[v1.0.2+++2+DLCs].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/fdo8ahys7z3j2iq/Borderlands+2+Game+of+the+Year+Edition+[v1.0.2+++2+DLCs].part2.rar/file"
+          }
+        ]
       }
     ],
     "id": "Cqb5NT2omeoMKeEiGNOH"
