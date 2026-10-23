@@ -4002,13 +4002,26 @@
     "size": "7.29GB",
     "update": "1.0.0",
     "gameId": "",
-    "languages": "",
     "link1": "https://www.mediafire.com/file/bgc4s75yd3xo3ta/nfsmw-nx.zip/file",
-    "link2": "",
     "firmware": "",
     "format": "NRO",
     "trailer": "https://youtu.be/HwtMmDr14nY",
     "desc": "Peso: 7GB",
+    "languages": "ES/JP/EN",
+    "botones": [
+      {
+        "tipo": "Otro",
+        "url": "https://www.mediafire.com/file/bgc4s75yd3xo3ta/nfsmw-nx.zip/file",
+        "color": "#2196f3",
+        "texto": "Game Files"
+      },
+      {
+        "tipo": "Github",
+        "url": "https://github.com/StevensND/nfsmw-nx",
+        "color": "#24292f"
+      }
+    ],
+    "link2": "https://github.com/StevensND/nfsmw-nx",
     "id": "cd98KMlMH1OgpmzRTTKp"
   },
   {
@@ -5389,7 +5402,6 @@
     "nombre": "BioShock Infinite The Complete Edition",
     "img": "assets/covers/cover bi.png",
     "desc": "Peso: 20.7GB Update 1.0.2",
-    "link2": "",
     "gameId": "0100D560102C8000",
     "languages": "ES/EN/FR/DE/IT/JA/KO/ZH",
     "format": "XCI",
@@ -5406,16 +5418,31 @@
     "developer": "Irrational Games / Virtuos",
     "previewDesc": "BioShock Infinite: The Complete Edition nos lleva a Columbia, una ciudad flotante en 1912, junto al detective Booker DeWitt, quien debe rescatar a Elizabeth para saldar sus deudas. La edición completa incluye todo el DLC, incluyendo Burial at Sea y Clash in the Clouds. Un shooter de acción en primera persona con una narrativa profunda y un impresionante estilo artístico.",
     "firmware": "9.0.0",
-    "link1": "https://cold-na-phx-2.gofile.io/download/direct/22ae8a5e-9935-4e5d-945d-3c60c9062f45/BioShock%20Infinite%20The%20Complete%20Edition%20%5Bv1.0.2%5D.xci",
     "year": "2020",
+    "rating": "75",
+    "link1": "https://vikingfile.com/f/YNLQHPlV1k",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-na-phx-2.gofile.io/download/direct/22ae8a5e-9935-4e5d-945d-3c60c9062f45/BioShock%20Infinite%20The%20Complete%20Edition%20%5Bv1.0.2%5D.xci",
+        "url": "https://vikingfile.com/f/YNLQHPlV1k",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/3dace3mqyv0x760/BioShock+Infinite+The+Complete+Edition+[v1.0.2].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/3dace3mqyv0x760/BioShock+Infinite+The+Complete+Edition+[v1.0.2].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/4xjuctjyca2r4h1/BioShock+Infinite+The+Complete+Edition+[v1.0.2].part2.rar/file"
+          }
+        ]
       }
     ],
-    "rating": "75",
+    "link2": "https://www.mediafire.com/file/3dace3mqyv0x760/BioShock+Infinite+The+Complete+Edition+[v1.0.2].part1.rar/file",
     "id": "oOGF3UPbsXBwEGEtVsBb"
   },
   {
