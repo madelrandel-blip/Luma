@@ -2315,7 +2315,6 @@
     "nombre": "DOOM",
     "img": "https://art.gametdb.com/switch/box/US/AF3BA.png?1517183969",
     "desc": "Peso: 22GB Update 1.4",
-    "link2": "",
     "gameId": "0100B1F0050CA000",
     "languages": "ES/EN/FR/DE/IT/RU",
     "year": "2017",
@@ -2334,14 +2333,29 @@
       "https://files.vgtimes.com/gallery/thumb/602/011.webp",
       "https://files.vgtimes.com/gallery/thumb/602/012.webp"
     ],
-    "link1": "https://cold-na-phx-8.gofile.io/download/direct/a4b1dd7a-b273-44e5-a759-8e0c1558a6be/DOOM%20%5Bv1.4%5D.xci",
+    "link1": "https://vikingfile.com/f/EXoikYofbM",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-na-phx-8.gofile.io/download/direct/a4b1dd7a-b273-44e5-a759-8e0c1558a6be/DOOM%20%5Bv1.4%5D.xci",
+        "url": "https://vikingfile.com/f/EXoikYofbM",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/ynondidf9i0ce7d/DOOM+[v1.4].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/ynondidf9i0ce7d/DOOM+[v1.4].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/rq36ll1l7r1ms7q/DOOM+[v1.4].part2.rar/file"
+          }
+        ]
       }
     ],
+    "link2": "https://www.mediafire.com/file/ynondidf9i0ce7d/DOOM+[v1.4].part1.rar/file",
     "id": "MRfVhKa0RN4qq5BtegQv"
   },
   {
