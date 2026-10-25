@@ -5312,7 +5312,6 @@
     "nombre": "Assassin's Creed: The Rebel Collection",
     "img": "https://art.gametdb.com/switch/box/US/ATXEA.png?1696856783",
     "desc": "Peso: 23GB Update 1.0.0 + 9 DLCs",
-    "link2": "",
     "gameId": "0100B2C00E834000",
     "languages": "ES/EN",
     "format": "XCI",
@@ -5329,16 +5328,31 @@
     "developer": "Ubisoft",
     "previewDesc": "Black Flag y Rogue en un solo paquete: explora el Caribe pirata como Edward Kenway y persigue a los asesinos como Shay Cormac. Mundo abierto, combate naval y sigilo.",
     "firmware": "8.0.0+",
-    "link1": "https://cold-eu-par-2.gofile.io/download/direct/2c7ef80b-3961-4509-975c-0724ef0c8b13/Assassins%20Creed%20The%20Rebel%20Collection%20%5Bv1.0.0%20%2B%209%20DLCs%5D.xci",
     "year": "2022",
+    "rating": "85",
+    "link1": "https://vikingfile.com/f/wGtyo3LTqj",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-eu-par-2.gofile.io/download/direct/2c7ef80b-3961-4509-975c-0724ef0c8b13/Assassins%20Creed%20The%20Rebel%20Collection%20%5Bv1.0.0%20%2B%209%20DLCs%5D.xci",
+        "url": "https://vikingfile.com/f/wGtyo3LTqj",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/80var7ozkr0ib5m/Assassins+Creed+The+Rebel+Collection+[v1.0.0+++9+DLCs].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/80var7ozkr0ib5m/Assassins+Creed+The+Rebel+Collection+[v1.0.0+++9+DLCs].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/eoqvjnt9xniqshm/Assassins+Creed+The+Rebel+Collection+[v1.0.0+++9+DLCs].part2.rar/file"
+          }
+        ]
       }
     ],
-    "rating": "85",
+    "link2": "https://www.mediafire.com/file/80var7ozkr0ib5m/Assassins+Creed+The+Rebel+Collection+[v1.0.0+++9+DLCs].part1.rar/file",
     "id": "nDI2Afg0fXPeBji1TDub"
   },
   {
