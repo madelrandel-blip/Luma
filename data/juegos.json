@@ -2851,7 +2851,6 @@
     "nombre": "DOOM Eternal",
     "img": "https://art.gametdb.com/switch/box/US/A6SVA.png?1708859305",
     "desc": "Peso: 35.4GB Update 1.14 + 5 DLCs",
-    "link2": "",
     "gameId": "0100B1A00D8CE000",
     "languages": "ES/EN/FR/DE/IT/PT/RU/JP/ZH/KO",
     "year": "2020",
@@ -2870,14 +2869,29 @@
     "developer": "Id Software",
     "previewDesc": "DOOM Eternal continúa la historia de DOOM (2016). Los ejércitos del Infierno han invadido la Tierra y el Doom Slayer debe abrirse camino a través de hordas de demonios para detener la destrucción de la humanidad.",
     "firmware": "",
-    "link1": "https://cold-na-phx-5.gofile.io/download/direct/267d8a1c-aa92-45b6-8159-95f026d53bce/DOOM%20Eternal%20%5Bv1.14%20%2B%205%20DLCs%5D.xci",
+    "link1": "https://vikingfile.com/f/t2F94UbUVX",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-na-phx-5.gofile.io/download/direct/267d8a1c-aa92-45b6-8159-95f026d53bce/DOOM%20Eternal%20%5Bv1.14%20%2B%205%20DLCs%5D.xci",
+        "url": "https://vikingfile.com/f/t2F94UbUVX",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/d80hsfqzpulobsi/DOOM+Eternal+[v1.14+++5+DLCs].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/d80hsfqzpulobsi/DOOM+Eternal+[v1.14+++5+DLCs].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/cp749if9bzny4ag/DOOM+Eternal+[v1.14+++5+DLCs].part2.rar/file"
+          }
+        ]
       }
     ],
+    "link2": "https://www.mediafire.com/file/d80hsfqzpulobsi/DOOM+Eternal+[v1.14+++5+DLCs].part1.rar/file",
     "id": "RxEa6a8Nmj0jP5PcRNuG"
   },
   {
