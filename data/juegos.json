@@ -151,23 +151,35 @@
   },
   {
     "nombre": "Rhythm Heaven Groove",
-    "link1": "https://www.mediafire.com/file/s8bly7eumehpn3v/Rhythm+Heaven+Groove.nsp/file",
     "link2": "",
     "img": "https://art.gametdb.com/switch/box/US/BFLTA.png?1777479857",
-    "desc": "Peso: 3.20GB",
     "mode": "Single Player / Multiplayer",
     "trailer": "https://www.youtube.com/watch?v=ZdMwqKiSeEE",
-    "year": 2026,
-    "rating": 82,
     "genre": "Rhythm / Music",
     "developer": "Nintendo / TNX",
     "previewDesc": "Vibrante conjunto de minijuegos rítmicos donde cada acción debe ir al ritmo de la música. Más de 80 juegos en solitario y 30 con amigos. Con música original del reconocido Tsunku♂.",
-    "firmware": "20.0.0",
     "screenshots": [
       "https://files.vgtimes.com/gallery/main/212279/9615671791_switch_rhythmheavengroove_scrn_05.webp",
       "https://files.vgtimes.com/gallery/main/212279/7031169199_switch_rhythmheavengroove_scrn_08.webp",
       "https://files.vgtimes.com/gallery/main/212279/8625868435_switch_rhythmheavengroove_scrn_07.webp"
     ],
+    "gameId": "0100D9F01D474000",
+    "languages": "",
+    "link1": "https://www.mediafire.com/file/phz4x5gzgagvmdd/RHG+[0100D9F01D474000].rar/file",
+    "size": "3.19GB",
+    "year": "2026",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/phz4x5gzgagvmdd/RHG+[0100D9F01D474000].rar/file",
+        "color": "#1565c0"
+      }
+    ],
+    "format": "NSP",
+    "rating": "82",
+    "update": "1.0.0",
+    "firmware": "21.0.0",
+    "desc": "Peso: 3.19GB",
     "id": "1ss9WfaoUzLfXaDNjdNT"
   },
   {
