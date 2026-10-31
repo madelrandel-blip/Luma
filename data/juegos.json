@@ -4957,7 +4957,6 @@
     "gameId": "0100152000022000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/PT/RU/KO/ZH",
     "format": "XCI",
-    "update": "v3.0.5 + DLCs",
     "mode": "Multiplayer (1-8 local, 1-12 online)",
     "trailer": "https://www.youtube.com/watch?v=tKlRN2YpxRE",
     "size": "11.2GB",
@@ -4980,6 +4979,7 @@
         "color": "#1565c0"
       }
     ],
+    "update": "v4.0.1 + DLCs",
     "id": "kZ48cF2UMca2EFGHvj1f"
   },
   {
