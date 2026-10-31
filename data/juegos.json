@@ -883,16 +883,16 @@
     "developer": "Ubisoft",
     "previewDesc": "Tres clásicos de Assassin's Creed remasterizados: AC2, Brotherhood y Revelations. Vive la saga de Ezio Auditore en la Italia renacentista y Constantinopla.",
     "firmware": "8.0.0+",
-    "link1": "https://cold-na-phx-2.gofile.io/download/direct/2feb5a87-fa54-4279-90c6-fe9a6debfb77/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
     "year": "2022",
+    "rating": "75",
+    "link1": "https://cold-na-phx-2.gofile.io/download/direct/9a8a6852-95c7-423e-a766-3d3f67d91c7e/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-na-phx-2.gofile.io/download/direct/2feb5a87-fa54-4279-90c6-fe9a6debfb77/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
+        "url": "https://cold-na-phx-2.gofile.io/download/direct/9a8a6852-95c7-423e-a766-3d3f67d91c7e/Assassin's%20Creed%20The%20Ezio%20Collection%20%5Bv1.3%20%2B%205%20DLCs%5D.xci",
         "color": "#f9a825"
       }
     ],
-    "rating": "75",
     "id": "8A1cgPGnA0sC8XNwWX2t"
   },
   {
@@ -5187,7 +5187,6 @@
     "nombre": "Assassin's Creed III Remastered",
     "img": "https://art.gametdb.com/switch/box/US/AQAJA.png?1684369317",
     "desc": "Peso: 20.4GB Update 1.0.3 + 17 DLCs",
-    "link2": "",
     "gameId": "010018700E830000",
     "languages": "ES/EN",
     "format": "XCI",
@@ -5204,16 +5203,31 @@
     "developer": "Ubisoft",
     "previewDesc": "La Revolución Americana a través de los ojos de Ratonhnhaké:ton (Connor). Abre la Guardia y el mundo abierto colonial con gráficos mejorados.",
     "firmware": "8.0.0+",
-    "link1": "https://cold-eu-par-1.gofile.io/download/direct/580a40fd-84d5-492a-b739-20ce107f971d/Assassin's%20Creed%20III%20Remastered%20%5Bv1.0.3%20%2B%2017%20DLCs%5D.xci",
     "year": "2019",
+    "rating": "60",
+    "link1": "https://vikingfile.com/f/llDLdSGj77",
     "botones": [
       {
         "tipo": "Obtener",
-        "url": "https://cold-eu-par-1.gofile.io/download/direct/580a40fd-84d5-492a-b739-20ce107f971d/Assassin's%20Creed%20III%20Remastered%20%5Bv1.0.3%20%2B%2017%20DLCs%5D.xci",
+        "url": "https://vikingfile.com/f/llDLdSGj77",
         "color": "#f9a825"
+      },
+      {
+        "tipo": "Todas las partes",
+        "url": "https://www.mediafire.com/file/e9oizz0be2i7o6i/Assassin's+Creed+III+Remastered+[v1.0.3+++17+DLCs].part1.rar/file",
+        "color": "#2196f3",
+        "texto": "Link de respaldo",
+        "partes": [
+          {
+            "url": "https://www.mediafire.com/file/e9oizz0be2i7o6i/Assassin's+Creed+III+Remastered+[v1.0.3+++17+DLCs].part1.rar/file"
+          },
+          {
+            "url": "https://www.mediafire.com/file/r1tevq1h9dq1nk4/Assassin's+Creed+III+Remastered+[v1.0.3+++17+DLCs].part2.rar/file"
+          }
+        ]
       }
     ],
-    "rating": "60",
+    "link2": "https://www.mediafire.com/file/e9oizz0be2i7o6i/Assassin's+Creed+III+Remastered+[v1.0.3+++17+DLCs].part1.rar/file",
     "id": "mIAfO0dvCxoJIXcILUds"
   },
   {
