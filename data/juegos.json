@@ -4953,7 +4953,6 @@
     "nombre": "Mario kart 8 Deluxe",
     "img": "https://art.gametdb.com/switch/box/US/AABPA.png",
     "link2": "",
-    "link1": "https://www.mediafire.com/folder/6uppi97iktwah/Mariano_Cra",
     "desc": "Peso: 11.2GB Update 3.0.5 + DLCs",
     "gameId": "0100152000022000",
     "languages": "ES/EN/JP/FR/DE/IT/NL/PT/RU/KO/ZH",
@@ -4972,6 +4971,14 @@
       "https://files.vgtimes.com/gallery/main/141079/mariokart_presentation2017_scrn03.webp",
       "https://files.vgtimes.com/gallery/main/141079/1581524669_5128.webp",
       "https://files.vgtimes.com/gallery/main/141079/1659726646_1643.webp"
+    ],
+    "link1": "https://www.mediafire.com/file/ew13zio29oh5na4/Mario+Kart+8+Deluxe+[v4.0.1+++DLC].xci/file",
+    "botones": [
+      {
+        "tipo": "Obtener",
+        "url": "https://www.mediafire.com/file/ew13zio29oh5na4/Mario+Kart+8+Deluxe+[v4.0.1+++DLC].xci/file",
+        "color": "#1565c0"
+      }
     ],
     "id": "kZ48cF2UMca2EFGHvj1f"
   },
